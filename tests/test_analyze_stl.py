@@ -150,3 +150,17 @@ def test_main_rejects_exported_empty_trimesh_without_report(tmp_path):
 
     assert result != 0
     assert not report.exists()
+
+
+def test_main_refuses_to_overwrite_source_when_output_is_same_path(tmp_path):
+    source = tmp_path / "fixture.stl"
+    mesh = trimesh.creation.box(extents=[4, 4, 4])
+    mesh.export(source, file_type="stl")
+    original_bytes = source.read_bytes()
+    original_hash = hashlib.sha256(original_bytes).hexdigest()
+
+    result = main(["--source", str(source), "--output", str(source)])
+
+    assert result != 0
+    assert source.read_bytes() == original_bytes
+    assert hashlib.sha256(source.read_bytes()).hexdigest() == original_hash

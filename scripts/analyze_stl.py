@@ -200,6 +200,12 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     try:
+        if args.source.resolve() == args.output.resolve():
+            print(
+                "Error: --output resolves to the source STL; refusing to overwrite it.",
+                file=sys.stderr,
+            )
+            return 1
         report = analyze_source_file(args.source)
         write_json(args.output, report)
     except Exception as exc:
