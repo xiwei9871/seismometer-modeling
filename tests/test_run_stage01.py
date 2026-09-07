@@ -1,8 +1,8 @@
-from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
-from run_stage01 import choose_source_file, ensure_project_dirs
+from run_stage01 import _largest_stl, choose_source_file, ensure_project_dirs
 
 
 def test_choose_source_prefers_largest_stl_in_source_without_modifying_inputs(tmp_path):
@@ -36,6 +36,31 @@ def test_choose_source_breaks_equal_sizes_by_casefolded_filename(tmp_path):
 
     assert chosen == second
     assert any("multiple" in warning.lower() for warning in warnings)
+
+
+def test_choose_source_breaks_equal_sizes_and_casefolds_by_original_filename():
+    first = SimpleNamespace(
+        name="ss.stl", stat=lambda: SimpleNamespace(st_size=4)
+    )
+    second = SimpleNamespace(
+        name="ß.stl", stat=lambda: SimpleNamespace(st_size=4)
+    )
+
+    assert _largest_stl([first, second]) is second
+
+
+def test_choose_source_prefers_source_directory_over_root_stl(tmp_path):
+    source_dir = tmp_path / "source"
+    source_dir.mkdir()
+    source_file = source_dir / "source.stl"
+    root_file = tmp_path / "root.stl"
+    source_file.write_bytes(b"source")
+    root_file.write_bytes(b"root-is-larger")
+
+    chosen, warnings = choose_source_file(tmp_path)
+
+    assert chosen == source_file
+    assert warnings == []
 
 
 def test_choose_source_falls_back_to_root_and_reports_copy_candidate(tmp_path):

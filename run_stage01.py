@@ -50,4 +50,7 @@ def _stl_files(directory: Path) -> list[Path]:
 
 
 def _largest_stl(candidates: list[Path]) -> Path:
-    return max(candidates, key=lambda path: (path.stat().st_size, path.name.casefold()))
+    return max(
+        candidates,
+        key=lambda path: (path.stat().st_size, path.name.casefold(), path.name),
+    )
