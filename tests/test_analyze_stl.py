@@ -2,6 +2,7 @@ import hashlib
 import json
 import math
 
+import numpy as np
 import pytest
 import trimesh
 
@@ -133,3 +134,19 @@ def test_main_returns_nonzero_without_report_for_unparseable_source(
     assert result == 1
     assert not output.exists()
     assert "error" in capsys.readouterr().err.lower()
+
+
+def test_main_rejects_exported_empty_trimesh_without_report(tmp_path):
+    empty_mesh = trimesh.Trimesh(
+        vertices=np.empty((0, 3)),
+        faces=np.empty((0, 3), dtype=np.int64),
+        process=False,
+    )
+    source = tmp_path / "empty.stl"
+    report = tmp_path / "report.json"
+    empty_mesh.export(source, file_type="stl")
+
+    result = main(["--source", str(source), "--output", str(report)])
+
+    assert result != 0
+    assert not report.exists()
