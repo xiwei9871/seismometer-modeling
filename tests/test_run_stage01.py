@@ -1,8 +1,6 @@
-from types import SimpleNamespace
-
 import pytest
 
-from run_stage01 import _largest_stl, choose_source_file, ensure_project_dirs
+from run_stage01 import choose_source_file, ensure_project_dirs
 
 
 def test_choose_source_prefers_largest_stl_in_source_without_modifying_inputs(tmp_path):
@@ -38,15 +36,20 @@ def test_choose_source_breaks_equal_sizes_by_casefolded_filename(tmp_path):
     assert any("multiple" in warning.lower() for warning in warnings)
 
 
-def test_choose_source_breaks_equal_sizes_and_casefolds_by_original_filename():
-    first = SimpleNamespace(
-        name="ss.stl", stat=lambda: SimpleNamespace(st_size=4)
-    )
-    second = SimpleNamespace(
-        name="ß.stl", stat=lambda: SimpleNamespace(st_size=4)
-    )
+def test_choose_source_breaks_equal_sizes_and_casefolds_by_original_filename(tmp_path):
+    source_dir = tmp_path / "source"
+    source_dir.mkdir()
+    first = source_dir / "ss.stl"
+    second = source_dir / "ß.stl"
+    first.write_bytes(b"same")
+    second.write_bytes(b"same")
+    if len(list(source_dir.iterdir())) != 2:
+        pytest.skip("filesystem cannot represent ss.stl and ß.stl separately")
 
-    assert _largest_stl([first, second]) is second
+    chosen, warnings = choose_source_file(tmp_path)
+
+    assert chosen == second
+    assert any("multiple" in warning.lower() for warning in warnings)
 
 
 def test_choose_source_prefers_source_directory_over_root_stl(tmp_path):
