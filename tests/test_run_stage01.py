@@ -1,6 +1,6 @@
 import pytest
 
-from run_stage01 import choose_source_file, ensure_project_dirs
+from run_stage01 import choose_source_file, ensure_project_dirs, select_largest_stl
 
 
 def test_choose_source_prefers_largest_stl_in_source_without_modifying_inputs(tmp_path):
@@ -36,20 +36,23 @@ def test_choose_source_breaks_equal_sizes_by_casefolded_filename(tmp_path):
     assert any("multiple" in warning.lower() for warning in warnings)
 
 
-def test_choose_source_breaks_equal_sizes_and_casefolds_by_original_filename(tmp_path):
-    source_dir = tmp_path / "source"
-    source_dir.mkdir()
-    first = source_dir / "ss.stl"
-    second = source_dir / "ß.stl"
+def test_select_largest_stl_breaks_equal_sizes_and_casefolds_by_original_filename(
+    tmp_path,
+):
+    first_dir = tmp_path / "first"
+    second_dir = tmp_path / "second"
+    first_dir.mkdir()
+    second_dir.mkdir()
+    first = first_dir / "ss.stl"
+    second = second_dir / "ß.stl"
     first.write_bytes(b"same")
     second.write_bytes(b"same")
-    if len(list(source_dir.iterdir())) != 2:
-        pytest.skip("filesystem cannot represent ss.stl and ß.stl separately")
 
-    chosen, warnings = choose_source_file(tmp_path)
+    chosen = select_largest_stl([first, second])
 
     assert chosen == second
-    assert any("multiple" in warning.lower() for warning in warnings)
+    assert first.name.casefold() == second.name.casefold()
+    assert first.name != second.name
 
 
 def test_choose_source_prefers_source_directory_over_root_stl(tmp_path):
@@ -64,6 +67,21 @@ def test_choose_source_prefers_source_directory_over_root_stl(tmp_path):
 
     assert chosen == source_file
     assert warnings == []
+
+
+def test_choose_source_selects_largest_root_stl_and_warns(tmp_path):
+    small = tmp_path / "small.stl"
+    large = tmp_path / "large.STL"
+    small.write_bytes(b"small")
+    large.write_bytes(b"large-file")
+
+    chosen, warnings = choose_source_file(tmp_path)
+
+    assert chosen == large
+    assert any(
+        "multiple" in warning.lower() and "root" in warning.lower()
+        for warning in warnings
+    )
 
 
 def test_choose_source_falls_back_to_root_and_reports_copy_candidate(tmp_path):

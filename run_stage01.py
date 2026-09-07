@@ -12,7 +12,7 @@ def choose_source_file(project_root: Path) -> tuple[Path, list[str]]:
     source_dir = project_root / "source"
     source_candidates = _stl_files(source_dir)
     if source_candidates:
-        selected = _largest_stl(source_candidates)
+        selected = select_largest_stl(source_candidates)
         if len(source_candidates) == 1:
             return selected, []
         warning = (
@@ -25,7 +25,7 @@ def choose_source_file(project_root: Path) -> tuple[Path, list[str]]:
     if not root_candidates:
         raise FileNotFoundError("No STL source file found in source/ or project root")
 
-    selected = _largest_stl(root_candidates)
+    selected = select_largest_stl(root_candidates)
     if len(root_candidates) == 1:
         warning = (
             "Using the unique STL source file in the project root; "
@@ -49,7 +49,7 @@ def _stl_files(directory: Path) -> list[Path]:
     ]
 
 
-def _largest_stl(candidates: list[Path]) -> Path:
+def select_largest_stl(candidates: list[Path]) -> Path:
     return max(
         candidates,
         key=lambda path: (path.stat().st_size, path.name.casefold(), path.name),
