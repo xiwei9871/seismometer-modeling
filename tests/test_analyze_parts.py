@@ -244,7 +244,9 @@ def test_writers_emit_strict_utf8_json_and_manifest_csv(tmp_path):
     assert rows[0]["part_id"] == "零件"
     assert set(manifest_fieldnames()).issubset(rows[0])
     assert {"bbox_volume", "surface_area", "volume"}.issubset(rows[0])
-    assert json.loads(fragments_path.read_text(encoding="utf-8"))[0]["part_id"] == "零件"
+    fragment_payload = json.loads(fragments_path.read_text(encoding="utf-8"))
+    assert fragment_payload[0]["part_id"] == "零件"
+    assert "face count <= 10" in fragment_payload[0]["reason"]
     assert json.loads(quality_path.read_text(encoding="utf-8"))["repair_performed"] is False
 
 

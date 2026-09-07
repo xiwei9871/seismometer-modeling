@@ -218,6 +218,9 @@ def build_part_records(source_report: Mapping[str, Any]) -> tuple[list[dict], di
         if not isinstance(metric_errors, Mapping):
             metric_errors = {}
         notes = _component_notes(component, metric_errors)
+        if fragment["reason"]:
+            fragment_note = "suspected fragment: " + fragment["reason"]
+            notes = "; ".join(value for value in (notes, fragment_note) if value)
         record = {
             "part_id": part_id,
             "source_component_index": component.get("source_component_index"),
