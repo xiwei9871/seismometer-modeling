@@ -85,6 +85,29 @@ def test_build_exact_indexed_mesh_only_indexes_equal_coordinates_without_mutatio
     assert np.array_equal(raw.faces, original_faces)
 
 
+@pytest.mark.parametrize(
+    "face",
+    [
+        [-1, 1, 2],
+        [0, 1, 3],
+    ],
+)
+def test_build_exact_indexed_mesh_rejects_invalid_face_indices_without_mutation(face):
+    raw = trimesh.Trimesh(
+        vertices=np.array([[0, 0, 0], [1, 0, 0], [0, 1, 0]], dtype=float),
+        faces=np.array([face], dtype=np.int64),
+        process=False,
+    )
+    original_vertices = np.asarray(raw.vertices).copy()
+    original_faces = np.asarray(raw.faces).copy()
+
+    with pytest.raises(ValueError, match="face indices"):
+        build_exact_indexed_mesh(raw)
+
+    assert np.array_equal(raw.vertices, original_vertices)
+    assert np.array_equal(raw.faces, original_faces)
+
+
 def test_component_metrics_reports_json_safe_geometry_without_repair():
     indexed = build_exact_indexed_mesh(duplicate_vertex_mesh())
 
@@ -262,6 +285,12 @@ def test_bbox_dimension_tolerance_accepts_boundaries_and_rejects_outliers():
     assert not bbox_dimensions_match([10.0, 5.0, 20.0], [20.0, 10.11, 5.0])
     assert not bbox_dimensions_match([100.0, 5.0, 20.0], [20.0, 100.6, 5.0])
     assert not bbox_dimensions_match([10.0, 5.0], [10.0, 5.0, 1.0])
+
+
+@pytest.mark.parametrize("dimensions", [[-1.0, 0.0, 2.0], [1.0, -0.1, 2.0]])
+def test_bbox_dimensions_match_rejects_negative_dimensions_but_allows_zero(dimensions):
+    assert not bbox_dimensions_match(dimensions, dimensions)
+    assert bbox_dimensions_match([0.0, 1.0, 2.0], [2.0, 0.0, 1.0])
 
 
 def test_relative_value_tolerance_accepts_one_percent_boundary_and_rejects_outlier():

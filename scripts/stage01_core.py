@@ -17,6 +17,14 @@ def build_exact_indexed_mesh(raw_mesh: trimesh.Trimesh) -> trimesh.Trimesh:
     """Return a new mesh indexed by exact coordinate equality."""
     raw_vertices = np.asarray(raw_mesh.vertices)
     raw_faces = np.asarray(raw_mesh.faces)
+    if not np.issubdtype(raw_faces.dtype, np.integer):
+        raise ValueError("face indices must use an integer dtype")
+    if raw_faces.size and (
+        np.any(raw_faces < 0) or np.any(raw_faces >= len(raw_vertices))
+    ):
+        raise ValueError(
+            f"face indices must be in range [0, {len(raw_vertices)})"
+        )
 
     coordinate_indices: dict[tuple[Any, ...], int] = {}
     indexed_vertices: list[np.ndarray] = []
@@ -160,6 +168,11 @@ def bbox_dimensions_match(
 
     left_sorted = sorted_bbox_dimensions(left)
     right_sorted = sorted_bbox_dimensions(right)
+    if any(
+        value is not None and value < 0.0
+        for value in (*left_sorted, *right_sorted)
+    ):
+        return False
     absolute = _finite_number(absolute_mm)
     relative = _finite_number(relative_ratio)
     if absolute is None or relative is None or absolute < 0.0 or relative < 0.0:
