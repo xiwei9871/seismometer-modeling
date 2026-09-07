@@ -57,6 +57,12 @@ def duplicate_vertex_mesh() -> trimesh.Trimesh:
     return trimesh.Trimesh(vertices=vertices, faces=faces, process=False)
 
 
+class AreaErrorMesh(trimesh.Trimesh):
+    @property
+    def area(self):
+        raise RuntimeError("area unavailable")
+
+
 def test_build_exact_indexed_mesh_only_indexes_equal_coordinates_without_mutation():
     raw = duplicate_vertex_mesh()
     original_vertices = np.asarray(raw.vertices).copy()
@@ -96,6 +102,24 @@ def test_component_metrics_reports_json_safe_geometry_without_repair():
     assert metrics["duplicate_face_count"] == 1
     assert metrics["metric_errors"] == {}
     json.dumps(metrics, allow_nan=False)
+
+
+def test_component_metrics_records_metric_error_and_keeps_other_facts():
+    mesh = AreaErrorMesh(
+        vertices=np.array([[0, 0, 0], [1, 0, 0], [0, 1, 0]], dtype=float),
+        faces=np.array([[0, 1, 2]], dtype=np.int64),
+        process=False,
+    )
+
+    metrics = component_metrics(mesh, source_component_index=5)
+
+    assert metrics["surface_area"] is None
+    assert "surface_area" in metrics["metric_errors"]
+    assert metrics["face_count"] == 1
+    assert metrics["vertex_count"] == 3
+    assert metrics["bbox_dimensions"] == [1.0, 1.0, 0.0]
+    assert metrics["volume"] is None
+    assert metrics["volume_valid"] is False
 
 
 def test_assign_part_ids_orders_larger_bbox_first_and_breaks_full_ties_by_source():
