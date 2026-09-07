@@ -16,9 +16,26 @@ def test_choose_source_prefers_largest_stl_in_source_without_modifying_inputs(tm
     chosen, warnings = choose_source_file(tmp_path)
 
     assert chosen == large
-    assert warnings == []
+    assert any(
+        "multiple" in warning.lower() and "source" in warning.lower()
+        for warning in warnings
+    )
     assert small.read_bytes() == b"small"
     assert large.read_bytes() == b"large-file"
+
+
+def test_choose_source_breaks_equal_sizes_by_casefolded_filename(tmp_path):
+    source_dir = tmp_path / "source"
+    source_dir.mkdir()
+    first = source_dir / "alpha.stl"
+    second = source_dir / "Zeta.STL"
+    first.write_bytes(b"same")
+    second.write_bytes(b"same")
+
+    chosen, warnings = choose_source_file(tmp_path)
+
+    assert chosen == second
+    assert any("multiple" in warning.lower() for warning in warnings)
 
 
 def test_choose_source_falls_back_to_root_and_reports_copy_candidate(tmp_path):

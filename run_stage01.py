@@ -12,7 +12,14 @@ def choose_source_file(project_root: Path) -> tuple[Path, list[str]]:
     source_dir = project_root / "source"
     source_candidates = _stl_files(source_dir)
     if source_candidates:
-        return _largest_stl(source_candidates), []
+        selected = _largest_stl(source_candidates)
+        if len(source_candidates) == 1:
+            return selected, []
+        warning = (
+            "Multiple STL source files found in source/; "
+            "selected the largest by file size, then filename.casefold()."
+        )
+        return selected, [warning]
 
     root_candidates = _stl_files(project_root)
     if not root_candidates:
