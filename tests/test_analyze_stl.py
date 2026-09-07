@@ -1,12 +1,15 @@
 import hashlib
 import json
 import math
+import os
 
 import numpy as np
 import pytest
 import trimesh
 
+from scripts import analyze_stl
 from scripts.analyze_stl import analyze_source_file, analyze_source_mesh, main, write_json
+from scripts.stage01_core import component_metrics
 
 
 def disconnected_boxes() -> trimesh.Trimesh:
@@ -164,3 +167,103 @@ def test_main_refuses_to_overwrite_source_when_output_is_same_path(tmp_path):
     assert result != 0
     assert source.read_bytes() == original_bytes
     assert hashlib.sha256(source.read_bytes()).hexdigest() == original_hash
+
+
+def test_main_refuses_to_overwrite_hardlink_to_source(tmp_path):
+    source = tmp_path / "fixture.stl"
+    report = tmp_path / "report.json"
+    mesh = trimesh.creation.box(extents=[4, 4, 4])
+    mesh.export(source, file_type="stl")
+    os.link(source, report)
+    original_bytes = source.read_bytes()
+    original_hash = hashlib.sha256(original_bytes).hexdigest()
+
+    result = main(["--source", str(source), "--output", str(report)])
+
+    assert result != 0
+    assert source.read_bytes() == original_bytes
+    assert report.read_bytes() == original_bytes
+    assert hashlib.sha256(source.read_bytes()).hexdigest() == original_hash
+    assert hashlib.sha256(report.read_bytes()).hexdigest() == original_hash
+
+
+class BrokenSplitMesh(trimesh.Trimesh):
+    def split(self, *args, **kwargs):
+        raise RuntimeError("primary split unavailable")
+
+    def submesh(self, *args, **kwargs):
+        raise RuntimeError("fallback split unavailable")
+
+
+def test_split_raises_when_primary_and_fallback_both_fail():
+    mesh = BrokenSplitMesh(
+        vertices=[[0, 0, 0], [1, 0, 0], [0, 1, 0]],
+        faces=[[0, 1, 2]],
+        process=False,
+    )
+
+    with pytest.raises(ValueError, match="split"):
+        analyze_stl._split_components(mesh)
+
+
+class ExplodingMetricMesh(trimesh.Trimesh):
+    def fail_metrics(self):
+        raise RuntimeError("component metrics unavailable")
+
+
+def test_component_metric_fallback_keeps_normal_schema_for_real_failure():
+    component = ExplodingMetricMesh(
+        vertices=[[0, 0, 0], [1, 0, 0], [0, 1, 0]],
+        faces=[[0, 1, 2]],
+        process=False,
+    )
+    normal_fields = set(component_metrics(trimesh.creation.box(), 0))
+
+    try:
+        component.fail_metrics()
+    except RuntimeError as exc:
+        fallback = analyze_stl._fallback_component_record(component, 7, exc)
+    else:
+        pytest.fail("the real exceptional Trimesh subclass did not fail")
+
+    assert set(fallback) == normal_fields
+    assert fallback["source_component_index"] == 7
+    assert fallback["volume_valid"] is False
+    assert fallback["metric_errors"]["component_metrics"] == (
+        "RuntimeError: component metrics unavailable"
+    )
+    for field, value in fallback.items():
+        if field not in {"source_component_index", "volume_valid", "metric_errors"}:
+            assert value is None
+    json.dumps(fallback, allow_nan=False)
+
+
+def test_loaded_scene_concatenates_geometry_in_insertion_order():
+    first = trimesh.creation.box(extents=[4, 4, 4])
+    second = trimesh.creation.box(extents=[1, 2, 3])
+    scene = trimesh.Scene()
+    scene.add_geometry(first, geom_name="first")
+    scene.add_geometry(second, geom_name="second")
+
+    raw = analyze_stl._loaded_to_mesh(scene)
+
+    assert len(raw.faces) == len(first.faces) + len(second.faces)
+    assert np.array_equal(raw.vertices[: len(first.vertices)], first.vertices)
+    assert np.array_equal(
+        raw.vertices[len(first.vertices) :], second.vertices
+    )
+
+
+def test_main_writes_successful_report_for_real_stl(tmp_path):
+    source = tmp_path / "fixture.stl"
+    report_path = tmp_path / "nested" / "report.json"
+    mesh = trimesh.creation.box(extents=[4, 4, 4])
+    mesh.export(source, file_type="stl")
+    expected_hash = hashlib.sha256(source.read_bytes()).hexdigest()
+
+    result = main(["--source", str(source), "--output", str(report_path)])
+
+    assert result == 0
+    payload = json.loads(report_path.read_text(encoding="utf-8"))
+    assert payload["file_sha256"] == expected_hash
+    assert payload["connected_component_count"] == 1

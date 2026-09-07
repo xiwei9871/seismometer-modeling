@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import json
 import math
+import os
 import sys
 from collections.abc import Mapping, Sequence
 from numbers import Real
@@ -117,18 +118,7 @@ def analyze_source_mesh(
             volume = candidate_volume
             volume_valid = True
 
-    split_error: str | None = None
-    try:
-        split_meshes = list(indexed_mesh.split(only_watertight=False))
-    except Exception as exc:
-        try:
-            split_meshes = _fallback_split(indexed_mesh)
-        except Exception as fallback_exc:
-            split_error = (
-                f"{type(exc).__name__}: {exc}; fallback "
-                f"{type(fallback_exc).__name__}: {fallback_exc}"
-            )
-            split_meshes = []
+    split_meshes = _split_components(indexed_mesh)
 
     component_records: list[dict] = []
     for source_component_index, component in enumerate(split_meshes):
@@ -138,23 +128,14 @@ def analyze_source_mesh(
             )
         except Exception as exc:
             component_records.append(
-                {
-                    "source_component_index": source_component_index,
-                    "metric_errors": {
-                        "component_metrics": f"{type(exc).__name__}: {exc}"
-                    },
-                }
+                _fallback_component_record(component, source_component_index, exc)
             )
     components = assign_part_ids(component_records)
-    if split_error is None:
-        connected_component_count = _capture_metric(
-            "connected_component_count",
-            lambda: len(split_meshes),
-            global_metric_errors,
-        )
-    else:
-        global_metric_errors["connected_component_count"] = split_error
-        connected_component_count = None
+    connected_component_count = _capture_metric(
+        "connected_component_count",
+        lambda: len(split_meshes),
+        global_metric_errors,
+    )
 
     bounding_box = _dimension_mapping(bbox_dimensions)
     return {
@@ -203,6 +184,12 @@ def main(argv: Sequence[str] | None = None) -> int:
         if args.source.resolve() == args.output.resolve():
             print(
                 "Error: --output resolves to the source STL; refusing to overwrite it.",
+                file=sys.stderr,
+            )
+            return 1
+        if args.output.exists() and os.path.samefile(args.source, args.output):
+            print(
+                "Error: --output is a hard link to the source STL; refusing to overwrite it.",
                 file=sys.stderr,
             )
             return 1
@@ -284,6 +271,45 @@ def _fallback_split(mesh: trimesh.Trimesh) -> list[trimesh.Trimesh]:
             raise ValueError("trimesh fallback split returned an unexpected result")
         components.append(split_result[0])
     return components
+
+
+def _split_components(mesh: trimesh.Trimesh) -> list[trimesh.Trimesh]:
+    """Split all faces, failing explicitly if primary and fallback paths fail."""
+    try:
+        components = list(mesh.split(only_watertight=False))
+    except Exception as primary_exc:
+        try:
+            components = _fallback_split(mesh)
+        except Exception as fallback_exc:
+            raise ValueError(
+                "could not split mesh into connected components: "
+                f"{type(primary_exc).__name__}: {primary_exc}; fallback "
+                f"{type(fallback_exc).__name__}: {fallback_exc}"
+            ) from fallback_exc
+    if not components:
+        raise ValueError("could not split mesh into connected components: no components")
+    return components
+
+
+def _fallback_component_record(
+    mesh: trimesh.Trimesh,
+    source_component_index: int,
+    error: Exception,
+) -> dict:
+    """Return the normal component schema with unavailable metrics set to null."""
+    schema_probe = trimesh.Trimesh(
+        vertices=np.array([[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [0.0, 1.0, 0.0]]),
+        faces=np.array([[0, 1, 2]], dtype=np.int64),
+        process=False,
+    )
+    normal_schema = component_metrics(schema_probe, source_component_index=0)
+    record = {field: None for field in normal_schema}
+    record["source_component_index"] = source_component_index
+    record["volume_valid"] = False
+    record["metric_errors"] = {
+        "component_metrics": f"{type(error).__name__}: {error}"
+    }
+    return record
 
 
 def _capture_metric(name: str, getter: Any, errors: dict[str, str]) -> Any:
