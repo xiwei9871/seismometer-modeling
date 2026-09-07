@@ -63,6 +63,12 @@ class AreaErrorMesh(trimesh.Trimesh):
         raise RuntimeError("area unavailable")
 
 
+class NonFiniteAreaMesh(trimesh.Trimesh):
+    @property
+    def area(self):
+        return np.nan
+
+
 def test_build_exact_indexed_mesh_only_indexes_equal_coordinates_without_mutation():
     raw = duplicate_vertex_mesh()
     original_vertices = np.asarray(raw.vertices).copy()
@@ -118,6 +124,24 @@ def test_component_metrics_records_metric_error_and_keeps_other_facts():
     assert metrics["face_count"] == 1
     assert metrics["vertex_count"] == 3
     assert metrics["bbox_dimensions"] == [1.0, 1.0, 0.0]
+    assert metrics["volume"] is None
+    assert metrics["volume_valid"] is False
+
+
+def test_component_metrics_records_non_finite_metric_as_diagnostic():
+    mesh = NonFiniteAreaMesh(
+        vertices=np.array([[0, 0, 0], [1, 0, 0], [0, 1, 0]], dtype=float),
+        faces=np.array([[0, 1, 2]], dtype=np.int64),
+        process=False,
+    )
+
+    metrics = component_metrics(mesh, source_component_index=6)
+
+    assert metrics["surface_area"] is None
+    assert "surface_area" in metrics["metric_errors"]
+    assert "non-finite" in metrics["metric_errors"]["surface_area"].lower()
+    assert metrics["face_count"] == 1
+    assert metrics["vertex_count"] == 3
     assert metrics["volume"] is None
     assert metrics["volume_valid"] is False
 
@@ -206,6 +230,25 @@ def test_assign_part_ids_puts_invalid_volume_below_valid_volume_and_normalizes_e
     assert invalid["face_count"] is None
     assert invalid["centroid"] == [None, None, None]
     assert invalid["vertex_count"] is None
+
+
+def test_assign_part_ids_deep_copies_nested_centroid_values():
+    records = [
+        {
+            "source_component_index": 0,
+            "bbox_volume": 1.0,
+            "volume": None,
+            "volume_valid": False,
+            "face_count": 1,
+            "centroid": [1.0, 2.0, 3.0],
+            "vertex_count": 3,
+        }
+    ]
+
+    assigned = assign_part_ids(records)
+    assigned[0]["centroid"][0] = 99.0
+
+    assert records[0]["centroid"] == [1.0, 2.0, 3.0]
 
 
 def test_sorted_bbox_dimensions_are_rotation_invariant():

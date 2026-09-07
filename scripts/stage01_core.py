@@ -46,7 +46,11 @@ def component_metrics(mesh: trimesh.Trimesh, source_component_index: int) -> dic
 
     def capture(name: str, getter: Any) -> Any:
         try:
-            return _json_safe(getter())
+            non_finite_values: list[str] = []
+            value = _json_safe(getter(), non_finite_values)
+            if non_finite_values:
+                metric_errors[name] = "non-finite value converted to None"
+            return value
         except Exception as exc:  # Trimesh properties can fail independently.
             metric_errors[name] = f"{type(exc).__name__}: {exc}"
             return None
@@ -69,12 +73,14 @@ def component_metrics(mesh: trimesh.Trimesh, source_component_index: int) -> dic
         "winding_consistent", lambda: bool(mesh.is_winding_consistent)
     )
     euler_number = capture("euler_number", lambda: int(mesh.euler_number))
-    boundary_edge_count = capture(
-        "boundary_edge_count", lambda: _edge_incidence_counts(mesh)[0]
-    )
-    non_manifold_edge_count = capture(
-        "non_manifold_edge_count", lambda: _edge_incidence_counts(mesh)[1]
-    )
+    try:
+        boundary_edge_count, non_manifold_edge_count = _edge_incidence_counts(mesh)
+    except Exception as exc:
+        edge_error = f"{type(exc).__name__}: {exc}"
+        metric_errors["boundary_edge_count"] = edge_error
+        metric_errors["non_manifold_edge_count"] = edge_error
+        boundary_edge_count = None
+        non_manifold_edge_count = None
     duplicate_face_count = capture(
         "duplicate_face_count", lambda: _count_duplicate_faces(mesh)
     )
@@ -188,14 +194,13 @@ def relative_value_match(left: float, right: float, ratio: float = 0.01) -> bool
 
 
 def _edge_incidence_counts(mesh: trimesh.Trimesh) -> tuple[int, int]:
-    incidences: Counter[tuple[int, int]] = Counter()
-    for face in np.asarray(mesh.faces, dtype=np.int64):
-        for start, end in zip(face, np.roll(face, -1), strict=True):
-            incidences[tuple(sorted((int(start), int(end))))] += 1
-    return (
-        sum(count == 1 for count in incidences.values()),
-        sum(count > 2 for count in incidences.values()),
+    faces = np.asarray(mesh.faces, dtype=np.int64)
+    edges = np.concatenate(
+        (faces[:, [0, 1]], faces[:, [1, 2]], faces[:, [2, 0]]), axis=0
     )
+    edges.sort(axis=1)
+    _, counts = np.unique(edges, axis=0, return_counts=True)
+    return int(np.count_nonzero(counts == 1)), int(np.count_nonzero(counts > 2))
 
 
 def _count_duplicate_faces(mesh: trimesh.Trimesh) -> int:
@@ -206,18 +211,23 @@ def _count_duplicate_faces(mesh: trimesh.Trimesh) -> int:
     return sum(count - 1 for count in faces.values() if count > 1)
 
 
-def _json_safe(value: Any) -> Any:
+def _json_safe(value: Any, non_finite_values: list[str] | None = None) -> Any:
     if isinstance(value, np.ndarray):
-        return [_json_safe(item) for item in value.tolist()]
+        return [_json_safe(item, non_finite_values) for item in value.tolist()]
     if isinstance(value, np.generic):
-        return _json_safe(value.item())
+        return _json_safe(value.item(), non_finite_values)
     if isinstance(value, Mapping):
-        return {key: _json_safe(item) for key, item in value.items()}
+        return {
+            key: _json_safe(item, non_finite_values)
+            for key, item in value.items()
+        }
     if isinstance(value, (list, tuple)):
-        return [_json_safe(item) for item in value]
+        return [_json_safe(item, non_finite_values) for item in value]
     if isinstance(value, Real) and not isinstance(value, bool):
         numeric = float(value)
         if not math.isfinite(numeric):
+            if non_finite_values is not None:
+                non_finite_values.append("non-finite numeric value")
             return None
     return value
 
