@@ -7,6 +7,7 @@ import hashlib
 import json
 import math
 import os
+import stat
 import sys
 from collections.abc import Mapping, Sequence
 from numbers import Real
@@ -187,15 +188,26 @@ def main(argv: Sequence[str] | None = None) -> int:
                 file=sys.stderr,
             )
             return 1
-        if args.output.exists() and os.path.samefile(args.source, args.output):
-            print(
-                "Error: --output is a hard link to the source STL; refusing to overwrite it.",
-                file=sys.stderr,
-            )
-            return 1
+        if args.output.exists():
+            try:
+                output_is_source = os.path.samefile(args.source, args.output)
+            except FileNotFoundError:
+                output_is_source = False
+            if output_is_source:
+                print(
+                    "Error: --output is a hard link to the source STL; refusing to overwrite it.",
+                    file=sys.stderr,
+                )
+                return 1
+    except OSError as exc:
+        print(f"Error checking STL source/output paths: {exc}", file=sys.stderr)
+        return 1
+
+    try:
         report = analyze_source_file(args.source)
         write_json(args.output, report)
     except Exception as exc:
+        _cleanup_failed_output(args.source, args.output)
         print(f"Error analyzing STL source: {exc}", file=sys.stderr)
         return 1
 
@@ -225,6 +237,21 @@ def _sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> str:
         for chunk in iter(lambda: source.read(chunk_size), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def _cleanup_failed_output(source: Path, output: Path) -> None:
+    """Remove only a regular, non-source output left by a failed run."""
+    try:
+        if not output.exists():
+            return
+        if source.resolve() == output.resolve():
+            return
+        if source.exists() and output.exists() and os.path.samefile(source, output):
+            return
+        if stat.S_ISREG(output.lstat().st_mode):
+            output.unlink()
+    except OSError:
+        return
 
 
 def _fallback_split(mesh: trimesh.Trimesh) -> list[trimesh.Trimesh]:

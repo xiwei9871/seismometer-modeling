@@ -131,6 +131,7 @@ def test_main_returns_nonzero_without_report_for_unparseable_source(
 ):
     source = tmp_path / "missing.stl"
     output = tmp_path / "report.json"
+    output.write_text('{"stale": true}\n', encoding="utf-8")
 
     result = main(["--source", str(source), "--output", str(output)])
 
