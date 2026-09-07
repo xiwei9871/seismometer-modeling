@@ -5,6 +5,8 @@ __pycache__/
 .DS_Store
 source/*.stl
 source/*.STL
+/*.[sS][tT][lL]
+/source/*.[sS][tT][lL]
 data/*.json
 data/*.csv
 output/*.blend

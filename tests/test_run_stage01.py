@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pytest
 
 from run_stage01 import choose_source_file, ensure_project_dirs, select_largest_stl
@@ -18,6 +20,10 @@ def test_choose_source_prefers_largest_stl_in_source_without_modifying_inputs(tm
         "multiple" in warning.lower() and "source" in warning.lower()
         for warning in warnings
     )
+    warning_text = " ".join(warnings).lower()
+    assert "file size" in warning_text
+    assert "filename.casefold()" in warning_text
+    assert "original filename" in warning_text
     assert small.read_bytes() == b"small"
     assert large.read_bytes() == b"large-file"
 
@@ -82,6 +88,10 @@ def test_choose_source_selects_largest_root_stl_and_warns(tmp_path):
         "multiple" in warning.lower() and "root" in warning.lower()
         for warning in warnings
     )
+    warning_text = " ".join(warnings).lower()
+    assert "file size" in warning_text
+    assert "filename.casefold()" in warning_text
+    assert "original filename" in warning_text
 
 
 def test_choose_source_falls_back_to_root_and_reports_copy_candidate(tmp_path):
@@ -94,11 +104,19 @@ def test_choose_source_falls_back_to_root_and_reports_copy_candidate(tmp_path):
     assert any("root" in warning.lower() for warning in warnings)
 
 
-def test_ensure_project_dirs_creates_only_generated_directories(tmp_path):
+def test_ensure_project_dirs_creates_required_project_directories(tmp_path):
     ensure_project_dirs(tmp_path)
 
     for relative in ("source", "scripts", "data", "output/reports", "logs"):
         assert (tmp_path / relative).is_dir()
+
+
+def test_gitignore_covers_stl_candidates_with_any_extension_case():
+    project_root = Path(__file__).resolve().parents[1]
+    rules = project_root.joinpath(".gitignore").read_text().splitlines()
+
+    assert "/*.[sS][tT][lL]" in rules
+    assert "/source/*.[sS][tT][lL]" in rules
 
 
 def test_choose_source_rejects_project_with_no_stl(tmp_path):

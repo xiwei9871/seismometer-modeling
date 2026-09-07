@@ -2,7 +2,7 @@ from pathlib import Path
 
 
 def ensure_project_dirs(project_root: Path) -> None:
-    """Create directories used by Stage 01 generated outputs."""
+    """Create the required project directories for Stage 01."""
     for relative_path in ("source", "scripts", "data", "output/reports", "logs"):
         (project_root / relative_path).mkdir(parents=True, exist_ok=True)
 
@@ -16,8 +16,8 @@ def choose_source_file(project_root: Path) -> tuple[Path, list[str]]:
         if len(source_candidates) == 1:
             return selected, []
         warning = (
-            "Multiple STL source files found in source/; "
-            "selected the largest by file size, then filename.casefold()."
+            "Multiple STL source files found in source/; selection order is "
+            "file size, then filename.casefold(), then original filename."
         )
         return selected, [warning]
 
@@ -33,8 +33,8 @@ def choose_source_file(project_root: Path) -> tuple[Path, list[str]]:
         )
     else:
         warning = (
-            "Multiple STL source files found in the project root; "
-            "selected the largest by file size, then filename.casefold()."
+            "Multiple STL source files found in the project root; selection order is "
+            "file size, then filename.casefold(), then original filename."
         )
     return selected, [warning]
 
