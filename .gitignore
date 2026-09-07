@@ -1,1 +1,11 @@
 .worktrees/
+.venv/
+__pycache__/
+.pytest_cache/
+.DS_Store
+source/*.stl
+source/*.STL
+data/*.json
+data/*.csv
+output/*.blend
+logs/*.log
