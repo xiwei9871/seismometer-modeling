@@ -19,8 +19,10 @@ from pathlib import Path
 from typing import Any
 
 if __package__:
+    from .analyze_parts import write_manifest_csv
     from .stage01_core import bbox_dimensions_match, relative_value_match
 else:  # pragma: no cover - supports running the file directly from scripts/
+    from analyze_parts import write_manifest_csv
     from stage01_core import bbox_dimensions_match, relative_value_match
 
 
@@ -33,6 +35,12 @@ SIGNATURE_FIELDS = (
     "volume_valid",
     "watertight",
 )
+TOLERANCES = {
+    "dimensions_absolute_mm": 0.1,
+    "dimensions_relative_ratio": 0.005,
+    "surface_area_relative_ratio": 0.01,
+    "volume_relative_ratio": 0.01,
+}
 
 
 def geometry_signature(record: Mapping[str, Any]) -> dict[str, Any]:
@@ -82,12 +90,21 @@ def records_match(a: Mapping[str, Any], b: Mapping[str, Any]) -> str | None:
     dimensions_right = right["bbox_dimensions"]
     if dimensions_left is None or dimensions_right is None:
         return None
-    if not bbox_dimensions_match(dimensions_left, dimensions_right):
+    if not bbox_dimensions_match(
+        dimensions_left,
+        dimensions_right,
+        absolute_mm=TOLERANCES["dimensions_absolute_mm"],
+        relative_ratio=TOLERANCES["dimensions_relative_ratio"],
+    ):
         return None
 
     if left["surface_area"] is None or right["surface_area"] is None:
         return None
-    if not relative_value_match(left["surface_area"], right["surface_area"]):
+    if not relative_value_match(
+        left["surface_area"],
+        right["surface_area"],
+        ratio=TOLERANCES["surface_area_relative_ratio"],
+    ):
         return None
 
     if left["watertight"] is None or right["watertight"] is None:
@@ -103,7 +120,11 @@ def records_match(a: Mapping[str, Any], b: Mapping[str, Any]) -> str | None:
     if left_valid:
         if left["volume"] is None or right["volume"] is None:
             return None
-        if not relative_value_match(left["volume"], right["volume"]):
+        if not relative_value_match(
+            left["volume"],
+            right["volume"],
+            ratio=TOLERANCES["volume_relative_ratio"],
+        ):
             return None
         return "HIGH"
 
@@ -171,7 +192,11 @@ def group_duplicate_parts(records: Sequence[Mapping[str, Any]]) -> dict[str, Any
         group_keys = ("group_id", "quantity", "confidence", "parts", "signature")
         groups[index - 1] = {key: group[key] for key in group_keys}
 
-    return {"group_count": len(groups), "groups": groups}
+    return {
+        "group_count": len(groups),
+        "groups": groups,
+        "tolerances": dict(TOLERANCES),
+    }
 
 
 def apply_duplicate_groups(
@@ -195,6 +220,13 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest-json", type=Path, required=True)
     parser.add_argument("--output-manifest", type=Path)
+    parser.add_argument(
+        "--output-csv",
+        "--manifest-csv",
+        dest="output_csv",
+        type=Path,
+        help="write the updated manifest as CSV (manifest-csv is an alias)",
+    )
     parser.add_argument("--output-groups", type=Path)
     args = parser.parse_args(argv)
 
@@ -205,19 +237,28 @@ def main(argv: Sequence[str] | None = None) -> int:
             raise ValueError("manifest JSON must contain a list of records")
         if args.output_manifest is not None:
             _reject_source_overwrite(source_path, args.output_manifest)
+        if args.output_csv is not None:
+            _reject_source_overwrite(source_path, args.output_csv)
         if args.output_groups is not None:
             _reject_source_overwrite(source_path, args.output_groups)
-        if (
-            args.output_manifest is not None
-            and args.output_groups is not None
-            and _same_path_or_file(args.output_manifest, args.output_groups)
+        output_paths = [
+            path
+            for path in (args.output_manifest, args.output_csv, args.output_groups)
+            if path is not None
+        ]
+        if any(
+            _same_path_or_file(left, right)
+            for index, left in enumerate(output_paths)
+            for right in output_paths[index + 1 :]
         ):
-            raise ValueError("output manifest and output groups must be different files")
+            raise ValueError("output files must be different files")
 
         report = group_duplicate_parts(payload)
         updated = apply_duplicate_groups(payload, report)
         if args.output_manifest is not None:
             _write_json(args.output_manifest, updated)
+        if args.output_csv is not None:
+            write_manifest_csv(args.output_csv, updated)
         if args.output_groups is not None:
             _write_json(args.output_groups, report)
     except Exception as exc:
@@ -226,6 +267,8 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     if args.output_manifest is not None:
         print(f"Wrote duplicate-group manifest to {args.output_manifest}")
+    if args.output_csv is not None:
+        print(f"Wrote duplicate-group CSV manifest to {args.output_csv}")
     if args.output_groups is not None:
         print(f"Wrote duplicate groups to {args.output_groups}")
     return 0

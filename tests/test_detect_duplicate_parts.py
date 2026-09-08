@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import copy
+import csv
 import json
 import subprocess
 import sys
@@ -135,6 +136,17 @@ def test_group_duplicate_parts_is_stable_does_not_merge_records_and_ignores_sing
     assert all("duplicate_group" not in record for record in records)
 
 
+def test_group_duplicate_parts_reports_explicit_comparison_tolerances():
+    report = group_duplicate_parts([part("PART_001"), part("PART_002")])
+
+    assert report["tolerances"] == {
+        "dimensions_absolute_mm": 0.1,
+        "dimensions_relative_ratio": 0.005,
+        "surface_area_relative_ratio": 0.01,
+        "volume_relative_ratio": 0.01,
+    }
+
+
 def test_group_with_invalid_volume_is_medium_and_keeps_all_physical_parts():
     records = [
         part("PART_001", volume=None, volume_valid=False),
@@ -206,6 +218,72 @@ def test_cli_writes_strict_utf8_json_and_never_overwrites_source_manifest(tmp_pa
     assert parsed_groups["groups"][0]["parts"] == ["PART_002", "零件A"]
     assert "NaN" not in output_manifest.read_text(encoding="utf-8")
     assert "NaN" not in output_groups.read_text(encoding="utf-8")
+
+
+def test_cli_writes_json_and_csv_manifests_with_duplicate_fields(tmp_path):
+    source = tmp_path / "parts_manifest.json"
+    records = [part("PART_001"), part("PART_002")]
+    source.write_text(json.dumps(records, ensure_ascii=False), encoding="utf-8")
+    output_manifest = tmp_path / "out" / "parts_manifest.json"
+    output_csv = tmp_path / "out" / "parts_manifest.csv"
+    output_groups = tmp_path / "out" / "duplicate_groups.json"
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "scripts.detect_duplicate_parts",
+            "--manifest-json",
+            str(source),
+            "--output-manifest",
+            str(output_manifest),
+            "--output-csv",
+            str(output_csv),
+            "--output-groups",
+            str(output_groups),
+        ],
+        cwd=Path(__file__).parents[1],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert json.loads(output_manifest.read_text(encoding="utf-8"))[0]["duplicate_group"] == "DG_001"
+    with output_csv.open(newline="", encoding="utf-8") as handle:
+        rows = {row["part_id"]: row for row in csv.DictReader(handle)}
+    assert rows["PART_001"]["duplicate_group"] == "DG_001"
+    assert rows["PART_001"]["duplicate_confidence"] == "HIGH"
+    assert rows["PART_002"]["duplicate_group"] == "DG_001"
+    assert rows["PART_002"]["duplicate_confidence"] == "HIGH"
+    assert json.loads(output_groups.read_text(encoding="utf-8"))["tolerances"]["volume_relative_ratio"] == 0.01
+
+
+def test_cli_rejects_hardlink_csv_output_without_touching_source(tmp_path):
+    source = tmp_path / "manifest.json"
+    source.write_text(json.dumps([part("PART_001")]), encoding="utf-8")
+    hardlink = tmp_path / "hardlink.csv"
+    hardlink.hardlink_to(source)
+    before = source.read_bytes()
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "scripts.detect_duplicate_parts",
+            "--manifest-json",
+            str(source),
+            "--output-csv",
+            str(hardlink),
+        ],
+        cwd=Path(__file__).parents[1],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+    assert result.returncode != 0
+    assert source.read_bytes() == before
 
 
 def test_cli_rejects_source_manifest_as_output_and_returns_nonzero(tmp_path):
