@@ -160,6 +160,23 @@ def test_group_with_invalid_volume_is_medium_and_keeps_all_physical_parts():
     assert report["groups"][0]["parts"] == ["PART_001", "PART_002"]
 
 
+def test_grouping_preserves_determinism_when_discrete_geometry_buckets_are_mixed():
+    records = [
+        part("PART_003", faces=12, vertices=8, watertight=False, volume=None, volume_valid=False),
+        part("PART_001", faces=10, vertices=6, watertight=True, volume=20.0),
+        part("PART_004", faces=12, vertices=8, watertight=False, volume=None, volume_valid=False),
+        part("PART_002", faces=10, vertices=6, watertight=True, volume=20.0),
+    ]
+
+    report = group_duplicate_parts(records)
+
+    assert report["group_count"] == 2
+    assert [group["parts"] for group in report["groups"]] == [
+        ["PART_001", "PART_002"],
+        ["PART_003", "PART_004"],
+    ]
+
+
 def test_apply_duplicate_groups_returns_deep_copy_and_writes_all_members():
     records = [
         part("PART_002"),

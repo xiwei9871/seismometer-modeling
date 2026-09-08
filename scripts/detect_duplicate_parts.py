@@ -13,6 +13,7 @@ import json
 import math
 import os
 import sys
+from collections import defaultdict
 from collections.abc import Mapping, Sequence
 from numbers import Real
 from pathlib import Path
@@ -148,41 +149,62 @@ def group_duplicate_parts(records: Sequence[Mapping[str, Any]]) -> dict[str, Any
         prepared.append((part_id, record, _signature_sort_key(record)))
     prepared.sort(key=lambda item: (item[0], item[2]))
 
-    groups: list[dict[str, Any]] = []
-    remaining = list(prepared)
-    while remaining:
-        anchor = remaining.pop(0)
-        members = [anchor]
-        candidate_remaining: list[tuple[str, Mapping[str, Any], str]] = []
-        for candidate in remaining:
-            confidences = [records_match(member[1], candidate[1]) for member in members]
-            if confidences and all(confidence is not None for confidence in confidences):
-                members.append(candidate)
-            else:
-                candidate_remaining.append(candidate)
-        remaining = candidate_remaining
-
-        if len(members) < 2:
+    buckets: defaultdict[tuple[Any, ...], list[tuple[str, Mapping[str, Any], str]]] = (
+        defaultdict(list)
+    )
+    for item in prepared:
+        signature = geometry_signature(item[1])
+        discrete_key = (
+            signature["face_count"],
+            signature["vertex_count"],
+            signature["watertight"],
+            signature["volume_valid"],
+        )
+        if any(value is None for value in discrete_key):
             continue
-        parts = sorted(member[0] for member in members)
-        confidence_values = [
-            records_match(left[1], right[1])
-            for index, left in enumerate(members)
-            for right in members[index + 1 :]
-        ]
-        confidence = (
-            "HIGH"
-            if confidence_values and all(value == "HIGH" for value in confidence_values)
-            else "MEDIUM"
-        )
-        groups.append(
-            {
-                "quantity": len(parts),
-                "confidence": confidence,
-                "parts": parts,
-                "signature": geometry_signature(anchor[1]),
-            }
-        )
+        buckets[discrete_key].append(item)
+
+    groups: list[dict[str, Any]] = []
+    for bucket in buckets.values():
+        remaining = list(bucket)
+        while remaining:
+            anchor = remaining.pop(0)
+            members = [anchor]
+            candidate_remaining: list[tuple[str, Mapping[str, Any], str]] = []
+            for candidate in remaining:
+                confidences = [
+                    records_match(member[1], candidate[1]) for member in members
+                ]
+                if confidences and all(
+                    confidence is not None for confidence in confidences
+                ):
+                    members.append(candidate)
+                else:
+                    candidate_remaining.append(candidate)
+            remaining = candidate_remaining
+
+            if len(members) < 2:
+                continue
+            parts = sorted(member[0] for member in members)
+            confidence_values = [
+                records_match(left[1], right[1])
+                for index, left in enumerate(members)
+                for right in members[index + 1 :]
+            ]
+            confidence = (
+                "HIGH"
+                if confidence_values
+                and all(value == "HIGH" for value in confidence_values)
+                else "MEDIUM"
+            )
+            groups.append(
+                {
+                    "quantity": len(parts),
+                    "confidence": confidence,
+                    "parts": parts,
+                    "signature": geometry_signature(anchor[1]),
+                }
+            )
 
     groups.sort(key=lambda group: (group["parts"][0], tuple(group["parts"])))
     for index, group in enumerate(groups, start=1):
