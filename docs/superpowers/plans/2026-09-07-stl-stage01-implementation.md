@@ -8,6 +8,8 @@
 
 **Tech Stack:** Python 3.10+、`trimesh`、`numpy`、`pytest`、Blender 4.x `bpy`、stdlib `json/csv/logging/subprocess`。
 
+**Execution adjustment (2026-09-08):** 完成 Task 5 后，先对真实 STL 执行全部 Python 分析阶段，独立核对组件数量、内存峰值、报告完整性和源文件 hash；只有真实 Python 阶段通过后才进入 Blender Task 6。这样可在引入 Blender 映射前尽早暴露真实模型规模问题。
+
 ---
 
 ## 文件结构
