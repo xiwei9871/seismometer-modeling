@@ -77,7 +77,7 @@ def test_pcb_validation_is_explicit_and_candidate_is_traceable(report_root):
     build_reports(report_root)
     pcb = _load(report_root, "pcb_validation.json")
     assert pcb["candidate_parts"]
-    assert pcb["candidate_parts"] == ["PART_004"]
+    assert pcb["candidate_parts"] == ["PART_019"]
     assert pcb["confidence"] in {"MEDIUM", "LOW", "UNKNOWN"}
     assert pcb["evidence"]
     assert pcb["precision_dimensions_from_photos"] is False

@@ -115,11 +115,11 @@ def _semantic_parts(
             "ribbed internal geometry is consistent with the support structure visible inside the lower enclosure; topology remains unrepaired",
         ),
         "PART_004": (
-            "MAIN_PCB",
-            "PCB_ASSEMBLY",
+            "UPPER_HOUSING_TOP_COVER",
+            "ENCLOSURE",
             "MEDIUM",
-            REFERENCE_PCB + ["REF_EXT_003"],
-            "large thin polygonal board candidate has a PCB-like outline, perimeter holes, and the expected position below the upper housing",
+            REFERENCE_EXT,
+            "large thin polygonal cover with perimeter holes occupies the upper housing plane in the assembled scene",
         ),
         "PART_005": (
             "HANDLE",
@@ -134,6 +134,13 @@ def _semantic_parts(
             "LOW",
             ["REF_EXT_003"],
             "thin polygonal plate with a central opening is plausible as an internal support plate, but the photographs do not uniquely identify it",
+        ),
+        "PART_019": (
+            "MAIN_PCB",
+            "PCB_ASSEMBLY",
+            "MEDIUM",
+            REFERENCE_PCB,
+            "thin centered polygonal board candidate shares the PCB layer height and central assembly position; board identity still needs manual confirmation",
         ),
         "PART_007": (
             "PCB_SUPPORT_FRAME",
@@ -204,7 +211,7 @@ def _feature_validation() -> dict[str, Any]:
         }
 
     features = [
-        item("F_EXT_001", "UPPER_HOUSING", True, ["PART_002"], "MEDIUM", REFERENCE_EXT, "The upper housing shell is represented by PART_002; its top surface hides internal candidates in assembled views."),
+        item("F_EXT_001", "UPPER_HOUSING", True, ["PART_002", "PART_004"], "MEDIUM", REFERENCE_EXT, "The upper housing is represented by the shell and its top cover components."),
         item("F_EXT_002", "LOWER_HOUSING", True, ["PART_001", "PART_003"], "MEDIUM", REFERENCE_EXT, "PART_001 is the outer lower shell candidate; PART_003 is the internal ribbed support candidate."),
         item("F_EXT_003", "HANDLE", True, ["PART_005"], "HIGH", REFERENCE_EXT[:2], "Direct shape and location correspondence."),
         item("F_EXT_004", "HANDLE_FASTENERS", None, [], "UNKNOWN", REFERENCE_EXT[:2], "Fastener geometry is visible in the photographs but is not uniquely isolated at this checkpoint."),
@@ -233,7 +240,7 @@ def _missing_features() -> dict[str, Any]:
 
 def _pcb_validation() -> dict[str, Any]:
     return {
-        "candidate_parts": ["PART_004"],
+        "candidate_parts": ["PART_019"],
         "confidence": "MEDIUM",
         "evidence": REFERENCE_PCB,
         "present_in_stl": True,
@@ -247,7 +254,7 @@ def _pcb_validation() -> dict[str, Any]:
         "support_frame_candidates": ["PART_007"],
         "spacer_candidates": [],
         "fastener_candidates": [],
-        "notes": "PART_004 is the current board candidate and PART_007 the frame candidate. PART_019 is a smaller internal plate and remains UNKNOWN. The board candidate is not approved as final semantic truth until manual comparison against the PCB contact/reference views.",
+        "notes": "PART_019 is the current board candidate and PART_007 the frame candidate. PART_004 is treated as an upper housing cover. The board candidate is not approved as final semantic truth until manual comparison against the PCB contact/reference views.",
     }
 
 
