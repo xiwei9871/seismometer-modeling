@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 import pytest
 
 from scripts.generate_part_previews import (
@@ -95,7 +97,7 @@ def test_inspection_lighting_is_visible_for_neutral_geometry():
 def test_preview_script_can_bootstrap_project_package_path():
     from scripts.generate_part_previews import project_package_root
 
-    assert project_package_root(__file__).name == "task08-checkpoint"
+    assert project_package_root(__file__) == Path(__file__).resolve().parent.parent
 
 
 def test_preview_dimensions_use_one_shared_unit_suffix_to_fit_thumbnail():
