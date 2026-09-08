@@ -10,4 +10,5 @@ source/*.STL
 data/*.json
 data/*.csv
 output/*.blend
+output/reports/*
 logs/*.log
