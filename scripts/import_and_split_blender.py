@@ -161,23 +161,85 @@ def match_object_facts(
         ranked.sort(key=lambda item: (item[0], item[1]))
         candidates[object_id] = ranked
 
-    # The first pass handles the normal case efficiently while retaining a
-    # strict ambiguity check for equal geometry at the same location.
-    mapping: dict[str, dict[str, Any]] = {}
-    used: set[str] = set()
-    for object_id, _facts in prepared_objects:
-        available = [item for item in candidates[object_id] if item[1] not in used]
-        if not available:
-            raise ValueError(f"no unused manifest match for imported object {object_id}")
-        best_score = available[0][0]
-        tied = [item for item in available if math.isclose(item[0], best_score, abs_tol=1e-12)]
-        if len(tied) > 1:
-            tied_ids = ", ".join(item[1] for item in tied)
-            raise ValueError(f"ambiguous manifest match for {object_id}: {tied_ids}")
-        _, part_id, record = available[0]
-        mapping[object_id] = dict(record)
-        used.add(part_id)
-    return mapping
+    record_ids = [part_id for part_id, _record in prepared_records]
+    object_ids = [object_id for object_id, _facts in prepared_objects]
+    if len(set(record_ids)) != len(record_ids):
+        raise ValueError("manifest contains duplicate PART IDs")
+    if len(set(object_ids)) != len(object_ids):
+        raise ValueError("imported objects contain duplicate object IDs")
+
+    assignment, total_score = _minimum_cost_assignment(
+        object_ids,
+        record_ids,
+        candidates,
+    )
+    if assignment is None:
+        raise ValueError("no perfect manifest assignment exists for imported objects")
+
+    if _assignment_has_equal_optimum(
+        object_ids,
+        record_ids,
+        candidates,
+        assignment,
+        total_score,
+    ):
+        raise ValueError(
+            "ambiguous manifest match: more than one equal-cost global assignment"
+        )
+
+    records_by_id = {part_id: record for part_id, record in prepared_records}
+    return {
+        object_id: dict(records_by_id[part_id])
+        for object_id, part_id in assignment.items()
+    }
+
+
+def validate_write_paths(
+    source: Path,
+    manifest: Path,
+    write_paths: Mapping[str, Path | None],
+) -> None:
+    """Reject every output that aliases an input or another output.
+
+    The check covers paths that do not exist yet through canonical path
+    equality, and existing paths through ``samefile`` so hard links and
+    symlinked aliases cannot bypass source protection.  It performs no writes.
+    """
+    source_path = Path(source).expanduser().resolve()
+    manifest_path = Path(manifest).expanduser().resolve()
+    normalized = {
+        str(label): Path(path).expanduser().resolve()
+        for label, path in write_paths.items()
+        if path is not None
+    }
+    for label, path in normalized.items():
+        if _same_path_or_file(path, source_path):
+            raise ValueError(f"{label} output aliases the source STL")
+        if _same_path_or_file(path, manifest_path):
+            raise ValueError(f"{label} output aliases the manifest")
+
+    items = sorted(normalized.items(), key=lambda item: item[0])
+    for index, (left_label, left_path) in enumerate(items):
+        for right_label, right_path in items[index + 1 :]:
+            if _same_path_or_file(left_path, right_path):
+                raise ValueError(
+                    "outputs alias each other: "
+                    f"{left_label} and {right_label}"
+                )
+
+
+def _same_path_or_file(left: Path, right: Path) -> bool:
+    """Compare canonical paths and existing filesystem identities safely."""
+    left_path = Path(left).expanduser().resolve()
+    right_path = Path(right).expanduser().resolve()
+    if left_path == right_path:
+        return True
+    if not left_path.exists() or not right_path.exists():
+        return False
+    try:
+        return os.path.samefile(left_path, right_path)
+    except OSError:
+        return False
 
 
 def format_geometry_facts(facts: Mapping[str, Any]) -> str:
@@ -208,11 +270,29 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 2
 
     try:
-        source = args.source.resolve()
-        manifest_path = args.manifest.resolve()
-        output = args.output.resolve()
-        assembly_output = args.assembly_output.resolve()
-        _reject_source_output_alias(source, output)
+        source = args.source.expanduser().resolve()
+        manifest_path = args.manifest.expanduser().resolve()
+        output = args.output.expanduser().resolve()
+        assembly_output = args.assembly_output.expanduser().resolve()
+        report = args.report.expanduser().resolve() if args.report else None
+        inspection = args.inspection.expanduser().resolve() if args.inspection else None
+        log = args.log.expanduser().resolve() if args.log else None
+        validate_write_paths(
+            source,
+            manifest_path,
+            {
+                "output": output,
+                "assembly-output": assembly_output,
+                "report": report,
+                "inspection": inspection,
+                "log": log,
+            },
+        )
+    except Exception as exc:
+        print(f"Error validating Blender output paths: {exc}", file=sys.stderr)
+        return 1
+
+    try:
         records = _load_manifest(manifest_path)
         source_sha256 = _sha256_file(source)
         _clear_scene()
@@ -228,9 +308,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
         _update_assembly_with_blender_objects(payload, split_objects, mapping)
         _write_json(assembly_output, payload)
-        if args.report:
+        if report:
             _write_json(
-                args.report.resolve(),
+                report,
                 {
                     "source_file": str(source),
                     "source_sha256": source_sha256,
@@ -239,15 +319,15 @@ def main(argv: Sequence[str] | None = None) -> int:
                     "geometry_facts": [format_geometry_facts(item) for item in facts],
                 },
             )
-        if args.inspection:
-            _write_text(args.inspection.resolve(), _inspection_summary(split_objects, mapping))
-        if args.log:
-            _append_log(args.log.resolve(), f"BLENDER_STAGE_OK parts={len(split_objects)}")
+        if inspection:
+            _write_text(inspection, _inspection_summary(split_objects, mapping))
+        if log:
+            _append_log(log, f"BLENDER_STAGE_OK parts={len(split_objects)}")
         output.parent.mkdir(parents=True, exist_ok=True)
         bpy.ops.wm.save_as_mainfile(filepath=str(output))
     except Exception as exc:
-        if args.log:
-            _append_log(args.log.resolve(), f"BLENDER_STAGE_ERROR {type(exc).__name__}: {exc}")
+        if log:
+            _append_log(log, f"BLENDER_STAGE_ERROR {type(exc).__name__}: {exc}")
         print(f"Error creating Stage 01 Blender scene: {exc}", file=sys.stderr)
         return 1
 
@@ -503,7 +583,144 @@ def _match_score(facts: Mapping[str, Any], record: Mapping[str, Any]) -> float |
     record_volume = _nonnegative(record.get("volume"))
     if object_volume is not None and record_volume is not None:
         score += 0.1 * abs(object_volume - record_volume) / max(object_volume, record_volume, 1.0)
-    return score
+    return score if math.isfinite(score) else None
+
+
+def _minimum_cost_assignment(
+    object_ids: Sequence[str],
+    record_ids: Sequence[str],
+    candidates: Mapping[str, Sequence[tuple[float, str, Mapping[str, Any]]]],
+    *,
+    forbidden_edge: tuple[str, str] | None = None,
+) -> tuple[dict[str, str] | None, float]:
+    """Solve the finite candidate graph with a deterministic Hungarian pass."""
+    if len(object_ids) != len(record_ids):
+        return None, math.inf
+    if not object_ids:
+        return {}, 0.0
+
+    score_by_edge: dict[tuple[str, str], float] = {}
+    finite_scores = []
+    for object_id in object_ids:
+        for score, part_id, _record in candidates.get(object_id, ()):
+            if not math.isfinite(score):
+                continue
+            score_by_edge[(object_id, part_id)] = score
+            finite_scores.append(score)
+    forbidden_cost = max(1.0, max(finite_scores, default=0.0))
+    forbidden_cost *= (len(object_ids) + 1) * 1_000_000.0
+    if not math.isfinite(forbidden_cost):
+        forbidden_cost = 1.0e300
+    matrix = []
+    for object_id in object_ids:
+        row = []
+        for part_id in record_ids:
+            if forbidden_edge == (object_id, part_id):
+                row.append(forbidden_cost)
+            else:
+                row.append(score_by_edge.get((object_id, part_id), forbidden_cost))
+        matrix.append(row)
+
+    columns = _hungarian_columns(matrix, forbidden_cost)
+    if columns is None:
+        return None, math.inf
+    assignment: dict[str, str] = {}
+    total = 0.0
+    for row_index, column_index in enumerate(columns):
+        if column_index is None or matrix[row_index][column_index] >= forbidden_cost:
+            return None, math.inf
+        assignment[object_ids[row_index]] = record_ids[column_index]
+        total += matrix[row_index][column_index]
+    return assignment, total
+
+
+def _hungarian_columns(
+    costs: Sequence[Sequence[float]], forbidden_cost: float
+) -> list[int | None] | None:
+    """Return a minimum-cost one-to-one column assignment for a square matrix."""
+    size = len(costs)
+    if size == 0:
+        return []
+    if any(len(row) != size for row in costs):
+        raise ValueError("assignment cost matrix must be square")
+
+    # This is the classic O(n^3) primal-dual Hungarian algorithm.  Missing
+    # candidate edges use a large sentinel and are rejected after the solve.
+    u = [0.0] * (size + 1)
+    v = [0.0] * (size + 1)
+    matching = [0] * (size + 1)
+    way = [0] * (size + 1)
+    for row_number in range(1, size + 1):
+        matching[0] = row_number
+        minimum = [math.inf] * (size + 1)
+        used = [False] * (size + 1)
+        column_zero = 0
+        while True:
+            used[column_zero] = True
+            row_zero = matching[column_zero]
+            delta = math.inf
+            column_one = 0
+            for column in range(1, size + 1):
+                if used[column]:
+                    continue
+                current = costs[row_zero - 1][column - 1] - u[row_zero] - v[column]
+                if current < minimum[column]:
+                    minimum[column] = current
+                    way[column] = column_zero
+                if minimum[column] < delta:
+                    delta = minimum[column]
+                    column_one = column
+            if column_one == 0 or delta >= forbidden_cost:
+                return None
+            for column in range(size + 1):
+                if used[column]:
+                    u[matching[column]] += delta
+                    v[column] -= delta
+                else:
+                    minimum[column] -= delta
+            column_zero = column_one
+            if matching[column_zero] == 0:
+                break
+        while True:
+            previous = way[column_zero]
+            matching[column_zero] = matching[previous]
+            column_zero = previous
+            if column_zero == 0:
+                break
+
+    columns: list[int | None] = [None] * size
+    for column in range(1, size + 1):
+        if matching[column] != 0:
+            columns[matching[column] - 1] = column - 1
+    return columns
+
+
+def _assignment_has_equal_optimum(
+    object_ids: Sequence[str],
+    record_ids: Sequence[str],
+    candidates: Mapping[str, Sequence[tuple[float, str, Mapping[str, Any]]]],
+    assignment: Mapping[str, str],
+    total_score: float,
+) -> bool:
+    """Detect another perfect assignment with the same minimum score."""
+    for object_id in object_ids:
+        selected_part = assignment[object_id]
+        alternative, alternative_score = _minimum_cost_assignment(
+            object_ids,
+            record_ids,
+            candidates,
+            forbidden_edge=(object_id, selected_part),
+        )
+        if alternative is None:
+            continue
+        if math.isclose(
+            alternative_score,
+            total_score,
+            rel_tol=1e-9,
+            abs_tol=1e-9,
+        ):
+            return True
+    return False
 
 
 def _dimensions(value: Any) -> list[float] | None:

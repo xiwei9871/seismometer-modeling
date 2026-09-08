@@ -19,6 +19,7 @@ from scripts.import_and_split_blender import (
     match_object_facts,
     part_object_name,
     stable_part_color,
+    validate_write_paths,
 )
 from scripts.inspect_part import format_inspection_report
 
@@ -151,6 +152,90 @@ def test_object_matching_rejects_unresolvable_duplicate_ambiguity():
 
     with pytest.raises(ValueError, match="ambiguous"):
         match_object_facts(objects, records)
+
+
+def test_object_matching_solves_crossed_candidates_globally():
+    records = [
+        _record("PART_001", [0.0, 0.0, 0.0]),
+        _record("PART_002", [0.15, 0.0, 0.0]),
+    ]
+    objects = [
+        _object_facts("imported_object_a", [0.075, 0.0, 0.0]),
+        _object_facts("imported_object_b", [0.0, 0.0, 0.0]),
+    ]
+
+    mapping = match_object_facts(objects, records)
+
+    assert mapping["imported_object_a"]["part_id"] == "PART_002"
+    assert mapping["imported_object_b"]["part_id"] == "PART_001"
+
+
+def test_validate_write_paths_rejects_source_and_manifest_hardlinks(tmp_path):
+    source = tmp_path / "source.stl"
+    manifest = tmp_path / "manifest.json"
+    source.write_bytes(b"source-stl")
+    manifest.write_text("[]", encoding="utf-8")
+
+    for field in ("output", "assembly", "report", "inspection", "log"):
+        source_alias = tmp_path / f"{field}-source-alias"
+        manifest_alias = tmp_path / f"{field}-manifest-alias"
+        source_alias.hardlink_to(source)
+        manifest_alias.hardlink_to(manifest)
+        with pytest.raises(ValueError, match="source"):
+            validate_write_paths(
+                source,
+                manifest,
+                {field: source_alias},
+            )
+        with pytest.raises(ValueError, match="manifest"):
+            validate_write_paths(
+                source,
+                manifest,
+                {field: manifest_alias},
+            )
+
+
+def test_validate_write_paths_rejects_pairwise_same_and_hardlinked_outputs(tmp_path):
+    source = tmp_path / "source.stl"
+    manifest = tmp_path / "manifest.json"
+    source.write_bytes(b"source-stl")
+    manifest.write_text("[]", encoding="utf-8")
+    output = tmp_path / "stage01.blend"
+    output.write_bytes(b"existing-output")
+    assembly_alias = tmp_path / "assembly-alias"
+    assembly_alias.hardlink_to(output)
+
+    with pytest.raises(ValueError, match="outputs"):
+        validate_write_paths(
+            source,
+            manifest,
+            {"output": output, "assembly-output": assembly_alias},
+        )
+    with pytest.raises(ValueError, match="outputs"):
+        validate_write_paths(
+            source,
+            manifest,
+            {"output": output, "assembly-output": output},
+        )
+
+
+def test_validate_write_paths_accepts_distinct_nonexistent_targets(tmp_path):
+    source = tmp_path / "source.stl"
+    manifest = tmp_path / "manifest.json"
+    source.write_bytes(b"source-stl")
+    manifest.write_text("[]", encoding="utf-8")
+
+    validate_write_paths(
+        source,
+        manifest,
+        {
+            "output": tmp_path / "output" / "stage01.blend",
+            "assembly-output": tmp_path / "data" / "assembly_initial.json",
+            "report": tmp_path / "report.json",
+            "inspection": tmp_path / "inspection.json",
+            "log": tmp_path / "stage01.log",
+        },
+    )
 
 
 def test_inspection_report_contains_part_geometry_and_duplicate_group():
