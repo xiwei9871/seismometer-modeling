@@ -9,12 +9,15 @@ from __future__ import annotations
 
 import ast
 import json
+import struct
 from pathlib import Path
 
 import pytest
 
 from scripts.import_and_split_blender import (
+    read_binary_stl_indexed,
     build_assembly_initial_payload,
+    format_geometry_facts,
     manifest_custom_properties,
     match_object_facts,
     part_object_name,
@@ -80,6 +83,26 @@ def test_part_name_and_color_are_stable_and_json_safe():
     assert color[3] == 1.0
     with pytest.raises(ValueError, match="PART ID"):
         part_object_name("SENSOR")
+
+
+def test_binary_stl_reader_preserves_duplicate_triangles_and_indexes_coordinates(tmp_path):
+    path = tmp_path / "duplicate.stl"
+    header = b"binary fixture" + b" " * (80 - len("binary fixture"))
+    triangle = struct.pack(
+        "<12fH",
+        0.0, 0.0, 1.0,
+        0.0, 0.0, 0.0,
+        1.0, 0.0, 0.0,
+        0.0, 1.0, 0.0,
+        0,
+    )
+    path.write_bytes(header + struct.pack("<I", 2) + triangle + triangle)
+
+    vertices, faces = read_binary_stl_indexed(path)
+
+    assert len(vertices) == 3
+    assert len(faces) == 2
+    assert faces[0] == faces[1]
 
 
 def test_manifest_custom_properties_preserve_required_geometry_and_status():
@@ -254,6 +277,13 @@ def test_inspection_report_contains_part_geometry_and_duplicate_group():
     assert "DG_002" in text
 
 
+def test_format_geometry_facts_returns_strict_json_text():
+    text = format_geometry_facts(_object_facts("OBJECT", [1.0, 2.0, 3.0]))
+
+    assert isinstance(text, str)
+    assert json.loads(text)["face_count"] == 12
+
+
 def test_blender_script_contract_has_import_split_collections_props_and_save():
     source = IMPORT_SCRIPT.read_text(encoding="utf-8")
     tree = ast.parse(source)
@@ -263,6 +293,7 @@ def test_blender_script_contract_has_import_split_collections_props_and_save():
     )
     for required in (
         "bpy.ops.wm.stl_import",
+        "use_mesh_validate=False",
         "bpy.ops.import_mesh.stl",
         "bpy.ops.mesh.separate",
         "type='LOOSE'",

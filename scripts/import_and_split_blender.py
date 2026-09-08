@@ -12,6 +12,7 @@ import hashlib
 import json
 import math
 import os
+import struct
 import sys
 from collections.abc import Mapping, Sequence
 from numbers import Real
@@ -261,6 +262,55 @@ def format_geometry_facts(facts: Mapping[str, Any]) -> str:
     )
 
 
+def read_binary_stl_indexed(
+    path: Path,
+) -> tuple[list[tuple[float, float, float]], list[tuple[int, int, int]]]:
+    """Read every binary STL facet and index only exactly equal coordinates.
+
+    Duplicate triangles are intentionally retained.  This avoids Blender's
+    built-in STL importer validation, which can remove source facets.
+    """
+    path = Path(path)
+    file_size = path.stat().st_size
+    with path.open("rb") as handle:
+        header = handle.read(80)
+        count_bytes = handle.read(4)
+        if len(header) != 80 or len(count_bytes) != 4:
+            raise ValueError("binary STL header is incomplete")
+        triangle_count = struct.unpack("<I", count_bytes)[0]
+        expected_size = 84 + triangle_count * 50
+        if file_size != expected_size:
+            raise ValueError("file size does not match binary STL facet count")
+
+        vertices: list[tuple[float, float, float]] = []
+        faces: list[tuple[int, int, int]] = []
+        vertex_indices: dict[tuple[float, float, float], int] = {}
+        for triangle_index in range(triangle_count):
+            facet = handle.read(50)
+            if len(facet) != 50:
+                raise ValueError(
+                    f"binary STL facet {triangle_index} is incomplete"
+                )
+            values = struct.unpack("<12fH", facet)
+            face: list[int] = []
+            for start in (3, 6, 9):
+                coordinate = (
+                    float(values[start]),
+                    float(values[start + 1]),
+                    float(values[start + 2]),
+                )
+                index = vertex_indices.get(coordinate)
+                if index is None:
+                    index = len(vertices)
+                    vertex_indices[coordinate] = index
+                    vertices.append(coordinate)
+                face.append(index)
+            faces.append((face[0], face[1], face[2]))
+        if handle.read(1):
+            raise ValueError("binary STL has unexpected trailing bytes")
+    return vertices, faces
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     """Run the Blender import/split operation and save a verified scene."""
     parser = _build_parser()
@@ -374,9 +424,25 @@ def _clear_scene() -> None:
 
 def _import_stl(source: Path) -> list[Any]:
     _require_bpy()
+    if _is_binary_stl(source):
+        vertices, faces = read_binary_stl_indexed(source)
+        mesh = bpy.data.meshes.new(source.stem)
+        mesh.from_pydata(vertices, [], faces)
+        mesh.update(calc_edges=True)
+        obj = bpy.data.objects.new(source.stem, mesh)
+        bpy.context.scene.collection.objects.link(obj)
+        return [obj]
+
     before = {obj.as_pointer() for obj in bpy.data.objects}
     if hasattr(bpy.ops.wm, "stl_import"):
-        result = bpy.ops.wm.stl_import(filepath=str(source))
+        try:
+            result = bpy.ops.wm.stl_import(
+                filepath=str(source),
+                use_mesh_validate=False,
+            )
+        except TypeError:
+            # Older Blender builds may not expose the validation option.
+            result = bpy.ops.wm.stl_import(filepath=str(source))
     elif hasattr(bpy.ops, "import_mesh") and hasattr(bpy.ops.import_mesh, "stl"):
         result = bpy.ops.import_mesh.stl(filepath=str(source))
     else:
@@ -391,6 +457,19 @@ def _import_stl(source: Path) -> list[Any]:
     if not imported:
         raise RuntimeError("STL import created no mesh object")
     return sorted(imported, key=lambda obj: obj.name)
+
+
+def _is_binary_stl(path: Path) -> bool:
+    try:
+        size = Path(path).stat().st_size
+        with Path(path).open("rb") as handle:
+            header = handle.read(84)
+        if len(header) != 84:
+            return False
+        triangle_count = struct.unpack("<I", header[80:84])[0]
+        return size == 84 + triangle_count * 50
+    except OSError:
+        return False
 
 
 def _separate_loose_parts(objects: Sequence[Any]) -> list[Any]:
