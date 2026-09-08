@@ -191,6 +191,8 @@ def test_build_part_records_contains_required_manifest_fields_and_metadata():
     }
     assert required.issubset(records[0])
     assert len(records) == 2
+    assert isinstance(records[0]["face_count"], int)
+    assert isinstance(records[0]["vertex_count"], int)
     assert records[1]["size_class"] == "FRAGMENT"
     assert metadata["size_thresholds"] == {
         "major": 0.75,

@@ -784,6 +784,8 @@ def _json_ready(value: Any) -> Any:
         return {str(key): _json_ready(item) for key, item in value.items()}
     if isinstance(value, (list, tuple)):
         return [_json_ready(item) for item in value]
+    if isinstance(value, int) and not isinstance(value, bool):
+        return value
     if isinstance(value, Real) and not isinstance(value, bool):
         numeric = float(value)
         return numeric if math.isfinite(numeric) else value
