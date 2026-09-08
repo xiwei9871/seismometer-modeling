@@ -1,3 +1,4 @@
 numpy>=1.24,<3
 trimesh>=4.0,<5
 pytest>=8,<9
+Pillow>=10,<13
