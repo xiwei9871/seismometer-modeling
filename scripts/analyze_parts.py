@@ -418,6 +418,7 @@ def render_stage01_report(
     records: Sequence[Mapping[str, Any]],
     duplicate_report: Mapping[str, Any] | None,
     quality_report: Mapping[str, Any],
+    pipeline_status: Mapping[str, Any] | None = None,
 ) -> str:
     """Render the human-readable Stage 01 summary, including review questions."""
     records_list = list(records)
@@ -511,12 +512,20 @@ def render_stage01_report(
 
     lines.extend([
         "",
+        "## Pipeline status",
+        "",
+        f"- blender_status={_format_value((pipeline_status or {}).get('blender_status', 'UNKNOWN'))}",
+        f"- blender_path={_format_value((pipeline_status or {}).get('blender_path'))}",
+        f"- output_blend={_format_value((pipeline_status or {}).get('output_blend'))}",
+        f"- pipeline_complete={str(bool((pipeline_status or {}).get('pipeline_complete', False))).lower()}",
+        "",
         "## Important findings",
         "",
         "- This is a geometry-only recovery report; semantic part names are intentionally absent.",
         "- Suspected fragments remain in the manifest and are only flagged for review.",
         "- Identical geometry, when supplied by duplicate analysis, remains separate physical PART objects.",
         "- No repair, simplification, remesh, boolean, or geometry cleanup was performed.",
+        "- The report does not enter Stage 02; semantic identification and animation remain out of scope.",
         "",
         "### 人工确认",
         "",
