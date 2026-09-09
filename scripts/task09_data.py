@@ -82,11 +82,17 @@ def validate_task09_baseline(project_root: Path) -> dict[str, Any]:
 
 
 def _find_project_root(path: Path) -> Path | None:
-    """Find the owning project without requiring the candidate output to exist."""
+    """Find a valid owning project without requiring the candidate output to exist."""
     candidate = path.expanduser().resolve(strict=False)
-    for parent in (candidate.parent, *candidate.parents):
-        if (parent / "data/stage01_run_result.json").is_file():
-            return parent
+    for parent in candidate.parents:
+        marker = parent / "data/stage01_run_result.json"
+        if not marker.is_file():
+            continue
+        try:
+            validate_stage01_baseline(parent)
+        except (OSError, ValueError):
+            continue
+        return parent
     return None
 
 

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import shutil
 from pathlib import Path
 
 import pytest
@@ -150,6 +151,59 @@ def test_task09_output_allowlist_is_strict(tmp_path, relative, expected):
 def test_task09_output_allowlist_rejects_paths_outside_project_root(tmp_path):
     _write_stage01_fixture(tmp_path)
     assert not is_allowed_task09_output(tmp_path.parent / "data/exploded_state.json")
+
+
+def test_task09_output_allowlist_rejects_parent_traversal_to_nested_forged_root(tmp_path):
+    _write_stage01_fixture(tmp_path)
+    nested = tmp_path / "nested"
+    write_json(nested / "data/stage01_run_result.json", {"status": "PASS"})
+
+    escaped = nested / "data" / ".." / "data" / "exploded_state.json"
+
+    assert not is_allowed_task09_output(escaped)
+
+
+def test_task09_output_allowlist_rejects_absolute_path_outside_project_root(tmp_path):
+    _write_stage01_fixture(tmp_path)
+    outside = tmp_path.parent / f"{tmp_path.name}-absolute-outside"
+    try:
+        write_json(outside / "data/stage01_run_result.json", {"status": "PASS"})
+        candidate = outside / "data/exploded_state.json"
+
+        assert candidate.is_absolute()
+        assert not is_allowed_task09_output(candidate)
+    finally:
+        shutil.rmtree(outside, ignore_errors=True)
+
+
+def test_task09_output_allowlist_rejects_symlink_escape_to_forged_project(tmp_path):
+    _write_stage01_fixture(tmp_path)
+    outside = tmp_path.parent / f"{tmp_path.name}-symlink-outside"
+    link = tmp_path / "output/task09a_review/escape"
+    try:
+        write_json(outside / "data/stage01_run_result.json", {"status": "PASS"})
+        link.parent.mkdir(parents=True, exist_ok=True)
+        link.symlink_to(outside, target_is_directory=True)
+
+        assert not is_allowed_task09_output(link / "data/exploded_state.json")
+    finally:
+        link.unlink(missing_ok=True)
+        shutil.rmtree(outside, ignore_errors=True)
+
+
+def test_task09_output_allowlist_ignores_nested_forged_stage01_marker(tmp_path):
+    _write_stage01_fixture(tmp_path)
+    nested = tmp_path / "nested"
+    write_json(
+        nested / "data/stage01_run_result.json",
+        {
+            "status": "PASS",
+            "source_sha256_before": "forged",
+            "source_sha256_after": "forged",
+        },
+    )
+
+    assert not is_allowed_task09_output(nested / "data/exploded_state.json")
 
 
 def test_write_task09_json_creates_deterministic_utf8_json(tmp_path):
