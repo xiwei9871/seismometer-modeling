@@ -41,3 +41,7 @@ data/presentation_v4_run_result.json
 output/stage03_presentation_exploded_v4.blend
 output/explosion_validation_v4/
 logs/presentation_v4.log
+stage_09C_refined_explosion/scene/*.blend
+stage_09C_refined_explosion/renders/
+stage_09C_refined_explosion/logs/
+stage_09C_refined_explosion/data_task09c_run_result.json

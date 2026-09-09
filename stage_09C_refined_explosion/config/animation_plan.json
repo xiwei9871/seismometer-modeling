@@ -1,0 +1,360 @@
+{
+  "animated_part_ids": [
+    "PART_001",
+    "PART_002",
+    "PART_003",
+    "PART_004",
+    "PART_005",
+    "PART_006",
+    "PART_007",
+    "PART_008",
+    "PART_009",
+    "PART_010",
+    "PART_011",
+    "PART_012",
+    "PART_013",
+    "PART_014",
+    "PART_015",
+    "PART_016",
+    "PART_017",
+    "PART_018",
+    "PART_019",
+    "PART_020",
+    "PART_021",
+    "PART_022"
+  ],
+  "animation_anchor": "PART_001",
+  "animation_created": true,
+  "easing": "BEZIER_EASE_IN_OUT",
+  "fps": 30,
+  "frame_range": [
+    1,
+    540
+  ],
+  "hidden_part_ids": [
+    "PART_023",
+    "PART_024",
+    "PART_025",
+    "PART_026",
+    "PART_027",
+    "PART_028",
+    "PART_029",
+    "PART_030",
+    "PART_031",
+    "PART_032",
+    "PART_033",
+    "PART_034",
+    "PART_035",
+    "PART_036",
+    "PART_037",
+    "PART_038",
+    "PART_039",
+    "PART_040",
+    "PART_041",
+    "PART_042",
+    "PART_043",
+    "PART_044",
+    "PART_045",
+    "PART_046",
+    "PART_047",
+    "PART_048",
+    "PART_049",
+    "PART_050",
+    "PART_051",
+    "PART_052",
+    "PART_053",
+    "PART_054",
+    "PART_055",
+    "PART_056",
+    "PART_057",
+    "PART_058",
+    "PART_059",
+    "PART_060",
+    "PART_061",
+    "PART_062",
+    "PART_063",
+    "PART_064",
+    "PART_065",
+    "PART_066",
+    "PART_067",
+    "PART_068",
+    "PART_069",
+    "PART_070",
+    "PART_071",
+    "PART_072",
+    "PART_073",
+    "PART_074",
+    "PART_075",
+    "PART_076",
+    "PART_077",
+    "PART_078",
+    "PART_079",
+    "PART_080",
+    "PART_081",
+    "PART_082"
+  ],
+  "keyframe_scope": "VISIBLE_MAJOR_MEDIUM_ONLY",
+  "overshoot": false,
+  "plan_version": "9c_preview_v1",
+  "source": "Task 9C refined layout; review preview only",
+  "stages": [
+    {
+      "frames": [
+        1,
+        60
+      ],
+      "stage_id": "ASSEMBLED_HOLD"
+    },
+    {
+      "frames": [
+        60,
+        210
+      ],
+      "stage_id": "PRIMARY_Z_STACK"
+    },
+    {
+      "frames": [
+        170,
+        340
+      ],
+      "stage_id": "PCB_SENSOR_LOCAL"
+    },
+    {
+      "frames": [
+        230,
+        390
+      ],
+      "stage_id": "BATTERY_LEVELING"
+    },
+    {
+      "frames": [
+        420,
+        540
+      ],
+      "stage_id": "FULL_EXPLODED_HOLD"
+    }
+  ],
+  "total_duration_seconds": 18.0,
+  "tracks": [
+    {
+      "assembled_frame": 1,
+      "group": "MAIN_STACK",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 1,
+      "move_start_frame": 1,
+      "overshoot": false,
+      "part_id": "PART_001",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "MAIN_STACK",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 210,
+      "move_start_frame": 60,
+      "overshoot": false,
+      "part_id": "PART_002",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "SENSOR_BRANCH",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 340,
+      "move_start_frame": 190,
+      "overshoot": false,
+      "part_id": "PART_003",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "MAIN_STACK",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 210,
+      "move_start_frame": 60,
+      "overshoot": false,
+      "part_id": "PART_004",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "MAIN_STACK",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 210,
+      "move_start_frame": 60,
+      "overshoot": false,
+      "part_id": "PART_005",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "PCB_BRANCH",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 330,
+      "move_start_frame": 170,
+      "overshoot": false,
+      "part_id": "PART_006",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "PCB_BRANCH",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 330,
+      "move_start_frame": 170,
+      "overshoot": false,
+      "part_id": "PART_007",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "BATTERY_BRANCH",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 360,
+      "move_start_frame": 230,
+      "overshoot": false,
+      "part_id": "PART_008",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "BATTERY_BRANCH",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 360,
+      "move_start_frame": 230,
+      "overshoot": false,
+      "part_id": "PART_009",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "BATTERY_BRANCH",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 360,
+      "move_start_frame": 230,
+      "overshoot": false,
+      "part_id": "PART_010",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "BATTERY_BRANCH",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 360,
+      "move_start_frame": 230,
+      "overshoot": false,
+      "part_id": "PART_011",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "SENSOR_BRANCH",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 340,
+      "move_start_frame": 190,
+      "overshoot": false,
+      "part_id": "PART_012",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "SENSOR_BRANCH",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 340,
+      "move_start_frame": 190,
+      "overshoot": false,
+      "part_id": "PART_013",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "SENSOR_BRANCH",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 340,
+      "move_start_frame": 190,
+      "overshoot": false,
+      "part_id": "PART_014",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "BATTERY_BRANCH",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 360,
+      "move_start_frame": 230,
+      "overshoot": false,
+      "part_id": "PART_015",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "BATTERY_BRANCH",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 360,
+      "move_start_frame": 230,
+      "overshoot": false,
+      "part_id": "PART_016",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "TOP_INTERFACE_BRANCH",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 230,
+      "move_start_frame": 110,
+      "overshoot": false,
+      "part_id": "PART_017",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "TOP_INTERFACE_BRANCH",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 230,
+      "move_start_frame": 110,
+      "overshoot": false,
+      "part_id": "PART_018",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "PCB_BRANCH",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 330,
+      "move_start_frame": 170,
+      "overshoot": false,
+      "part_id": "PART_019",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "LEVELING_BRANCH",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 390,
+      "move_start_frame": 300,
+      "overshoot": false,
+      "part_id": "PART_020",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "LEVELING_BRANCH",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 390,
+      "move_start_frame": 300,
+      "overshoot": false,
+      "part_id": "PART_021",
+      "refined_frame": 540
+    },
+    {
+      "assembled_frame": 1,
+      "group": "LEVELING_BRANCH",
+      "interpolation": "BEZIER_EASE_IN_OUT",
+      "move_end_frame": 390,
+      "move_start_frame": 300,
+      "overshoot": false,
+      "part_id": "PART_022",
+      "refined_frame": 540
+    }
+  ]
+}
