@@ -157,6 +157,9 @@ def _analysis_fixture():
         ("manifest", "face_count", True),
         ("manifest", "vertex_count", 1.0),
         ("manifest", "source_component_index", "64"),
+        ("semantic", "face_count", False),
+        ("semantic", "vertex_count", 1.0),
+        ("semantic", "source_component_index", "64"),
         ("semantic", "semantic_name", 123),
         ("semantic", "semantic_category", 123),
         ("semantic", "confidence", 1),
@@ -225,6 +228,11 @@ def test_analysis_rejects_bbox_mismatch_and_nonfinite_values(monkeypatch):
         analyze_module.analyze_assembled_state(PROJECT_ROOT)
 
     initial["objects"]["PART_001"]["bbox"]["x"] = True
+    with pytest.raises(ValueError, match="bbox"):
+        analyze_module.analyze_assembled_state(PROJECT_ROOT)
+
+    initial["objects"]["PART_001"]["bbox"]["x"] = manifest[0]["bbox_dimensions"][0]
+    manifest[0]["bbox_dimensions"][1] = float("inf")
     with pytest.raises(ValueError, match="bbox"):
         analyze_module.analyze_assembled_state(PROJECT_ROOT)
 
