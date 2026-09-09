@@ -129,6 +129,16 @@ def test_task09_baseline_requires_stage02_blend(tmp_path):
         validate_task09_baseline(tmp_path)
 
 
+def test_task09_baseline_rehashes_current_source_stl(tmp_path):
+    _write_valid_fixture(tmp_path)
+    source = tmp_path / "source/智能地震仪-221128(1).STL"
+    source.unlink()
+    source.write_bytes(b"changed source")
+
+    with pytest.raises(ValueError, match="SHA256"):
+        validate_task09_baseline(tmp_path)
+
+
 @pytest.mark.parametrize(
     "relative, expected",
     [

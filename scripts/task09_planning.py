@@ -451,12 +451,7 @@ def build_exploded_state(project_root: Path) -> dict[str, Any]:
                     "rank": rank,
                 }
             )
-        selected = candidate_scores[0]
-        if not _group_has_high_confidence_explicit_direction(members):
-            selected = min(
-                candidate_scores,
-                key=lambda item: (item["new_collision_count"], item["rank"]),
-            )
+        selected = _select_candidate(candidate_scores)
         _apply_group_motion(members, selected["vector"], selected["distance_mm"])
         for member in members:
             member["motion_group"] = group_key
@@ -694,6 +689,17 @@ def _candidate_vectors(preferred: Sequence[float]) -> list[list[float]]:
         if vector not in result:
             result.append(vector)
     return result
+
+
+def _select_candidate(candidate_scores: Sequence[Mapping[str, Any]]) -> Mapping[str, Any]:
+    if not candidate_scores:
+        raise ValueError("candidate score list cannot be empty")
+    clean_candidates = [
+        item for item in candidate_scores if int(item.get("new_collision_count", 1)) == 0
+    ]
+    # Prefer the first clean candidate in deterministic candidate order. If
+    # every candidate intersects, retain the preferred rank 0 for review.
+    return clean_candidates[0] if clean_candidates else candidate_scores[0]
 
 
 def _unit_axis(value: Sequence[float]) -> list[float]:

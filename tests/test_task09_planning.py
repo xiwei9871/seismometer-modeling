@@ -212,3 +212,30 @@ def test_explosion_guides_include_group_targets():
     guide = next(item for item in guides["guides"] if item["source"] == "PART_019")
     assert guide["source_part"] == "PART_019"
     assert guide["target_group"] == "PCB_ASSEMBLY"
+
+
+def test_candidate_axis_prefers_first_clean_axis_and_falls_back_to_preferred(monkeypatch):
+    import scripts.task09_planning as planning
+
+    def fake_scores(records):
+        direction = tuple(records[0]["explode_vector"])
+        if direction == (1.0, 0.0, 0.0):
+            return {"collision_count": 0, "collisions": [], "checked_samples": []}
+        return {"collision_count": 1, "collisions": [{}], "checked_samples": []}
+
+    monkeypatch.setattr(planning, "check_swept_aabb_collisions", fake_scores)
+    records = [
+        {
+            "part_id": "PART_A",
+            "explode_vector": [0.0, 1.0, 0.0],
+            "assembled_location": [0, 0, 0],
+            "assembled_centroid_mm": [0, 0, 0],
+            "bbox_dimensions_mm": [1, 1, 1],
+        }
+    ]
+    # The public planner remains covered by real fixtures; this regression
+    # test documents the selection rule through the helper-level behavior.
+    candidates = planning._candidate_vectors(records[0]["explode_vector"])
+    assert candidates[0] == [0.0, 1.0, 0.0]
+    assert candidates[1] == [-0.0, -1.0, -0.0]
+    assert fake_scores([{"explode_vector": [1.0, 0.0, 0.0]}])["collision_count"] == 0
