@@ -5,8 +5,13 @@ from pathlib import Path
 import pytest
 
 from scripts.task09_planning import (
+    build_exploded_state,
+    build_explosion_guides,
     build_disassembly_graph,
     build_fastener_group_mapping,
+    build_future_visual_assets,
+    build_explosion_review_queue,
+    check_swept_aabb_collisions,
     kahn_topological_sort,
 )
 
@@ -88,3 +93,65 @@ def test_task09_planning_outputs_are_deterministic():
     assert build_fastener_group_mapping(PROJECT_ROOT) == build_fastener_group_mapping(
         PROJECT_ROOT
     )
+
+
+def test_exploded_state_covers_all_parts_and_preserves_assembled_values():
+    state = build_exploded_state(PROJECT_ROOT)
+
+    assert state["state"] == "EXPLODED"
+    assert state["source_baseline"] == {
+        "source_parts": 82,
+        "faces": 444296,
+        "indexed_vertices": 221902,
+    }
+    assert list(state["parts"]) == [f"PART_{index:03d}" for index in range(1, 83)]
+    assert state["parts"]["PART_004"]["explode_vector"] == [0.0, 0.0, 1.0]
+    assert state["parts"]["PART_004"]["motion_type"] == "LINEAR"
+    assert state["parts"]["PART_004"]["explode_distance_mm"] > 0
+    assert state["parts"]["PART_004"]["exploded_location"] != state["parts"]["PART_004"]["assembled_location"]
+
+
+def test_group_members_share_axis_and_small_parts_are_reviewable():
+    state = build_exploded_state(PROJECT_ROOT)
+
+    assert state["parts"]["PART_020"]["explode_vector"] == state["parts"]["PART_021"]["explode_vector"]
+    assert state["parts"]["PART_022"]["confidence"] == "MEDIUM"
+    assert state["parts"]["PART_039"]["requires_manual_confirmation"] is True
+    assert 20 <= state["parts"]["PART_039"]["explode_distance_mm"] <= 60
+
+
+def test_collision_check_reports_new_overlaps_not_initial_touching():
+    records = [
+        {
+            "part_id": "PART_A",
+            "assembled_location": [0.0, 0.0, 0.0],
+            "exploded_location": [0.0, 0.0, 20.0],
+            "bbox_dimensions_mm": [10.0, 10.0, 10.0],
+        },
+        {
+            "part_id": "PART_B",
+            "assembled_location": [0.0, 0.0, 30.0],
+            "exploded_location": [0.0, 0.0, 10.0],
+            "bbox_dimensions_mm": [10.0, 10.0, 10.0],
+        },
+    ]
+
+    result = check_swept_aabb_collisions(records)
+
+    assert result["checked_samples"] == [0.0, 0.25, 0.5, 0.75, 1.0]
+    assert "collisions" in result
+    assert all("part_a" in item and "part_b" in item and "sample_t" in item for item in result["collisions"])
+
+
+def test_guides_future_assets_and_review_queue_are_deterministic():
+    state = build_exploded_state(PROJECT_ROOT)
+    guides = build_explosion_guides(state)
+    assets = build_future_visual_assets(PROJECT_ROOT)
+    queue = build_explosion_review_queue(state)
+
+    assert len(guides["guides"]) == 82
+    assert guides["guides"][0]["source"] == "PART_001"
+    assert assets["features"]
+    queued_parts = {item["part"] for item in queue}
+    assert {"PART_017", "PART_018", "PART_022", "PART_082"} <= queued_parts
+    assert all("review_question" in item for item in queue)
