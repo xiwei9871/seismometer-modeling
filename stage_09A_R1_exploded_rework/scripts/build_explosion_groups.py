@@ -250,8 +250,6 @@ def validate_explosion_layout(layout: Mapping[str, Any]) -> dict[str, Any]:
             else:
                 raise ValueError(f"R1 {key} contains an invalid item at index {index}")
             if part_id not in EXPECTED_PART_IDS:
-                raise ValueError(f"R1 {key} contains an invalid PART: {part_id!r}")
-            if part_id not in EXPECTED_PART_IDS:
                 raise ValueError(f"R1 {key} contains an unknown PART: {part_id}")
             if part_id in hidden_ids:
                 raise ValueError(f"hidden PART appears in R1 {key}: {part_id}")

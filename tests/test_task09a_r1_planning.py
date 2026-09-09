@@ -250,16 +250,16 @@ def test_analysis_rejects_bbox_mismatch_and_nonfinite_values(monkeypatch):
         ["NOT_A_PART"],
     ],
 )
-def test_layout_rejects_invalid_or_hidden_review_queues(queue_value):
+@pytest.mark.parametrize("queue_name", ("motion_review_queue", "animation_queue", "collision_queue"))
+def test_layout_rejects_invalid_or_hidden_review_queues(queue_name, queue_value):
     layout = deepcopy(build_explosion_layout(PROJECT_ROOT))
-    layout["motion_review_queue"] = queue_value
+    layout[queue_name] = queue_value
     with pytest.raises(ValueError):
         validate_explosion_layout(layout)
 
 
-def test_layout_accepts_string_and_mapping_queue_items_for_visible_parts():
+@pytest.mark.parametrize("queue_name", ("motion_review_queue", "animation_queue", "collision_queue"))
+def test_layout_accepts_string_and_mapping_queue_items_for_visible_parts(queue_name):
     layout = deepcopy(build_explosion_layout(PROJECT_ROOT))
-    layout["motion_review_queue"] = ["PART_001", {"part_id": "PART_002"}]
-    assert validate_explosion_layout(layout)["motion_review_queue"] == layout[
-        "motion_review_queue"
-    ]
+    layout[queue_name] = ["PART_001", {"part_id": "PART_002"}]
+    assert validate_explosion_layout(layout)[queue_name] == layout[queue_name]
