@@ -1,0 +1,168 @@
+{
+  "animation_created": true,
+  "animation_duration_seconds": 18.0,
+  "animation_plan": "/Users/xiwei/modeling/stage_09C_refined_explosion/config/animation_plan.json",
+  "camera_config": "/Users/xiwei/modeling/stage_09C_refined_explosion/config/camera_config.json",
+  "failures": [],
+  "layout": "/Users/xiwei/modeling/stage_09C_refined_explosion/config/refined_layout.json",
+  "outputs": {
+    "exploded_animation_preview.blend": "/Users/xiwei/modeling/stage_09C_refined_explosion/scene/exploded_animation_preview.blend",
+    "exploded_engineering_refined.png": "/Users/xiwei/modeling/stage_09C_refined_explosion/renders/exploded_engineering_refined.png",
+    "exploded_hero_refined.png": "/Users/xiwei/modeling/stage_09C_refined_explosion/renders/exploded_hero_refined.png",
+    "exploded_keyframes_contact_sheet.png": "/Users/xiwei/modeling/stage_09C_refined_explosion/renders/exploded_keyframes_contact_sheet.png",
+    "exploded_preview.mp4": "/Users/xiwei/modeling/stage_09C_refined_explosion/renders/exploded_preview.mp4",
+    "pcb_detail_refined.png": "/Users/xiwei/modeling/stage_09C_refined_explosion/renders/pcb_detail_refined.png",
+    "sensor_detail_refined.png": "/Users/xiwei/modeling/stage_09C_refined_explosion/renders/sensor_detail_refined.png"
+  },
+  "source_faces": 444296,
+  "source_geometry_modified": false,
+  "source_indexed_vertices": 221902,
+  "source_part_count": 82,
+  "stages": [
+    {
+      "command": [
+        "/opt/homebrew/bin/blender",
+        "-b",
+        "--python",
+        "/Users/xiwei/modeling/stage_09C_refined_explosion/scripts/build_refined_scene.py",
+        "--",
+        "--project-root",
+        "/Users/xiwei/modeling"
+      ],
+      "process_returncode": 0,
+      "returncode": 0,
+      "stage": "build_refined_scene",
+      "stderr": "",
+      "stdout": "00:00.265  blend            | Read blend: \"/Users/xiwei/modeling/stage_09A_R1_exploded_rework/scene/exploded_layout_v2.blend\"\n00:00.358  blend            | Read blend: \"/Users/xiwei/modeling/stage_09C_refined_explosion/scene/exploded_animation_preview.blend\"\nBlender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)\nInfo: Saved as \"exploded_animation_preview.blend\"\n{\"animation_created\": false, \"animation_data_count\": 0, \"hidden_part_count\": 60, \"input_r1_validation\": {\"animation_data_count\": 0, \"hidden_part_count\": 60, \"polygons\": 444296, \"source_part_count\": 82, \"vertices\": 221902, \"visible_part_count\": 22}, \"output\": \"/Users/xiwei/modeling/stage_09C_refined_explosion/scene/exploded_animation_preview.blend\", \"polygons\": 444296, \"reopened_validation\": {\"animation_data_count\": 0, \"hidden_part_count\": 60, \"polygons\": 444296, \"source_part_count\": 82, \"vertices\": 221902, \"visible_part_count\": 22}, \"source_part_count\": 82, \"vertices\": 221902, \"visible_part_count\": 22}\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/blender",
+        "-b",
+        "--python",
+        "/Users/xiwei/modeling/stage_09C_refined_explosion/scripts/build_animation_preview.py",
+        "--",
+        "--project-root",
+        "/Users/xiwei/modeling"
+      ],
+      "process_returncode": 0,
+      "returncode": 0,
+      "stage": "build_animation_preview",
+      "stderr": "",
+      "stdout": "00:00.244  blend            | Read blend: \"/Users/xiwei/modeling/stage_09C_refined_explosion/scene/exploded_animation_preview.blend\"\nBlender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)\nInfo: Saved as \"exploded_animation_preview.blend\"\n{\"animated_part_count\": 22, \"animation_created\": true, \"fps\": 30, \"frame_range\": [1, 540], \"hidden_part_animation_count\": 0, \"output\": \"/Users/xiwei/modeling/stage_09C_refined_explosion/scene/exploded_animation_preview.blend\"}\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/blender",
+        "-b",
+        "--python",
+        "/Users/xiwei/modeling/stage_09C_refined_explosion/scripts/render_refined_outputs.py",
+        "--",
+        "--project-root",
+        "/Users/xiwei/modeling"
+      ],
+      "process_returncode": 0,
+      "returncode": 0,
+      "stage": "render_refined_outputs",
+      "stderr": "",
+      "stdout": "11.366  render           | Video append frame 444\n00:11.389  render           | Video append frame 445\n00:11.413  render           | Video append frame 446\n00:11.437  render           | Video append frame 447\n00:11.462  render           | Video append frame 448\n00:11.485  render           | Video append frame 449\n00:11.510  render           | Video append frame 450\n00:11.532  render           | Video append frame 451\n00:11.556  render           | Video append frame 452\n00:11.580  render           | Video append frame 453\n00:11.603  render           | Video append frame 454\n00:11.627  render           | Video append frame 455\n00:11.650  render           | Video append frame 456\n00:11.673  render           | Video append frame 457\n00:11.697  render           | Video append frame 458\n00:11.720  render           | Video append frame 459\n00:11.744  render           | Video append frame 460\n00:11.767  render           | Video append frame 461\n00:11.791  render           | Video append frame 462\n00:11.814  render           | Video append frame 463\n00:11.837  render           | Video append frame 464\n00:11.861  render           | Video append frame 465\n00:11.884  render           | Video append frame 466\n00:11.910  render           | Video append frame 467\n00:11.933  render           | Video append frame 468\n00:11.956  render           | Video append frame 469\n00:11.979  render           | Video append frame 470\n00:12.002  render           | Video append frame 471\n00:12.027  render           | Video append frame 472\n00:12.050  render           | Video append frame 473\n00:12.073  render           | Video append frame 474\n00:12.096  render           | Video append frame 475\n00:12.119  render           | Video append frame 476\n00:12.143  render           | Video append frame 477\n00:12.166  render           | Video append frame 478\n00:12.189  render           | Video append frame 479\n00:12.214  render           | Video append frame 480\n00:12.237  render           | Video append frame 481\n00:12.261  render           | Video append frame 482\n00:12.284  render           | Video append frame 483\n00:12.308  render           | Video append frame 484\n00:12.330  render           | Video append frame 485\n00:12.354  render           | Video append frame 486\n00:12.378  render           | Video append frame 487\n00:12.400  render           | Video append frame 488\n00:12.424  render           | Video append frame 489\n00:12.447  render           | Video append frame 490\n00:12.470  render           | Video append frame 491\n00:12.494  render           | Video append frame 492\n00:12.517  render           | Video append frame 493\n00:12.540  render           | Video append frame 494\n00:12.563  render           | Video append frame 495\n00:12.586  render           | Video append frame 496\n00:12.610  render           | Video append frame 497\n00:12.633  render           | Video append frame 498\n00:12.656  render           | Video append frame 499\n00:12.680  render           | Video append frame 500\n00:12.703  render           | Video append frame 501\n00:12.727  render           | Video append frame 502\n00:12.750  render           | Video append frame 503\n00:12.773  render           | Video append frame 504\n00:12.797  render           | Video append frame 505\n00:12.820  render           | Video append frame 506\n00:12.843  render           | Video append frame 507\n00:12.867  render           | Video append frame 508\n00:12.890  render           | Video append frame 509\n00:12.913  render           | Video append frame 510\n00:12.936  render           | Video append frame 511\n00:12.960  render           | Video append frame 512\n00:12.983  render           | Video append frame 513\n00:13.006  render           | Video append frame 514\n00:13.030  render           | Video append frame 515\n00:13.053  render           | Video append frame 516\n00:13.077  render           | Video append frame 517\n00:13.100  render           | Video append frame 518\n00:13.123  render           | Video append frame 519\n00:13.146  render           | Video append frame 520\n00:13.169  render           | Video append frame 521\n00:13.193  render           | Video append frame 522\n00:13.216  render           | Video append frame 523\n00:13.239  render           | Video append frame 524\n00:13.263  render           | Video append frame 525\n00:13.286  render           | Video append frame 526\n00:13.311  render           | Video append frame 527\n00:13.333  render           | Video append frame 528\n00:13.356  render           | Video append frame 529\n00:13.380  render           | Video append frame 530\n00:13.403  render           | Video append frame 531\n00:13.427  render           | Video append frame 532\n00:13.450  render           | Video append frame 533\n00:13.473  render           | Video append frame 534\n00:13.497  render           | Video append frame 535\n00:13.520  render           | Video append frame 536\n00:13.545  render           | Video append frame 537\n00:13.567  render           | Video append frame 538\n00:13.590  render           | Video append frame 539\n00:13.614  render           | Video append frame 540\nBlender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)\nInfo: Saved as \"exploded_animation_preview.blend\"\n{\"camera_names\": [\"CAM_REFINED_HERO\", \"CAM_REFINED_ENGINEERING\", \"CAM_REFINED_PCB_DETAIL\", \"CAM_REFINED_SENSOR_DETAIL\"], \"fps\": 30, \"frame_range\": [1, 540], \"outputs\": {\"engineering\": \"/Users/xiwei/modeling/stage_09C_refined_explosion/renders/exploded_engineering_refined.png\", \"hero\": \"/Users/xiwei/modeling/stage_09C_refined_explosion/renders/exploded_hero_refined.png\", \"keyframe_dir\": \"/Users/xiwei/modeling/stage_09C_refined_explosion/renders/animation_keyframes\", \"mp4\": \"/Users/xiwei/modeling/stage_09C_refined_explosion/renders/exploded_preview.mp4\", \"pcb\": \"/Users/xiwei/modeling/stage_09C_refined_explosion/renders/pcb_detail_refined.png\", \"sensor\": \"/Users/xiwei/modeling/stage_09C_refined_explosion/renders/sensor_detail_refined.png\"}}\n"
+    },
+    {
+      "output": "/Users/xiwei/modeling/stage_09C_refined_explosion/renders/exploded_keyframes_contact_sheet.png",
+      "returncode": 0,
+      "stage": "compose_keyframes_contact_sheet"
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/blender",
+        "-b",
+        "--python",
+        "/Users/xiwei/modeling/stage_09C_refined_explosion/scripts/validate_refined_scene.py",
+        "--",
+        "--project-root",
+        "/Users/xiwei/modeling"
+      ],
+      "process_returncode": 0,
+      "returncode": 0,
+      "stage": "validate_refined_scene",
+      "stderr": "",
+      "stdout": "00:00.257  blend            | Read blend: \"/Users/xiwei/modeling/stage_09C_refined_explosion/scene/exploded_animation_preview.blend\"\nBlender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)\n{\"animated_part_count\": 22, \"animated_part_ids\": [\"PART_001\", \"PART_002\", \"PART_003\", \"PART_004\", \"PART_005\", \"PART_006\", \"PART_007\", \"PART_008\", \"PART_009\", \"PART_010\", \"PART_011\", \"PART_012\", \"PART_013\", \"PART_014\", \"PART_015\", \"PART_016\", \"PART_017\", \"PART_018\", \"PART_019\", \"PART_020\", \"PART_021\", \"PART_022\"], \"fps\": 30, \"frame1_assembled_mismatches\": [], \"frame540_refined_mismatches\": [], \"frame_range\": [1, 540], \"hidden_part_animation_count\": 0, \"output_checks\": {\"exploded_animation_preview.blend\": true, \"exploded_engineering_refined.png\": true, \"exploded_hero_refined.png\": true, \"exploded_keyframes_contact_sheet.png\": true, \"exploded_preview.mp4\": true, \"pcb_detail_refined.png\": true, \"sensor_detail_refined.png\": true}, \"source_faces\": 444296, \"source_geometry_modified\": false, \"source_indexed_vertices\": 221902, \"source_part_count\": 82, \"status\": \"PASS\", \"visible_part_count\": 22, \"visible_part_ids\": [\"PART_001\", \"PART_002\", \"PART_003\", \"PART_004\", \"PART_005\", \"PART_006\", \"PART_007\", \"PART_008\", \"PART_009\", \"PART_010\", \"PART_011\", \"PART_012\", \"PART_013\", \"PART_014\", \"PART_015\", \"PART_016\", \"PART_017\", \"PART_018\", \"PART_019\", \"PART_020\", \"PART_021\", \"PART_022\"], \"warnings\": []}\n"
+    }
+  ],
+  "status": "PASS",
+  "validation": {
+    "animated_part_count": 22,
+    "animated_part_ids": [
+      "PART_001",
+      "PART_002",
+      "PART_003",
+      "PART_004",
+      "PART_005",
+      "PART_006",
+      "PART_007",
+      "PART_008",
+      "PART_009",
+      "PART_010",
+      "PART_011",
+      "PART_012",
+      "PART_013",
+      "PART_014",
+      "PART_015",
+      "PART_016",
+      "PART_017",
+      "PART_018",
+      "PART_019",
+      "PART_020",
+      "PART_021",
+      "PART_022"
+    ],
+    "fps": 30,
+    "frame1_assembled_mismatches": [],
+    "frame540_refined_mismatches": [],
+    "frame_range": [
+      1,
+      540
+    ],
+    "hidden_part_animation_count": 0,
+    "output_checks": {
+      "exploded_animation_preview.blend": true,
+      "exploded_engineering_refined.png": true,
+      "exploded_hero_refined.png": true,
+      "exploded_keyframes_contact_sheet.png": true,
+      "exploded_preview.mp4": true,
+      "pcb_detail_refined.png": true,
+      "sensor_detail_refined.png": true
+    },
+    "source_faces": 444296,
+    "source_geometry_modified": false,
+    "source_indexed_vertices": 221902,
+    "source_part_count": 82,
+    "status": "PASS",
+    "visible_part_count": 22,
+    "visible_part_ids": [
+      "PART_001",
+      "PART_002",
+      "PART_003",
+      "PART_004",
+      "PART_005",
+      "PART_006",
+      "PART_007",
+      "PART_008",
+      "PART_009",
+      "PART_010",
+      "PART_011",
+      "PART_012",
+      "PART_013",
+      "PART_014",
+      "PART_015",
+      "PART_016",
+      "PART_017",
+      "PART_018",
+      "PART_019",
+      "PART_020",
+      "PART_021",
+      "PART_022"
+    ],
+    "warnings": []
+  }
+}
