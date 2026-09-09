@@ -1,0 +1,18 @@
+from __future__ import annotations
+
+from stage_09A_R1_exploded_rework.scripts.setup_explosion_render import (
+    R1_VIEW_NAMES,
+    render_result_contract,
+)
+
+
+def test_r1_required_render_view_names_are_stable_and_static():
+    assert R1_VIEW_NAMES == (
+        "exploded_hero",
+        "exploded_engineering",
+        "exploded_top",
+        "exploded_rear",
+    )
+    assert render_result_contract({"animation_created": False})[
+        "animation_created"
+    ] is False
