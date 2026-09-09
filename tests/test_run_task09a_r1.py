@@ -11,3 +11,7 @@ def test_blender_stage_succeeded_rejects_traceback_with_zero_exit_code():
     assert blender_stage_succeeded(
         0, "Traceback (most recent call last):\nValueError"
     ) is False
+
+
+def test_blender_stage_succeeded_rejects_nonzero_process_code():
+    assert blender_stage_succeeded(1, "") is False

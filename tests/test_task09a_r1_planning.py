@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 from pathlib import Path
+import math
 
 from stage_09A_R1_exploded_rework.scripts.build_explosion_groups import (
-    IMPORTANT_PART_IDS,
     build_explosion_layout,
     validate_explosion_layout,
 )
@@ -15,6 +15,17 @@ EXPECTED_SOURCE_BASELINE = {
     "faces": 444296,
     "indexed_vertices": 221902,
     "source_sha256": "fd2a7b78540245fd098724206d5ddf169fd2f44c07638e9a6459cd92fea717d1",
+}
+EXPECTED_IMPORTANT_PART_IDS = tuple(f"PART_{index:03d}" for index in range(1, 23))
+EXPECTED_GROUPS = {
+    "MAIN_STACK": ("PART_001", "PART_002", "PART_004", "PART_005"),
+    "SENSOR_BRANCH": ("PART_003", "PART_012", "PART_013", "PART_014"),
+    "PCB_BRANCH": ("PART_006", "PART_007", "PART_019"),
+    "BATTERY_BRANCH": (
+        "PART_008", "PART_009", "PART_010", "PART_011", "PART_015", "PART_016"
+    ),
+    "TOP_INTERFACE_BRANCH": ("PART_017", "PART_018"),
+    "LEVELING_BRANCH": ("PART_020", "PART_021", "PART_022"),
 }
 
 
@@ -28,7 +39,10 @@ def test_r1_preserves_82_source_parts_but_shows_only_22_important_parts():
         if part["presentation_visibility"] == "VISIBLE"
     ]
     assert len(visible) == 22
-    assert {part["part_id"] for part in visible} == set(IMPORTANT_PART_IDS)
+    assert {part["part_id"] for part in visible} == set(EXPECTED_IMPORTANT_PART_IDS)
+    assert layout["layout_version"] == "r1"
+    assert layout["mode"] == "STATIC_HIERARCHICAL_PRESENTATION_R1"
+    assert layout["animation_created"] is False
 
 
 def test_r1_main_stack_shares_part_001_xy_and_increases_strictly_on_z():
@@ -73,8 +87,28 @@ def test_r1_hidden_parts_are_excluded_from_review_and_collision_scope():
     assert all(part["review_scope"] is None for part in hidden)
     assert all(part["collision_scope"] is False for part in hidden)
     assert {item["part_id"] for item in layout["review_queue"]} == set(
-        IMPORTANT_PART_IDS
+        EXPECTED_IMPORTANT_PART_IDS
     )
+    hidden_ids = {part["part_id"] for part in hidden}
+    for key in ("motion_review_queue", "animation_queue", "collision_queue"):
+        assert not set(layout.get(key, [])) & hidden_ids
+
+
+def test_r1_groups_have_exact_approved_membership():
+    layout = build_explosion_layout(PROJECT_ROOT)
+    groups = layout["groups"]
+    assert {
+        group_id: tuple(groups[group_id]["part_ids"])
+        for group_id in EXPECTED_GROUPS
+    } == EXPECTED_GROUPS
+    assigned = [part_id for members in EXPECTED_GROUPS.values() for part_id in members]
+    assert sorted(assigned) == list(EXPECTED_IMPORTANT_PART_IDS)
+
+
+def test_r1_presentation_locations_are_finite():
+    layout = build_explosion_layout(PROJECT_ROOT)
+    for part in layout["parts"].values():
+        assert all(math.isfinite(float(value)) for value in part["presentation_location"])
 
 
 def test_r1_layout_is_deterministic_and_matches_the_frozen_static_baseline():
