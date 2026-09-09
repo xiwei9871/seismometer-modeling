@@ -11,6 +11,8 @@ source/*.STL
 data/*.json
 data/*.csv
 output/*.blend
+*.blend1
+*.blend2
 output/reports/*
 logs/*.log
 references/**/*.[pP][nN][gG]
