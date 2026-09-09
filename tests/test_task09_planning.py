@@ -118,6 +118,11 @@ def test_group_members_share_axis_and_small_parts_are_reviewable():
     assert state["parts"]["PART_022"]["confidence"] == "MEDIUM"
     assert state["parts"]["PART_039"]["requires_manual_confirmation"] is True
     assert 20 <= state["parts"]["PART_039"]["explode_distance_mm"] <= 60
+    assert all(
+        record["requires_manual_confirmation"] is True
+        for record in state["parts"].values()
+        if record["collision_check"] == "WARN"
+    )
 
 
 def test_collision_check_reports_new_overlaps_not_initial_touching():

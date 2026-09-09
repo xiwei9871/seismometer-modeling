@@ -472,6 +472,8 @@ def build_exploded_state(project_root: Path) -> dict[str, Any]:
     }
     for record in records:
         record["collision_check"] = "WARN" if record["part_id"] in collision_parts else "PASS"
+        if record["collision_check"] == "WARN":
+            record["requires_manual_confirmation"] = True
 
     return {
         "state": "EXPLODED",
