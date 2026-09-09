@@ -1,0 +1,13 @@
+{
+  "camera_names": [
+    "CAM_EXPLODED_HERO",
+    "CAM_EXPLODED_ENGINEERING",
+    "CAM_EXPLODED_TOP",
+    "CAM_EXPLODED_REAR"
+  ],
+  "layout_version": "r1",
+  "render_resolution": [
+    1200,
+    900
+  ]
+}

@@ -1,0 +1,6016 @@
+{
+  "animation_anchor": "PART_001",
+  "animation_created": false,
+  "animation_queue": [],
+  "collision_queue": [],
+  "groups": {
+    "BATTERY_BRANCH": {
+      "branch_offset_mm": [
+        255.0,
+        100.0,
+        25.0
+      ],
+      "component_offsets_mm": {},
+      "description": "six battery compartments in a compact 3-by-2 array",
+      "group_id": "BATTERY_BRANCH",
+      "hidden_followers": [],
+      "parent_group": "DEVICE",
+      "part_ids": [
+        "PART_008",
+        "PART_009",
+        "PART_010",
+        "PART_011",
+        "PART_015",
+        "PART_016"
+      ],
+      "presentation_only": true,
+      "primary_axis": "Y",
+      "spacing_level": 2,
+      "visible_part_ids": [
+        "PART_008",
+        "PART_009",
+        "PART_010",
+        "PART_011",
+        "PART_015",
+        "PART_016"
+      ],
+      "zone": "right"
+    },
+    "LEVELING_BRANCH": {
+      "branch_offset_mm": [
+        0.0,
+        0.0,
+        -95.0
+      ],
+      "component_offsets_mm": {},
+      "description": "three leveling cones retained near their mounting footprint",
+      "group_id": "LEVELING_BRANCH",
+      "hidden_followers": [],
+      "parent_group": "MAIN_STACK",
+      "part_ids": [
+        "PART_020",
+        "PART_021",
+        "PART_022"
+      ],
+      "presentation_only": true,
+      "primary_axis": "Z",
+      "spacing_level": 3,
+      "visible_part_ids": [
+        "PART_020",
+        "PART_021",
+        "PART_022"
+      ],
+      "zone": "bottom"
+    },
+    "MAIN_STACK": {
+      "branch_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "component_offsets_mm": {},
+      "description": "central housing, cover, and handle vertical stack",
+      "group_id": "MAIN_STACK",
+      "hidden_followers": [],
+      "parent_group": "DEVICE",
+      "part_ids": [
+        "PART_001",
+        "PART_002",
+        "PART_004",
+        "PART_005"
+      ],
+      "presentation_only": true,
+      "primary_axis": "Z",
+      "spacing_level": 1,
+      "visible_part_ids": [
+        "PART_001",
+        "PART_002",
+        "PART_004",
+        "PART_005"
+      ],
+      "zone": "top"
+    },
+    "PCB_BRANCH": {
+      "branch_offset_mm": [
+        245.0,
+        -70.0,
+        35.0
+      ],
+      "component_offsets_mm": {},
+      "description": "coherent protective plate, PCB, and support-frame branch",
+      "group_id": "PCB_BRANCH",
+      "hidden_followers": [],
+      "parent_group": "DEVICE",
+      "part_ids": [
+        "PART_006",
+        "PART_007",
+        "PART_019"
+      ],
+      "presentation_only": true,
+      "primary_axis": "X",
+      "spacing_level": 2,
+      "visible_part_ids": [
+        "PART_006",
+        "PART_007",
+        "PART_019"
+      ],
+      "zone": "front-right"
+    },
+    "SENSOR_BRANCH": {
+      "branch_offset_mm": [
+        -245.0,
+        -70.0,
+        35.0
+      ],
+      "component_offsets_mm": {},
+      "description": "coherent tri-axis fixture and sensor-core branch",
+      "group_id": "SENSOR_BRANCH",
+      "hidden_followers": [],
+      "parent_group": "DEVICE",
+      "part_ids": [
+        "PART_003",
+        "PART_012",
+        "PART_013",
+        "PART_014"
+      ],
+      "presentation_only": true,
+      "primary_axis": "X",
+      "spacing_level": 2,
+      "visible_part_ids": [
+        "PART_003",
+        "PART_012",
+        "PART_013",
+        "PART_014"
+      ],
+      "zone": "front-left"
+    },
+    "TOP_INTERFACE_BRANCH": {
+      "branch_offset_mm": [
+        145.0,
+        10.0,
+        90.0
+      ],
+      "component_offsets_mm": {},
+      "description": "paired charging/data top interface parts",
+      "group_id": "TOP_INTERFACE_BRANCH",
+      "hidden_followers": [],
+      "parent_group": "MAIN_STACK",
+      "part_ids": [
+        "PART_017",
+        "PART_018"
+      ],
+      "presentation_only": true,
+      "primary_axis": "X",
+      "spacing_level": 3,
+      "visible_part_ids": [
+        "PART_017",
+        "PART_018"
+      ],
+      "zone": "top"
+    }
+  },
+  "layout_version": "r1",
+  "mode": "STATIC_HIERARCHICAL_PRESENTATION_R1",
+  "motion_review_queue": [],
+  "parts": {
+    "PART_001": {
+      "assembled_location": [
+        95.85556030273438,
+        84.43418884277344,
+        232.626708984375
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "top",
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        191.26769530773163,
+        168.79093515872955,
+        92.99998474121094
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Z",
+      "explosion_distance": 0.0,
+      "explosion_sign": 1,
+      "face_count": 66372,
+      "follow_parent_assembly": true,
+      "group": "MAIN_STACK",
+      "notes": "Central primary-axis stack rebuilt from assembled anchor.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_001",
+      "presentation_location": [
+        95.85556030273438,
+        84.43418884277344,
+        232.626708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_001",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "ENCLOSURE",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "REF_EXT_001",
+        "REF_EXT_002",
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "LOWER_HOUSING",
+      "semantic_reason": "user confirms PART_001 is the lower housing; exterior geometry and assembled position agree with the references",
+      "size_class": "MAJOR",
+      "source": "original_stl",
+      "source_component_index": 64,
+      "vertex_count": 33188
+    },
+    "PART_002": {
+      "assembled_location": [
+        95.37657928466797,
+        77.47398376464844,
+        287.3405456542969
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "top",
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        191.19054555892944,
+        168.7224634885788,
+        28.300018310546875
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        92.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Z",
+      "explosion_distance": 92.0,
+      "explosion_sign": 1,
+      "face_count": 40908,
+      "follow_parent_assembly": true,
+      "group": "MAIN_STACK",
+      "notes": "Central primary-axis stack rebuilt from assembled anchor.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_002",
+      "presentation_location": [
+        95.85556030273438,
+        84.43418884277344,
+        324.626708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_001",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "ENCLOSURE",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "REF_EXT_001",
+        "REF_EXT_002",
+        "REF_EXT_003",
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "UPPER_HOUSING",
+      "semantic_reason": "user confirms PART_002 is the upper housing; geometry is positioned at the housing seam",
+      "size_class": "MAJOR",
+      "source": "original_stl",
+      "source_component_index": 0,
+      "vertex_count": 20414
+    },
+    "PART_003": {
+      "assembled_location": [
+        94.81449127197266,
+        85.9849853515625,
+        224.35025024414062
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "front-left",
+      "assembly_zone_offset_mm": [
+        -245.0,
+        -70.0,
+        35.0
+      ],
+      "bbox_dimensions_mm": [
+        110.0,
+        109.99999809265137,
+        55.00013732910156
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "X",
+      "explosion_distance": 245.0,
+      "explosion_sign": -1,
+      "face_count": 97714,
+      "follow_parent_assembly": true,
+      "group": "SENSOR_BRANCH",
+      "notes": "Sensor fixture travels as one left/front branch before local XYZ expansion.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_003",
+      "presentation_location": [
+        -149.14443969726562,
+        14.434188842773438,
+        267.626708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_001",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "SENSOR_ASSEMBLY",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "REF_EXT_003",
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "TRI_AXIS_SENSOR_FIXTURE",
+      "semantic_reason": "user confirms this orthogonal clamp fixture holds the three axis sensor core parts PART_012-PART_014; topology remains unrepaired",
+      "size_class": "MAJOR",
+      "source": "original_stl",
+      "source_component_index": 26,
+      "vertex_count": 48613
+    },
+    "PART_004": {
+      "assembled_location": [
+        87.55231475830078,
+        80.91464233398438,
+        284.6927490234375
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "top",
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        153.39999771118164,
+        147.00000190734863,
+        11.60003662109375
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        160.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Z",
+      "explosion_distance": 160.0,
+      "explosion_sign": 1,
+      "face_count": 3796,
+      "follow_parent_assembly": true,
+      "group": "MAIN_STACK",
+      "notes": "Central primary-axis stack rebuilt from assembled anchor.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_004",
+      "presentation_location": [
+        95.85556030273438,
+        84.43418884277344,
+        392.626708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_001",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "ENCLOSURE",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "REF_EXT_001",
+        "REF_EXT_002",
+        "REF_EXT_003",
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "UPPER_HOUSING_TOP_COVER",
+      "semantic_reason": "user confirms this is the upper housing top cover and that it protects/obscures the PCB-side interior and antenna area",
+      "size_class": "MAJOR",
+      "source": "original_stl",
+      "source_component_index": 32,
+      "vertex_count": 1864
+    },
+    "PART_005": {
+      "assembled_location": [
+        95.81245422363281,
+        84.46949768066406,
+        327.1112365722656
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "top",
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        140.0,
+        25.0,
+        52.000030517578125
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        235.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Z",
+      "explosion_distance": 235.0,
+      "explosion_sign": 1,
+      "face_count": 11778,
+      "follow_parent_assembly": true,
+      "group": "MAIN_STACK",
+      "notes": "Central primary-axis stack rebuilt from assembled anchor.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_005",
+      "presentation_location": [
+        95.85556030273438,
+        84.43418884277344,
+        467.626708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_001",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "HANDLE",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "REF_EXT_001",
+        "REF_EXT_002",
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "HANDLE",
+      "semantic_reason": "U-shaped geometry and top-of-device position directly match the handle; user additionally confirms it conceals the 4G/Wi-Fi antennas",
+      "size_class": "MAJOR",
+      "source": "original_stl",
+      "source_component_index": 63,
+      "vertex_count": 5873
+    },
+    "PART_006": {
+      "assembled_location": [
+        94.81751251220703,
+        84.72936248779297,
+        263.4551696777344
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "front-right",
+      "assembly_zone_offset_mm": [
+        245.0,
+        -70.0,
+        35.0
+      ],
+      "bbox_dimensions_mm": [
+        112.0,
+        128.38147354125977,
+        11.600006103515625
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        82.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "X",
+      "explosion_distance": 245.0,
+      "explosion_sign": 1,
+      "face_count": 1444,
+      "follow_parent_assembly": true,
+      "group": "PCB_BRANCH",
+      "notes": "PCB parts travel as one right/front branch before local layer separation.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_006",
+      "presentation_location": [
+        340.8555603027344,
+        14.434188842773438,
+        349.626708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_019",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "ENCLOSURE",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "REF_EXT_003",
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "PCB_PROTECTIVE_PLATE",
+      "semantic_reason": "user identifies PART_006 as a PCB-protective plate with a role similar to PART_004",
+      "size_class": "MAJOR",
+      "source": "original_stl",
+      "source_component_index": 24,
+      "vertex_count": 710
+    },
+    "PART_007": {
+      "assembled_location": [
+        95.69351959228516,
+        84.47615051269531,
+        274.0874328613281
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "front-right",
+      "assembly_zone_offset_mm": [
+        245.0,
+        -70.0,
+        35.0
+      ],
+      "bbox_dimensions_mm": [
+        185.21723461151123,
+        162.70808815956116,
+        2.5
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        -45.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "X",
+      "explosion_distance": 245.0,
+      "explosion_sign": 1,
+      "face_count": 43336,
+      "follow_parent_assembly": true,
+      "group": "PCB_BRANCH",
+      "notes": "PCB parts travel as one right/front branch before local layer separation.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_007",
+      "presentation_location": [
+        340.8555603027344,
+        14.434188842773438,
+        222.626708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_019",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "PCB_ASSEMBLY",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "REF_PCB_001",
+        "REF_PCB_002",
+        "REF_PCB_003",
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "PCB_SUPPORT_FRAME",
+      "semantic_reason": "large thin perimeter frame is consistent with the PCB references; user confirms it bridges the upper and lower protective parts",
+      "size_class": "MAJOR",
+      "source": "original_stl",
+      "source_component_index": 71,
+      "vertex_count": 21656
+    },
+    "PART_008": {
+      "assembled_location": [
+        130.6017608642578,
+        39.96284866333008,
+        267.9840087890625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "right",
+      "assembly_zone_offset_mm": [
+        255.0,
+        100.0,
+        25.0
+      ],
+      "bbox_dimensions_mm": [
+        26.000648498535156,
+        30.802125930786133,
+        75.49998474121094
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        -54.0,
+        -42.0,
+        0.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Y",
+      "explosion_distance": 100.0,
+      "explosion_sign": 1,
+      "face_count": 4226,
+      "follow_parent_assembly": true,
+      "group": "BATTERY_BRANCH",
+      "notes": "Battery compartments form a compact deterministic 3-by-2 array.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_008",
+      "presentation_location": [
+        296.8555603027344,
+        142.43418884277344,
+        257.626708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_001",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "BATTERY_ASSEMBLY",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "BATTERY_COMPARTMENT_01",
+      "semantic_reason": "user identifies this repeated enclosure component as one of the battery compartments",
+      "size_class": "MAJOR",
+      "source": "original_stl",
+      "source_component_index": 69,
+      "vertex_count": 2115
+    },
+    "PART_009": {
+      "assembled_location": [
+        60.81211471557617,
+        128.98370361328125,
+        267.98388671875
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "right",
+      "assembly_zone_offset_mm": [
+        255.0,
+        100.0,
+        25.0
+      ],
+      "bbox_dimensions_mm": [
+        26.000648498535156,
+        30.8021240234375,
+        75.49998474121094
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        0.0,
+        -42.0,
+        0.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Y",
+      "explosion_distance": 100.0,
+      "explosion_sign": 1,
+      "face_count": 4226,
+      "follow_parent_assembly": true,
+      "group": "BATTERY_BRANCH",
+      "notes": "Battery compartments form a compact deterministic 3-by-2 array.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_009",
+      "presentation_location": [
+        350.8555603027344,
+        142.43418884277344,
+        257.626708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_001",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "BATTERY_ASSEMBLY",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "BATTERY_COMPARTMENT_02",
+      "semantic_reason": "user identifies this repeated enclosure component as one of the battery compartments",
+      "size_class": "MAJOR",
+      "source": "original_stl",
+      "source_component_index": 66,
+      "vertex_count": 2115
+    },
+    "PART_010": {
+      "assembled_location": [
+        116.8070068359375,
+        136.94886779785156,
+        267.98382568359375
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "right",
+      "assembly_zone_offset_mm": [
+        255.0,
+        100.0,
+        25.0
+      ],
+      "bbox_dimensions_mm": [
+        29.216415405273438,
+        24.975784301757812,
+        75.49998474121094
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        54.0,
+        -42.0,
+        0.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Y",
+      "explosion_distance": 100.0,
+      "explosion_sign": 1,
+      "face_count": 4226,
+      "follow_parent_assembly": true,
+      "group": "BATTERY_BRANCH",
+      "notes": "Battery compartments form a compact deterministic 3-by-2 array.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_010",
+      "presentation_location": [
+        404.8555603027344,
+        142.43418884277344,
+        257.626708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_001",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "BATTERY_ASSEMBLY",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "BATTERY_COMPARTMENT_03",
+      "semantic_reason": "user identifies this repeated enclosure component as one of the battery compartments",
+      "size_class": "MAJOR",
+      "source": "original_stl",
+      "source_component_index": 65,
+      "vertex_count": 2115
+    },
+    "PART_011": {
+      "assembled_location": [
+        74.60697174072266,
+        31.9980411529541,
+        267.98358154296875
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "right",
+      "assembly_zone_offset_mm": [
+        255.0,
+        100.0,
+        25.0
+      ],
+      "bbox_dimensions_mm": [
+        29.216415405273438,
+        24.975778579711914,
+        75.49998474121094
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        -54.0,
+        42.0,
+        0.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Y",
+      "explosion_distance": 100.0,
+      "explosion_sign": 1,
+      "face_count": 4226,
+      "follow_parent_assembly": true,
+      "group": "BATTERY_BRANCH",
+      "notes": "Battery compartments form a compact deterministic 3-by-2 array.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_011",
+      "presentation_location": [
+        296.8555603027344,
+        226.43418884277344,
+        257.626708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_001",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "BATTERY_ASSEMBLY",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "BATTERY_COMPARTMENT_04",
+      "semantic_reason": "user identifies this repeated enclosure component as one of the battery compartments",
+      "size_class": "MAJOR",
+      "source": "original_stl",
+      "source_component_index": 67,
+      "vertex_count": 2115
+    },
+    "PART_012": {
+      "assembled_location": [
+        112.40691375732422,
+        73.47695922851562,
+        229.2144317626953
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "front-left",
+      "assembly_zone_offset_mm": [
+        -245.0,
+        -70.0,
+        35.0
+      ],
+      "bbox_dimensions_mm": [
+        32.899993896484375,
+        32.900001525878906,
+        47.20001220703125
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        -68.0,
+        0.0,
+        12.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "X",
+      "explosion_distance": 245.0,
+      "explosion_sign": -1,
+      "face_count": 3876,
+      "follow_parent_assembly": true,
+      "group": "SENSOR_BRANCH",
+      "notes": "Sensor fixture travels as one left/front branch before local XYZ expansion.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_012",
+      "presentation_location": [
+        -217.14443969726562,
+        14.434188842773438,
+        279.626708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_003",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "SENSOR_ASSEMBLY",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "REF_EXT_003",
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SENSOR_CORE_FIXTURE_X",
+      "semantic_reason": "user identifies this orthogonal fixture member as the X/Y/Z-axis element of the three-axis sensor core clamp held by PART_003",
+      "size_class": "MAJOR",
+      "source": "original_stl",
+      "source_component_index": 35,
+      "vertex_count": 1940
+    },
+    "PART_013": {
+      "assembled_location": [
+        74.60322570800781,
+        71.80152130126953,
+        225.88619995117188
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "front-left",
+      "assembly_zone_offset_mm": [
+        -245.0,
+        -70.0,
+        35.0
+      ],
+      "bbox_dimensions_mm": [
+        32.900001525878906,
+        47.20000457763672,
+        32.899993896484375
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        0.0,
+        42.0,
+        12.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "X",
+      "explosion_distance": 245.0,
+      "explosion_sign": -1,
+      "face_count": 3876,
+      "follow_parent_assembly": true,
+      "group": "SENSOR_BRANCH",
+      "notes": "Sensor fixture travels as one left/front branch before local XYZ expansion.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_013",
+      "presentation_location": [
+        -149.14443969726562,
+        56.43418884277344,
+        279.626708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_003",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "SENSOR_ASSEMBLY",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "REF_EXT_003",
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SENSOR_CORE_FIXTURE_Y",
+      "semantic_reason": "user identifies this orthogonal fixture member as the X/Y/Z-axis element of the three-axis sensor core clamp held by PART_003",
+      "size_class": "MAJOR",
+      "source": "original_stl",
+      "source_component_index": 52,
+      "vertex_count": 1940
+    },
+    "PART_014": {
+      "assembled_location": [
+        97.0782241821289,
+        111.86988830566406,
+        225.8865203857422
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "front-left",
+      "assembly_zone_offset_mm": [
+        -245.0,
+        -70.0,
+        35.0
+      ],
+      "bbox_dimensions_mm": [
+        47.19999694824219,
+        32.899993896484375,
+        32.899993896484375
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        58.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "X",
+      "explosion_distance": 245.0,
+      "explosion_sign": -1,
+      "face_count": 3876,
+      "follow_parent_assembly": true,
+      "group": "SENSOR_BRANCH",
+      "notes": "Sensor fixture travels as one left/front branch before local XYZ expansion.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_014",
+      "presentation_location": [
+        -149.14443969726562,
+        14.434188842773438,
+        325.626708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_003",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "SENSOR_ASSEMBLY",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "REF_EXT_003",
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SENSOR_CORE_FIXTURE_Z",
+      "semantic_reason": "user identifies this orthogonal fixture member as the X/Y/Z-axis element of the three-axis sensor core clamp held by PART_003",
+      "size_class": "MAJOR",
+      "source": "original_stl",
+      "source_component_index": 38,
+      "vertex_count": 1940
+    },
+    "PART_015": {
+      "assembled_location": [
+        39.70875549316406,
+        76.50875854492188,
+        267.9900817871094
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "right",
+      "assembly_zone_offset_mm": [
+        255.0,
+        100.0,
+        25.0
+      ],
+      "bbox_dimensions_mm": [
+        25.264123916625977,
+        21.0,
+        75.49998474121094
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        0.0,
+        42.0,
+        0.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Y",
+      "explosion_distance": 100.0,
+      "explosion_sign": 1,
+      "face_count": 4236,
+      "follow_parent_assembly": true,
+      "group": "BATTERY_BRANCH",
+      "notes": "Battery compartments form a compact deterministic 3-by-2 array.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_015",
+      "presentation_location": [
+        350.8555603027344,
+        226.43418884277344,
+        257.626708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_001",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "BATTERY_ASSEMBLY",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "BATTERY_COMPARTMENT_05",
+      "semantic_reason": "user identifies this repeated enclosure component as one of the battery compartments",
+      "size_class": "MAJOR",
+      "source": "original_stl",
+      "source_component_index": 68,
+      "vertex_count": 2120
+    },
+    "PART_016": {
+      "assembled_location": [
+        151.70504760742188,
+        92.43799591064453,
+        267.989501953125
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "right",
+      "assembly_zone_offset_mm": [
+        255.0,
+        100.0,
+        25.0
+      ],
+      "bbox_dimensions_mm": [
+        25.264114379882812,
+        21.0,
+        75.49998474121094
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        54.0,
+        42.0,
+        0.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Y",
+      "explosion_distance": 100.0,
+      "explosion_sign": 1,
+      "face_count": 4236,
+      "follow_parent_assembly": true,
+      "group": "BATTERY_BRANCH",
+      "notes": "Battery compartments form a compact deterministic 3-by-2 array.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_016",
+      "presentation_location": [
+        404.8555603027344,
+        226.43418884277344,
+        257.626708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_001",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "BATTERY_ASSEMBLY",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "BATTERY_COMPARTMENT_06",
+      "semantic_reason": "user identifies this repeated enclosure component as one of the battery compartments",
+      "size_class": "MAJOR",
+      "source": "original_stl",
+      "source_component_index": 70,
+      "vertex_count": 2120
+    },
+    "PART_017": {
+      "assembled_location": [
+        139.1671142578125,
+        47.54949188232422,
+        281.6003723144531
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "top",
+      "assembly_zone_offset_mm": [
+        145.0,
+        10.0,
+        90.0
+      ],
+      "bbox_dimensions_mm": [
+        25.902496337890625,
+        23.252883911132812,
+        40.460540771484375
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        -28.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "X",
+      "explosion_distance": 145.0,
+      "explosion_sign": 1,
+      "face_count": 13920,
+      "follow_parent_assembly": true,
+      "group": "TOP_INTERFACE_BRANCH",
+      "notes": "Paired top interface parts remain a secondary branch.",
+      "parent_group": "MAIN_STACK",
+      "part_id": "PART_017",
+      "presentation_location": [
+        212.85556030273438,
+        94.43418884277344,
+        322.626708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_004",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "CONNECTOR",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "REF_EXT_001",
+        "REF_EXT_002",
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "TOP_INTERFACE_PORT_01",
+      "semantic_reason": "user confirms this is one of the two top interface ports; exact charge-versus-data assignment is intentionally unresolved",
+      "size_class": "MAJOR",
+      "source": "original_stl",
+      "source_component_index": 29,
+      "vertex_count": 6962
+    },
+    "PART_018": {
+      "assembled_location": [
+        52.24369812011719,
+        117.79388427734375,
+        276.4129333496094
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "top",
+      "assembly_zone_offset_mm": [
+        145.0,
+        10.0,
+        90.0
+      ],
+      "bbox_dimensions_mm": [
+        27.432193756103516,
+        17.599998474121094,
+        44.659332275390625
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        28.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "X",
+      "explosion_distance": 145.0,
+      "explosion_sign": 1,
+      "face_count": 15586,
+      "follow_parent_assembly": true,
+      "group": "TOP_INTERFACE_BRANCH",
+      "notes": "Paired top interface parts remain a secondary branch.",
+      "parent_group": "MAIN_STACK",
+      "part_id": "PART_018",
+      "presentation_location": [
+        268.8555603027344,
+        94.43418884277344,
+        322.626708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_004",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "CONNECTOR",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "REF_EXT_001",
+        "REF_EXT_002",
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "TOP_INTERFACE_PORT_02",
+      "semantic_reason": "user confirms this is one of the two top interface ports; exact charge-versus-data assignment is intentionally unresolved",
+      "size_class": "MAJOR",
+      "source": "original_stl",
+      "source_component_index": 46,
+      "vertex_count": 7795
+    },
+    "PART_019": {
+      "assembled_location": [
+        95.70696258544922,
+        84.47337341308594,
+        274.68505859375
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "front-right",
+      "assembly_zone_offset_mm": [
+        245.0,
+        -70.0,
+        35.0
+      ],
+      "bbox_dimensions_mm": [
+        102.00000381469727,
+        101.99999618530273,
+        1.600006103515625
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        20.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "X",
+      "explosion_distance": 245.0,
+      "explosion_sign": 1,
+      "face_count": 812,
+      "follow_parent_assembly": true,
+      "group": "PCB_BRANCH",
+      "notes": "PCB parts travel as one right/front branch before local layer separation.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_019",
+      "presentation_location": [
+        340.8555603027344,
+        14.434188842773438,
+        287.626708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_001",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "PCB_ASSEMBLY",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "REF_PCB_001",
+        "REF_PCB_002",
+        "REF_PCB_003",
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "MAIN_PCB",
+      "semantic_reason": "thin centered polygonal board candidate shares the PCB layer height and central assembly position; user confirms this is the MAIN_PCB",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 58,
+      "vertex_count": 400
+    },
+    "PART_020": {
+      "assembled_location": [
+        157.19467163085938,
+        119.97331237792969,
+        177.118896484375
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "bottom",
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        -95.0
+      ],
+      "bbox_dimensions_mm": [
+        21.99920654296875,
+        21.99920654296875,
+        23.0
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        61.339111328125,
+        35.53912353515625,
+        -95.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Z",
+      "explosion_distance": 95.0,
+      "explosion_sign": -1,
+      "face_count": 1508,
+      "follow_parent_assembly": true,
+      "group": "LEVELING_BRANCH",
+      "notes": "Original leveling footprint retained; only bounded downward separation is applied.",
+      "parent_group": "MAIN_STACK",
+      "part_id": "PART_020",
+      "presentation_location": [
+        157.19467163085938,
+        119.97331237792969,
+        82.118896484375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_001",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "LEVELING_ASSEMBLY",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "REF_EXT_001",
+        "REF_EXT_002",
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "LEVELING_CONE_01",
+      "semantic_reason": "user identifies the bottom conical support as a leveling cone; the third matching instance is inferred for PART_022 from geometry and placement",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 34,
+      "vertex_count": 756
+    },
+    "PART_021": {
+      "assembled_location": [
+        95.70979309082031,
+        13.508614540100098,
+        176.96792602539062
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "bottom",
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        -95.0
+      ],
+      "bbox_dimensions_mm": [
+        21.990814208984375,
+        21.990821599960327,
+        23.0
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        -0.1457672119140625,
+        -70.92557430267334,
+        -95.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Z",
+      "explosion_distance": 95.0,
+      "explosion_sign": -1,
+      "face_count": 1538,
+      "follow_parent_assembly": true,
+      "group": "LEVELING_BRANCH",
+      "notes": "Original leveling footprint retained; only bounded downward separation is applied.",
+      "parent_group": "MAIN_STACK",
+      "part_id": "PART_021",
+      "presentation_location": [
+        95.70979309082031,
+        13.508614540100098,
+        81.96792602539062
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_001",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "LEVELING_ASSEMBLY",
+      "semantic_confidence": "HIGH",
+      "semantic_evidence": [
+        "REF_EXT_001",
+        "REF_EXT_002",
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "LEVELING_CONE_02",
+      "semantic_reason": "user identifies the bottom conical support as a leveling cone; the third matching instance is inferred for PART_022 from geometry and placement",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 57,
+      "vertex_count": 771
+    },
+    "PART_022": {
+      "assembled_location": [
+        34.21908187866211,
+        119.97331237792969,
+        176.84274291992188
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": "bottom",
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        -95.0
+      ],
+      "bbox_dimensions_mm": [
+        21.976821899414062,
+        21.97681427001953,
+        23.0
+      ],
+      "collision_scope": true,
+      "component_offset_mm": [
+        -61.636478424072266,
+        35.53912353515625,
+        -95.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Z",
+      "explosion_distance": 95.0,
+      "explosion_sign": -1,
+      "face_count": 1564,
+      "follow_parent_assembly": true,
+      "group": "LEVELING_BRANCH",
+      "notes": "Original leveling footprint retained; only bounded downward separation is applied.",
+      "parent_group": "MAIN_STACK",
+      "part_id": "PART_022",
+      "presentation_location": [
+        34.21908187866211,
+        119.97331237792969,
+        81.84274291992188
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "VISIBLE",
+      "probable_parent_object": "PART_001",
+      "review_scope": "R1_PRESENTATION_LAYOUT",
+      "semantic_category": "LEVELING_ASSEMBLY",
+      "semantic_confidence": "MEDIUM",
+      "semantic_evidence": [
+        "REF_EXT_001",
+        "REF_EXT_002",
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "LEVELING_CONE_03",
+      "semantic_reason": "user identifies the bottom conical support as a leveling cone; the third matching instance is inferred for PART_022 from geometry and placement",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 43,
+      "vertex_count": 784
+    },
+    "PART_023": {
+      "assembled_location": [
+        95.15496826171875,
+        137.17361450195312,
+        289.5655517578125
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        42.79999542236328,
+        40.5,
+        4.600006103515625
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 542,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_023",
+      "presentation_location": [
+        95.15496826171875,
+        137.17361450195312,
+        289.5655517578125
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 10,
+      "vertex_count": 269
+    },
+    "PART_024": {
+      "assembled_location": [
+        156.1367645263672,
+        84.51374816894531,
+        294.4224853515625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        8.000015258789062,
+        9.23760986328125,
+        60.5
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1088,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_024",
+      "presentation_location": [
+        156.1367645263672,
+        84.51374816894531,
+        294.4224853515625
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 9,
+      "vertex_count": 546
+    },
+    "PART_025": {
+      "assembled_location": [
+        35.13690948486328,
+        84.51372528076172,
+        294.4224853515625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        8.0,
+        9.23760986328125,
+        60.5
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1088,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_025",
+      "presentation_location": [
+        35.13690948486328,
+        84.51372528076172,
+        294.4224853515625
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 30,
+      "vertex_count": 546
+    },
+    "PART_026": {
+      "assembled_location": [
+        61.76817321777344,
+        143.23306274414062,
+        275.44500732421875
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        37.56787872314453,
+        26.221099853515625,
+        2.999969482421875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 3520,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_026",
+      "presentation_location": [
+        61.76817321777344,
+        143.23306274414062,
+        275.44500732421875
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 81,
+      "vertex_count": 1758
+    },
+    "PART_027": {
+      "assembled_location": [
+        129.60047912597656,
+        143.25405883789062,
+        275.4448547363281
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        37.56787872314453,
+        26.221099853515625,
+        2.999969482421875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 3520,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_027",
+      "presentation_location": [
+        129.60047912597656,
+        143.25405883789062,
+        275.4448547363281
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 80,
+      "vertex_count": 1758
+    },
+    "PART_028": {
+      "assembled_location": [
+        61.73794937133789,
+        25.735923767089844,
+        275.44403076171875
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        37.56787872314453,
+        26.221089363098145,
+        2.999969482421875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 3518,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_028",
+      "presentation_location": [
+        61.73794937133789,
+        25.735923767089844,
+        275.44403076171875
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 77,
+      "vertex_count": 1757
+    },
+    "PART_029": {
+      "assembled_location": [
+        129.60926818847656,
+        25.70208740234375,
+        275.445068359375
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        37.56787872314453,
+        26.221089363098145,
+        2.999969482421875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 3520,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_029",
+      "presentation_location": [
+        129.60926818847656,
+        25.70208740234375,
+        275.445068359375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 78,
+      "vertex_count": 1758
+    },
+    "PART_030": {
+      "assembled_location": [
+        51.706932067871094,
+        160.68360900878906,
+        294.3006896972656
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        7.000003814697266,
+        7.0,
+        39.0
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1446,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_030",
+      "presentation_location": [
+        51.706932067871094,
+        160.68360900878906,
+        294.3006896972656
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 55,
+      "vertex_count": 725
+    },
+    "PART_031": {
+      "assembled_location": [
+        51.706932067871094,
+        8.26312255859375,
+        294.3006896972656
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        7.000003814697266,
+        6.999999046325684,
+        39.0
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1446,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_031",
+      "presentation_location": [
+        51.706932067871094,
+        8.26312255859375,
+        294.3006896972656
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 18,
+      "vertex_count": 725
+    },
+    "PART_032": {
+      "assembled_location": [
+        139.70684814453125,
+        160.6836395263672,
+        294.3004150390625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        7.0,
+        7.0,
+        39.0
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1446,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_032",
+      "presentation_location": [
+        139.70684814453125,
+        160.6836395263672,
+        294.3004150390625
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 7,
+      "vertex_count": 725
+    },
+    "PART_033": {
+      "assembled_location": [
+        183.70672607421875,
+        84.47333526611328,
+        294.3003234863281
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        7.0,
+        7.0,
+        39.0
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1446,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_033",
+      "presentation_location": [
+        183.70672607421875,
+        84.47333526611328,
+        294.3003234863281
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 12,
+      "vertex_count": 725
+    },
+    "PART_034": {
+      "assembled_location": [
+        7.706912994384766,
+        84.47337341308594,
+        294.29986572265625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        6.999999523162842,
+        7.0,
+        39.0
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1446,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_034",
+      "presentation_location": [
+        7.706912994384766,
+        84.47337341308594,
+        294.29986572265625
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 25,
+      "vertex_count": 725
+    },
+    "PART_035": {
+      "assembled_location": [
+        139.7069854736328,
+        8.263130187988281,
+        294.3003845214844
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        6.9991607666015625,
+        6.992743015289307,
+        39.0
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1446,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_035",
+      "presentation_location": [
+        139.7069854736328,
+        8.263130187988281,
+        294.3003845214844
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 37,
+      "vertex_count": 725
+    },
+    "PART_036": {
+      "assembled_location": [
+        74.90689849853516,
+        55.77340316772461,
+        239.67115783691406
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        28.014202117919922,
+        8.000003814697266,
+        7.968292236328125
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 192,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_036",
+      "presentation_location": [
+        74.90689849853516,
+        55.77340316772461,
+        239.67115783691406
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 75,
+      "vertex_count": 98
+    },
+    "PART_037": {
+      "assembled_location": [
+        113.10680389404297,
+        112.17337036132812,
+        239.68861389160156
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        8.0,
+        28.014205932617188,
+        7.968292236328125
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 192,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_037",
+      "presentation_location": [
+        113.10680389404297,
+        112.17337036132812,
+        239.68861389160156
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 72,
+      "vertex_count": 98
+    },
+    "PART_038": {
+      "assembled_location": [
+        91.10688018798828,
+        112.17333984375,
+        239.68861389160156
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        8.0,
+        28.014205932617188,
+        7.968292236328125
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 192,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_038",
+      "presentation_location": [
+        91.10688018798828,
+        112.17333984375,
+        239.68861389160156
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 73,
+      "vertex_count": 98
+    },
+    "PART_039": {
+      "assembled_location": [
+        74.90691375732422,
+        77.7734146118164,
+        239.67115783691406
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        28.014202117919922,
+        8.0,
+        7.968292236328125
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 192,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_039",
+      "presentation_location": [
+        74.90691375732422,
+        77.7734146118164,
+        239.67115783691406
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 74,
+      "vertex_count": 98
+    },
+    "PART_040": {
+      "assembled_location": [
+        47.7069206237793,
+        116.47332763671875,
+        295.5859680175781
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        18.0,
+        18.0,
+        4.999969482421875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 440,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_040",
+      "presentation_location": [
+        47.7069206237793,
+        116.47332763671875,
+        295.5859680175781
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 45,
+      "vertex_count": 220
+    },
+    "PART_041": {
+      "assembled_location": [
+        143.7986602783203,
+        52.625816345214844,
+        295.5859680175781
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        17.999923706054688,
+        17.999927520751953,
+        4.999969482421875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 440,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_041",
+      "presentation_location": [
+        143.7986602783203,
+        52.625816345214844,
+        295.5859680175781
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 28,
+      "vertex_count": 220
+    },
+    "PART_042": {
+      "assembled_location": [
+        27.854116439819336,
+        84.48033142089844,
+        275.377197265625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        10.0,
+        41.0,
+        2.999969482421875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 3412,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_042",
+      "presentation_location": [
+        27.854116439819336,
+        84.48033142089844,
+        275.377197265625
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 76,
+      "vertex_count": 1704
+    },
+    "PART_043": {
+      "assembled_location": [
+        163.55960083007812,
+        84.46659088134766,
+        275.377197265625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        9.999984741210938,
+        41.0,
+        2.999969482421875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 3412,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_043",
+      "presentation_location": [
+        163.55960083007812,
+        84.46659088134766,
+        275.377197265625
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 79,
+      "vertex_count": 1704
+    },
+    "PART_044": {
+      "assembled_location": [
+        168.69692993164062,
+        84.47332000732422,
+        283.3001708984375
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.600006103515625,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_044",
+      "presentation_location": [
+        168.69692993164062,
+        84.47332000732422,
+        283.3001708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 5,
+      "vertex_count": 534
+    },
+    "PART_045": {
+      "assembled_location": [
+        132.19715881347656,
+        21.25350570678711,
+        283.3001403808594
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.600006103515625,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_045",
+      "presentation_location": [
+        132.19715881347656,
+        21.25350570678711,
+        283.3001403808594
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "MEDIUM",
+      "source": "original_stl",
+      "source_component_index": 61,
+      "vertex_count": 534
+    },
+    "PART_046": {
+      "assembled_location": [
+        27.866783142089844,
+        100.97339630126953,
+        278.271728515625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.600006103515625,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_046",
+      "presentation_location": [
+        27.866783142089844,
+        100.97339630126953,
+        278.271728515625
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 11,
+      "vertex_count": 534
+    },
+    "PART_047": {
+      "assembled_location": [
+        27.86678123474121,
+        67.97338104248047,
+        278.2718811035156
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.600006103515625,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_047",
+      "presentation_location": [
+        27.86678123474121,
+        67.97338104248047,
+        278.2718811035156
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 23,
+      "vertex_count": 534
+    },
+    "PART_048": {
+      "assembled_location": [
+        59.19702911376953,
+        21.253496170043945,
+        283.3000183105469
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.600002288818359,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_048",
+      "presentation_location": [
+        59.19702911376953,
+        21.253496170043945,
+        283.3000183105469
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 17,
+      "vertex_count": 534
+    },
+    "PART_049": {
+      "assembled_location": [
+        61.755897521972656,
+        50.53224563598633,
+        273.20025634765625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.599998474121094,
+        5.600002288818359,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_049",
+      "presentation_location": [
+        61.755897521972656,
+        50.53224563598633,
+        273.20025634765625
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 27,
+      "vertex_count": 534
+    },
+    "PART_050": {
+      "assembled_location": [
+        22.697017669677734,
+        84.47331237792969,
+        283.3001708984375
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.599998474121094,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_050",
+      "presentation_location": [
+        22.697017669677734,
+        84.47331237792969,
+        283.3001708984375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 2,
+      "vertex_count": 534
+    },
+    "PART_051": {
+      "assembled_location": [
+        95.69697570800781,
+        84.47340393066406,
+        283.3004455566406
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.599998474121094,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_051",
+      "presentation_location": [
+        95.69697570800781,
+        84.47340393066406,
+        283.3004455566406
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 36,
+      "vertex_count": 534
+    },
+    "PART_052": {
+      "assembled_location": [
+        43.149051666259766,
+        54.12335205078125,
+        264.8721008300781
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.599998474121094,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_052",
+      "presentation_location": [
+        43.149051666259766,
+        54.12335205078125,
+        264.8721008300781
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 44,
+      "vertex_count": 534
+    },
+    "PART_053": {
+      "assembled_location": [
+        43.1490592956543,
+        114.82328796386719,
+        264.87225341796875
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.599998474121094,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_053",
+      "presentation_location": [
+        43.1490592956543,
+        114.82328796386719,
+        264.87225341796875
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 20,
+      "vertex_count": 534
+    },
+    "PART_054": {
+      "assembled_location": [
+        61.755882263183594,
+        118.41455078125,
+        273.2000732421875
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.599998474121094,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_054",
+      "presentation_location": [
+        61.755882263183594,
+        118.41455078125,
+        273.2000732421875
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 42,
+      "vertex_count": 534
+    },
+    "PART_055": {
+      "assembled_location": [
+        95.71685028076172,
+        23.77336883544922,
+        264.8722229003906
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.599998474121094,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_055",
+      "presentation_location": [
+        95.71685028076172,
+        23.77336883544922,
+        264.8722229003906
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 4,
+      "vertex_count": 534
+    },
+    "PART_056": {
+      "assembled_location": [
+        132.1970672607422,
+        147.69317626953125,
+        283.3001403808594
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.600006103515625,
+        5.5999908447265625,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_056",
+      "presentation_location": [
+        132.1970672607422,
+        147.69317626953125,
+        283.3001403808594
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 14,
+      "vertex_count": 534
+    },
+    "PART_057": {
+      "assembled_location": [
+        59.1970100402832,
+        147.69300842285156,
+        283.3002014160156
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.600002288818359,
+        5.5999908447265625,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_057",
+      "presentation_location": [
+        59.1970100402832,
+        147.69300842285156,
+        283.3002014160156
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 19,
+      "vertex_count": 534
+    },
+    "PART_058": {
+      "assembled_location": [
+        129.6381378173828,
+        50.53224182128906,
+        273.2004089355469
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5999908447265625,
+        5.600002288818359,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_058",
+      "presentation_location": [
+        129.6381378173828,
+        50.53224182128906,
+        273.2004089355469
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 59,
+      "vertex_count": 534
+    },
+    "PART_059": {
+      "assembled_location": [
+        148.2845458984375,
+        54.12337112426758,
+        264.8723449707031
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5999908447265625,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_059",
+      "presentation_location": [
+        148.2845458984375,
+        54.12337112426758,
+        264.8723449707031
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 50,
+      "vertex_count": 534
+    },
+    "PART_060": {
+      "assembled_location": [
+        148.2845458984375,
+        114.82337188720703,
+        264.87237548828125
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5999908447265625,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_060",
+      "presentation_location": [
+        148.2845458984375,
+        114.82337188720703,
+        264.87237548828125
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 6,
+      "vertex_count": 534
+    },
+    "PART_061": {
+      "assembled_location": [
+        129.6381378173828,
+        118.41453552246094,
+        273.2002258300781
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5999908447265625,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_061",
+      "presentation_location": [
+        129.6381378173828,
+        118.41453552246094,
+        273.2002258300781
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 21,
+      "vertex_count": 534
+    },
+    "PART_062": {
+      "assembled_location": [
+        163.54713439941406,
+        100.9734115600586,
+        278.2717590332031
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5999908447265625,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_062",
+      "presentation_location": [
+        163.54713439941406,
+        100.9734115600586,
+        278.2717590332031
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 48,
+      "vertex_count": 534
+    },
+    "PART_063": {
+      "assembled_location": [
+        163.54685974121094,
+        67.97332000732422,
+        278.2718200683594
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5999908447265625,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_063",
+      "presentation_location": [
+        163.54685974121094,
+        67.97332000732422,
+        278.2718200683594
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 47,
+      "vertex_count": 534
+    },
+    "PART_064": {
+      "assembled_location": [
+        95.71685791015625,
+        145.17344665527344,
+        264.87213134765625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.599998474121094,
+        5.5999908447265625,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_064",
+      "presentation_location": [
+        95.71685791015625,
+        145.17344665527344,
+        264.87213134765625
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 16,
+      "vertex_count": 534
+    },
+    "PART_065": {
+      "assembled_location": [
+        143.9163818359375,
+        33.972103118896484,
+        278.2718200683594
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5941925048828125,
+        5.598546981811523,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_065",
+      "presentation_location": [
+        143.9163818359375,
+        33.972103118896484,
+        278.2718200683594
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 8,
+      "vertex_count": 534
+    },
+    "PART_066": {
+      "assembled_location": [
+        47.497474670410156,
+        33.972084045410156,
+        278.27178955078125
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5941925048828125,
+        5.598546981811523,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_066",
+      "presentation_location": [
+        47.497474670410156,
+        33.972084045410156,
+        278.27178955078125
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 15,
+      "vertex_count": 534
+    },
+    "PART_067": {
+      "assembled_location": [
+        115.33747100830078,
+        17.472089767456055,
+        278.27191162109375
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5941925048828125,
+        5.598545074462891,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_067",
+      "presentation_location": [
+        115.33747100830078,
+        17.472089767456055,
+        278.27191162109375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 33,
+      "vertex_count": 534
+    },
+    "PART_068": {
+      "assembled_location": [
+        76.07627868652344,
+        17.472103118896484,
+        278.2720642089844
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5941925048828125,
+        5.598545074462891,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_068",
+      "presentation_location": [
+        76.07627868652344,
+        17.472103118896484,
+        278.2720642089844
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 60,
+      "vertex_count": 534
+    },
+    "PART_069": {
+      "assembled_location": [
+        143.9163055419922,
+        134.97463989257812,
+        278.2720642089844
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5941925048828125,
+        5.598541259765625,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_069",
+      "presentation_location": [
+        143.9163055419922,
+        134.97463989257812,
+        278.2720642089844
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 13,
+      "vertex_count": 534
+    },
+    "PART_070": {
+      "assembled_location": [
+        76.07630157470703,
+        151.47470092773438,
+        278.27166748046875
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5941925048828125,
+        5.598541259765625,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_070",
+      "presentation_location": [
+        76.07630157470703,
+        151.47470092773438,
+        278.27166748046875
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 62,
+      "vertex_count": 534
+    },
+    "PART_071": {
+      "assembled_location": [
+        115.33748626708984,
+        151.47462463378906,
+        278.271728515625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5941925048828125,
+        5.598541259765625,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_071",
+      "presentation_location": [
+        115.33748626708984,
+        151.47462463378906,
+        278.271728515625
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 53,
+      "vertex_count": 534
+    },
+    "PART_072": {
+      "assembled_location": [
+        47.4974365234375,
+        134.9746551513672,
+        278.2718505859375
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5941925048828125,
+        5.598541259765625,
+        12.36981201171875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 1064,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_072",
+      "presentation_location": [
+        47.4974365234375,
+        134.9746551513672,
+        278.2718505859375
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 49,
+      "vertex_count": 534
+    },
+    "PART_073": {
+      "assembled_location": [
+        51.704444885253906,
+        160.68382263183594,
+        299.39312744140625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        7.000003814697266,
+        7.0,
+        3.0
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 5780,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_073",
+      "presentation_location": [
+        51.704444885253906,
+        160.68382263183594,
+        299.39312744140625
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 56,
+      "vertex_count": 2892
+    },
+    "PART_074": {
+      "assembled_location": [
+        51.7044563293457,
+        8.263115882873535,
+        299.3924560546875
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        7.000003814697266,
+        6.999999046325684,
+        3.0
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 5780,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_074",
+      "presentation_location": [
+        51.7044563293457,
+        8.263115882873535,
+        299.3924560546875
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 31,
+      "vertex_count": 2892
+    },
+    "PART_075": {
+      "assembled_location": [
+        183.70472717285156,
+        84.4732437133789,
+        299.3915100097656
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        7.0,
+        7.0,
+        3.0
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 5780,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_075",
+      "presentation_location": [
+        183.70472717285156,
+        84.4732437133789,
+        299.3915100097656
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 51,
+      "vertex_count": 2892
+    },
+    "PART_076": {
+      "assembled_location": [
+        139.70452880859375,
+        160.6837921142578,
+        299.3912353515625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        7.0,
+        7.0,
+        3.0
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 5780,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_076",
+      "presentation_location": [
+        139.70452880859375,
+        160.6837921142578,
+        299.3912353515625
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 3,
+      "vertex_count": 2892
+    },
+    "PART_077": {
+      "assembled_location": [
+        7.704477787017822,
+        84.47313690185547,
+        299.3917236328125
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        6.999999523162842,
+        7.0,
+        3.0
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 5780,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_077",
+      "presentation_location": [
+        7.704477787017822,
+        84.47313690185547,
+        299.3917236328125
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 54,
+      "vertex_count": 2892
+    },
+    "PART_078": {
+      "assembled_location": [
+        139.7046661376953,
+        8.263101577758789,
+        299.3912658691406
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        7.0,
+        6.999999046325684,
+        3.0
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 5780,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_078",
+      "presentation_location": [
+        139.7046661376953,
+        8.263101577758789,
+        299.3912658691406
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 22,
+      "vertex_count": 2892
+    },
+    "PART_079": {
+      "assembled_location": [
+        42.706905364990234,
+        52.47347640991211,
+        299.50006103515625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        3.0,
+        3.0,
+        5.499969482421875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 2462,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_079",
+      "presentation_location": [
+        42.706905364990234,
+        52.47347640991211,
+        299.50006103515625
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 39,
+      "vertex_count": 1233
+    },
+    "PART_080": {
+      "assembled_location": [
+        47.70691680908203,
+        52.47352600097656,
+        299.50006103515625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        3.0,
+        3.0,
+        5.499969482421875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 2462,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_080",
+      "presentation_location": [
+        47.70691680908203,
+        52.47352600097656,
+        299.50006103515625
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 41,
+      "vertex_count": 1233
+    },
+    "PART_081": {
+      "assembled_location": [
+        37.70689010620117,
+        52.47353744506836,
+        299.500244140625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        2.9999961853027344,
+        3.0,
+        5.499969482421875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 2462,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_081",
+      "presentation_location": [
+        37.70689010620117,
+        52.47353744506836,
+        299.500244140625
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "SMALL_ACCESSORY",
+      "semantic_confidence": "LOW",
+      "semantic_evidence": [
+        "USER_CONFIRMATION_2026-09-09"
+      ],
+      "semantic_name": "SMALL_ACCESSORY",
+      "semantic_reason": "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed",
+      "size_class": "SMALL",
+      "source": "original_stl",
+      "source_component_index": 40,
+      "vertex_count": 1233
+    },
+    "PART_082": {
+      "assembled_location": [
+        95.69003295898438,
+        84.47335052490234,
+        297.59259033203125
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "assembled_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "assembly_zone": null,
+      "assembly_zone_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        2.5999984741210938,
+        2.59765625,
+        0.999969482421875
+      ],
+      "collision_scope": false,
+      "component_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "face_count": 150,
+      "follow_parent_assembly": false,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_082",
+      "presentation_location": [
+        95.69003295898438,
+        84.47335052490234,
+        297.59259033203125
+      ],
+      "presentation_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "presentation_visibility": "HIDDEN",
+      "probable_parent_object": null,
+      "review_scope": null,
+      "semantic_category": "UNKNOWN",
+      "semantic_confidence": "UNKNOWN",
+      "semantic_evidence": [],
+      "semantic_name": "UNKNOWN",
+      "semantic_reason": "no sufficiently specific photographic and geometric evidence at the checkpoint",
+      "size_class": "FRAGMENT",
+      "source": "original_stl",
+      "source_component_index": 1,
+      "vertex_count": 77
+    }
+  },
+  "policy": {
+    "flat_per_part_explosion": false,
+    "hidden_part_presentation": "FOLLOW_PARENT_OR_HIDDEN_WITHOUT_PARENT",
+    "keyframes_created": false,
+    "realistic_disassembly_order": false,
+    "small_fragment_in_animation_queue": false,
+    "small_fragment_in_collision_queue": false,
+    "small_fragment_in_manual_motion_review": false
+  },
+  "primary_axis": "GLOBAL_Z",
+  "review_queue": [
+    {
+      "group": "MAIN_STACK",
+      "part_id": "PART_001",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "LOWER_HOUSING"
+    },
+    {
+      "group": "MAIN_STACK",
+      "part_id": "PART_002",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "UPPER_HOUSING"
+    },
+    {
+      "group": "SENSOR_BRANCH",
+      "part_id": "PART_003",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "TRI_AXIS_SENSOR_FIXTURE"
+    },
+    {
+      "group": "MAIN_STACK",
+      "part_id": "PART_004",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "UPPER_HOUSING_TOP_COVER"
+    },
+    {
+      "group": "MAIN_STACK",
+      "part_id": "PART_005",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "HANDLE"
+    },
+    {
+      "group": "PCB_BRANCH",
+      "part_id": "PART_006",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "PCB_PROTECTIVE_PLATE"
+    },
+    {
+      "group": "PCB_BRANCH",
+      "part_id": "PART_007",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "PCB_SUPPORT_FRAME"
+    },
+    {
+      "group": "BATTERY_BRANCH",
+      "part_id": "PART_008",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "BATTERY_COMPARTMENT_01"
+    },
+    {
+      "group": "BATTERY_BRANCH",
+      "part_id": "PART_009",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "BATTERY_COMPARTMENT_02"
+    },
+    {
+      "group": "BATTERY_BRANCH",
+      "part_id": "PART_010",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "BATTERY_COMPARTMENT_03"
+    },
+    {
+      "group": "BATTERY_BRANCH",
+      "part_id": "PART_011",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "BATTERY_COMPARTMENT_04"
+    },
+    {
+      "group": "SENSOR_BRANCH",
+      "part_id": "PART_012",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "SENSOR_CORE_FIXTURE_X"
+    },
+    {
+      "group": "SENSOR_BRANCH",
+      "part_id": "PART_013",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "SENSOR_CORE_FIXTURE_Y"
+    },
+    {
+      "group": "SENSOR_BRANCH",
+      "part_id": "PART_014",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "SENSOR_CORE_FIXTURE_Z"
+    },
+    {
+      "group": "BATTERY_BRANCH",
+      "part_id": "PART_015",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "BATTERY_COMPARTMENT_05"
+    },
+    {
+      "group": "BATTERY_BRANCH",
+      "part_id": "PART_016",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "BATTERY_COMPARTMENT_06"
+    },
+    {
+      "group": "TOP_INTERFACE_BRANCH",
+      "part_id": "PART_017",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "TOP_INTERFACE_PORT_01"
+    },
+    {
+      "group": "TOP_INTERFACE_BRANCH",
+      "part_id": "PART_018",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "TOP_INTERFACE_PORT_02"
+    },
+    {
+      "group": "PCB_BRANCH",
+      "part_id": "PART_019",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "MAIN_PCB"
+    },
+    {
+      "group": "LEVELING_BRANCH",
+      "part_id": "PART_020",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "LEVELING_CONE_01"
+    },
+    {
+      "group": "LEVELING_BRANCH",
+      "part_id": "PART_021",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "LEVELING_CONE_02"
+    },
+    {
+      "group": "LEVELING_BRANCH",
+      "part_id": "PART_022",
+      "review_question": "Is the important component visible, unobstructed, and clearly laid out?",
+      "semantic_name": "LEVELING_CONE_03"
+    }
+  ],
+  "selection_policy": {
+    "hidden_part_ids": [
+      "PART_023",
+      "PART_024",
+      "PART_025",
+      "PART_026",
+      "PART_027",
+      "PART_028",
+      "PART_029",
+      "PART_030",
+      "PART_031",
+      "PART_032",
+      "PART_033",
+      "PART_034",
+      "PART_035",
+      "PART_036",
+      "PART_037",
+      "PART_038",
+      "PART_039",
+      "PART_040",
+      "PART_041",
+      "PART_042",
+      "PART_043",
+      "PART_044",
+      "PART_045",
+      "PART_046",
+      "PART_047",
+      "PART_048",
+      "PART_049",
+      "PART_050",
+      "PART_051",
+      "PART_052",
+      "PART_053",
+      "PART_054",
+      "PART_055",
+      "PART_056",
+      "PART_057",
+      "PART_058",
+      "PART_059",
+      "PART_060",
+      "PART_061",
+      "PART_062",
+      "PART_063",
+      "PART_064",
+      "PART_065",
+      "PART_066",
+      "PART_067",
+      "PART_068",
+      "PART_069",
+      "PART_070",
+      "PART_071",
+      "PART_072",
+      "PART_073",
+      "PART_074",
+      "PART_075",
+      "PART_076",
+      "PART_077",
+      "PART_078",
+      "PART_079",
+      "PART_080",
+      "PART_081",
+      "PART_082"
+    ],
+    "visible_part_ids": [
+      "PART_001",
+      "PART_002",
+      "PART_003",
+      "PART_004",
+      "PART_005",
+      "PART_006",
+      "PART_007",
+      "PART_008",
+      "PART_009",
+      "PART_010",
+      "PART_011",
+      "PART_012",
+      "PART_013",
+      "PART_014",
+      "PART_015",
+      "PART_016",
+      "PART_017",
+      "PART_018",
+      "PART_019",
+      "PART_020",
+      "PART_021",
+      "PART_022"
+    ],
+    "visible_rule": "confirmed important semantic parts PART_001..PART_022"
+  },
+  "source_baseline": {
+    "faces": 444296,
+    "indexed_vertices": 221902,
+    "source_parts": 82
+  },
+  "source_sha256": "fd2a7b78540245fd098724206d5ddf169fd2f44c07638e9a6459cd92fea717d1",
+  "unit_assumption": "mm",
+  "unit_confidence": "assumed",
+  "zones": {
+    "bottom": {
+      "group_ids": [
+        "LEVELING_BRANCH"
+      ],
+      "zone": "bottom"
+    },
+    "front-left": {
+      "group_ids": [
+        "SENSOR_BRANCH"
+      ],
+      "zone": "front-left"
+    },
+    "front-right": {
+      "group_ids": [
+        "PCB_BRANCH"
+      ],
+      "zone": "front-right"
+    },
+    "left": {
+      "group_ids": [],
+      "zone": "left"
+    },
+    "right": {
+      "group_ids": [
+        "BATTERY_BRANCH"
+      ],
+      "zone": "right"
+    },
+    "top": {
+      "group_ids": [
+        "MAIN_STACK",
+        "TOP_INTERFACE_BRANCH"
+      ],
+      "zone": "top"
+    }
+  }
+}

@@ -1,0 +1,2304 @@
+{
+  "groups": {
+    "BATTERY_BRANCH": {
+      "branch_offset_mm": [
+        255.0,
+        100.0,
+        25.0
+      ],
+      "component_offsets_mm": {},
+      "description": "six battery compartments in a compact 3-by-2 array",
+      "group_id": "BATTERY_BRANCH",
+      "hidden_followers": [],
+      "parent_group": "DEVICE",
+      "part_ids": [
+        "PART_008",
+        "PART_009",
+        "PART_010",
+        "PART_011",
+        "PART_015",
+        "PART_016"
+      ],
+      "presentation_only": true,
+      "primary_axis": "Y",
+      "spacing_level": 2,
+      "visible_part_ids": [
+        "PART_008",
+        "PART_009",
+        "PART_010",
+        "PART_011",
+        "PART_015",
+        "PART_016"
+      ],
+      "zone": "right"
+    },
+    "LEVELING_BRANCH": {
+      "branch_offset_mm": [
+        0.0,
+        0.0,
+        -95.0
+      ],
+      "component_offsets_mm": {},
+      "description": "three leveling cones retained near their mounting footprint",
+      "group_id": "LEVELING_BRANCH",
+      "hidden_followers": [],
+      "parent_group": "MAIN_STACK",
+      "part_ids": [
+        "PART_020",
+        "PART_021",
+        "PART_022"
+      ],
+      "presentation_only": true,
+      "primary_axis": "Z",
+      "spacing_level": 3,
+      "visible_part_ids": [
+        "PART_020",
+        "PART_021",
+        "PART_022"
+      ],
+      "zone": "bottom"
+    },
+    "MAIN_STACK": {
+      "branch_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "component_offsets_mm": {},
+      "description": "central housing, cover, and handle vertical stack",
+      "group_id": "MAIN_STACK",
+      "hidden_followers": [],
+      "parent_group": "DEVICE",
+      "part_ids": [
+        "PART_001",
+        "PART_002",
+        "PART_004",
+        "PART_005"
+      ],
+      "presentation_only": true,
+      "primary_axis": "Z",
+      "spacing_level": 1,
+      "visible_part_ids": [
+        "PART_001",
+        "PART_002",
+        "PART_004",
+        "PART_005"
+      ],
+      "zone": "top"
+    },
+    "PCB_BRANCH": {
+      "branch_offset_mm": [
+        245.0,
+        -70.0,
+        35.0
+      ],
+      "component_offsets_mm": {},
+      "description": "coherent protective plate, PCB, and support-frame branch",
+      "group_id": "PCB_BRANCH",
+      "hidden_followers": [],
+      "parent_group": "DEVICE",
+      "part_ids": [
+        "PART_006",
+        "PART_007",
+        "PART_019"
+      ],
+      "presentation_only": true,
+      "primary_axis": "X",
+      "spacing_level": 2,
+      "visible_part_ids": [
+        "PART_006",
+        "PART_007",
+        "PART_019"
+      ],
+      "zone": "front-right"
+    },
+    "SENSOR_BRANCH": {
+      "branch_offset_mm": [
+        -245.0,
+        -70.0,
+        35.0
+      ],
+      "component_offsets_mm": {},
+      "description": "coherent tri-axis fixture and sensor-core branch",
+      "group_id": "SENSOR_BRANCH",
+      "hidden_followers": [],
+      "parent_group": "DEVICE",
+      "part_ids": [
+        "PART_003",
+        "PART_012",
+        "PART_013",
+        "PART_014"
+      ],
+      "presentation_only": true,
+      "primary_axis": "X",
+      "spacing_level": 2,
+      "visible_part_ids": [
+        "PART_003",
+        "PART_012",
+        "PART_013",
+        "PART_014"
+      ],
+      "zone": "front-left"
+    },
+    "TOP_INTERFACE_BRANCH": {
+      "branch_offset_mm": [
+        145.0,
+        10.0,
+        90.0
+      ],
+      "component_offsets_mm": {},
+      "description": "paired charging/data top interface parts",
+      "group_id": "TOP_INTERFACE_BRANCH",
+      "hidden_followers": [],
+      "parent_group": "MAIN_STACK",
+      "part_ids": [
+        "PART_017",
+        "PART_018"
+      ],
+      "presentation_only": true,
+      "primary_axis": "X",
+      "spacing_level": 3,
+      "visible_part_ids": [
+        "PART_017",
+        "PART_018"
+      ],
+      "zone": "top"
+    }
+  },
+  "layout_version": "r1",
+  "parts": {
+    "PART_001": {
+      "assembled_location": [
+        95.85556030273438,
+        84.43418884277344,
+        232.626708984375
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        191.26769530773163,
+        168.79093515872955,
+        92.99998474121094
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Z",
+      "explosion_distance": 0.0,
+      "explosion_sign": 1,
+      "group": "MAIN_STACK",
+      "notes": "Central primary-axis stack rebuilt from assembled anchor.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_001",
+      "probable_parent_object": "PART_001"
+    },
+    "PART_002": {
+      "assembled_location": [
+        95.37657928466797,
+        77.47398376464844,
+        287.3405456542969
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        191.19054555892944,
+        168.7224634885788,
+        28.300018310546875
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Z",
+      "explosion_distance": 92.0,
+      "explosion_sign": 1,
+      "group": "MAIN_STACK",
+      "notes": "Central primary-axis stack rebuilt from assembled anchor.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_002",
+      "probable_parent_object": "PART_001"
+    },
+    "PART_003": {
+      "assembled_location": [
+        94.81449127197266,
+        85.9849853515625,
+        224.35025024414062
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        110.0,
+        109.99999809265137,
+        55.00013732910156
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "X",
+      "explosion_distance": 245.0,
+      "explosion_sign": -1,
+      "group": "SENSOR_BRANCH",
+      "notes": "Sensor fixture travels as one left/front branch before local XYZ expansion.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_003",
+      "probable_parent_object": "PART_001"
+    },
+    "PART_004": {
+      "assembled_location": [
+        87.55231475830078,
+        80.91464233398438,
+        284.6927490234375
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        153.39999771118164,
+        147.00000190734863,
+        11.60003662109375
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Z",
+      "explosion_distance": 160.0,
+      "explosion_sign": 1,
+      "group": "MAIN_STACK",
+      "notes": "Central primary-axis stack rebuilt from assembled anchor.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_004",
+      "probable_parent_object": "PART_001"
+    },
+    "PART_005": {
+      "assembled_location": [
+        95.81245422363281,
+        84.46949768066406,
+        327.1112365722656
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        140.0,
+        25.0,
+        52.000030517578125
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Z",
+      "explosion_distance": 235.0,
+      "explosion_sign": 1,
+      "group": "MAIN_STACK",
+      "notes": "Central primary-axis stack rebuilt from assembled anchor.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_005",
+      "probable_parent_object": "PART_001"
+    },
+    "PART_006": {
+      "assembled_location": [
+        94.81751251220703,
+        84.72936248779297,
+        263.4551696777344
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        112.0,
+        128.38147354125977,
+        11.600006103515625
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "X",
+      "explosion_distance": 245.0,
+      "explosion_sign": 1,
+      "group": "PCB_BRANCH",
+      "notes": "PCB parts travel as one right/front branch before local layer separation.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_006",
+      "probable_parent_object": "PART_019"
+    },
+    "PART_007": {
+      "assembled_location": [
+        95.69351959228516,
+        84.47615051269531,
+        274.0874328613281
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        185.21723461151123,
+        162.70808815956116,
+        2.5
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "X",
+      "explosion_distance": 245.0,
+      "explosion_sign": 1,
+      "group": "PCB_BRANCH",
+      "notes": "PCB parts travel as one right/front branch before local layer separation.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_007",
+      "probable_parent_object": "PART_019"
+    },
+    "PART_008": {
+      "assembled_location": [
+        130.6017608642578,
+        39.96284866333008,
+        267.9840087890625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        26.000648498535156,
+        30.802125930786133,
+        75.49998474121094
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Y",
+      "explosion_distance": 100.0,
+      "explosion_sign": 1,
+      "group": "BATTERY_BRANCH",
+      "notes": "Battery compartments form a compact deterministic 3-by-2 array.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_008",
+      "probable_parent_object": "PART_001"
+    },
+    "PART_009": {
+      "assembled_location": [
+        60.81211471557617,
+        128.98370361328125,
+        267.98388671875
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        26.000648498535156,
+        30.8021240234375,
+        75.49998474121094
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Y",
+      "explosion_distance": 100.0,
+      "explosion_sign": 1,
+      "group": "BATTERY_BRANCH",
+      "notes": "Battery compartments form a compact deterministic 3-by-2 array.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_009",
+      "probable_parent_object": "PART_001"
+    },
+    "PART_010": {
+      "assembled_location": [
+        116.8070068359375,
+        136.94886779785156,
+        267.98382568359375
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        29.216415405273438,
+        24.975784301757812,
+        75.49998474121094
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Y",
+      "explosion_distance": 100.0,
+      "explosion_sign": 1,
+      "group": "BATTERY_BRANCH",
+      "notes": "Battery compartments form a compact deterministic 3-by-2 array.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_010",
+      "probable_parent_object": "PART_001"
+    },
+    "PART_011": {
+      "assembled_location": [
+        74.60697174072266,
+        31.9980411529541,
+        267.98358154296875
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        29.216415405273438,
+        24.975778579711914,
+        75.49998474121094
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Y",
+      "explosion_distance": 100.0,
+      "explosion_sign": 1,
+      "group": "BATTERY_BRANCH",
+      "notes": "Battery compartments form a compact deterministic 3-by-2 array.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_011",
+      "probable_parent_object": "PART_001"
+    },
+    "PART_012": {
+      "assembled_location": [
+        112.40691375732422,
+        73.47695922851562,
+        229.2144317626953
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        32.899993896484375,
+        32.900001525878906,
+        47.20001220703125
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "X",
+      "explosion_distance": 245.0,
+      "explosion_sign": -1,
+      "group": "SENSOR_BRANCH",
+      "notes": "Sensor fixture travels as one left/front branch before local XYZ expansion.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_012",
+      "probable_parent_object": "PART_003"
+    },
+    "PART_013": {
+      "assembled_location": [
+        74.60322570800781,
+        71.80152130126953,
+        225.88619995117188
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        32.900001525878906,
+        47.20000457763672,
+        32.899993896484375
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "X",
+      "explosion_distance": 245.0,
+      "explosion_sign": -1,
+      "group": "SENSOR_BRANCH",
+      "notes": "Sensor fixture travels as one left/front branch before local XYZ expansion.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_013",
+      "probable_parent_object": "PART_003"
+    },
+    "PART_014": {
+      "assembled_location": [
+        97.0782241821289,
+        111.86988830566406,
+        225.8865203857422
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        47.19999694824219,
+        32.899993896484375,
+        32.899993896484375
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "X",
+      "explosion_distance": 245.0,
+      "explosion_sign": -1,
+      "group": "SENSOR_BRANCH",
+      "notes": "Sensor fixture travels as one left/front branch before local XYZ expansion.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_014",
+      "probable_parent_object": "PART_003"
+    },
+    "PART_015": {
+      "assembled_location": [
+        39.70875549316406,
+        76.50875854492188,
+        267.9900817871094
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        25.264123916625977,
+        21.0,
+        75.49998474121094
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Y",
+      "explosion_distance": 100.0,
+      "explosion_sign": 1,
+      "group": "BATTERY_BRANCH",
+      "notes": "Battery compartments form a compact deterministic 3-by-2 array.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_015",
+      "probable_parent_object": "PART_001"
+    },
+    "PART_016": {
+      "assembled_location": [
+        151.70504760742188,
+        92.43799591064453,
+        267.989501953125
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        25.264114379882812,
+        21.0,
+        75.49998474121094
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Y",
+      "explosion_distance": 100.0,
+      "explosion_sign": 1,
+      "group": "BATTERY_BRANCH",
+      "notes": "Battery compartments form a compact deterministic 3-by-2 array.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_016",
+      "probable_parent_object": "PART_001"
+    },
+    "PART_017": {
+      "assembled_location": [
+        139.1671142578125,
+        47.54949188232422,
+        281.6003723144531
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        25.902496337890625,
+        23.252883911132812,
+        40.460540771484375
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "X",
+      "explosion_distance": 145.0,
+      "explosion_sign": 1,
+      "group": "TOP_INTERFACE_BRANCH",
+      "notes": "Paired top interface parts remain a secondary branch.",
+      "parent_group": "MAIN_STACK",
+      "part_id": "PART_017",
+      "probable_parent_object": "PART_004"
+    },
+    "PART_018": {
+      "assembled_location": [
+        52.24369812011719,
+        117.79388427734375,
+        276.4129333496094
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        27.432193756103516,
+        17.599998474121094,
+        44.659332275390625
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "X",
+      "explosion_distance": 145.0,
+      "explosion_sign": 1,
+      "group": "TOP_INTERFACE_BRANCH",
+      "notes": "Paired top interface parts remain a secondary branch.",
+      "parent_group": "MAIN_STACK",
+      "part_id": "PART_018",
+      "probable_parent_object": "PART_004"
+    },
+    "PART_019": {
+      "assembled_location": [
+        95.70696258544922,
+        84.47337341308594,
+        274.68505859375
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        102.00000381469727,
+        101.99999618530273,
+        1.600006103515625
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "X",
+      "explosion_distance": 245.0,
+      "explosion_sign": 1,
+      "group": "PCB_BRANCH",
+      "notes": "PCB parts travel as one right/front branch before local layer separation.",
+      "parent_group": "DEVICE",
+      "part_id": "PART_019",
+      "probable_parent_object": "PART_001"
+    },
+    "PART_020": {
+      "assembled_location": [
+        157.19467163085938,
+        119.97331237792969,
+        177.118896484375
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        21.99920654296875,
+        21.99920654296875,
+        23.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Z",
+      "explosion_distance": 95.0,
+      "explosion_sign": -1,
+      "group": "LEVELING_BRANCH",
+      "notes": "Original leveling footprint retained; only bounded downward separation is applied.",
+      "parent_group": "MAIN_STACK",
+      "part_id": "PART_020",
+      "probable_parent_object": "PART_001"
+    },
+    "PART_021": {
+      "assembled_location": [
+        95.70979309082031,
+        13.508614540100098,
+        176.96792602539062
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        21.990814208984375,
+        21.990821599960327,
+        23.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Z",
+      "explosion_distance": 95.0,
+      "explosion_sign": -1,
+      "group": "LEVELING_BRANCH",
+      "notes": "Original leveling footprint retained; only bounded downward separation is applied.",
+      "parent_group": "MAIN_STACK",
+      "part_id": "PART_021",
+      "probable_parent_object": "PART_001"
+    },
+    "PART_022": {
+      "assembled_location": [
+        34.21908187866211,
+        119.97331237792969,
+        176.84274291992188
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        21.976821899414062,
+        21.97681427001953,
+        23.0
+      ],
+      "confidence": "HIGH",
+      "explosion_axis": "Z",
+      "explosion_distance": 95.0,
+      "explosion_sign": -1,
+      "group": "LEVELING_BRANCH",
+      "notes": "Original leveling footprint retained; only bounded downward separation is applied.",
+      "parent_group": "MAIN_STACK",
+      "part_id": "PART_022",
+      "probable_parent_object": "PART_001"
+    },
+    "PART_023": {
+      "assembled_location": [
+        95.15496826171875,
+        137.17361450195312,
+        289.5655517578125
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        42.79999542236328,
+        40.5,
+        4.600006103515625
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_023",
+      "probable_parent_object": null
+    },
+    "PART_024": {
+      "assembled_location": [
+        156.1367645263672,
+        84.51374816894531,
+        294.4224853515625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        8.000015258789062,
+        9.23760986328125,
+        60.5
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_024",
+      "probable_parent_object": null
+    },
+    "PART_025": {
+      "assembled_location": [
+        35.13690948486328,
+        84.51372528076172,
+        294.4224853515625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        8.0,
+        9.23760986328125,
+        60.5
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_025",
+      "probable_parent_object": null
+    },
+    "PART_026": {
+      "assembled_location": [
+        61.76817321777344,
+        143.23306274414062,
+        275.44500732421875
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        37.56787872314453,
+        26.221099853515625,
+        2.999969482421875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_026",
+      "probable_parent_object": null
+    },
+    "PART_027": {
+      "assembled_location": [
+        129.60047912597656,
+        143.25405883789062,
+        275.4448547363281
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        37.56787872314453,
+        26.221099853515625,
+        2.999969482421875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_027",
+      "probable_parent_object": null
+    },
+    "PART_028": {
+      "assembled_location": [
+        61.73794937133789,
+        25.735923767089844,
+        275.44403076171875
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        37.56787872314453,
+        26.221089363098145,
+        2.999969482421875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_028",
+      "probable_parent_object": null
+    },
+    "PART_029": {
+      "assembled_location": [
+        129.60926818847656,
+        25.70208740234375,
+        275.445068359375
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        37.56787872314453,
+        26.221089363098145,
+        2.999969482421875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_029",
+      "probable_parent_object": null
+    },
+    "PART_030": {
+      "assembled_location": [
+        51.706932067871094,
+        160.68360900878906,
+        294.3006896972656
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        7.000003814697266,
+        7.0,
+        39.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_030",
+      "probable_parent_object": null
+    },
+    "PART_031": {
+      "assembled_location": [
+        51.706932067871094,
+        8.26312255859375,
+        294.3006896972656
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        7.000003814697266,
+        6.999999046325684,
+        39.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_031",
+      "probable_parent_object": null
+    },
+    "PART_032": {
+      "assembled_location": [
+        139.70684814453125,
+        160.6836395263672,
+        294.3004150390625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        7.0,
+        7.0,
+        39.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_032",
+      "probable_parent_object": null
+    },
+    "PART_033": {
+      "assembled_location": [
+        183.70672607421875,
+        84.47333526611328,
+        294.3003234863281
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        7.0,
+        7.0,
+        39.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_033",
+      "probable_parent_object": null
+    },
+    "PART_034": {
+      "assembled_location": [
+        7.706912994384766,
+        84.47337341308594,
+        294.29986572265625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        6.999999523162842,
+        7.0,
+        39.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_034",
+      "probable_parent_object": null
+    },
+    "PART_035": {
+      "assembled_location": [
+        139.7069854736328,
+        8.263130187988281,
+        294.3003845214844
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        6.9991607666015625,
+        6.992743015289307,
+        39.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_035",
+      "probable_parent_object": null
+    },
+    "PART_036": {
+      "assembled_location": [
+        74.90689849853516,
+        55.77340316772461,
+        239.67115783691406
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        28.014202117919922,
+        8.000003814697266,
+        7.968292236328125
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_036",
+      "probable_parent_object": null
+    },
+    "PART_037": {
+      "assembled_location": [
+        113.10680389404297,
+        112.17337036132812,
+        239.68861389160156
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        8.0,
+        28.014205932617188,
+        7.968292236328125
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_037",
+      "probable_parent_object": null
+    },
+    "PART_038": {
+      "assembled_location": [
+        91.10688018798828,
+        112.17333984375,
+        239.68861389160156
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        8.0,
+        28.014205932617188,
+        7.968292236328125
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_038",
+      "probable_parent_object": null
+    },
+    "PART_039": {
+      "assembled_location": [
+        74.90691375732422,
+        77.7734146118164,
+        239.67115783691406
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        28.014202117919922,
+        8.0,
+        7.968292236328125
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_039",
+      "probable_parent_object": null
+    },
+    "PART_040": {
+      "assembled_location": [
+        47.7069206237793,
+        116.47332763671875,
+        295.5859680175781
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        18.0,
+        18.0,
+        4.999969482421875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_040",
+      "probable_parent_object": null
+    },
+    "PART_041": {
+      "assembled_location": [
+        143.7986602783203,
+        52.625816345214844,
+        295.5859680175781
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        17.999923706054688,
+        17.999927520751953,
+        4.999969482421875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_041",
+      "probable_parent_object": null
+    },
+    "PART_042": {
+      "assembled_location": [
+        27.854116439819336,
+        84.48033142089844,
+        275.377197265625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        10.0,
+        41.0,
+        2.999969482421875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_042",
+      "probable_parent_object": null
+    },
+    "PART_043": {
+      "assembled_location": [
+        163.55960083007812,
+        84.46659088134766,
+        275.377197265625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        9.999984741210938,
+        41.0,
+        2.999969482421875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_043",
+      "probable_parent_object": null
+    },
+    "PART_044": {
+      "assembled_location": [
+        168.69692993164062,
+        84.47332000732422,
+        283.3001708984375
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.600006103515625,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_044",
+      "probable_parent_object": null
+    },
+    "PART_045": {
+      "assembled_location": [
+        132.19715881347656,
+        21.25350570678711,
+        283.3001403808594
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.600006103515625,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_045",
+      "probable_parent_object": null
+    },
+    "PART_046": {
+      "assembled_location": [
+        27.866783142089844,
+        100.97339630126953,
+        278.271728515625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.600006103515625,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_046",
+      "probable_parent_object": null
+    },
+    "PART_047": {
+      "assembled_location": [
+        27.86678123474121,
+        67.97338104248047,
+        278.2718811035156
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.600006103515625,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_047",
+      "probable_parent_object": null
+    },
+    "PART_048": {
+      "assembled_location": [
+        59.19702911376953,
+        21.253496170043945,
+        283.3000183105469
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.600002288818359,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_048",
+      "probable_parent_object": null
+    },
+    "PART_049": {
+      "assembled_location": [
+        61.755897521972656,
+        50.53224563598633,
+        273.20025634765625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.599998474121094,
+        5.600002288818359,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_049",
+      "probable_parent_object": null
+    },
+    "PART_050": {
+      "assembled_location": [
+        22.697017669677734,
+        84.47331237792969,
+        283.3001708984375
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.599998474121094,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_050",
+      "probable_parent_object": null
+    },
+    "PART_051": {
+      "assembled_location": [
+        95.69697570800781,
+        84.47340393066406,
+        283.3004455566406
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.599998474121094,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_051",
+      "probable_parent_object": null
+    },
+    "PART_052": {
+      "assembled_location": [
+        43.149051666259766,
+        54.12335205078125,
+        264.8721008300781
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.599998474121094,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_052",
+      "probable_parent_object": null
+    },
+    "PART_053": {
+      "assembled_location": [
+        43.1490592956543,
+        114.82328796386719,
+        264.87225341796875
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.599998474121094,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_053",
+      "probable_parent_object": null
+    },
+    "PART_054": {
+      "assembled_location": [
+        61.755882263183594,
+        118.41455078125,
+        273.2000732421875
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.599998474121094,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_054",
+      "probable_parent_object": null
+    },
+    "PART_055": {
+      "assembled_location": [
+        95.71685028076172,
+        23.77336883544922,
+        264.8722229003906
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.599998474121094,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_055",
+      "probable_parent_object": null
+    },
+    "PART_056": {
+      "assembled_location": [
+        132.1970672607422,
+        147.69317626953125,
+        283.3001403808594
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.600006103515625,
+        5.5999908447265625,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_056",
+      "probable_parent_object": null
+    },
+    "PART_057": {
+      "assembled_location": [
+        59.1970100402832,
+        147.69300842285156,
+        283.3002014160156
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.600002288818359,
+        5.5999908447265625,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_057",
+      "probable_parent_object": null
+    },
+    "PART_058": {
+      "assembled_location": [
+        129.6381378173828,
+        50.53224182128906,
+        273.2004089355469
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5999908447265625,
+        5.600002288818359,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_058",
+      "probable_parent_object": null
+    },
+    "PART_059": {
+      "assembled_location": [
+        148.2845458984375,
+        54.12337112426758,
+        264.8723449707031
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5999908447265625,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_059",
+      "probable_parent_object": null
+    },
+    "PART_060": {
+      "assembled_location": [
+        148.2845458984375,
+        114.82337188720703,
+        264.87237548828125
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5999908447265625,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_060",
+      "probable_parent_object": null
+    },
+    "PART_061": {
+      "assembled_location": [
+        129.6381378173828,
+        118.41453552246094,
+        273.2002258300781
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5999908447265625,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_061",
+      "probable_parent_object": null
+    },
+    "PART_062": {
+      "assembled_location": [
+        163.54713439941406,
+        100.9734115600586,
+        278.2717590332031
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5999908447265625,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_062",
+      "probable_parent_object": null
+    },
+    "PART_063": {
+      "assembled_location": [
+        163.54685974121094,
+        67.97332000732422,
+        278.2718200683594
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5999908447265625,
+        5.599998474121094,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_063",
+      "probable_parent_object": null
+    },
+    "PART_064": {
+      "assembled_location": [
+        95.71685791015625,
+        145.17344665527344,
+        264.87213134765625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.599998474121094,
+        5.5999908447265625,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_064",
+      "probable_parent_object": null
+    },
+    "PART_065": {
+      "assembled_location": [
+        143.9163818359375,
+        33.972103118896484,
+        278.2718200683594
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5941925048828125,
+        5.598546981811523,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_065",
+      "probable_parent_object": null
+    },
+    "PART_066": {
+      "assembled_location": [
+        47.497474670410156,
+        33.972084045410156,
+        278.27178955078125
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5941925048828125,
+        5.598546981811523,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_066",
+      "probable_parent_object": null
+    },
+    "PART_067": {
+      "assembled_location": [
+        115.33747100830078,
+        17.472089767456055,
+        278.27191162109375
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5941925048828125,
+        5.598545074462891,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_067",
+      "probable_parent_object": null
+    },
+    "PART_068": {
+      "assembled_location": [
+        76.07627868652344,
+        17.472103118896484,
+        278.2720642089844
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5941925048828125,
+        5.598545074462891,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_068",
+      "probable_parent_object": null
+    },
+    "PART_069": {
+      "assembled_location": [
+        143.9163055419922,
+        134.97463989257812,
+        278.2720642089844
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5941925048828125,
+        5.598541259765625,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_069",
+      "probable_parent_object": null
+    },
+    "PART_070": {
+      "assembled_location": [
+        76.07630157470703,
+        151.47470092773438,
+        278.27166748046875
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5941925048828125,
+        5.598541259765625,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_070",
+      "probable_parent_object": null
+    },
+    "PART_071": {
+      "assembled_location": [
+        115.33748626708984,
+        151.47462463378906,
+        278.271728515625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5941925048828125,
+        5.598541259765625,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_071",
+      "probable_parent_object": null
+    },
+    "PART_072": {
+      "assembled_location": [
+        47.4974365234375,
+        134.9746551513672,
+        278.2718505859375
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        5.5941925048828125,
+        5.598541259765625,
+        12.36981201171875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_072",
+      "probable_parent_object": null
+    },
+    "PART_073": {
+      "assembled_location": [
+        51.704444885253906,
+        160.68382263183594,
+        299.39312744140625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        7.000003814697266,
+        7.0,
+        3.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_073",
+      "probable_parent_object": null
+    },
+    "PART_074": {
+      "assembled_location": [
+        51.7044563293457,
+        8.263115882873535,
+        299.3924560546875
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        7.000003814697266,
+        6.999999046325684,
+        3.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_074",
+      "probable_parent_object": null
+    },
+    "PART_075": {
+      "assembled_location": [
+        183.70472717285156,
+        84.4732437133789,
+        299.3915100097656
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        7.0,
+        7.0,
+        3.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_075",
+      "probable_parent_object": null
+    },
+    "PART_076": {
+      "assembled_location": [
+        139.70452880859375,
+        160.6837921142578,
+        299.3912353515625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        7.0,
+        7.0,
+        3.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_076",
+      "probable_parent_object": null
+    },
+    "PART_077": {
+      "assembled_location": [
+        7.704477787017822,
+        84.47313690185547,
+        299.3917236328125
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        6.999999523162842,
+        7.0,
+        3.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_077",
+      "probable_parent_object": null
+    },
+    "PART_078": {
+      "assembled_location": [
+        139.7046661376953,
+        8.263101577758789,
+        299.3912658691406
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        7.0,
+        6.999999046325684,
+        3.0
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_078",
+      "probable_parent_object": null
+    },
+    "PART_079": {
+      "assembled_location": [
+        42.706905364990234,
+        52.47347640991211,
+        299.50006103515625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        3.0,
+        3.0,
+        5.499969482421875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_079",
+      "probable_parent_object": null
+    },
+    "PART_080": {
+      "assembled_location": [
+        47.70691680908203,
+        52.47352600097656,
+        299.50006103515625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        3.0,
+        3.0,
+        5.499969482421875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_080",
+      "probable_parent_object": null
+    },
+    "PART_081": {
+      "assembled_location": [
+        37.70689010620117,
+        52.47353744506836,
+        299.500244140625
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        2.9999961853027344,
+        3.0,
+        5.499969482421875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_081",
+      "probable_parent_object": null
+    },
+    "PART_082": {
+      "assembled_location": [
+        95.69003295898438,
+        84.47335052490234,
+        297.59259033203125
+      ],
+      "assembled_rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "bbox_dimensions_mm": [
+        2.5999984741210938,
+        2.59765625,
+        0.999969482421875
+      ],
+      "confidence": "NOT_IN_PRESENTATION_SCOPE",
+      "explosion_axis": null,
+      "explosion_distance": 0.0,
+      "explosion_sign": 0,
+      "group": null,
+      "notes": "Retained source PART; hidden from R1 presentation and motion review.",
+      "parent_group": null,
+      "part_id": "PART_082",
+      "probable_parent_object": null
+    }
+  },
+  "primary_axis": "GLOBAL_Z"
+}
