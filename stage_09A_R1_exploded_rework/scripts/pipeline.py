@@ -37,6 +37,7 @@ RENDER_DIR = f"{R1_DIR}/renders"
 REPORT_DIR = f"{R1_DIR}/reports"
 LOG_PATH = f"{R1_DIR}/logs/task09a_r1.log"
 VALIDATION_PATH = "data/explosion_validation_r1.json"
+CONFIG_VALIDATION_PATH = f"{R1_DIR}/config/explosion_validation.json"
 RUN_RESULT_PATH = "data/task09a_r1_run_result.json"
 REQUIRED_RENDER_NAMES = ("exploded_hero", "exploded_engineering", "exploded_top", "exploded_rear")
 
@@ -122,6 +123,7 @@ def run_task09a_r1(
         status = "REVIEW"
     validation = {**validation, "pipeline_status": status}
     write_json(root / VALIDATION_PATH, validation)
+    write_json(root / CONFIG_VALIDATION_PATH, validation)
     report_path = root / REPORT_DIR / "exploded_layout_report.md"
     validation_report_path = root / REPORT_DIR / "validation_report.md"
     report_path.parent.mkdir(parents=True, exist_ok=True)
@@ -155,6 +157,7 @@ def run_task09a_r1(
         "renders": render_result,
         "config": {key: str(path) for key, path in config_paths.items()},
         "validation": str(root / VALIDATION_PATH),
+        "config_validation": str(root / CONFIG_VALIDATION_PATH),
         "report": str(report_path),
         "validation_report": str(validation_report_path),
         "log": str(log_path),

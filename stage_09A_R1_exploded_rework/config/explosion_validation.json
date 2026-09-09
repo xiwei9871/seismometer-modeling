@@ -1,0 +1,62 @@
+{
+  "animation_created": false,
+  "animation_data_count": 0,
+  "camera_clipping_warnings": [],
+  "edge_on_visibility_warnings": [],
+  "exploded_bounds": {
+    "dimensions": [
+      667.0586142539978,
+      305.84193336963654,
+      423.2839813232422
+    ],
+    "max": [
+      433.46417760849,
+      238.9220781326294,
+      493.62672424316406
+    ],
+    "min": [
+      -233.5944366455078,
+      -66.91985523700714,
+      70.34274291992188
+    ]
+  },
+  "floating_component_warnings": [],
+  "group_counts": {
+    "BATTERY_BRANCH": 6,
+    "LEVELING_BRANCH": 3,
+    "MAIN_STACK": 4,
+    "PCB_BRANCH": 3,
+    "SENSOR_BRANCH": 4,
+    "TOP_INTERFACE_BRANCH": 2
+  },
+  "hero_frame_occupancy": {
+    "measured": null,
+    "status": "REQUIRES_RENDER_INSPECTION",
+    "target_max": 0.75,
+    "target_min": 0.6
+  },
+  "hidden_part_count": 60,
+  "major_overlaps_detected": [],
+  "minimum_object_to_object_projected_spacing": null,
+  "pipeline_status": "PASS",
+  "primary_axis_objects": [
+    "PART_001",
+    "PART_002",
+    "PART_004",
+    "PART_005"
+  ],
+  "render_outputs": {
+    "/Users/xiwei/modeling/stage_09A_R1_exploded_rework/renders/exploded_contact_sheet.png": true,
+    "/Users/xiwei/modeling/stage_09A_R1_exploded_rework/renders/exploded_engineering.png": true,
+    "/Users/xiwei/modeling/stage_09A_R1_exploded_rework/renders/exploded_hero.png": true,
+    "/Users/xiwei/modeling/stage_09A_R1_exploded_rework/renders/exploded_rear.png": true,
+    "/Users/xiwei/modeling/stage_09A_R1_exploded_rework/renders/exploded_top.png": true
+  },
+  "source_faces": 444296,
+  "source_indexed_vertices": 221902,
+  "source_part_count": 82,
+  "status": "PASS",
+  "unassigned_objects": [],
+  "visible_part_count": 22,
+  "warnings": []
+}
