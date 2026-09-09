@@ -83,6 +83,64 @@ def test_pcb_validation_is_explicit_and_candidate_is_traceable(report_root):
     assert pcb["precision_dimensions_from_photos"] is False
 
 
+def test_user_confirmed_semantic_mappings_are_recorded_with_traceable_evidence(report_root):
+    build_reports(report_root)
+    records = {record["part_id"]: record for record in _load(report_root, "semantic_parts.json")}
+    assert records["PART_001"]["semantic_name"] == "LOWER_HOUSING"
+    assert records["PART_002"]["semantic_name"] == "UPPER_HOUSING"
+    assert records["PART_003"]["semantic_name"] == "TRI_AXIS_SENSOR_FIXTURE"
+    assert records["PART_003"]["confidence"] == "HIGH"
+    assert {records[f"PART_{index:03d}"]["semantic_name"] for index in range(8, 12)} == {
+        "BATTERY_COMPARTMENT_01",
+        "BATTERY_COMPARTMENT_02",
+        "BATTERY_COMPARTMENT_03",
+        "BATTERY_COMPARTMENT_04",
+    }
+    assert records["PART_015"]["semantic_name"] == "BATTERY_COMPARTMENT_05"
+    assert records["PART_016"]["semantic_name"] == "BATTERY_COMPARTMENT_06"
+    assert records["PART_012"]["semantic_name"] == "SENSOR_CORE_FIXTURE_X"
+    assert records["PART_013"]["semantic_name"] == "SENSOR_CORE_FIXTURE_Y"
+    assert records["PART_014"]["semantic_name"] == "SENSOR_CORE_FIXTURE_Z"
+    assert records["PART_019"]["semantic_name"] == "MAIN_PCB"
+    assert records["PART_020"]["semantic_name"] == "LEVELING_CONE_01"
+    assert records["PART_021"]["semantic_name"] == "LEVELING_CONE_02"
+    assert records["PART_022"]["semantic_name"] == "LEVELING_CONE_03"
+    for part_id in ("PART_003", "PART_005", "PART_019"):
+        assert "USER_CONFIRMATION_2026-09-09" in records[part_id]["evidence"]
+
+
+def test_user_confirmed_relationships_and_small_accessory_priority_are_recorded(report_root):
+    build_reports(report_root)
+    records = {record["part_id"]: record for record in _load(report_root, "semantic_parts.json")}
+    assert records["PART_005"]["functional_notes"] == "HANDLE also serves as a 4G/Wi-Fi antenna shroud"
+    assert records["PART_017"]["functional_role"] == "CHARGE_PORT_OR_DATA_PORT"
+    assert records["PART_017"]["functional_role_confidence"] == "UNKNOWN"
+    assert records["PART_018"]["functional_role_confidence"] == "UNKNOWN"
+    assert records["PART_039"]["semantic_name"] == "SMALL_ACCESSORY"
+    assert records["PART_039"]["review_priority"] == "LOW"
+    relationships = _load(report_root, "mounting_relationships.json")["relationships"]
+    assert any(
+        relation.get("parent") == "TRI_AXIS_SENSOR_FIXTURE"
+        and relation.get("child") == "SENSOR_CORE_FIXTURE_X"
+        for relation in relationships
+    )
+    assert any(
+        relation.get("parent") == "PCB_SUPPORT_FRAME"
+        and relation.get("child") == "MAIN_PCB"
+        for relation in relationships
+    )
+    confirmations = _load(report_root, "human_review_confirmations.json")
+    assert confirmations["reviewer"] == "user"
+    assert confirmations["confirmation_count"] >= 19
+
+
+def test_non_watertight_semantic_review_uses_confirmed_fixture_meaning(report_root):
+    build_reports(report_root)
+    review = _load(report_root, "non_watertight_semantic_review.json")
+    fixture = next(item for item in review["components"] if item["part_id"] == "PART_003")
+    assert fixture["semantic_candidate"] == "TRI_AXIS_SENSOR_FIXTURE"
+
+
 def test_manual_queue_contains_only_uncertain_confidences_and_valid_preview_paths(report_root):
     build_reports(report_root)
     with (report_root / "data/manual_review_queue.csv").open(newline="", encoding="utf-8") as handle:
@@ -105,6 +163,7 @@ def test_required_findings_files_are_written(report_root):
         "mounting_relationships.json",
         "disassembly_dependencies.json",
         "fragment_review.json",
+        "human_review_confirmations.json",
         "task08_checkpoint.json",
         "manual_review_queue.csv",
     }

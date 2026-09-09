@@ -229,6 +229,11 @@ def _assembly_group(record: Mapping[str, Any]) -> str:
         "ENCLOSURE": "ENCLOSURE",
         "HANDLE": "HANDLE_ASSEMBLY",
         "PCB_ASSEMBLY": "PCB_ASSEMBLY",
+        "SENSOR_ASSEMBLY": "SENSOR_ASSEMBLY",
+        "BATTERY_ASSEMBLY": "BATTERY_ASSEMBLY",
+        "CONNECTOR": "TOP_INTERFACE",
+        "LEVELING_ASSEMBLY": "LEVELING_ASSEMBLY",
+        "SMALL_ACCESSORY": "FASTENERS_AND_SMALL_ACCESSORIES",
     }.get(category, "UNKNOWN")
 
 

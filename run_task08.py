@@ -34,6 +34,7 @@ REQUIRED_TASK08_DATA = [
     Path("data/assembly_semantic.json"),
     Path("data/mounting_relationships.json"),
     Path("data/disassembly_dependencies.json"),
+    Path("data/human_review_confirmations.json"),
     Path("data/manual_review_queue.csv"),
     Path("data/task08_checkpoint.json"),
     Path("output/stage02_semantic.blend"),

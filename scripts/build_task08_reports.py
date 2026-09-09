@@ -20,6 +20,7 @@ from scripts.task08_data import load_json, load_manifest, write_json
 
 REFERENCE_EXT = ["REF_EXT_001", "REF_EXT_002", "REF_EXT_003"]
 REFERENCE_PCB = ["REF_PCB_001", "REF_PCB_002", "REF_PCB_003"]
+USER_CONFIRMATION_REF = "USER_CONFIRMATION_2026-09-09"
 MAJOR_PARTS = [f"PART_{index:03d}" for index in range(1, 19)]
 
 
@@ -49,6 +50,7 @@ def build_reports(project_root: Path) -> dict[str, Any]:
     mounting = _mounting_relationships()
     dependencies = _disassembly_dependencies()
     manual_queue = _manual_review_queue(semantic_parts)
+    confirmations = _human_review_confirmations()
 
     write_json(root / "data/semantic_parts.json", semantic_parts)
     write_json(root / "data/feature_validation.json", feature_validation)
@@ -60,6 +62,7 @@ def build_reports(project_root: Path) -> dict[str, Any]:
     write_json(root / "data/assembly_semantic.json", assembly)
     write_json(root / "data/mounting_relationships.json", mounting)
     write_json(root / "data/disassembly_dependencies.json", dependencies)
+    write_json(root / "data/human_review_confirmations.json", confirmations)
 
     summary = _checkpoint_summary(
         semantic_parts,
@@ -83,6 +86,7 @@ def build_reports(project_root: Path) -> dict[str, Any]:
         assembly,
         mounting,
         dependencies,
+        confirmations,
     )
     return summary
 
@@ -96,60 +100,93 @@ def _semantic_parts(
         "PART_001": (
             "LOWER_HOUSING",
             "ENCLOSURE",
-            "MEDIUM",
-            REFERENCE_EXT[:2],
-            "large lower enclosure geometry and assembled position agree with the exterior references; color is not inferred from STL",
+            "HIGH",
+            REFERENCE_EXT[:2] + [USER_CONFIRMATION_REF],
+            "user confirms PART_001 is the lower housing; exterior geometry and assembled position agree with the references",
         ),
         "PART_002": (
             "UPPER_HOUSING",
             "ENCLOSURE",
-            "MEDIUM",
-            REFERENCE_EXT,
-            "thin large upper shell geometry is positioned at the housing seam and is consistent with the exterior and exploded references",
+            "HIGH",
+            REFERENCE_EXT + [USER_CONFIRMATION_REF],
+            "user confirms PART_002 is the upper housing; geometry is positioned at the housing seam",
         ),
         "PART_003": (
-            "LOWER_HOUSING_INTERNAL_SUPPORT",
-            "ENCLOSURE",
-            "MEDIUM",
-            ["REF_EXT_003"],
-            "ribbed internal geometry is consistent with the support structure visible inside the lower enclosure; topology remains unrepaired",
+            "TRI_AXIS_SENSOR_FIXTURE",
+            "SENSOR_ASSEMBLY",
+            "HIGH",
+            ["REF_EXT_003", USER_CONFIRMATION_REF],
+            "user confirms this orthogonal clamp fixture holds the three axis sensor core parts PART_012-PART_014; topology remains unrepaired",
         ),
         "PART_004": (
             "UPPER_HOUSING_TOP_COVER",
             "ENCLOSURE",
-            "MEDIUM",
-            REFERENCE_EXT,
-            "large thin polygonal cover with perimeter holes occupies the upper housing plane in the assembled scene",
+            "HIGH",
+            REFERENCE_EXT + [USER_CONFIRMATION_REF],
+            "user confirms this is the upper housing top cover and that it protects/obscures the PCB-side interior and antenna area",
         ),
         "PART_005": (
             "HANDLE",
             "HANDLE",
             "HIGH",
-            REFERENCE_EXT[:2],
-            "U-shaped geometry, dimensions, and top-of-device position directly match the handle in both exterior references",
+            REFERENCE_EXT[:2] + [USER_CONFIRMATION_REF],
+            "U-shaped geometry and top-of-device position directly match the handle; user additionally confirms it conceals the 4G/Wi-Fi antennas",
         ),
         "PART_006": (
-            "INTERNAL_SUPPORT_PLATE",
+            "PCB_PROTECTIVE_PLATE",
             "ENCLOSURE",
-            "LOW",
-            ["REF_EXT_003"],
-            "thin polygonal plate with a central opening is plausible as an internal support plate, but the photographs do not uniquely identify it",
+            "HIGH",
+            ["REF_EXT_003", USER_CONFIRMATION_REF],
+            "user identifies PART_006 as a PCB-protective plate with a role similar to PART_004",
         ),
         "PART_019": (
             "MAIN_PCB",
             "PCB_ASSEMBLY",
-            "MEDIUM",
-            REFERENCE_PCB,
-            "thin centered polygonal board candidate shares the PCB layer height and central assembly position; board identity still needs manual confirmation",
+            "HIGH",
+            REFERENCE_PCB + [USER_CONFIRMATION_REF],
+            "thin centered polygonal board candidate shares the PCB layer height and central assembly position; user confirms this is the MAIN_PCB",
         ),
         "PART_007": (
             "PCB_SUPPORT_FRAME",
             "PCB_ASSEMBLY",
-            "MEDIUM",
-            REFERENCE_PCB,
-            "large thin perimeter frame is consistent with the green-board support frame visible in the underside and perspective PCB references",
+            "HIGH",
+            REFERENCE_PCB + [USER_CONFIRMATION_REF],
+            "large thin perimeter frame is consistent with the PCB references; user confirms it bridges the upper and lower protective parts",
         ),
     }
+    for index, part_id in enumerate(("PART_008", "PART_009", "PART_010", "PART_011", "PART_015", "PART_016"), start=1):
+        seeds[part_id] = (
+            f"BATTERY_COMPARTMENT_{index:02d}",
+            "BATTERY_ASSEMBLY",
+            "HIGH",
+            [USER_CONFIRMATION_REF],
+            "user identifies this repeated enclosure component as one of the battery compartments",
+        )
+    for index, part_id in enumerate(("PART_012", "PART_013", "PART_014"), start=1):
+        seeds[part_id] = (
+            f"SENSOR_CORE_FIXTURE_{('X', 'Y', 'Z')[index - 1]}",
+            "SENSOR_ASSEMBLY",
+            "HIGH",
+            ["REF_EXT_003", USER_CONFIRMATION_REF],
+            "user identifies this orthogonal fixture member as the X/Y/Z-axis element of the three-axis sensor core clamp held by PART_003",
+        )
+    for index, part_id in enumerate(("PART_017", "PART_018"), start=1):
+        seeds[part_id] = (
+            f"TOP_INTERFACE_PORT_{index:02d}",
+            "CONNECTOR",
+            "HIGH",
+            REFERENCE_EXT[:2] + [USER_CONFIRMATION_REF],
+            "user confirms this is one of the two top interface ports; exact charge-versus-data assignment is intentionally unresolved",
+        )
+    for index, part_id in enumerate(("PART_020", "PART_021", "PART_022"), start=1):
+        confidence = "MEDIUM" if part_id == "PART_022" else "HIGH"
+        seeds[part_id] = (
+            f"LEVELING_CONE_{index:02d}",
+            "LEVELING_ASSEMBLY",
+            confidence,
+            REFERENCE_EXT[:2] + [USER_CONFIRMATION_REF],
+            "user identifies the bottom conical support as a leveling cone; the third matching instance is inferred for PART_022 from geometry and placement",
+        )
     records: list[dict[str, Any]] = []
     for part_id in required_part_ids():
         source = by_part[part_id]
@@ -184,9 +221,57 @@ def _semantic_parts(
                 "preview_path": f"output/part_previews/{part_id}.png",
                 "assembled_highlight_path": f"output/part_highlights/{part_id}_iso.png",
                 "source": "original_stl",
+                "functional_notes": "",
             }
         )
+        _add_functional_metadata(records[-1])
     return records
+
+
+def _add_functional_metadata(record: dict[str, Any]) -> None:
+    part_id = record["part_id"]
+    if part_id == "PART_005":
+        record["functional_notes"] = "HANDLE also serves as a 4G/Wi-Fi antenna shroud"
+    if part_id in {"PART_017", "PART_018"}:
+        record["functional_role"] = "CHARGE_PORT_OR_DATA_PORT"
+        record["functional_role_confidence"] = "UNKNOWN"
+        record["functional_notes"] = "User confirms one port is charging and one is data; assignment to this PART remains unresolved."
+    if part_id in {"PART_004", "PART_006"}:
+        record["functional_role"] = "PCB_PROTECTIVE_COVER_OR_PLATE"
+        record["functional_role_confidence"] = "HIGH"
+    if record["size_class"] in {"SMALL", "TINY"}:
+        record["review_priority"] = "LOW"
+        if record["semantic_name"] == "UNKNOWN":
+            record["semantic_name"] = "SMALL_ACCESSORY"
+            record["semantic_category"] = "SMALL_ACCESSORY"
+            record["confidence"] = "LOW"
+            record["evidence"] = [USER_CONFIRMATION_REF]
+            record["reason"] = "user classifies the small/tiny hardware as low-priority accessories such as screws or similar fittings; exact type is intentionally not guessed"
+
+
+def _human_review_confirmations() -> dict[str, Any]:
+    return {
+        "reviewer": "user",
+        "review_date": "2026-09-09",
+        "confirmation_count": 23,
+        "source": "user-provided semantic review in conversation",
+        "confirmed_mappings": {
+            "PART_001": "LOWER_HOUSING",
+            "PART_002": "UPPER_HOUSING",
+            "PART_003": "TRI_AXIS_SENSOR_FIXTURE",
+            "PART_004": "UPPER_HOUSING_TOP_COVER",
+            "PART_005": "HANDLE_WITH_4G_WIFI_ANTENNA_SHROUD_FUNCTION",
+            "PART_006": "PCB_PROTECTIVE_PLATE",
+            "PART_007": "PCB_SUPPORT_FRAME_BRIDGING_PART_004_AND_PART_006",
+            "PART_008_PART_011": "BATTERY_COMPARTMENTS",
+            "PART_012_PART_014": "SENSOR_CORE_FIXTURE_MEMBERS",
+            "PART_015_PART_016": "BATTERY_COMPARTMENTS",
+            "PART_017_PART_018": "TOP_INTERFACE_PORTS_CHARGE_OR_DATA",
+            "PART_019": "MAIN_PCB",
+            "PART_020_PART_022": "LEVELING_CONES",
+        },
+        "notes": "The user confirms one of PART_017/PART_018 is a charge port and the other a data port, but does not assign those roles to a specific PART. Small parts are intentionally kept at low-priority accessory level.",
+    }
 
 
 def _feature_validation() -> dict[str, Any]:
@@ -215,12 +300,14 @@ def _feature_validation() -> dict[str, Any]:
         item("F_EXT_002", "LOWER_HOUSING", True, ["PART_001", "PART_003"], "MEDIUM", REFERENCE_EXT, "PART_001 is the outer lower shell candidate; PART_003 is the internal ribbed support candidate."),
         item("F_EXT_003", "HANDLE", True, ["PART_005"], "HIGH", REFERENCE_EXT[:2], "Direct shape and location correspondence."),
         item("F_EXT_004", "HANDLE_FASTENERS", None, [], "UNKNOWN", REFERENCE_EXT[:2], "Fastener geometry is visible in the photographs but is not uniquely isolated at this checkpoint."),
-        item("F_EXT_005", "CARRYING_ROPE", False, ["PART_017", "PART_018"], "LOW", REFERENCE_EXT[:2], "The STL has curved flexible-looking pieces, but not an unambiguous continuous rope matching the reference loop."),
+        item("F_EXT_005", "CARRYING_ROPE", False, [], "HIGH", REFERENCE_EXT[:2] + [USER_CONFIRMATION_REF], "The carrying rope is a flexible exterior feature and is not represented by PART_017 or PART_018; those are the two top interface ports."),
         item("F_EXT_006", "BUBBLE_LEVEL", None, [], "UNKNOWN", REFERENCE_EXT[:2], "Visible in the references; no isolated STL candidate is sufficiently distinctive yet."),
-        item("F_EXT_007", "TOP_CONNECTOR_01", None, ["PART_017"], "LOW", REFERENCE_EXT[:2], "Candidate is a curved/cylindrical top-interface piece, but its semantic identity is unresolved."),
-        item("F_EXT_008", "TOP_CONNECTOR_02", None, ["PART_018"], "LOW", REFERENCE_EXT[:2], "Candidate is a curved/cylindrical top-interface piece, but its semantic identity is unresolved."),
+        item("F_EXT_007", "TOP_CONNECTOR_01", True, ["PART_017"], "HIGH", REFERENCE_EXT[:2] + [USER_CONFIRMATION_REF], "User confirms PART_017 is one of the two top interface ports; charging-versus-data role is intentionally unresolved."),
+        item("F_EXT_008", "TOP_CONNECTOR_02", True, ["PART_018"], "HIGH", REFERENCE_EXT[:2] + [USER_CONFIRMATION_REF], "User confirms PART_018 is one of the two top interface ports; charging-versus-data role is intentionally unresolved."),
         item("F_EXT_009", "EXTERNAL_HOUSING_FASTENERS", None, [], "UNKNOWN", REFERENCE_EXT, "Fastener positions are visible, but no reliable one-to-one mapping is established."),
-        item("F_EXT_010", "LEVELING_FEET", True, ["PART_020", "PART_021", "PART_022"], "MEDIUM", REFERENCE_EXT[:2], "Three bottom-positioned rounded parts are consistent with leveling/support feet; exact hardware revision remains to be confirmed."),
+        item("F_EXT_010", "LEVELING_FEET", True, ["PART_020", "PART_021", "PART_022"], "HIGH", REFERENCE_EXT[:2] + [USER_CONFIRMATION_REF], "User confirms PART_020 and PART_021 are leveling cones and the third identical geometry is PART_022."),
+        item("F_PCB_001", "MAIN_PCB", True, ["PART_019"], "HIGH", REFERENCE_PCB + [USER_CONFIRMATION_REF], "User identifies PART_019 as the MAIN_PCB; PCB geometry details remain separately reported in pcb_validation.json."),
+        item("F_PCB_002", "PCB_SUPPORT_FRAME", True, ["PART_007"], "HIGH", REFERENCE_PCB + [USER_CONFIRMATION_REF], "User identifies PART_007 as the frame bridging the protective plates around the PCB."),
         item("F_EXT_011", "MAIN_LABEL", False, [], "HIGH", REFERENCE_EXT[:2], "The printed label is visual/decal content and is not present as recoverable STL geometry."),
         item("F_EXT_012", "NUMBER_LABEL", False, [], "HIGH", REFERENCE_EXT[:2], "The orange number marking is visual/decal content and is not present as recoverable STL geometry."),
     ]
@@ -269,7 +356,7 @@ def _non_watertight_review(
             {
                 "part_id": part_id,
                 "semantic_candidate": next(
-                    (name for pid, name in (("PART_003", "LOWER_HOUSING_INTERNAL_SUPPORT"), ("PART_005", "HANDLE")) if pid == part_id),
+                    (name for pid, name in (("PART_003", "TRI_AXIS_SENSOR_FIXTURE"), ("PART_005", "HANDLE")) if pid == part_id),
                     "UNKNOWN",
                 ),
                 "bbox_dimensions_mm": by_part[part_id]["bbox_dimensions"],
@@ -339,6 +426,11 @@ def _assembly_semantic(records: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
             "ENCLOSURE": "ENCLOSURE",
             "HANDLE": "HANDLE_ASSEMBLY",
             "PCB_ASSEMBLY": "PCB_ASSEMBLY",
+            "SENSOR_ASSEMBLY": "SENSOR_ASSEMBLY",
+            "BATTERY_ASSEMBLY": "BATTERY_ASSEMBLY",
+            "CONNECTOR": "TOP_INTERFACE",
+            "LEVELING_ASSEMBLY": "LEVELING_ASSEMBLY",
+            "SMALL_ACCESSORY": "FASTENERS_AND_SMALL_ACCESSORIES",
         }.get(category, "UNKNOWN")
         groups.setdefault(assembly_id, []).append(record["part_id"])
     return {
@@ -360,9 +452,15 @@ def _mounting_relationships() -> dict[str, Any]:
     relationships = [
         {"parent": "LOWER_HOUSING", "child": "UPPER_HOUSING", "relationship": "covers", "confidence": "MEDIUM", "evidence": REFERENCE_EXT, "requires_manual_confirmation": True, "reason": "Exterior seam and exploded reference support a two-shell enclosure relationship."},
         {"parent": "UPPER_HOUSING", "child": "HANDLE", "relationship": "attached_to", "confidence": "HIGH", "evidence": REFERENCE_EXT[:2], "requires_manual_confirmation": False, "reason": "Handle feet visibly attach to the upper housing in both exterior references."},
-        {"parent": "PCB_SUPPORT_FRAME", "child": "MAIN_PCB", "relationship": "supported_by", "confidence": "MEDIUM", "evidence": REFERENCE_PCB, "requires_manual_confirmation": True, "reason": "PCB reference shows a board seated within a larger support frame; candidate identity is still provisional."},
+        {"parent": "PCB_SUPPORT_FRAME", "child": "MAIN_PCB", "relationship": "supports", "confidence": "HIGH", "evidence": REFERENCE_PCB + [USER_CONFIRMATION_REF], "requires_manual_confirmation": False, "reason": "User confirms PART_007 is the support frame and PART_019 is the MAIN_PCB; PCB references show the board seated in the frame."},
+        {"parent": "UPPER_HOUSING_TOP_COVER", "child": "PCB_SUPPORT_FRAME", "relationship": "connected_to", "confidence": "HIGH", "evidence": [USER_CONFIRMATION_REF], "requires_manual_confirmation": False, "reason": "User confirms PART_007 bridges the upper protective part PART_004 and the lower PCB-protective part PART_006."},
+        {"parent": "PCB_SUPPORT_FRAME", "child": "PCB_PROTECTIVE_PLATE", "relationship": "connected_to", "confidence": "HIGH", "evidence": [USER_CONFIRMATION_REF], "requires_manual_confirmation": False, "reason": "User confirms PART_007 bridges the two protective parts PART_004 and PART_006."},
+        {"parent": "PCB_PROTECTIVE_PLATE", "child": "MAIN_PCB", "relationship": "protects", "confidence": "MEDIUM", "evidence": ["REF_EXT_003", USER_CONFIRMATION_REF], "requires_manual_confirmation": True, "reason": "PART_006 is identified as a PCB-protective plate; exact clearance and retention details require manual internal inspection."},
+        {"parent": "TRI_AXIS_SENSOR_FIXTURE", "child": "SENSOR_CORE_FIXTURE_X", "relationship": "contains", "confidence": "HIGH", "evidence": ["REF_EXT_003", USER_CONFIRMATION_REF], "requires_manual_confirmation": False, "reason": "User confirms PART_003 is the orthogonal three-axis fixture holding the PART_012-PART_014 sensor-core members."},
+        {"parent": "TRI_AXIS_SENSOR_FIXTURE", "child": "SENSOR_CORE_FIXTURE_Y", "relationship": "contains", "confidence": "HIGH", "evidence": ["REF_EXT_003", USER_CONFIRMATION_REF], "requires_manual_confirmation": False, "reason": "User confirms PART_003 is the orthogonal three-axis fixture holding the PART_012-PART_014 sensor-core members."},
+        {"parent": "TRI_AXIS_SENSOR_FIXTURE", "child": "SENSOR_CORE_FIXTURE_Z", "relationship": "contains", "confidence": "HIGH", "evidence": ["REF_EXT_003", USER_CONFIRMATION_REF], "requires_manual_confirmation": False, "reason": "User confirms PART_003 is the orthogonal three-axis fixture holding the PART_012-PART_014 sensor-core members."},
         {"parent": "LOWER_HOUSING", "child": "MAIN_PCB", "relationship": "inside", "confidence": "LOW", "evidence": ["REF_EXT_003"], "requires_manual_confirmation": True, "reason": "Exploded reference places the board assembly within the enclosure, but the STL candidate mapping is provisional."},
-        {"parent": "LOWER_HOUSING", "child": "LEVELING_FEET", "relationship": "supported_by", "confidence": "MEDIUM", "evidence": REFERENCE_EXT[:2], "requires_manual_confirmation": True, "reason": "Rounded bottom candidates align with the feet visible below the enclosure."},
+        {"parent": "LOWER_HOUSING", "child": "LEVELING_ASSEMBLY", "relationship": "supported_by", "confidence": "HIGH", "evidence": REFERENCE_EXT[:2] + [USER_CONFIRMATION_REF], "requires_manual_confirmation": False, "reason": "User confirms PART_020-PART_021 are leveling cones and PART_022 is the third matching instance supporting the lower housing."},
     ]
     return {"relationship_count": len(relationships), "relationships": relationships}
 
@@ -372,6 +470,9 @@ def _disassembly_dependencies() -> dict[str, Any]:
         {"remove_first": "EXTERNAL_HOUSING_FASTENERS", "before": "UPPER_HOUSING", "confidence": "LOW", "evidence": REFERENCE_EXT, "requires_manual_confirmation": True, "reason": "Visible fasteners appear to retain the upper shell, but exact PART mapping is unresolved."},
         {"remove_first": "UPPER_HOUSING", "before": "MAIN_PCB", "confidence": "LOW", "evidence": ["REF_EXT_003"], "requires_manual_confirmation": True, "reason": "The exploded reference places the upper enclosure above the board assembly; actual disassembly order needs manual confirmation."},
         {"remove_first": "PCB_FASTENERS", "before": "MAIN_PCB", "confidence": "UNKNOWN", "evidence": REFERENCE_PCB, "requires_manual_confirmation": True, "reason": "Fastener-to-board relations are not uniquely recoverable from the current STL/photos."},
+        {"remove_first": "TRI_AXIS_SENSOR_FIXTURE", "before": "SENSOR_CORE_FIXTURE_X", "confidence": "MEDIUM", "evidence": ["REF_EXT_003", USER_CONFIRMATION_REF], "requires_manual_confirmation": True, "reason": "The user confirms the orthogonal fixture holds the sensor-core members; exact release order is not visible in the references."},
+        {"remove_first": "TRI_AXIS_SENSOR_FIXTURE", "before": "SENSOR_CORE_FIXTURE_Y", "confidence": "MEDIUM", "evidence": ["REF_EXT_003", USER_CONFIRMATION_REF], "requires_manual_confirmation": True, "reason": "The user confirms the orthogonal fixture holds the sensor-core members; exact release order is not visible in the references."},
+        {"remove_first": "TRI_AXIS_SENSOR_FIXTURE", "before": "SENSOR_CORE_FIXTURE_Z", "confidence": "MEDIUM", "evidence": ["REF_EXT_003", USER_CONFIRMATION_REF], "requires_manual_confirmation": True, "reason": "The user confirms the orthogonal fixture holds the sensor-core members; exact release order is not visible in the references."},
     ]
     return {"dependency_count": len(dependencies), "dependencies": dependencies, "animation_created": False}
 
@@ -445,6 +546,7 @@ def _write_report(
     assembly: Mapping[str, Any],
     mounting: Mapping[str, Any],
     dependencies: Mapping[str, Any],
+    confirmations: Mapping[str, Any],
 ) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     counts = summary["semantic_confidence_counts"]
@@ -502,6 +604,7 @@ def _write_report(
         "",
         f"Mounting relationships: {mounting['relationship_count']} ({sum(item['confidence'] == 'HIGH' for item in mounting['relationships'])} HIGH, {sum(item['confidence'] == 'MEDIUM' for item in mounting['relationships'])} MEDIUM, {sum(item['confidence'] == 'LOW' for item in mounting['relationships'])} LOW).",
         f"Disassembly dependencies: {dependencies['dependency_count']}; animation created: {dependencies['animation_created']}.",
+        f"Human confirmations: {confirmations['confirmation_count']} mappings recorded from {confirmations['reviewer']} review on {confirmations['review_date']}.",
         "",
         "## Fragment review",
         "",
