@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections import defaultdict
 from collections.abc import Mapping, Sequence
+import math
 from pathlib import Path
 from typing import Any
 
@@ -213,7 +214,15 @@ def _validate_input_coverage(
     semantic_ids = {str(record.get("part_id")) for record in semantic_parts}
     manifest_ids = {str(record.get("part_id")) for record in manifest}
     initial_ids = set((initial.get("objects") or {}).keys())
-    if semantic_ids != expected or manifest_ids != expected or initial_ids != expected:
+    if (
+        len(semantic_parts) != len(expected)
+        or len(manifest) != len(expected)
+        or len(semantic_ids) != len(expected)
+        or len(manifest_ids) != len(expected)
+        or semantic_ids != expected
+        or manifest_ids != expected
+        or initial_ids != expected
+    ):
         raise ValueError("Task 9A input PART coverage does not match PART_001..PART_082")
 
 
@@ -298,10 +307,10 @@ _EXPLICIT_EXPLODE_VECTORS: dict[str, list[float]] = {
     "PCB_PROTECTIVE_PLATE": [0.0, 0.0, -1.0],
     "MAIN_PCB": [0.0, 1.0, 0.0],
     "PCB_SUPPORT_FRAME": [0.0, -1.0, 0.0],
-    "TRI_AXIS_SENSOR_FIXTURE": [0.0, -1.0, 0.0],
-    "SENSOR_CORE_FIXTURE_X": [0.0, -1.0, 0.0],
-    "SENSOR_CORE_FIXTURE_Y": [0.0, -1.0, 0.0],
-    "SENSOR_CORE_FIXTURE_Z": [0.0, -1.0, 0.0],
+    "TRI_AXIS_SENSOR_FIXTURE": [-1.0, 0.0, 0.0],
+    "SENSOR_CORE_FIXTURE_X": [-1.0, 0.0, 0.0],
+    "SENSOR_CORE_FIXTURE_Y": [-1.0, 0.0, 0.0],
+    "SENSOR_CORE_FIXTURE_Z": [-1.0, 0.0, 0.0],
     "LOWER_HOUSING": [0.0, 0.0, -1.0],
 }
 
@@ -375,6 +384,14 @@ def build_exploded_state(project_root: Path) -> dict[str, Any]:
                 "assembled_rotation_euler": assembled_rotation,
                 "assembled_scale": assembled_scale,
                 "exploded_location": exploded_location,
+                "assembled_centroid_mm": _float_vector(
+                    geometry.get("centroid", [0.0, 0.0, 0.0]), 3, "centroid"
+                ),
+                "exploded_centroid_mm": [
+                    float(geometry.get("centroid", [0.0, 0.0, 0.0])[index])
+                    + vector[index] * distance
+                    for index in range(3)
+                ],
                 "explode_vector": vector,
                 "explode_distance_mm": distance,
                 "motion_type": _planned_motion_type(semantic_name),
@@ -392,8 +409,65 @@ def build_exploded_state(project_root: Path) -> dict[str, Any]:
                 "centroid_mm": _float_vector(
                     geometry.get("centroid", [0.0, 0.0, 0.0]), 3, "centroid"
                 ),
+                "duplicate_group": semantic.get("duplicate_group"),
             }
         )
+
+    motion_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for record in records:
+        motion_groups[_motion_group_key(record)].append(record)
+
+    # Keep functional-group members together, then score the preferred axis,
+    # its inverse, and the remaining world axes.  Explicit high-confidence
+    # major directions stay stable; uncertain groups use the lowest score.
+    for group_key in sorted(motion_groups):
+        members = motion_groups[group_key]
+        preferred = list(members[0]["explode_vector"])
+        candidate_scores: list[dict[str, Any]] = []
+        for rank, candidate in enumerate(_candidate_vectors(preferred)):
+            candidate_distance = max(
+                _planned_distance(
+                    semantic_by_part[member["part_id"]],
+                    manifest_by_part[member["part_id"]],
+                    candidate,
+                )
+                for member in members
+            )
+            trial_records = [dict(record) for record in records]
+            trial_by_id = {record["part_id"]: record for record in trial_records}
+            _apply_group_motion(
+                [trial_by_id[member["part_id"]] for member in members],
+                candidate,
+                candidate_distance,
+            )
+            candidate_scores.append(
+                {
+                    "vector": list(candidate),
+                    "axis": _axis_label(candidate),
+                    "distance_mm": candidate_distance,
+                    "new_collision_count": check_swept_aabb_collisions(trial_records)[
+                        "collision_count"
+                    ],
+                    "rank": rank,
+                }
+            )
+        selected = candidate_scores[0]
+        if not _group_has_high_confidence_explicit_direction(members):
+            selected = min(
+                candidate_scores,
+                key=lambda item: (item["new_collision_count"], item["rank"]),
+            )
+        _apply_group_motion(members, selected["vector"], selected["distance_mm"])
+        for member in members:
+            member["motion_group"] = group_key
+            member["candidate_evaluations"] = candidate_scores
+            member["selected_candidate_rank"] = selected["rank"]
+            member["preferred_candidate"] = selected["rank"] == 0
+            if selected["rank"] != 0:
+                member["requires_manual_confirmation"] = True
+                member["reason"] += (
+                    " Alternate axis selected by sampled swept-AABB score; confirm manually."
+                )
 
     collision_summary = check_swept_aabb_collisions(records)
     collision_parts = {
@@ -424,37 +498,56 @@ def check_swept_aabb_collisions(records: Sequence[Mapping[str, Any]]) -> dict[st
     Contact at the assembled state is not treated as a collision.  This is a
     deliberately conservative screening pass, not a mesh-level path planner.
     """
+    if not isinstance(records, Sequence) or isinstance(records, (str, bytes)):
+        raise ValueError("collision records must be a sequence of objects")
     normalized = [_normalize_collision_record(record) for record in records]
+    part_ids = [record["part_id"] for record in normalized]
+    if len(part_ids) != len(set(part_ids)):
+        raise ValueError("collision records contain duplicate part_id values")
     # The helper is also used by tests and downstream reviewers with virtual
     # identifiers, so collision ordering must not require numeric PART IDs.
     normalized.sort(key=lambda item: item["part_id"])
     initial_pairs: set[tuple[str, str]] = set()
-    collisions: list[dict[str, Any]] = []
+    collisions_by_pair: dict[tuple[str, str], list[float]] = defaultdict(list)
     for index, left in enumerate(normalized):
         for right in normalized[index + 1 :]:
             pair = (left["part_id"], right["part_id"])
+            initial_overlap = False
+            left_initial_overlap = False
             for sample_t in _EXPLOSION_SAMPLES:
                 left_box = _aabb_at(left, sample_t, "assembled_location", "exploded_location")
                 right_box = _aabb_at(right, sample_t, "assembled_location", "exploded_location")
-                if not _aabb_positive_overlap(left_box, right_box):
-                    continue
-                if sample_t == 0.0:
+                overlap = _aabb_positive_overlap(left_box, right_box)
+                if sample_t == 0.0 and overlap:
                     initial_pairs.add(pair)
+                    initial_overlap = True
                     continue
-                if pair in initial_pairs:
+                if not overlap:
+                    if initial_overlap:
+                        left_initial_overlap = True
                     continue
-                collisions.append(
-                    {
-                        "part_a": pair[0],
-                        "part_b": pair[1],
-                        "sample_t": sample_t,
-                        "severity": "WARNING",
-                        "reason": "sampled swept AABBs overlap after leaving the assembled state",
-                    }
-                )
-    collisions.sort(key=lambda item: (item["part_a"], item["part_b"], item["sample_t"]))
+                if not initial_overlap or left_initial_overlap:
+                    collisions_by_pair[pair].append(sample_t)
+    collisions = []
+    for pair in sorted(collisions_by_pair):
+        sample_times = collisions_by_pair[pair]
+        left = next(item for item in normalized if item["part_id"] == pair[0])
+        right = next(item for item in normalized if item["part_id"] == pair[1])
+        collisions.append(
+            {
+                "part_a": pair[0],
+                "part_b": pair[1],
+                "group_a": left["assembly_group"],
+                "group_b": right["assembly_group"],
+                "sample_t": sample_times[0],
+                "sample_times": sample_times,
+                "severity": "WARNING",
+                "reason": "sampled swept AABBs overlap after leaving the assembled state",
+            }
+        )
     return {
         "method": "sampled_swept_aabb",
+        "sampling_limitations": "Discrete samples can miss a short collision interval between sample times.",
         "checked_samples": list(_EXPLOSION_SAMPLES),
         "initial_overlap_pair_count": len(initial_pairs),
         "collision_count": len(collisions),
@@ -473,7 +566,9 @@ def build_explosion_guides(exploded_state: Mapping[str, Any]) -> dict[str, Any]:
         guides.append(
             {
                 "source": part_id,
-                "target": part_id,
+                "target": str(record.get("assembly_group") or "UNKNOWN"),
+                "source_part": part_id,
+                "target_group": str(record.get("assembly_group") or "UNKNOWN"),
                 "axis": _axis_label(record["explode_vector"]),
                 "vector": list(record["explode_vector"]),
                 "start": list(record["assembled_location"]),
@@ -498,7 +593,9 @@ def build_future_visual_assets(project_root: Path) -> dict[str, Any]:
     features = payload.get("features", [])
     if not isinstance(features, list):
         raise ValueError("reference_missing_features.json must contain features")
-    result = [dict(feature) for feature in features if isinstance(feature, Mapping)]
+    if not all(isinstance(feature, Mapping) for feature in features):
+        raise ValueError("reference_missing_features.json features must be objects")
+    result = [dict(feature) for feature in features]
     result.sort(key=lambda item: (str(item.get("feature_id", "")), str(item.get("feature", ""))))
     return {
         "feature_count": len(result),
@@ -550,12 +647,92 @@ def _float_vector(value: Any, length: int, label: str) -> list[float]:
         value = [value.get(axis, 0.0) for axis in ("x", "y", "z")]
     if not isinstance(value, Sequence) or isinstance(value, (str, bytes)) or len(value) != length:
         raise ValueError(f"{label} must be a {length}-element vector")
-    return [float(item) for item in value]
+    numbers: list[float] = []
+    for item in value:
+        if isinstance(item, bool):
+            raise ValueError(f"{label} values must be finite numbers")
+        try:
+            number = float(item)
+        except (TypeError, ValueError) as error:
+            raise ValueError(f"{label} values must be finite numbers") from error
+        if not math.isfinite(number):
+            raise ValueError(f"{label} values must be finite numbers")
+        numbers.append(number)
+    return numbers
 
 
 def _geometry_center(manifest: Sequence[Mapping[str, Any]]) -> list[float]:
     centroids = [_float_vector(item.get("centroid"), 3, "centroid") for item in manifest]
     return [sum(values[index] for values in centroids) / len(centroids) for index in range(3)]
+
+
+def _motion_group_key(record: Mapping[str, Any]) -> str:
+    category = str(record.get("semantic_category") or "UNKNOWN")
+    semantic_name = str(record.get("semantic_name") or "UNKNOWN")
+    if category == "BATTERY_ASSEMBLY":
+        return "BATTERY_ASSEMBLY"
+    if category == "SENSOR_ASSEMBLY":
+        return "SENSOR_ASSEMBLY"
+    if category == "LEVELING_ASSEMBLY":
+        return "LEVELING_ASSEMBLY"
+    if category == "CONNECTOR":
+        return "TOP_INTERFACE"
+    duplicate_group = record.get("duplicate_group")
+    if duplicate_group and category in {"SMALL_ACCESSORY", "UNKNOWN"}:
+        return str(duplicate_group)
+    return f"PART::{semantic_name}::{record.get('part_id', '')}"
+
+
+def _candidate_vectors(preferred: Sequence[float]) -> list[list[float]]:
+    preferred_vector = _unit_axis(preferred)
+    inverse = [-value for value in preferred_vector]
+    axes = [[1.0, 0.0, 0.0], [-1.0, 0.0, 0.0], [0.0, 1.0, 0.0],
+            [0.0, -1.0, 0.0], [0.0, 0.0, 1.0], [0.0, 0.0, -1.0]]
+    ordered = [preferred_vector, inverse] + axes
+    result: list[list[float]] = []
+    for vector in ordered:
+        if vector not in result:
+            result.append(vector)
+    return result
+
+
+def _unit_axis(value: Sequence[float]) -> list[float]:
+    if len(value) != 3:
+        raise ValueError("explode vector must contain three values")
+    numbers = _float_vector(value, 3, "explode_vector")
+    dominant = max(range(3), key=lambda index: abs(numbers[index]))
+    if abs(numbers[dominant]) <= 1e-12:
+        raise ValueError("explode vector cannot be zero")
+    result = [0.0, 0.0, 0.0]
+    result[dominant] = 1.0 if numbers[dominant] > 0.0 else -1.0
+    return result
+
+
+def _apply_group_motion(
+    members: Sequence[dict[str, Any]], vector: Sequence[float], distance: float
+) -> None:
+    normalized = _unit_axis(vector)
+    for member in members:
+        member["explode_vector"] = list(normalized)
+        member["explode_distance_mm"] = round(float(distance), 6)
+        member["exploded_location"] = [
+            float(member["assembled_location"][index]) + normalized[index] * float(distance)
+            for index in range(3)
+        ]
+        member["exploded_centroid_mm"] = [
+            float(member["assembled_centroid_mm"][index]) + normalized[index] * float(distance)
+            for index in range(3)
+        ]
+
+
+def _group_has_high_confidence_explicit_direction(
+    members: Sequence[Mapping[str, Any]]
+) -> bool:
+    return all(
+        _valid_confidence(member.get("confidence", "UNKNOWN")) == "HIGH"
+        and str(member.get("semantic_name") or "UNKNOWN") in _EXPLICIT_EXPLODE_VECTORS
+        for member in members
+    )
 
 
 def _planned_explode_vector(
@@ -641,12 +818,22 @@ def _axis_label(vector: Sequence[float]) -> str:
 
 
 def _normalize_collision_record(record: Mapping[str, Any]) -> dict[str, Any]:
+    if not isinstance(record, Mapping):
+        raise ValueError("collision records must contain objects")
     part_id = str(record.get("part_id", ""))
     if not part_id:
         raise ValueError("collision record must contain part_id")
     dimensions = _float_vector(record.get("bbox_dimensions_mm"), 3, "bbox_dimensions_mm")
-    assembled = _float_vector(record.get("assembled_location"), 3, "assembled_location")
-    exploded = _float_vector(record.get("exploded_location"), 3, "exploded_location")
+    assembled = _float_vector(
+        record.get("assembled_centroid_mm", record.get("assembled_location")),
+        3,
+        "assembled_centroid_mm",
+    )
+    exploded = _float_vector(
+        record.get("exploded_centroid_mm", record.get("exploded_location")),
+        3,
+        "exploded_centroid_mm",
+    )
     if any(dimension < 0.0 for dimension in dimensions):
         raise ValueError(f"collision record {part_id} has negative bbox dimensions")
     return {
@@ -654,6 +841,7 @@ def _normalize_collision_record(record: Mapping[str, Any]) -> dict[str, Any]:
         "bbox_dimensions_mm": dimensions,
         "assembled_location": assembled,
         "exploded_location": exploded,
+        "assembly_group": str(record.get("assembly_group") or "UNKNOWN"),
     }
 
 

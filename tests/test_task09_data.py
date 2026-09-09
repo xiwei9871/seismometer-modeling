@@ -15,9 +15,15 @@ from scripts.task09_data import (
 )
 
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+SOURCE_STL = PROJECT_ROOT / "source/智能地震仪-221128(1).STL"
+
+
 def _write_stage01_fixture(root: Path) -> None:
     (root / "data").mkdir(parents=True)
     (root / "output").mkdir()
+    (root / "source").mkdir()
+    (root / "source/智能地震仪-221128(1).STL").symlink_to(SOURCE_STL)
     stage01_result = {
         "status": "PASS",
         "source_sha256_before": BASELINE["source_sha256"],

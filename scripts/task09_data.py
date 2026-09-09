@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
+import hashlib
 from pathlib import Path
 from typing import Any
 
@@ -34,6 +35,7 @@ def validate_task09_baseline(project_root: Path) -> dict[str, Any]:
     """Fail closed unless the frozen Stage 01 and Task 8 facts still match."""
     root = Path(project_root).expanduser().resolve()
     validate_stage01_baseline(root)
+    _validate_current_source_hash(root)
 
     result_path = root / "data/task08_run_result.json"
     if not result_path.is_file():
@@ -79,6 +81,21 @@ def validate_task09_baseline(project_root: Path) -> dict[str, Any]:
             )
 
     return dict(TASK09_BASELINE)
+
+
+def _validate_current_source_hash(root: Path) -> None:
+    """Re-hash the source STL instead of trusting an old run-result claim."""
+    candidates = sorted((root / "source").glob("*.stl")) + sorted(
+        (root / "source").glob("*.STL")
+    )
+    if not candidates:
+        raise ValueError("source STL is missing; cannot verify the frozen SHA256")
+    if len(candidates) != 1:
+        raise ValueError("source directory must contain exactly one STL for Task 9A")
+    expected = TASK09_BASELINE["source_sha256"]
+    digest = hashlib.sha256(candidates[0].read_bytes()).hexdigest()
+    if digest != expected:
+        raise ValueError("current source STL SHA256 does not match the frozen baseline")
 
 
 def _find_project_root(path: Path) -> Path | None:

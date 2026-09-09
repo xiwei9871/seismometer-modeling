@@ -140,7 +140,44 @@ def test_collision_check_reports_new_overlaps_not_initial_touching():
 
     assert result["checked_samples"] == [0.0, 0.25, 0.5, 0.75, 1.0]
     assert "collisions" in result
+    assert result["collision_count"] == 1
+    assert result["collisions"][0]["sample_t"] == 0.75
     assert all("part_a" in item and "part_b" in item and "sample_t" in item for item in result["collisions"])
+    assert all("group_a" in item and "group_b" in item for item in result["collisions"])
+
+
+def test_collision_check_ignores_initial_contact_and_initial_overlap():
+    touching = [
+        {"part_id": "PART_A", "assembled_location": [0, 0, 0], "exploded_location": [0, 0, 0], "bbox_dimensions_mm": [10, 10, 10]},
+        {"part_id": "PART_B", "assembled_location": [0, 0, 10], "exploded_location": [0, 0, 30], "bbox_dimensions_mm": [10, 10, 10]},
+    ]
+    assert check_swept_aabb_collisions(touching)["collision_count"] == 0
+
+    initial_overlap = [
+        {"part_id": "PART_A", "assembled_location": [0, 0, 0], "exploded_location": [0, 0, 20], "bbox_dimensions_mm": [10, 10, 10]},
+        {"part_id": "PART_B", "assembled_location": [0, 0, 4], "exploded_location": [0, 0, 40], "bbox_dimensions_mm": [10, 10, 10]},
+    ]
+    result = check_swept_aabb_collisions(initial_overlap)
+    assert result["initial_overlap_pair_count"] == 1
+    assert result["collision_count"] == 0
+
+
+@pytest.mark.parametrize(
+    "bad_record",
+    [
+        {"part_id": "PART_A", "assembled_location": [float("nan"), 0, 0], "exploded_location": [0, 0, 0], "bbox_dimensions_mm": [1, 1, 1]},
+        {"part_id": "PART_A", "assembled_location": [0, 0, 0], "exploded_location": [0, 0, 0], "bbox_dimensions_mm": [True, 1, 1]},
+    ],
+)
+def test_collision_check_rejects_non_finite_and_boolean_values(bad_record):
+    with pytest.raises(ValueError, match="finite numbers"):
+        check_swept_aabb_collisions([bad_record])
+
+
+def test_collision_check_rejects_duplicate_part_ids():
+    record = {"part_id": "PART_A", "assembled_location": [0, 0, 0], "exploded_location": [0, 0, 0], "bbox_dimensions_mm": [1, 1, 1]}
+    with pytest.raises(ValueError, match="duplicate"):
+        check_swept_aabb_collisions([record, dict(record)])
 
 
 def test_guides_future_assets_and_review_queue_are_deterministic():
@@ -155,3 +192,23 @@ def test_guides_future_assets_and_review_queue_are_deterministic():
     queued_parts = {item["part"] for item in queue}
     assert {"PART_017", "PART_018", "PART_022", "PART_082"} <= queued_parts
     assert all("review_question" in item for item in queue)
+
+
+def test_group_motion_preserves_common_translation_distance():
+    state = build_exploded_state(PROJECT_ROOT)
+    for part_ids in (
+        [f"PART_{index:03d}" for index in range(8, 12)]
+        + ["PART_015", "PART_016"],
+        ["PART_012", "PART_013", "PART_014"],
+        ["PART_020", "PART_021", "PART_022"],
+    ):
+        records = [state["parts"][part_id] for part_id in part_ids]
+        assert len({tuple(record["explode_vector"]) for record in records}) == 1
+        assert len({record["explode_distance_mm"] for record in records}) == 1
+
+
+def test_explosion_guides_include_group_targets():
+    guides = build_explosion_guides(build_exploded_state(PROJECT_ROOT))
+    guide = next(item for item in guides["guides"] if item["source"] == "PART_019")
+    assert guide["source_part"] == "PART_019"
+    assert guide["target_group"] == "PCB_ASSEMBLY"
