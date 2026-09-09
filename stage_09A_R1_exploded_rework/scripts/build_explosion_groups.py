@@ -239,8 +239,22 @@ def validate_explosion_layout(layout: Mapping[str, Any]) -> dict[str, Any]:
         if not all(math.isfinite(value) for value in location):
             raise ValueError(f"non-finite R1 location for {part_id}")
     for key in ("motion_review_queue", "animation_queue", "collision_queue"):
-        if any(str(part_id) in hidden_ids for part_id in layout.get(key, [])):
-            raise ValueError(f"hidden PART appears in R1 {key}")
+        queue = layout.get(key)
+        if not isinstance(queue, list):
+            raise ValueError(f"R1 {key} must be a list")
+        for index, item in enumerate(queue):
+            if isinstance(item, str):
+                part_id = item
+            elif isinstance(item, Mapping) and isinstance(item.get("part_id"), str):
+                part_id = item["part_id"]
+            else:
+                raise ValueError(f"R1 {key} contains an invalid item at index {index}")
+            if part_id not in EXPECTED_PART_IDS:
+                raise ValueError(f"R1 {key} contains an invalid PART: {part_id!r}")
+            if part_id not in EXPECTED_PART_IDS:
+                raise ValueError(f"R1 {key} contains an unknown PART: {part_id}")
+            if part_id in hidden_ids:
+                raise ValueError(f"hidden PART appears in R1 {key}: {part_id}")
     return dict(layout)
 
 

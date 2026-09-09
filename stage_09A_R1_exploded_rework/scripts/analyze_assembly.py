@@ -7,17 +7,25 @@ import math
 from pathlib import Path
 from typing import Any
 
-from scripts.task08_data import load_json, load_manifest
+from scripts.task08_data import load_json, load_manifest, strict_confidence
 from scripts.task09_data import validate_task09_baseline
 
 
 EXPECTED_PART_IDS = tuple(f"PART_{index:03d}" for index in range(1, 83))
+EXPECTED_SOURCE_BASELINE = {
+    "source_sha256": "fd2a7b78540245fd098724206d5ddf169fd2f44c07638e9a6459cd92fea717d1",
+    "source_parts": 82,
+    "faces": 444296,
+    "indexed_vertices": 221902,
+}
 
 
 def analyze_assembled_state(project_root: Path) -> dict[str, Any]:
     """Return deterministic facts from the immutable assembled data files."""
     root = Path(project_root).expanduser().resolve()
     baseline = validate_task09_baseline(root)
+    if baseline != EXPECTED_SOURCE_BASELINE:
+        raise ValueError("Task 9A baseline does not match the frozen R1 baseline")
     manifest = _index_records(load_manifest(root), "parts_manifest.json")
     semantic = _index_records(
         _load_records(root / "data/semantic_parts.json", "semantic_parts.json"),
@@ -36,10 +44,20 @@ def analyze_assembled_state(project_root: Path) -> dict[str, Any]:
         initial_record = initial[part_id]
         manifest_record = manifest[part_id]
         semantic_record = semantic[part_id]
+        manifest_counts = _strict_source_counts(manifest_record, f"{part_id} manifest")
+        semantic_counts = _strict_source_counts(semantic_record, f"{part_id} semantic")
+        initial_component_index = _strict_int(
+            initial_record.get("source_component_index"),
+            f"{part_id} initial source_component_index",
+        )
+        if semantic_counts != manifest_counts:
+            raise ValueError(f"{part_id} manifest and semantic source counts differ")
+        if initial_component_index != manifest_counts["source_component_index"]:
+            raise ValueError(f"{part_id} source_component_index values differ")
         bbox = _bbox_dimensions(initial_record, manifest_record, part_id)
         parts[part_id] = {
             "part_id": part_id,
-            "source_component_index": int(manifest_record["source_component_index"]),
+            "source_component_index": manifest_counts["source_component_index"],
             "assembled_location": _vector(
                 initial_record.get("location"), f"{part_id} location"
             ),
@@ -52,16 +70,27 @@ def analyze_assembled_state(project_root: Path) -> dict[str, Any]:
                 f"{part_id} scale",
             ),
             "bbox_dimensions_mm": bbox,
-            "face_count": int(manifest_record["face_count"]),
-            "vertex_count": int(manifest_record["vertex_count"]),
-            "semantic_name": str(semantic_record.get("semantic_name") or "UNKNOWN"),
-            "semantic_category": str(
-                semantic_record.get("semantic_category") or "UNKNOWN"
+            "face_count": manifest_counts["face_count"],
+            "vertex_count": manifest_counts["vertex_count"],
+            "semantic_name": _strict_string(
+                semantic_record.get("semantic_name"), f"{part_id} semantic_name"
             ),
-            "semantic_confidence": str(semantic_record.get("confidence") or "UNKNOWN"),
-            "semantic_evidence": list(semantic_record.get("evidence") or []),
-            "semantic_reason": str(semantic_record.get("reason") or ""),
-            "size_class": str(manifest_record.get("size_class") or "UNKNOWN"),
+            "semantic_category": _strict_string(
+                semantic_record.get("semantic_category"),
+                f"{part_id} semantic_category",
+            ),
+            "semantic_confidence": strict_confidence(
+                _strict_string(semantic_record.get("confidence"), f"{part_id} confidence")
+            ),
+            "semantic_evidence": _strict_string_list(
+                semantic_record.get("evidence"), f"{part_id} evidence"
+            ),
+            "semantic_reason": _strict_string(
+                semantic_record.get("reason"), f"{part_id} reason"
+            ),
+            "size_class": _strict_string(
+                manifest_record.get("size_class"), f"{part_id} size_class"
+            ),
             "source": "original_stl",
         }
 
@@ -87,7 +116,9 @@ def _load_records(path: Path, label: str) -> list[dict[str, Any]]:
 def _index_records(records: Sequence[Mapping[str, Any]], label: str) -> dict[str, dict[str, Any]]:
     indexed: dict[str, dict[str, Any]] = {}
     for record in records:
-        part_id = str(record.get("part_id") or "")
+        if not isinstance(record, Mapping):
+            raise ValueError(f"{label} records must be objects")
+        part_id = record.get("part_id")
         if part_id not in EXPECTED_PART_IDS or part_id in indexed:
             raise ValueError(f"invalid or duplicate PART in {label}: {part_id!r}")
         indexed[part_id] = dict(record)
@@ -110,17 +141,59 @@ def _bbox_dimensions(
     part_id: str,
 ) -> list[float]:
     bbox = initial_record.get("bbox")
-    if isinstance(bbox, Mapping):
-        values = [bbox.get(axis) for axis in ("x", "y", "z")]
-    else:
-        values = manifest_record.get("bbox_dimensions")
-    return _vector(values, f"{part_id} bbox_dimensions")
+    if not isinstance(bbox, Mapping):
+        raise ValueError(f"{part_id} assembly_initial bbox is missing")
+    initial_values = _vector(
+        [bbox.get(axis) for axis in ("x", "y", "z")],
+        f"{part_id} assembly_initial bbox",
+    )
+    manifest_values = _vector(
+        manifest_record.get("bbox_dimensions"),
+        f"{part_id} manifest bbox_dimensions",
+    )
+    for axis, left, right in zip(("x", "y", "z"), initial_values, manifest_values):
+        if abs(left - right) > 1e-4:
+            raise ValueError(
+                f"{part_id} bbox differs on {axis} between assembly_initial and manifest"
+            )
+    return initial_values
+
+
+def _strict_source_counts(record: Mapping[str, Any], label: str) -> dict[str, int]:
+    return {
+        "face_count": _strict_int(record.get("face_count"), f"{label} face_count"),
+        "vertex_count": _strict_int(record.get("vertex_count"), f"{label} vertex_count"),
+        "source_component_index": _strict_int(
+            record.get("source_component_index"),
+            f"{label} source_component_index",
+        ),
+    }
 
 
 def _vector(value: Any, label: str) -> list[float]:
     if not isinstance(value, Sequence) or isinstance(value, (str, bytes)) or len(value) != 3:
         raise ValueError(f"{label} must be a 3-value vector")
+    if any(isinstance(item, bool) or not isinstance(item, (int, float)) for item in value):
+        raise ValueError(f"{label} must contain numeric values")
     result = [float(item) for item in value]
     if not all(math.isfinite(item) for item in result):
         raise ValueError(f"{label} must contain finite values")
     return result
+
+
+def _strict_int(value: Any, label: str) -> int:
+    if type(value) is not int:
+        raise ValueError(f"{label} must be an integer")
+    return value
+
+
+def _strict_string(value: Any, label: str) -> str:
+    if not isinstance(value, str):
+        raise ValueError(f"{label} must be a string")
+    return value
+
+
+def _strict_string_list(value: Any, label: str) -> list[str]:
+    if not isinstance(value, list) or not all(isinstance(item, str) for item in value):
+        raise ValueError(f"{label} must be a list of strings")
+    return list(value)

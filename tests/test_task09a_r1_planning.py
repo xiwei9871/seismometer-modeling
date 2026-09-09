@@ -1,7 +1,13 @@
 from __future__ import annotations
 
+from copy import deepcopy
+import json
 from pathlib import Path
 import math
+
+import pytest
+
+import stage_09A_R1_exploded_rework.scripts.analyze_assembly as analyze_module
 
 from stage_09A_R1_exploded_rework.scripts.build_explosion_groups import (
     build_explosion_layout,
@@ -111,6 +117,18 @@ def test_r1_presentation_locations_are_finite():
         assert all(math.isfinite(float(value)) for value in part["presentation_location"])
 
 
+def test_r1_validator_rejects_non_list_or_malformed_motion_queue():
+    layout = build_explosion_layout(PROJECT_ROOT)
+    layout["animation_queue"] = {"part_id": "PART_082"}
+    with pytest.raises(ValueError):
+        validate_explosion_layout(layout)
+
+    layout = build_explosion_layout(PROJECT_ROOT)
+    layout["animation_queue"] = [{"part_id": "PART_082"}]
+    with pytest.raises(ValueError):
+        validate_explosion_layout(layout)
+
+
 def test_r1_layout_is_deterministic_and_matches_the_frozen_static_baseline():
     first = validate_explosion_layout(build_explosion_layout(PROJECT_ROOT))
     second = validate_explosion_layout(build_explosion_layout(PROJECT_ROOT))
@@ -123,3 +141,117 @@ def test_r1_layout_is_deterministic_and_matches_the_frozen_static_baseline():
     }
     assert first["source_sha256"] == EXPECTED_SOURCE_BASELINE["source_sha256"]
     assert first["animation_created"] is False
+
+
+def _analysis_fixture():
+    root = PROJECT_ROOT / "data"
+    manifest = json.loads((root / "parts_manifest.json").read_text(encoding="utf-8"))
+    semantic = json.loads((root / "semantic_parts.json").read_text(encoding="utf-8"))
+    initial = json.loads((root / "assembly_initial.json").read_text(encoding="utf-8"))
+    return manifest, semantic, initial
+
+
+@pytest.mark.parametrize(
+    ("record_set", "field", "value"),
+    [
+        ("manifest", "face_count", True),
+        ("manifest", "vertex_count", 1.0),
+        ("manifest", "source_component_index", "64"),
+        ("semantic", "semantic_name", 123),
+        ("semantic", "semantic_category", 123),
+        ("semantic", "confidence", 1),
+        ("semantic", "confidence", "NOT_A_CONFIDENCE"),
+        ("semantic", "evidence", "REF_EXT_001"),
+        ("semantic", "evidence", ["REF_EXT_001", 1]),
+    ],
+)
+def test_analysis_rejects_non_strict_source_and_semantic_types(
+    monkeypatch, record_set, field, value
+):
+    manifest, semantic, initial = _analysis_fixture()
+    records = manifest if record_set == "manifest" else semantic
+    records[0][field] = value
+
+    monkeypatch.setattr(
+        analyze_module,
+        "validate_task09_baseline",
+        lambda _root: {
+            "source_sha256": EXPECTED_SOURCE_BASELINE["source_sha256"],
+            "source_parts": 82,
+            "faces": 444296,
+            "indexed_vertices": 221902,
+        },
+    )
+    monkeypatch.setattr(analyze_module, "load_manifest", lambda _root: manifest)
+
+    def fake_load_json(path):
+        if Path(path).name == "semantic_parts.json":
+            return semantic
+        if Path(path).name == "assembly_initial.json":
+            return initial
+        raise AssertionError(path)
+
+    monkeypatch.setattr(analyze_module, "load_json", fake_load_json)
+
+    with pytest.raises(ValueError):
+        analyze_module.analyze_assembled_state(PROJECT_ROOT)
+
+
+def test_analysis_rejects_bbox_mismatch_and_nonfinite_values(monkeypatch):
+    manifest, semantic, initial = _analysis_fixture()
+    initial["objects"]["PART_001"]["bbox"]["x"] += 1.0
+
+    monkeypatch.setattr(
+        analyze_module,
+        "validate_task09_baseline",
+        lambda _root: {
+            "source_sha256": EXPECTED_SOURCE_BASELINE["source_sha256"],
+            "source_parts": 82,
+            "faces": 444296,
+            "indexed_vertices": 221902,
+        },
+    )
+    monkeypatch.setattr(analyze_module, "load_manifest", lambda _root: manifest)
+
+    def fake_load_json(path):
+        if Path(path).name == "semantic_parts.json":
+            return semantic
+        if Path(path).name == "assembly_initial.json":
+            return initial
+        raise AssertionError(path)
+
+    monkeypatch.setattr(analyze_module, "load_json", fake_load_json)
+    with pytest.raises(ValueError, match="bbox"):
+        analyze_module.analyze_assembled_state(PROJECT_ROOT)
+
+    initial["objects"]["PART_001"]["bbox"]["x"] = True
+    with pytest.raises(ValueError, match="bbox"):
+        analyze_module.analyze_assembled_state(PROJECT_ROOT)
+
+
+@pytest.mark.parametrize(
+    "queue_value",
+    [
+        None,
+        ("PART_001",),
+        [123],
+        [{}],
+        [{"part_id": 123}],
+        ["PART_023"],
+        [{"part_id": "PART_023"}],
+        ["NOT_A_PART"],
+    ],
+)
+def test_layout_rejects_invalid_or_hidden_review_queues(queue_value):
+    layout = deepcopy(build_explosion_layout(PROJECT_ROOT))
+    layout["motion_review_queue"] = queue_value
+    with pytest.raises(ValueError):
+        validate_explosion_layout(layout)
+
+
+def test_layout_accepts_string_and_mapping_queue_items_for_visible_parts():
+    layout = deepcopy(build_explosion_layout(PROJECT_ROOT))
+    layout["motion_review_queue"] = ["PART_001", {"part_id": "PART_002"}]
+    assert validate_explosion_layout(layout)["motion_review_queue"] == layout[
+        "motion_review_queue"
+    ]
