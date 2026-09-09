@@ -39,7 +39,7 @@ _GROUP_SPECS: dict[str, dict[str, Any]] = {
         "zone": "front-left",
         "parent_group": "DEVICE",
         "primary_axis": "X",
-        "branch_offset_mm": [-245.0, -70.0, 35.0],
+        "branch_offset_mm": [0.0, 0.0, 0.0],
         "spacing_level": 2,
         "description": "coherent tri-axis fixture and sensor-core branch",
     },
@@ -47,7 +47,7 @@ _GROUP_SPECS: dict[str, dict[str, Any]] = {
         "zone": "front-right",
         "parent_group": "DEVICE",
         "primary_axis": "X",
-        "branch_offset_mm": [245.0, -70.0, 35.0],
+        "branch_offset_mm": [0.0, 0.0, 0.0],
         "spacing_level": 2,
         "description": "coherent protective plate, PCB, and support-frame branch",
     },
@@ -55,7 +55,7 @@ _GROUP_SPECS: dict[str, dict[str, Any]] = {
         "zone": "right",
         "parent_group": "DEVICE",
         "primary_axis": "Y",
-        "branch_offset_mm": [255.0, 100.0, 25.0],
+        "branch_offset_mm": [0.0, 0.0, 0.0],
         "spacing_level": 2,
         "description": "six battery compartments in a compact 3-by-2 array",
     },
@@ -63,7 +63,7 @@ _GROUP_SPECS: dict[str, dict[str, Any]] = {
         "zone": "top",
         "parent_group": "MAIN_STACK",
         "primary_axis": "X",
-        "branch_offset_mm": [145.0, 10.0, 90.0],
+        "branch_offset_mm": [0.0, 0.0, 0.0],
         "spacing_level": 3,
         "description": "paired charging/data top interface parts",
     },
@@ -71,7 +71,7 @@ _GROUP_SPECS: dict[str, dict[str, Any]] = {
         "zone": "bottom",
         "parent_group": "MAIN_STACK",
         "primary_axis": "Z",
-        "branch_offset_mm": [0.0, 0.0, -95.0],
+        "branch_offset_mm": [0.0, 0.0, 0.0],
         "spacing_level": 3,
         "description": "three leveling cones retained near their mounting footprint",
     },
@@ -83,7 +83,8 @@ def build_explosion_layout(project_root: Path) -> dict[str, Any]:
     analysis = analyze_assembled_state(project_root)
     source_parts = analysis["parts"]
     anchor = source_parts["PART_001"]["assembled_location"]
-    groups = _build_groups()
+    spacing_factors = _spacing_factors()
+    groups = _build_groups(source_parts, spacing_factors)
     group_for_part = {
         part_id: group_id
         for group_id, part_ids in R1_GROUPS.items()
@@ -100,9 +101,10 @@ def build_explosion_layout(project_root: Path) -> dict[str, Any]:
         if visible:
             group_id = group_for_part[part_id]
             presentation, local_offset, axis, sign, distance, notes = _presentation_transform(
-                part_id, group_id, source, anchor
+                part_id, group_id, source, anchor, source_parts, groups, spacing_factors
             )
             group = groups[group_id]
+            group["component_offsets_mm"][part_id] = list(local_offset)
             record = {
                 **source,
                 "assembled_location": list(source["assembled_location"]),
@@ -168,6 +170,7 @@ def build_explosion_layout(project_root: Path) -> dict[str, Any]:
         "animation_created": False,
         "animation_anchor": "PART_001",
         "primary_axis": "GLOBAL_Z",
+        "spacing_factors": spacing_factors,
         "source_sha256": analysis["source_sha256"],
         "source_baseline": dict(analysis["source_baseline"]),
         "selection_policy": {
@@ -225,8 +228,19 @@ def validate_explosion_layout(layout: Mapping[str, Any]) -> dict[str, Any]:
         if tuple(record.get("part_ids") or ()) != expected_ids:
             raise ValueError(f"R1 group membership mismatch for {group_id}")
         assigned.extend(expected_ids)
+        offsets = record.get("component_offsets_mm")
+        if not isinstance(offsets, Mapping) or set(offsets) != set(expected_ids):
+            raise ValueError(f"R1 component offsets are incomplete for {group_id}")
+        for part_id in expected_ids:
+            _vector(offsets[part_id], f"{group_id}.{part_id} component offset")
     if sorted(assigned) != list(IMPORTANT_PART_IDS):
         raise ValueError("R1 visible group coverage mismatch")
+    spacing_factors = layout.get("spacing_factors")
+    if not isinstance(spacing_factors, Mapping) or set(spacing_factors) != set(_spacing_factors()):
+        raise ValueError("R1 spacing factors are incomplete")
+    for name, value in spacing_factors.items():
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(float(value)) or float(value) <= 0.0:
+            raise ValueError(f"R1 spacing factor is invalid: {name}")
     hidden_ids = set(EXPECTED_PART_IDS) - set(IMPORTANT_PART_IDS)
     for part_id, record in parts.items():
         location = _vector(record.get("presentation_location"), f"{part_id} presentation_location")
@@ -264,6 +278,7 @@ def write_explosion_configs(project_root: Path, layout: Mapping[str, Any]) -> di
     group_payload = {
         "layout_version": "r1",
         "primary_axis": "GLOBAL_Z",
+        "spacing_factors": validated["spacing_factors"],
         "groups": validated["groups"],
         "parts": {
             part_id: {
@@ -282,23 +297,65 @@ def write_explosion_configs(project_root: Path, layout: Mapping[str, Any]) -> di
     camera_path = config_dir / "camera_config.json"
     write_json(groups_path, group_payload)
     write_json(layout_path, validated)
-    write_json(
-        camera_path,
-        {
-            "layout_version": "r1",
-            "camera_names": [
-                "CAM_EXPLODED_HERO",
-                "CAM_EXPLODED_ENGINEERING",
-                "CAM_EXPLODED_TOP",
-                "CAM_EXPLODED_REAR",
-            ],
-            "render_resolution": [1200, 900],
-        },
-    )
+    # Camera settings are part of the reproducible source configuration.  The
+    # import is local to avoid coupling the planning module to Blender itself.
+    from .setup_explosion_cameras import camera_configs_for_bounds
+
+    write_json(camera_path, camera_configs_for_bounds(_presentation_bounds(validated)))
     return {"groups": groups_path, "layout": layout_path, "camera": camera_path}
 
 
-def _build_groups() -> dict[str, dict[str, Any]]:
+def _build_groups(
+    source_parts: Mapping[str, Mapping[str, Any]],
+    spacing_factors: Mapping[str, float],
+) -> dict[str, dict[str, Any]]:
+    anchor = source_parts["PART_001"]
+    anchor_bbox = [float(value) for value in anchor["bbox_dimensions_mm"]]
+    branch_gap = max(
+        anchor_bbox[0] * spacing_factors["branch_gap_from_anchor_xy"],
+        anchor_bbox[2] * spacing_factors["branch_gap_from_anchor_z"],
+    )
+    branch_offsets = {
+        "MAIN_STACK": [0.0, 0.0, 0.0],
+        "SENSOR_BRANCH": [
+            -(
+                anchor_bbox[0] / 2.0
+                + _group_extent(source_parts, R1_GROUPS["SENSOR_BRANCH"])[0] / 2.0
+                + branch_gap
+            ),
+            -anchor_bbox[1] * spacing_factors["sensor_branch_y_from_anchor"],
+            anchor_bbox[2] * spacing_factors["branch_z_from_anchor"],
+        ],
+        "PCB_BRANCH": [
+            anchor_bbox[0] / 2.0
+            + _group_extent(source_parts, R1_GROUPS["PCB_BRANCH"])[0] / 2.0
+            + branch_gap,
+            -anchor_bbox[1] * spacing_factors["pcb_branch_y_from_anchor"],
+            anchor_bbox[2] * spacing_factors["branch_z_from_anchor"],
+        ],
+        "BATTERY_BRANCH": [
+            anchor_bbox[0] / 2.0
+            + _battery_array_extent(source_parts, spacing_factors)[0] / 2.0
+            + branch_gap * spacing_factors["battery_branch_gap_multiplier"],
+            anchor_bbox[1] * spacing_factors["battery_branch_y_from_anchor"],
+            anchor_bbox[2] * spacing_factors["battery_branch_z_from_anchor"],
+        ],
+        "TOP_INTERFACE_BRANCH": [
+            anchor_bbox[0] / 2.0
+            + _group_extent(source_parts, R1_GROUPS["TOP_INTERFACE_BRANCH"])[0] / 2.0
+            + anchor_bbox[0] * spacing_factors["interface_branch_gap_from_anchor"],
+            anchor_bbox[1] * spacing_factors["interface_branch_y_from_anchor"],
+            anchor_bbox[2] * spacing_factors["interface_branch_z_from_anchor"],
+        ],
+        "LEVELING_BRANCH": [
+            0.0,
+            0.0,
+            -max(
+                anchor_bbox[2] * spacing_factors["leveling_drop_from_anchor_z"],
+                spacing_factors["leveling_min_drop_mm"],
+            ),
+        ],
+    }
     return {
         group_id: {
             "group_id": group_id,
@@ -307,7 +364,9 @@ def _build_groups() -> dict[str, dict[str, Any]]:
             "hidden_followers": [],
             "presentation_only": True,
             **{key: value for key, value in _GROUP_SPECS[group_id].items()},
+            "branch_offset_mm": branch_offsets[group_id],
             "component_offsets_mm": {},
+            "spacing_formula": _spacing_formula(group_id),
         }
         for group_id in R1_GROUPS
     }
@@ -318,54 +377,102 @@ def _presentation_transform(
     group_id: str,
     source: Mapping[str, Any],
     anchor: Sequence[float],
+    source_parts: Mapping[str, Mapping[str, Any]],
+    groups: Mapping[str, Mapping[str, Any]],
+    spacing_factors: Mapping[str, float],
 ) -> tuple[list[float], list[float], str, int, float, str]:
     anchor_values = [float(value) for value in anchor]
     source_location = [float(value) for value in source["assembled_location"]]
-    group = _GROUP_SPECS[group_id]
+    group = groups[group_id]
     branch = [float(value) for value in group["branch_offset_mm"]]
     if group_id == "MAIN_STACK":
-        z_offsets = {
-            "PART_001": 0.0,
-            "PART_002": 92.0,
-            "PART_004": 160.0,
-            "PART_005": 235.0,
-        }
+        anchor_bbox = [float(value) for value in source_parts["PART_001"]["bbox_dimensions_mm"]]
+        primary_gap = max(
+            anchor_bbox[2] * spacing_factors["primary_stack_gap_from_anchor_z"],
+            anchor_bbox[0] * spacing_factors["primary_stack_gap_from_anchor_xy"],
+        )
+        ordered = ("PART_001", "PART_002", "PART_004", "PART_005")
+        z_offsets = {ordered[0]: 0.0}
+        for previous, current in zip(ordered, ordered[1:]):
+            previous_z = float(source_parts[previous]["bbox_dimensions_mm"][2])
+            current_z = float(source_parts[current]["bbox_dimensions_mm"][2])
+            gap = primary_gap * (
+                spacing_factors["top_cover_gap_multiplier"]
+                if current == "PART_004"
+                else 1.0
+            )
+            z_offsets[current] = z_offsets[previous] + previous_z / 2.0 + current_z / 2.0 + gap
         location = [anchor_values[0], anchor_values[1], anchor_values[2] + z_offsets[part_id]]
         local = [0.0, 0.0, z_offsets[part_id]]
         return location, local, "Z", 1, z_offsets[part_id], "Central primary-axis stack rebuilt from assembled anchor."
     if group_id == "SENSOR_BRANCH":
+        fixture = [float(value) for value in source_parts["PART_003"]["bbox_dimensions_mm"]]
+        local_gap = max(
+            float(source_parts["PART_001"]["bbox_dimensions_mm"][2])
+            * spacing_factors["sensor_local_gap_from_anchor_z"],
+            spacing_factors["local_min_gap_mm"],
+        )
         local_map = {
             "PART_003": [0.0, 0.0, 0.0],
-            "PART_012": [-68.0, 0.0, 12.0],
-            "PART_013": [0.0, 42.0, 12.0],
-            "PART_014": [0.0, 0.0, 58.0],
+            "PART_012": [
+                -(fixture[0] / 2.0 + float(source_parts["PART_012"]["bbox_dimensions_mm"][0]) / 2.0 + local_gap),
+                0.0,
+                local_gap * spacing_factors["sensor_core_z_multiplier"],
+            ],
+            "PART_013": [
+                0.0,
+                fixture[1] / 2.0 + float(source_parts["PART_013"]["bbox_dimensions_mm"][1]) / 2.0 + local_gap,
+                local_gap * spacing_factors["sensor_core_z_multiplier"],
+            ],
+            "PART_014": [
+                0.0,
+                0.0,
+                fixture[2] / 2.0 + float(source_parts["PART_014"]["bbox_dimensions_mm"][2]) / 2.0 + local_gap,
+            ],
         }
         local = local_map[part_id]
         location = [anchor_values[index] + branch[index] + local[index] for index in range(3)]
         return location, local, "X", -1, abs(branch[0]), "Sensor fixture travels as one left/front branch before local XYZ expansion."
     if group_id == "PCB_BRANCH":
+        local_gap = max(
+            float(source_parts["PART_001"]["bbox_dimensions_mm"][2])
+            * spacing_factors["pcb_local_gap_from_anchor_z"],
+            spacing_factors["local_min_gap_mm"],
+        )
+        board = [float(value) for value in source_parts["PART_019"]["bbox_dimensions_mm"]]
+        support = [float(value) for value in source_parts["PART_007"]["bbox_dimensions_mm"]]
+        plate = [float(value) for value in source_parts["PART_006"]["bbox_dimensions_mm"]]
         local_map = {
-            "PART_007": [0.0, 0.0, -45.0],
-            "PART_019": [0.0, 0.0, 20.0],
-            "PART_006": [0.0, 0.0, 82.0],
+            "PART_007": [0.0, 0.0, -(board[2] / 2.0 + support[2] / 2.0 + local_gap)],
+            "PART_019": [0.0, 0.0, 0.0],
+            "PART_006": [0.0, 0.0, board[2] / 2.0 + plate[2] / 2.0 + local_gap],
         }
         local = local_map[part_id]
         location = [anchor_values[index] + branch[index] + local[index] for index in range(3)]
         return location, local, "X", 1, abs(branch[0]), "PCB parts travel as one right/front branch before local layer separation."
     if group_id == "BATTERY_BRANCH":
+        max_x, max_y, _ = _battery_cell_dimensions(source_parts)
+        cell_x = max_x * spacing_factors["battery_cell_x_from_bbox"]
+        cell_y = max_y * spacing_factors["battery_cell_y_from_bbox"]
         local_map = {
-            "PART_008": [-54.0, -42.0, 0.0],
-            "PART_009": [0.0, -42.0, 0.0],
-            "PART_010": [54.0, -42.0, 0.0],
-            "PART_011": [-54.0, 42.0, 0.0],
-            "PART_015": [0.0, 42.0, 0.0],
-            "PART_016": [54.0, 42.0, 0.0],
+            "PART_008": [-cell_x, -cell_y / 2.0, 0.0],
+            "PART_009": [0.0, -cell_y / 2.0, 0.0],
+            "PART_010": [cell_x, -cell_y / 2.0, 0.0],
+            "PART_011": [-cell_x, cell_y / 2.0, 0.0],
+            "PART_015": [0.0, cell_y / 2.0, 0.0],
+            "PART_016": [cell_x, cell_y / 2.0, 0.0],
         }
         local = local_map[part_id]
         location = [anchor_values[index] + branch[index] + local[index] for index in range(3)]
         return location, local, "Y", 1, abs(branch[1]), "Battery compartments form a compact deterministic 3-by-2 array."
     if group_id == "TOP_INTERFACE_BRANCH":
-        local_map = {"PART_017": [-28.0, 0.0, 0.0], "PART_018": [28.0, 0.0, 0.0]}
+        widths = [
+            float(source_parts[part_id]["bbox_dimensions_mm"][0])
+            for part_id in ("PART_017", "PART_018")
+        ]
+        interface_gap = float(source_parts["PART_001"]["bbox_dimensions_mm"][0]) * spacing_factors["interface_local_gap_from_anchor_x"]
+        pair_offset = (sum(widths) / 2.0 + interface_gap) / 2.0
+        local_map = {"PART_017": [-pair_offset, 0.0, 0.0], "PART_018": [pair_offset, 0.0, 0.0]}
         local = local_map[part_id]
         location = [anchor_values[index] + branch[index] + local[index] for index in range(3)]
         return location, local, "X", 1, abs(branch[0]), "Paired top interface parts remain a secondary branch."
@@ -390,9 +497,92 @@ def _probable_parent(part_id: str, group_id: str) -> str:
     return parents[group_id]
 
 
+def _spacing_factors() -> dict[str, float]:
+    return {
+        "primary_stack_gap_from_anchor_z": 0.25,
+        "primary_stack_gap_from_anchor_xy": 0.12,
+        "top_cover_gap_multiplier": 0.80,
+        "branch_gap_from_anchor_xy": 0.28,
+        "branch_gap_from_anchor_z": 0.35,
+        "branch_z_from_anchor": 0.38,
+        "sensor_branch_y_from_anchor": 0.36,
+        "pcb_branch_y_from_anchor": 0.36,
+        "battery_branch_gap_multiplier": 1.65,
+        "battery_branch_y_from_anchor": 0.75,
+        "battery_branch_z_from_anchor": 0.27,
+        "interface_branch_gap_from_anchor": 0.14,
+        "interface_branch_y_from_anchor": 0.12,
+        "interface_branch_z_from_anchor": 0.95,
+        "sensor_local_gap_from_anchor_z": 0.12,
+        "sensor_core_z_multiplier": 0.72,
+        "pcb_local_gap_from_anchor_z": 0.22,
+        "battery_cell_x_from_bbox": 1.70,
+        "battery_cell_y_from_bbox": 1.80,
+        "interface_local_gap_from_anchor_x": 0.14,
+        "local_min_gap_mm": 10.0,
+        "leveling_drop_from_anchor_z": 1.0,
+        "leveling_min_drop_mm": 70.0,
+    }
+
+
+def _group_extent(
+    source_parts: Mapping[str, Mapping[str, Any]], part_ids: Sequence[str]
+) -> list[float]:
+    return [
+        max(float(source_parts[part_id]["bbox_dimensions_mm"][axis]) for part_id in part_ids)
+        for axis in range(3)
+    ]
+
+
+def _battery_cell_dimensions(source_parts: Mapping[str, Mapping[str, Any]]) -> list[float]:
+    return _group_extent(source_parts, R1_GROUPS["BATTERY_BRANCH"])
+
+
+def _battery_array_extent(
+    source_parts: Mapping[str, Mapping[str, Any]],
+    spacing_factors: Mapping[str, float],
+) -> list[float]:
+    max_x, max_y, max_z = _battery_cell_dimensions(source_parts)
+    cell_x = max_x * spacing_factors["battery_cell_x_from_bbox"]
+    cell_y = max_y * spacing_factors["battery_cell_y_from_bbox"]
+    return [max_x + 2.0 * cell_x, max_y + cell_y, max_z]
+
+
+def _spacing_formula(group_id: str) -> str:
+    formulas = {
+        "MAIN_STACK": "sequential half-height sums plus primary_stack_gap factors",
+        "SENSOR_BRANCH": "anchor half-width plus sensor group half-width plus branch gap; local XYZ offsets from component bboxes",
+        "PCB_BRANCH": "anchor half-width plus PCB group half-width plus branch gap; local layer offsets from component thicknesses",
+        "BATTERY_BRANCH": "anchor half-width plus measured 3x2 array extent; cell pitch from max cell bbox",
+        "TOP_INTERFACE_BRANCH": "anchor half-width plus interface extent plus interface gap factors",
+        "LEVELING_BRANCH": "original XY footprint with downward drop from anchor Z bbox",
+    }
+    return formulas[group_id]
+
+
+def _presentation_bounds(layout: Mapping[str, Any]) -> dict[str, list[float]]:
+    visible = [
+        record
+        for record in layout["parts"].values()
+        if record.get("presentation_visibility") == "VISIBLE"
+    ]
+    low = [float("inf")] * 3
+    high = [float("-inf")] * 3
+    for record in visible:
+        location = record["presentation_location"]
+        dimensions = record["bbox_dimensions_mm"]
+        for axis in range(3):
+            half = float(dimensions[axis]) / 2.0
+            low[axis] = min(low[axis], float(location[axis]) - half)
+            high[axis] = max(high[axis], float(location[axis]) + half)
+    return {"min": low, "max": high}
+
+
 def _vector(value: Any, label: str) -> list[float]:
     if not isinstance(value, Sequence) or isinstance(value, (str, bytes)) or len(value) != 3:
         raise ValueError(f"{label} must be a 3-value vector")
+    if any(isinstance(item, bool) or not isinstance(item, (int, float)) for item in value):
+        raise ValueError(f"{label} must contain numeric values")
     result = [float(item) for item in value]
     if not all(math.isfinite(item) for item in result):
         raise ValueError(f"{label} must contain finite values")

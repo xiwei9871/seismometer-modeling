@@ -8,6 +8,7 @@ import math
 import pytest
 
 import stage_09A_R1_exploded_rework.scripts.analyze_assembly as analyze_module
+import stage_09A_R1_exploded_rework.scripts.build_explosion_groups as build_module
 
 from stage_09A_R1_exploded_rework.scripts.build_explosion_groups import (
     build_explosion_layout,
@@ -115,6 +116,30 @@ def test_r1_presentation_locations_are_finite():
     layout = build_explosion_layout(PROJECT_ROOT)
     for part in layout["parts"].values():
         assert all(math.isfinite(float(value)) for value in part["presentation_location"])
+
+
+def test_r1_layout_records_bbox_derived_spacing_factors_and_component_offsets():
+    layout = build_explosion_layout(PROJECT_ROOT)
+
+    assert layout["spacing_factors"]["primary_stack_gap_from_anchor_z"] > 0
+    for group_id, group in layout["groups"].items():
+        assert set(group["component_offsets_mm"]) == set(group["part_ids"])
+        assert "spacing_formula" in group
+        assert group["spacing_formula"]
+
+
+def test_r1_branch_offset_changes_when_anchor_bbox_changes(monkeypatch):
+    original_layout = build_explosion_layout(PROJECT_ROOT)
+    baseline = build_module.analyze_assembled_state(PROJECT_ROOT)
+    changed = deepcopy(baseline)
+    changed["parts"]["PART_001"]["bbox_dimensions_mm"][0] *= 1.25
+    monkeypatch.setattr(build_module, "analyze_assembled_state", lambda _root: changed)
+
+    changed_layout = build_explosion_layout(PROJECT_ROOT)
+    assert (
+        original_layout["groups"]["SENSOR_BRANCH"]["branch_offset_mm"][0]
+        != changed_layout["groups"]["SENSOR_BRANCH"]["branch_offset_mm"][0]
+    )
 
 
 def test_r1_validator_rejects_non_list_or_malformed_motion_queue():

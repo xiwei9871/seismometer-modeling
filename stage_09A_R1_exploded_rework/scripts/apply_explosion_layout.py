@@ -59,7 +59,11 @@ def validate_r1_scene_facts(
         raise ValueError("R1 source PART IDs must be strings")
     if len(set(ids)) != len(ids) or set(ids) != set(EXPECTED_PART_IDS):
         raise ValueError("R1 source PART coverage is not PART_001..PART_082")
-    if int(vertices) != 221902 or int(polygons) != 444296:
+    if isinstance(vertices, bool) or not isinstance(vertices, int):
+        raise ValueError("R1 vertex total must be an integer")
+    if isinstance(polygons, bool) or not isinstance(polygons, int):
+        raise ValueError("R1 polygon total must be an integer")
+    if vertices != 221902 or polygons != 444296:
         raise ValueError("R1 frozen geometry totals changed")
     animated = [str(fact["part_id"]) for fact in source if fact.get("animation_data") is not None]
     if animated:
@@ -75,8 +79,8 @@ def validate_r1_scene_facts(
         )
     return {
         "source_part_count": len(source),
-        "vertices": int(vertices),
-        "polygons": int(polygons),
+        "vertices": vertices,
+        "polygons": polygons,
         "visible_part_count": len(visible),
         "hidden_part_count": len(source) - len(visible),
         "animation_data_count": 0,

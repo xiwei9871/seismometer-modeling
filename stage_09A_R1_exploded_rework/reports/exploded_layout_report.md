@@ -43,5 +43,9 @@
 - Visible presentation parts: 22
 - Hidden source parts: 60
 - Animation data: 0
+- Actual `.blend` validation executed: True
+- Hero occupancy: `{'area': 0.508984499996838, 'height': 0.6463460028171539, 'width': 0.7874799221754074}`
+- Major Hero occlusions: 0
+- Camera clipping warnings: 0
 - Status: `PASS`
 - Derived scene: `/Users/xiwei/modeling/stage_09A_R1_exploded_rework/scene/exploded_layout_v2.blend`

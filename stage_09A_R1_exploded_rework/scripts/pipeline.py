@@ -73,6 +73,7 @@ def run_task09a_r1(
     failures: list[dict[str, Any]] = []
     scene_result: dict[str, Any] | None = None
     render_result: dict[str, Any] | None = None
+    actual_scene_validation: dict[str, Any] | None = None
     if skip_blender:
         status = "SKIPPED"
         log_lines.append("blender_status=SKIPPED_BY_REQUEST")
@@ -113,12 +114,28 @@ def run_task09a_r1(
                     ]
                     if missing:
                         failures.append({"stage": "render_outputs", "returncode": 1, "error": f"missing outputs: {missing}"})
+            if not failures:
+                validator_command = [
+                    executable, "-b", "--python",
+                    str(root / f"{R1_DIR}/scripts/validate_explosion.py"),
+                    "--", "--project-root", str(root),
+                ]
+                validator = _run_stage("validate_blender_scene", validator_command, root, log_lines)
+                if validator["returncode"] != 0:
+                    failures.append(validator)
+                else:
+                    actual_scene_validation = _last_json(validator["stdout"])
         status = "PASS" if not failures else "FAIL"
 
     camera_config = load_json(root / f"{R1_DIR}/config/camera_config.json")
     render_paths = [root / RENDER_DIR / f"{name}.png" for name in REQUIRED_RENDER_NAMES]
     render_paths.append(root / RENDER_DIR / "exploded_contact_sheet.png")
-    validation = build_explosion_validation(layout, camera_config=camera_config, render_paths=render_paths)
+    validation = build_explosion_validation(
+        layout,
+        camera_config=camera_config,
+        render_paths=render_paths,
+        scene_validation=actual_scene_validation,
+    )
     if status == "PASS" and validation["status"] != "PASS":
         status = "REVIEW"
     validation = {**validation, "pipeline_status": status}
@@ -148,8 +165,8 @@ def run_task09a_r1(
         "status": status,
         "source_baseline": layout["source_baseline"],
         "source_sha256": layout["source_sha256"],
-        "visible_part_count": 22,
-        "hidden_part_count": 60,
+        "visible_part_count": validation["visible_part_count"],
+        "hidden_part_count": validation["hidden_part_count"],
         "animation_created": False,
         "keyframe_count": 0,
         "source_geometry_modified": False,

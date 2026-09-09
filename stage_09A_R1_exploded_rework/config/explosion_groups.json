@@ -2,11 +2,42 @@
   "groups": {
     "BATTERY_BRANCH": {
       "branch_offset_mm": [
-        255.0,
-        100.0,
-        25.0
+        248.27563677763942,
+        126.59320136904716,
+        25.109995880126956
       ],
-      "component_offsets_mm": {},
+      "component_offsets_mm": {
+        "PART_008": [
+          -49.66790618896484,
+          -27.72191333770752,
+          0.0
+        ],
+        "PART_009": [
+          0.0,
+          -27.72191333770752,
+          0.0
+        ],
+        "PART_010": [
+          49.66790618896484,
+          -27.72191333770752,
+          0.0
+        ],
+        "PART_011": [
+          -49.66790618896484,
+          27.72191333770752,
+          0.0
+        ],
+        "PART_015": [
+          0.0,
+          27.72191333770752,
+          0.0
+        ],
+        "PART_016": [
+          49.66790618896484,
+          27.72191333770752,
+          0.0
+        ]
+      },
       "description": "six battery compartments in a compact 3-by-2 array",
       "group_id": "BATTERY_BRANCH",
       "hidden_followers": [],
@@ -21,6 +52,7 @@
       ],
       "presentation_only": true,
       "primary_axis": "Y",
+      "spacing_formula": "anchor half-width plus measured 3x2 array extent; cell pitch from max cell bbox",
       "spacing_level": 2,
       "visible_part_ids": [
         "PART_008",
@@ -36,9 +68,25 @@
       "branch_offset_mm": [
         0.0,
         0.0,
-        -95.0
+        -92.99998474121094
       ],
-      "component_offsets_mm": {},
+      "component_offsets_mm": {
+        "PART_020": [
+          61.339111328125,
+          35.53912353515625,
+          -92.99998474121094
+        ],
+        "PART_021": [
+          -0.1457672119140625,
+          -70.92557430267334,
+          -92.99998474121094
+        ],
+        "PART_022": [
+          -61.636478424072266,
+          35.53912353515625,
+          -92.99998474121094
+        ]
+      },
       "description": "three leveling cones retained near their mounting footprint",
       "group_id": "LEVELING_BRANCH",
       "hidden_followers": [],
@@ -50,6 +98,7 @@
       ],
       "presentation_only": true,
       "primary_axis": "Z",
+      "spacing_formula": "original XY footprint with downward drop from anchor Z bbox",
       "spacing_level": 3,
       "visible_part_ids": [
         "PART_020",
@@ -64,7 +113,28 @@
         0.0,
         0.0
       ],
-      "component_offsets_mm": {},
+      "component_offsets_mm": {
+        "PART_001": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "PART_002": [
+          0.0,
+          0.0,
+          83.89999771118164
+        ],
+        "PART_004": [
+          0.0,
+          0.0,
+          122.45002212524415
+        ],
+        "PART_005": [
+          0.0,
+          0.0,
+          177.50005187988282
+        ]
+      },
       "description": "central housing, cover, and handle vertical stack",
       "group_id": "MAIN_STACK",
       "hidden_followers": [],
@@ -77,6 +147,7 @@
       ],
       "presentation_only": true,
       "primary_axis": "Z",
+      "spacing_formula": "sequential half-height sums plus primary_stack_gap factors",
       "spacing_level": 1,
       "visible_part_ids": [
         "PART_001",
@@ -88,11 +159,27 @@
     },
     "PCB_BRANCH": {
       "branch_offset_mm": [
-        245.0,
-        -70.0,
-        35.0
+        241.7974196457863,
+        -60.764736657142635,
+        35.339994201660154
       ],
-      "component_offsets_mm": {},
+      "component_offsets_mm": {
+        "PART_006": [
+          0.0,
+          0.0,
+          27.060002746582033
+        ],
+        "PART_007": [
+          0.0,
+          0.0,
+          -22.50999969482422
+        ],
+        "PART_019": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
       "description": "coherent protective plate, PCB, and support-frame branch",
       "group_id": "PCB_BRANCH",
       "hidden_followers": [],
@@ -104,6 +191,7 @@
       ],
       "presentation_only": true,
       "primary_axis": "X",
+      "spacing_formula": "anchor half-width plus PCB group half-width plus branch gap; local layer offsets from component thicknesses",
       "spacing_level": 2,
       "visible_part_ids": [
         "PART_006",
@@ -114,11 +202,32 @@
     },
     "SENSOR_BRANCH": {
       "branch_offset_mm": [
-        -245.0,
-        -70.0,
-        35.0
+        -204.1888023400307,
+        -60.764736657142635,
+        35.339994201660154
       ],
-      "component_offsets_mm": {},
+      "component_offsets_mm": {
+        "PART_003": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "PART_012": [
+          -82.6099951171875,
+          0.0,
+          8.035198681640624
+        ],
+        "PART_013": [
+          0.0,
+          89.75999950408935,
+          8.035198681640624
+        ],
+        "PART_014": [
+          0.0,
+          0.0,
+          55.11006378173828
+        ]
+      },
       "description": "coherent tri-axis fixture and sensor-core branch",
       "group_id": "SENSOR_BRANCH",
       "hidden_followers": [],
@@ -131,6 +240,7 @@
       ],
       "presentation_only": true,
       "primary_axis": "X",
+      "spacing_formula": "anchor half-width plus sensor group half-width plus branch gap; local XYZ offsets from component bboxes",
       "spacing_level": 2,
       "visible_part_ids": [
         "PART_003",
@@ -142,11 +252,22 @@
     },
     "TOP_INTERFACE_BRANCH": {
       "branch_offset_mm": [
-        145.0,
-        10.0,
-        90.0
+        136.127421875,
+        20.254912219047547,
+        88.34998550415038
       ],
-      "component_offsets_mm": {},
+      "component_offsets_mm": {
+        "PART_017": [
+          -26.72241119503975,
+          0.0,
+          0.0
+        ],
+        "PART_018": [
+          26.72241119503975,
+          0.0,
+          0.0
+        ]
+      },
       "description": "paired charging/data top interface parts",
       "group_id": "TOP_INTERFACE_BRANCH",
       "hidden_followers": [],
@@ -157,6 +278,7 @@
       ],
       "presentation_only": true,
       "primary_axis": "X",
+      "spacing_formula": "anchor half-width plus interface extent plus interface gap factors",
       "spacing_level": 3,
       "visible_part_ids": [
         "PART_017",
@@ -211,7 +333,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "Z",
-      "explosion_distance": 92.0,
+      "explosion_distance": 83.89999771118164,
       "explosion_sign": 1,
       "group": "MAIN_STACK",
       "notes": "Central primary-axis stack rebuilt from assembled anchor.",
@@ -237,7 +359,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "X",
-      "explosion_distance": 245.0,
+      "explosion_distance": 204.1888023400307,
       "explosion_sign": -1,
       "group": "SENSOR_BRANCH",
       "notes": "Sensor fixture travels as one left/front branch before local XYZ expansion.",
@@ -263,7 +385,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "Z",
-      "explosion_distance": 160.0,
+      "explosion_distance": 122.45002212524415,
       "explosion_sign": 1,
       "group": "MAIN_STACK",
       "notes": "Central primary-axis stack rebuilt from assembled anchor.",
@@ -289,7 +411,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "Z",
-      "explosion_distance": 235.0,
+      "explosion_distance": 177.50005187988282,
       "explosion_sign": 1,
       "group": "MAIN_STACK",
       "notes": "Central primary-axis stack rebuilt from assembled anchor.",
@@ -315,7 +437,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "X",
-      "explosion_distance": 245.0,
+      "explosion_distance": 241.7974196457863,
       "explosion_sign": 1,
       "group": "PCB_BRANCH",
       "notes": "PCB parts travel as one right/front branch before local layer separation.",
@@ -341,7 +463,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "X",
-      "explosion_distance": 245.0,
+      "explosion_distance": 241.7974196457863,
       "explosion_sign": 1,
       "group": "PCB_BRANCH",
       "notes": "PCB parts travel as one right/front branch before local layer separation.",
@@ -367,7 +489,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "Y",
-      "explosion_distance": 100.0,
+      "explosion_distance": 126.59320136904716,
       "explosion_sign": 1,
       "group": "BATTERY_BRANCH",
       "notes": "Battery compartments form a compact deterministic 3-by-2 array.",
@@ -393,7 +515,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "Y",
-      "explosion_distance": 100.0,
+      "explosion_distance": 126.59320136904716,
       "explosion_sign": 1,
       "group": "BATTERY_BRANCH",
       "notes": "Battery compartments form a compact deterministic 3-by-2 array.",
@@ -419,7 +541,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "Y",
-      "explosion_distance": 100.0,
+      "explosion_distance": 126.59320136904716,
       "explosion_sign": 1,
       "group": "BATTERY_BRANCH",
       "notes": "Battery compartments form a compact deterministic 3-by-2 array.",
@@ -445,7 +567,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "Y",
-      "explosion_distance": 100.0,
+      "explosion_distance": 126.59320136904716,
       "explosion_sign": 1,
       "group": "BATTERY_BRANCH",
       "notes": "Battery compartments form a compact deterministic 3-by-2 array.",
@@ -471,7 +593,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "X",
-      "explosion_distance": 245.0,
+      "explosion_distance": 204.1888023400307,
       "explosion_sign": -1,
       "group": "SENSOR_BRANCH",
       "notes": "Sensor fixture travels as one left/front branch before local XYZ expansion.",
@@ -497,7 +619,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "X",
-      "explosion_distance": 245.0,
+      "explosion_distance": 204.1888023400307,
       "explosion_sign": -1,
       "group": "SENSOR_BRANCH",
       "notes": "Sensor fixture travels as one left/front branch before local XYZ expansion.",
@@ -523,7 +645,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "X",
-      "explosion_distance": 245.0,
+      "explosion_distance": 204.1888023400307,
       "explosion_sign": -1,
       "group": "SENSOR_BRANCH",
       "notes": "Sensor fixture travels as one left/front branch before local XYZ expansion.",
@@ -549,7 +671,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "Y",
-      "explosion_distance": 100.0,
+      "explosion_distance": 126.59320136904716,
       "explosion_sign": 1,
       "group": "BATTERY_BRANCH",
       "notes": "Battery compartments form a compact deterministic 3-by-2 array.",
@@ -575,7 +697,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "Y",
-      "explosion_distance": 100.0,
+      "explosion_distance": 126.59320136904716,
       "explosion_sign": 1,
       "group": "BATTERY_BRANCH",
       "notes": "Battery compartments form a compact deterministic 3-by-2 array.",
@@ -601,7 +723,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "X",
-      "explosion_distance": 145.0,
+      "explosion_distance": 136.127421875,
       "explosion_sign": 1,
       "group": "TOP_INTERFACE_BRANCH",
       "notes": "Paired top interface parts remain a secondary branch.",
@@ -627,7 +749,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "X",
-      "explosion_distance": 145.0,
+      "explosion_distance": 136.127421875,
       "explosion_sign": 1,
       "group": "TOP_INTERFACE_BRANCH",
       "notes": "Paired top interface parts remain a secondary branch.",
@@ -653,7 +775,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "X",
-      "explosion_distance": 245.0,
+      "explosion_distance": 241.7974196457863,
       "explosion_sign": 1,
       "group": "PCB_BRANCH",
       "notes": "PCB parts travel as one right/front branch before local layer separation.",
@@ -679,7 +801,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "Z",
-      "explosion_distance": 95.0,
+      "explosion_distance": 92.99998474121094,
       "explosion_sign": -1,
       "group": "LEVELING_BRANCH",
       "notes": "Original leveling footprint retained; only bounded downward separation is applied.",
@@ -705,7 +827,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "Z",
-      "explosion_distance": 95.0,
+      "explosion_distance": 92.99998474121094,
       "explosion_sign": -1,
       "group": "LEVELING_BRANCH",
       "notes": "Original leveling footprint retained; only bounded downward separation is applied.",
@@ -731,7 +853,7 @@
       ],
       "confidence": "HIGH",
       "explosion_axis": "Z",
-      "explosion_distance": 95.0,
+      "explosion_distance": 92.99998474121094,
       "explosion_sign": -1,
       "group": "LEVELING_BRANCH",
       "notes": "Original leveling footprint retained; only bounded downward separation is applied.",
@@ -2300,5 +2422,30 @@
       "probable_parent_object": null
     }
   },
-  "primary_axis": "GLOBAL_Z"
+  "primary_axis": "GLOBAL_Z",
+  "spacing_factors": {
+    "battery_branch_gap_multiplier": 1.65,
+    "battery_branch_y_from_anchor": 0.75,
+    "battery_branch_z_from_anchor": 0.27,
+    "battery_cell_x_from_bbox": 1.7,
+    "battery_cell_y_from_bbox": 1.8,
+    "branch_gap_from_anchor_xy": 0.28,
+    "branch_gap_from_anchor_z": 0.35,
+    "branch_z_from_anchor": 0.38,
+    "interface_branch_gap_from_anchor": 0.14,
+    "interface_branch_y_from_anchor": 0.12,
+    "interface_branch_z_from_anchor": 0.95,
+    "interface_local_gap_from_anchor_x": 0.14,
+    "leveling_drop_from_anchor_z": 1.0,
+    "leveling_min_drop_mm": 70.0,
+    "local_min_gap_mm": 10.0,
+    "pcb_branch_y_from_anchor": 0.36,
+    "pcb_local_gap_from_anchor_z": 0.22,
+    "primary_stack_gap_from_anchor_xy": 0.12,
+    "primary_stack_gap_from_anchor_z": 0.25,
+    "sensor_branch_y_from_anchor": 0.36,
+    "sensor_core_z_multiplier": 0.72,
+    "sensor_local_gap_from_anchor_z": 0.12,
+    "top_cover_gap_multiplier": 0.8
+  }
 }

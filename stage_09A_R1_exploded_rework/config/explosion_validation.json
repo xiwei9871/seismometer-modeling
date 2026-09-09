@@ -1,23 +1,29 @@
 {
+  "actual_scene_validation": true,
   "animation_created": false,
   "animation_data_count": 0,
   "camera_clipping_warnings": [],
   "edge_on_visibility_warnings": [],
+  "expected_source_baseline": {
+    "faces": 444296,
+    "indexed_vertices": 221902,
+    "source_parts": 82
+  },
   "exploded_bounds": {
     "dimensions": [
-      667.0586142539978,
-      305.84193336963654,
-      423.2839813232422
+      637.6548313570023,
+      308.92178473353385,
+      363.7840179443359
     ],
     "max": [
-      433.46417760849,
-      238.9220781326294,
-      493.62672424316406
+      430.2615972542763,
+      251.23719283938408,
+      436.12677612304685
     ],
     "min": [
-      -233.5944366455078,
-      -66.91985523700714,
-      70.34274291992188
+      -207.393234102726,
+      -57.684591894149776,
+      72.34275817871094
     ]
   },
   "floating_component_warnings": [],
@@ -30,14 +36,28 @@
     "TOP_INTERFACE_BRANCH": 2
   },
   "hero_frame_occupancy": {
-    "measured": null,
-    "status": "REQUIRES_RENDER_INSPECTION",
+    "measured": {
+      "area": 0.508984499996838,
+      "height": 0.6463460028171539,
+      "width": 0.7874799221754074
+    },
+    "projected_bounds": {
+      "max": [
+        0.9338590502738953,
+        0.8262717127799988
+      ],
+      "min": [
+        0.14637912809848785,
+        0.17992570996284485
+      ]
+    },
+    "status": "PASS",
     "target_max": 0.75,
     "target_min": 0.6
   },
   "hidden_part_count": 60,
   "major_overlaps_detected": [],
-  "minimum_object_to_object_projected_spacing": null,
+  "minimum_object_to_object_projected_spacing": 0.00022846460342407227,
   "pipeline_status": "PASS",
   "primary_axis_objects": [
     "PART_001",
@@ -51,6 +71,73 @@
     "/Users/xiwei/modeling/stage_09A_R1_exploded_rework/renders/exploded_hero.png": true,
     "/Users/xiwei/modeling/stage_09A_R1_exploded_rework/renders/exploded_rear.png": true,
     "/Users/xiwei/modeling/stage_09A_R1_exploded_rework/renders/exploded_top.png": true
+  },
+  "scene_validation": {
+    "actual_scene_validation": true,
+    "animation_created": false,
+    "animation_data_count": 0,
+    "camera_clipping_warnings": [],
+    "camera_names": [
+      "CAM_EXPLODED_HERO",
+      "CAM_EXPLODED_ENGINEERING",
+      "CAM_EXPLODED_TOP",
+      "CAM_EXPLODED_REAR"
+    ],
+    "edge_on_visibility_warnings": [],
+    "floating_component_warnings": [],
+    "hero_frame_occupancy": {
+      "measured": {
+        "area": 0.508984499996838,
+        "height": 0.6463460028171539,
+        "width": 0.7874799221754074
+      },
+      "projected_bounds": {
+        "max": [
+          0.9338590502738953,
+          0.8262717127799988
+        ],
+        "min": [
+          0.14637912809848785,
+          0.17992570996284485
+        ]
+      },
+      "status": "PASS",
+      "target_max": 0.75,
+      "target_min": 0.6
+    },
+    "hidden_part_count": 60,
+    "major_overlaps_detected": [],
+    "minimum_object_to_object_projected_spacing": 0.00022846460342407227,
+    "polygons": 444296,
+    "source_part_count": 82,
+    "status": "PASS",
+    "vertices": 221902,
+    "visible_part_count": 22,
+    "visible_part_ids": [
+      "PART_001",
+      "PART_002",
+      "PART_003",
+      "PART_004",
+      "PART_005",
+      "PART_006",
+      "PART_007",
+      "PART_008",
+      "PART_009",
+      "PART_010",
+      "PART_011",
+      "PART_012",
+      "PART_013",
+      "PART_014",
+      "PART_015",
+      "PART_016",
+      "PART_017",
+      "PART_018",
+      "PART_019",
+      "PART_020",
+      "PART_021",
+      "PART_022"
+    ],
+    "warnings": []
   },
   "source_faces": 444296,
   "source_indexed_vertices": 221902,

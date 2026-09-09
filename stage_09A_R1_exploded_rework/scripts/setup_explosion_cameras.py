@@ -14,7 +14,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.task08_data import write_json
+from scripts.task08_data import load_json
 
 try:  # pragma: no cover - exercised by Blender integration.
     import bpy  # type: ignore
@@ -39,8 +39,8 @@ def camera_configs_for_bounds(bounds: Mapping[str, Sequence[float]]) -> dict[str
     target = [(left + right) / 2.0 for left, right in zip(low, high)]
     dimensions = [right - left for left, right in zip(low, high)]
     diagonal = math.sqrt(sum(value * value for value in dimensions))
-    distance = max(diagonal * 1.75, 500.0)
-    ortho_scale = max(dimensions[0], dimensions[1], dimensions[2]) * 1.22
+    distance = max(diagonal * 2.30, 500.0)
+    ortho_scale = max(dimensions[0], dimensions[1], dimensions[2]) * 1.45
 
     directions = {
         "CAM_EXPLODED_HERO": (0.70, -0.70, 0.48),
@@ -73,7 +73,7 @@ def camera_configs_for_bounds(bounds: Mapping[str, Sequence[float]]) -> dict[str
 
 
 def setup_r1_cameras(project_root: Path) -> dict[str, Any]:
-    """Open the R1 scene, create cameras, write config, and save the scene."""
+    """Open the R1 scene, consume camera config, create cameras, and save."""
     if bpy is None or Vector is None:
         raise RuntimeError("Blender bpy is required to create R1 cameras")
     root = Path(project_root).expanduser().resolve()
@@ -85,7 +85,9 @@ def setup_r1_cameras(project_root: Path) -> dict[str, Any]:
         if obj.type == "MESH" and obj.get("source") == "original_stl" and not obj.hide_render
     ]
     bounds = _object_bounds(visible)
-    payload = camera_configs_for_bounds(bounds)
+    config_path = root / "stage_09A_R1_exploded_rework/config/camera_config.json"
+    payload = load_json(config_path)
+    _validate_camera_payload(payload, bounds)
     camera_collection = _ensure_collection("R1_CAMERAS")
     for name in CAMERA_NAMES:
         old = bpy.data.objects.get(name)
@@ -108,10 +110,39 @@ def setup_r1_cameras(project_root: Path) -> dict[str, Any]:
         camera["r1_animation_created"] = False
     bpy.context.scene.camera = bpy.data.objects["CAM_EXPLODED_HERO"]
     _configure_scene()
-    config_path = root / "stage_09A_R1_exploded_rework/config/camera_config.json"
-    write_json(config_path, payload)
     bpy.ops.wm.save_as_mainfile(filepath=str(blend_path))
     return {"output": str(blend_path), "camera_config": str(config_path), "camera_names": list(CAMERA_NAMES)}
+
+
+def _validate_camera_payload(payload: Mapping[str, Any], bounds: Mapping[str, Sequence[float]]) -> None:
+    if payload.get("layout_version") != "r1":
+        raise ValueError("R1 camera config has an invalid layout version")
+    if list(payload.get("camera_names") or []) != list(CAMERA_NAMES):
+        raise ValueError("R1 camera config names are incomplete")
+    if list(payload.get("render_resolution") or []) != [1200, 900]:
+        raise ValueError("R1 camera config resolution is invalid")
+    configured_bounds = payload.get("visible_bounds")
+    if not isinstance(configured_bounds, Mapping):
+        raise ValueError("R1 camera config must contain visible_bounds")
+    for key in ("min", "max", "dimensions"):
+        expected = _vector(bounds[key], f"actual_bounds.{key}")
+        actual = _vector(configured_bounds.get(key), f"camera.visible_bounds.{key}")
+        # Layout bounds use manifest bbox dimensions around the recorded
+        # object center; Blender's bound_box uses the original mesh-local
+        # coordinates.  The scene is therefore allowed a small, deterministic
+        # source-bbox tolerance, while large drift still fails closed.
+        if any(abs(left - right) > 10.0 for left, right in zip(expected, actual)):
+            raise ValueError("R1 camera config bounds do not match the derived scene")
+    cameras = payload.get("cameras")
+    if not isinstance(cameras, Mapping) or set(cameras) != set(CAMERA_NAMES):
+        raise ValueError("R1 camera config must contain all camera settings")
+    for name in CAMERA_NAMES:
+        record = cameras[name]
+        if not isinstance(record, Mapping):
+            raise ValueError(f"camera config is malformed for {name}")
+        for key in ("name", "type", "target", "location", "direction", "lens_mm", "ortho_scale_mm", "clip_start_mm", "clip_end_mm"):
+            if key not in record:
+                raise ValueError(f"camera config is missing {name}.{key}")
 
 
 def _object_bounds(objects: Sequence[Any]) -> dict[str, list[float]]:
@@ -125,7 +156,11 @@ def _object_bounds(objects: Sequence[Any]) -> dict[str, list[float]]:
             for index in range(3):
                 low[index] = min(low[index], float(point[index]))
                 high[index] = max(high[index], float(point[index]))
-    return {"min": low, "max": high}
+    return {
+        "min": low,
+        "max": high,
+        "dimensions": [high[index] - low[index] for index in range(3)],
+    }
 
 
 def _ensure_collection(name: str) -> Any:
