@@ -86,7 +86,7 @@ The initial deterministic groups are:
 | `SENSOR_ASSEMBLY` | `PART_003`, `PART_012`-`PART_014` | `front-left` | move the fixture group, then expand X/Y/Z fixture members |
 | `BATTERY_ASSEMBLY` | `PART_008`-`PART_011`, `PART_015`, `PART_016` | `left` | move the group, then show a 3-by-2 array |
 | `LEVELING_ASSEMBLY` | `PART_020`-`PART_022` | `bottom` | keep three cones separated in a triangular layout |
-| `UNRESOLVED_MEDIUM_ASSEMBLY` | `PART_023`-`PART_038` | `right` | keep medium geometry visible without semantic guesses, using a reviewable grid |
+| `UNRESOLVED_MEDIUM_ASSEMBLY` | `PART_023`-`PART_038`, `PART_040`-`PART_045` | `right` | keep medium geometry visible without semantic guesses, using a reviewable grid |
 
 The six allowed zone names are exactly `top`, `bottom`, `left`, `right`,
 `front-left`, and `front-right`. Multiple assemblies may use one zone with
@@ -155,4 +155,3 @@ hierarchical SENSOR/PCB offsets, six-cell BATTERY array spacing, review queue
 filtering, no-keyframe contracts, output names, and source-baseline
 preservation. The acceptance run additionally verifies the STL and Stage
 01/02 hashes are unchanged and the four PNGs are readable.
-

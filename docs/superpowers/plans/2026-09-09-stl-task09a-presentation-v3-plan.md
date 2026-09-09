@@ -75,7 +75,8 @@ def test_only_major_and_medium_parts_are_visible(project_root):
 def test_small_and_fragment_parts_are_absent_from_review_queue(project_root):
     result = build_presentation_layout(project_root)
     queued = {item["part_id"] for item in result["review_queue"]}
-    assert not queued.intersection({f"PART_{index:03d}" for index in range(39, 83)})
+    hidden_ids = {"PART_039", *(f"PART_{index:03d}" for index in range(46, 83))}
+    assert not queued.intersection(hidden_ids)
 
 def test_sensor_pcb_battery_use_hierarchical_offsets(project_root):
     result = build_presentation_layout(project_root)
@@ -122,8 +123,9 @@ manifest/semantic/initial JSON, require exactly `PART_001` through
 `PART_082`, and sort all records numerically. Define the eight deterministic
 assembly records from the design: enclosure, handle, top interface, PCB,
 sensor, battery, leveling, and unresolved medium. Keep `PART_001` as the
-anchor with zero offsets. For parts 023-038 use visible unresolved-medium
-records without semantic renaming. For parts 039-082 use
+anchor with zero offsets. For parts 023-038 and 040-045 use visible
+unresolved-medium records without semantic renaming. For PART_039 and
+PART_046-PART_082 use
 `HIDDEN_NO_PARENT`, keep assembled coordinates, and omit them from the
 review queue. Write finite numeric vectors and a no-animation policy into the
 returned document.
@@ -385,4 +387,3 @@ rtk git commit -m "feat: complete hierarchical presentation explosion v3"
 Do not stage ignored generated data, blend, images, logs, or the six existing
 root PNG references. Finish by reporting the v3 output paths and stop before
 Task 9B or any animation keyframe work.
-

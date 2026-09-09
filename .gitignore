@@ -26,3 +26,15 @@ output/part_highlights/
 output/semantic_validation/
 output/explosion_validation/
 output/task09a_review/
+data/presentation_explosion_v3.json
+data/presentation_review_queue_v3.csv
+data/presentation_v3_run_result.json
+output/stage03_presentation_exploded_v3.blend
+output/explosion_validation_v3/
+logs/presentation_v3.log
+data/presentation_explosion_v4.json
+data/presentation_review_queue_v4.csv
+data/presentation_v4_run_result.json
+output/stage03_presentation_exploded_v4.blend
+output/explosion_validation_v4/
+logs/presentation_v4.log
