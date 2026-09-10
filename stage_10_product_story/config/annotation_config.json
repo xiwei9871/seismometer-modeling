@@ -1,0 +1,76 @@
+{
+  "font_style": "PRODUCT_TECHNICAL_SANS",
+  "items": [
+    {
+      "id": "sensor_title",
+      "shot_id": "SENSOR_FOCUS",
+      "text": "SMART 3-AXIS SENSING"
+    },
+    {
+      "id": "sensor_metric_1",
+      "shot_id": "SENSOR_FOCUS",
+      "text": "3 Channels"
+    },
+    {
+      "id": "sensor_metric_2",
+      "shot_id": "SENSOR_FOCUS",
+      "text": "99% Data Consistency"
+    },
+    {
+      "id": "pcb_title",
+      "shot_id": "PCB_FOCUS",
+      "text": "HIGH-PRECISION ACQUISITION"
+    },
+    {
+      "id": "pcb_metric_1",
+      "shot_id": "PCB_FOCUS",
+      "text": "32-bit ADC"
+    },
+    {
+      "id": "pcb_metric_2",
+      "shot_id": "PCB_FOCUS",
+      "text": "3 Channels"
+    },
+    {
+      "id": "communication_title",
+      "shot_id": "COMMUNICATION_FOCUS",
+      "text": "REAL-TIME WIRELESS TRANSMISSION"
+    },
+    {
+      "id": "communication_metric",
+      "shot_id": "COMMUNICATION_FOCUS",
+      "text": "Multi-network communication"
+    },
+    {
+      "id": "power_title",
+      "shot_id": "POWER_FOCUS",
+      "text": "LONG-ENDURANCE POWER"
+    },
+    {
+      "id": "power_metric_1",
+      "shot_id": "POWER_FOCUS",
+      "text": "10-day standby"
+    },
+    {
+      "id": "power_metric_2",
+      "shot_id": "POWER_FOCUS",
+      "text": "3-hour charging"
+    },
+    {
+      "id": "rugged_title",
+      "shot_id": "RUGGED_FOCUS",
+      "text": "BUILT FOR FIELD WORK"
+    },
+    {
+      "id": "rugged_metric_1",
+      "shot_id": "RUGGED_FOCUS",
+      "text": "-40°C ~ +80°C"
+    },
+    {
+      "id": "rugged_metric_2",
+      "shot_id": "RUGGED_FOCUS",
+      "text": "2.5 kg"
+    }
+  ],
+  "safe_area_percent": 8
+}

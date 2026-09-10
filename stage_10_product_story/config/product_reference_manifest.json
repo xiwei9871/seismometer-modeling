@@ -1,0 +1,69 @@
+{
+  "claims": {
+    "adc_resolution": {
+      "evidence_pages": [
+        2
+      ],
+      "unit": "ADC",
+      "value": "32-bit"
+    },
+    "channels": {
+      "evidence_pages": [
+        2
+      ],
+      "unit": "channels",
+      "value": 3
+    },
+    "charging_hours": {
+      "evidence_pages": [
+        2
+      ],
+      "unit": "hours",
+      "value": 3
+    },
+    "data_consistency_percent": {
+      "evidence_pages": [
+        1
+      ],
+      "unit": "%",
+      "value": 99
+    },
+    "standby_days": {
+      "evidence_pages": [
+        2
+      ],
+      "unit": "days",
+      "value": 10
+    },
+    "temperature_range_c": {
+      "evidence_pages": [
+        2
+      ],
+      "unit": "°C",
+      "value": [
+        -40,
+        80
+      ]
+    },
+    "weight_kg": {
+      "evidence_pages": [
+        2
+      ],
+      "unit": "kg",
+      "value": 2.5
+    }
+  },
+  "claims_source": "幔壳迅勘智能勘察设备.pdf",
+  "communication_protocol": {
+    "communication_protocol_text": "PENDING_PRODUCT_CONFIRMATION",
+    "page_1_text": "WIFI / NBIoT / 4G",
+    "page_2_text": "WIFI / NBIoT / Bluetooth",
+    "render_text": "Multi-network communication",
+    "status": "CONFLICT_REQUIRES_CONFIRMATION"
+  },
+  "page_count": 2,
+  "pdf_status": "VERIFIED_LOCAL_REFERENCE",
+  "reference_id": "PRODUCT_PDF_001",
+  "sha256": "d8555d751851d6e5f53027721c29eb701da27226bd1311b47bd1d1d1bbdb0d7e",
+  "source_file": "幔壳迅勘智能勘察设备.pdf"
+}

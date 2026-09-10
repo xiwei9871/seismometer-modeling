@@ -1,0 +1,105 @@
+{
+  "HIGH_PRECISION_ACQUISITION_CORE": {
+    "claim_refs": [
+      "PRODUCT_PDF_001:p2"
+    ],
+    "customer_takeaway": "A 32-bit, three-channel core digitizes measurements with high precision.",
+    "focus_weight": 1.0,
+    "material_role": "PCB",
+    "metrics": [
+      "32-bit ADC",
+      "3 Channels"
+    ],
+    "module_id": "HIGH_PRECISION_ACQUISITION_CORE",
+    "part_ids": [
+      "PART_006",
+      "PART_007",
+      "PART_019"
+    ],
+    "title": "HIGH-PRECISION ACQUISITION"
+  },
+  "LONG_ENDURANCE_POWER_SYSTEM": {
+    "claim_refs": [
+      "PRODUCT_PDF_001:p2"
+    ],
+    "customer_takeaway": "A six-unit power system supports long field deployments.",
+    "focus_weight": 0.85,
+    "material_role": "BATTERY",
+    "metrics": [
+      "10-day standby",
+      "3-hour charging"
+    ],
+    "module_id": "LONG_ENDURANCE_POWER_SYSTEM",
+    "part_ids": [
+      "PART_008",
+      "PART_009",
+      "PART_010",
+      "PART_011",
+      "PART_015",
+      "PART_016"
+    ],
+    "title": "LONG-ENDURANCE POWER"
+  },
+  "REAL_TIME_COMMUNICATION_SYSTEM": {
+    "claim_refs": [
+      "PRODUCT_PDF_001:p1",
+      "PRODUCT_PDF_001:p2"
+    ],
+    "customer_takeaway": "Field data can be transmitted wirelessly in real time.",
+    "focus_weight": 0.9,
+    "material_role": "COMMUNICATION",
+    "metrics": [
+      "Multi-network communication"
+    ],
+    "module_id": "REAL_TIME_COMMUNICATION_SYSTEM",
+    "part_ids": [
+      "PART_005",
+      "PART_017",
+      "PART_018"
+    ],
+    "title": "REAL-TIME WIRELESS TRANSMISSION"
+  },
+  "RUGGED_FIELD_PLATFORM": {
+    "claim_refs": [
+      "PRODUCT_PDF_001:p2"
+    ],
+    "customer_takeaway": "A lightweight, temperature-tolerant platform supports demanding field work.",
+    "focus_weight": 0.85,
+    "material_role": "EXTERIOR",
+    "metrics": [
+      "-40°C ~ +80°C",
+      "2.5 kg"
+    ],
+    "module_id": "RUGGED_FIELD_PLATFORM",
+    "part_ids": [
+      "PART_001",
+      "PART_002",
+      "PART_004",
+      "PART_020",
+      "PART_021",
+      "PART_022"
+    ],
+    "title": "BUILT FOR FIELD WORK"
+  },
+  "SMART_3_AXIS_SENSING_SYSTEM": {
+    "claim_refs": [
+      "PRODUCT_PDF_001:p1",
+      "PRODUCT_PDF_001:p2"
+    ],
+    "customer_takeaway": "Three-axis sensing helps capture accurate field data.",
+    "focus_weight": 1.0,
+    "material_role": "SENSOR",
+    "metrics": [
+      "3 Channels",
+      "99% Data Consistency"
+    ],
+    "module_id": "SMART_3_AXIS_SENSING_SYSTEM",
+    "part_ids": [
+      "PART_003",
+      "PART_012",
+      "PART_013",
+      "PART_014"
+    ],
+    "title": "SMART 3-AXIS SENSING"
+  }
+}

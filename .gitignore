@@ -45,3 +45,7 @@ stage_09C_refined_explosion/scene/*.blend
 stage_09C_refined_explosion/renders/
 stage_09C_refined_explosion/logs/
 stage_09C_refined_explosion/data_task09c_run_result.json
+stage_10_product_story/scene/
+stage_10_product_story/renders/
+stage_10_product_story/logs/
+stage_10_product_story/data_task10_run_result.json
