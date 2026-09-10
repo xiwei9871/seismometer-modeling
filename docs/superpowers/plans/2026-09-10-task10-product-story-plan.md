@@ -35,6 +35,7 @@ stage_10_product_story/scripts/build_product_reference.py
 stage_10_product_story/scripts/story_data.py
 stage_10_product_story/scripts/build_story_scene.py
 stage_10_product_story/scripts/apply_story_animation.py
+stage_10_product_story/scripts/setup_story_presentation.py
 stage_10_product_story/scripts/render_product_story.py
 stage_10_product_story/scripts/compose_storyboard.py
 stage_10_product_story/scripts/validate_product_story.py
