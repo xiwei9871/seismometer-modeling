@@ -18,11 +18,13 @@ from stage_10_product_story.scripts.build_story_scene import (
     build_state_transforms,
     build_story_visibility_policy,
 )
+from stage_10_product_story.scripts.apply_story_animation import KEYFRAME_STATES
 from stage_10_product_story.scripts.render_product_story import (
     REQUIRED_OUTPUTS,
     REQUIRED_STILLS,
     storyboard_inputs,
 )
+from stage_10_product_story.scripts.setup_story_presentation import annotation_screen_layout
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -150,6 +152,38 @@ def test_annotations_never_render_unconfirmed_protocol_names():
     assert "4G" not in rendered_text
     assert "Bluetooth" not in rendered_text
     assert "Multi-network communication" in rendered_text
+
+
+def test_annotations_have_one_title_and_at_most_two_metrics_per_shot():
+    config = build_annotation_config()
+    story = build_story_config()
+    for shot in story["shots"]:
+        items = [item for item in config["items"] if item["shot_id"] == shot["shot_id"]]
+        assert len(items) <= 3
+        assert sum("metric" in item["id"] for item in items) <= 2
+
+
+def test_story_keyframes_follow_shot_boundaries():
+    assert KEYFRAME_STATES == (
+        (1, "ASSEMBLED"), (74, "ASSEMBLED"),
+        (75, "PRIMARY_ARCHITECTURE"), (164, "PRIMARY_ARCHITECTURE"),
+        (165, "SENSOR_FOCUS"), (299, "SENSOR_FOCUS"),
+        (300, "PCB_FOCUS"), (419, "PCB_FOCUS"),
+        (420, "COMMUNICATION_FOCUS"), (509, "COMMUNICATION_FOCUS"),
+        (510, "POWER_FOCUS"), (614, "POWER_FOCUS"),
+        (615, "RUGGED_FOCUS"), (704, "RUGGED_FOCUS"),
+        (705, "REASSEMBLED"), (809, "REASSEMBLED"),
+        (810, "FINAL_HERO"), (900, "FINAL_HERO"),
+    )
+
+
+def test_annotation_screen_layout_separates_title_and_metrics():
+    title = annotation_screen_layout(is_metric=False, metric_index=0)
+    metric_1 = annotation_screen_layout(is_metric=True, metric_index=0)
+    metric_2 = annotation_screen_layout(is_metric=True, metric_index=1)
+    assert title["x_normalized"] == metric_1["x_normalized"] == metric_2["x_normalized"]
+    assert title["y_normalized"] > metric_1["y_normalized"] > metric_2["y_normalized"]
+    assert metric_1["y_normalized"] - metric_2["y_normalized"] >= 0.22
 
 
 def test_task10_render_outputs_are_exactly_the_eight_story_stills_and_preview():

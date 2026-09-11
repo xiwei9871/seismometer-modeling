@@ -8,6 +8,7 @@ import json
 import math
 from pathlib import Path
 import sys
+import struct
 from typing import Any, Mapping, Sequence
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -239,9 +240,13 @@ def build_story_scene(project_root: Path) -> dict[str, Any]:
     assembled = state_data["states"]["ASSEMBLED"]["parts"]
     for part_id in EXPECTED_PART_IDS:
         obj = objects[part_id]
+        source_fingerprint = mesh_geometry_fingerprint(obj.data)
         obj.animation_data_clear()
         _unlink(obj)
         if part_id in VISIBLE_PART_IDS:
+            # Presentation materials live on a copied mesh datablock.  The
+            # original Stage 9C mesh datablock is therefore never mutated.
+            obj.data = obj.data.copy()
             record = assembled[part_id]
             obj.location = record["location"]
             obj.rotation_euler = record["rotation_euler"]
@@ -251,12 +256,17 @@ def build_story_scene(project_root: Path) -> dict[str, Any]:
             collections[module_for_part[part_id]].objects.link(obj)
             obj["task10_functional_module"] = module_for_part[part_id]
             obj["task10_animation_enabled"] = True
+            obj["task10_story_animation_enabled"] = True
         else:
             obj.hide_viewport = True
             obj.hide_render = True
             collections["SOURCE_HIDDEN"].objects.link(obj)
             obj["task10_functional_module"] = "SOURCE_HIDDEN"
             obj["task10_animation_enabled"] = False
+            obj["task10_story_animation_enabled"] = False
+        obj["task10_story_state_source"] = "stage_10_product_story/config/state_transforms.json"
+        obj["task10_source_geometry_fingerprint"] = source_fingerprint
+        obj["task10_geometry_data_role"] = "presentation_copy" if part_id in VISIBLE_PART_IDS else "source"
         obj["task10_source_geometry_unchanged"] = True
 
     scene = bpy.context.scene
@@ -269,6 +279,7 @@ def build_story_scene(project_root: Path) -> dict[str, Any]:
     scene["task10_source_indexed_vertices"] = 221902
     scene["task10_communication_protocol_text"] = "PENDING_PRODUCT_CONFIRMATION"
     scene["task10_animation_created"] = False
+    scene["task10_story_state_source"] = "stage_10_product_story/config/state_transforms.json"
     output = root / SCENE_OUTPUT
     output.parent.mkdir(parents=True, exist_ok=True)
     bpy.ops.wm.save_as_mainfile(filepath=str(output))
@@ -309,6 +320,19 @@ def _validate_geometry(objects: Mapping[str, Any]) -> None:
         raise ValueError(f"Task 10 frozen geometry totals changed: {faces}/{vertices}")
 
 
+def mesh_geometry_fingerprint(mesh: Any) -> str:
+    """Hash vertex coordinates and polygon index order without changing a mesh."""
+    digest = hashlib.sha256()
+    for vertex in mesh.vertices:
+        for coordinate in vertex.co:
+            digest.update(struct.pack("<d", float(coordinate)))
+    for polygon in mesh.polygons:
+        digest.update(struct.pack("<I", len(polygon.vertices)))
+        for index in polygon.vertices:
+            digest.update(struct.pack("<I", int(index)))
+    return digest.hexdigest()
+
+
 def _remove_non_source_objects() -> None:
     for obj in list(bpy.data.objects):
         if not (obj.type == "MESH" and obj.get("source") == "original_stl"):
@@ -316,19 +340,30 @@ def _remove_non_source_objects() -> None:
 
 
 def _create_story_collections() -> dict[str, Any]:
-    root_collection = bpy.data.collections.get("TASK10_PRODUCT_STORY")
+    root_collection = bpy.data.collections.get("STORY_10")
     if root_collection is None:
-        root_collection = bpy.data.collections.new("TASK10_PRODUCT_STORY")
+        root_collection = bpy.data.collections.new("STORY_10")
         bpy.context.scene.collection.children.link(root_collection)
-    names = tuple(FUNCTIONAL_MODULES) + ("SOURCE_HIDDEN",)
+    modules_collection = bpy.data.collections.get("STORY_MODULES")
+    if modules_collection is None:
+        modules_collection = bpy.data.collections.new("STORY_MODULES")
+    if modules_collection.name not in {child.name for child in root_collection.children}:
+        root_collection.children.link(modules_collection)
+    hidden_collection = bpy.data.collections.get("STORY_SOURCE_HIDDEN")
+    if hidden_collection is None:
+        hidden_collection = bpy.data.collections.new("STORY_SOURCE_HIDDEN")
+    if hidden_collection.name not in {child.name for child in root_collection.children}:
+        root_collection.children.link(hidden_collection)
     result: dict[str, Any] = {}
-    for name in names:
-        collection = bpy.data.collections.get(f"T10_{name}")
+    for name in FUNCTIONAL_MODULES:
+        collection_name = f"STORY_{name}"
+        collection = bpy.data.collections.get(collection_name)
         if collection is None:
-            collection = bpy.data.collections.new(f"T10_{name}")
-        if collection.name not in {child.name for child in root_collection.children}:
-            root_collection.children.link(collection)
+            collection = bpy.data.collections.new(collection_name)
+        if collection.name not in {child.name for child in modules_collection.children}:
+            modules_collection.children.link(collection)
         result[name] = collection
+    result["SOURCE_HIDDEN"] = hidden_collection
     return result
 
 
@@ -367,4 +402,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

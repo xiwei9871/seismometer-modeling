@@ -18,6 +18,7 @@ from stage_10_product_story.scripts.build_story_scene import (
     HIDDEN_PART_IDS,
     SCENE_OUTPUT,
     VISIBLE_PART_IDS,
+    mesh_geometry_fingerprint,
 )
 from stage_10_product_story.scripts.render_product_story import REQUIRED_OUTPUTS, REQUIRED_STILLS
 
@@ -49,6 +50,20 @@ def validate_product_story(project_root: Path) -> dict[str, Any]:
     vertices = sum(len(obj.data.vertices) for obj in objects.values())
     if faces != 444296 or vertices != 221902:
         warnings.append({"code": "FROZEN_GEOMETRY_TOTAL_MISMATCH", "faces": faces, "vertices": vertices})
+    fingerprint_failures = []
+    for part_id, obj in objects.items():
+        expected_fingerprint = obj.get("task10_source_geometry_fingerprint")
+        actual_fingerprint = mesh_geometry_fingerprint(obj.data)
+        if not expected_fingerprint or str(expected_fingerprint) != actual_fingerprint:
+            fingerprint_failures.append(part_id)
+    if fingerprint_failures:
+        warnings.append({"code": "SOURCE_GEOMETRY_FINGERPRINT_MISMATCH", "part_ids": sorted(fingerprint_failures, key=_part_number)})
+    required_collections = {
+        "STORY_10", "STORY_MODULES", "STORY_SOURCE_HIDDEN", "STORY_ANNOTATIONS", "STORY_CAMERAS",
+    }
+    missing_collections = sorted(name for name in required_collections if bpy.data.collections.get(name) is None)
+    if missing_collections:
+        warnings.append({"code": "TASK10_COLLECTIONS_MISSING", "collections": missing_collections})
     visible = sorted([part_id for part_id, obj in objects.items() if not obj.hide_render], key=_part_number)
     hidden = sorted([part_id for part_id, obj in objects.items() if obj.hide_render], key=_part_number)
     if visible != list(VISIBLE_PART_IDS) or hidden != list(HIDDEN_PART_IDS):
@@ -62,6 +77,16 @@ def validate_product_story(project_root: Path) -> dict[str, Any]:
         warnings.append({"code": "TIMELINE_MISMATCH", "frame_range": [scene.frame_start, scene.frame_end], "fps": scene.render.fps})
     if scene.get("task10_animation_created") is not True:
         warnings.append({"code": "ANIMATION_MARKER_MISSING"})
+    if scene.get("task10_story_state_source") != STATE_PATH:
+        warnings.append({"code": "STATE_SOURCE_MARKER_MISSING"})
+    for part_id, obj in objects.items():
+        expected_enabled = part_id in VISIBLE_PART_IDS
+        if obj.get("task10_story_animation_enabled") is not expected_enabled:
+            warnings.append({"code": "STORY_ANIMATION_PROPERTY_MISMATCH", "part_id": part_id})
+            break
+        if obj.get("task10_story_state_source") != STATE_PATH:
+            warnings.append({"code": "PART_STATE_SOURCE_MARKER_MISSING", "part_id": part_id})
+            break
     for frame, state_id in ((1, "ASSEMBLED"), (900, "FINAL_HERO")):
         scene.frame_set(frame)
         for part_id in VISIBLE_PART_IDS:
@@ -95,7 +120,8 @@ def validate_product_story(project_root: Path) -> dict[str, Any]:
         "annotation_text": annotation_text,
         "output_checks": {name: name not in missing for name in outputs},
         "warnings": warnings,
-        "source_geometry_modified": False,
+        "source_geometry_modified": bool(fingerprint_failures),
+        "source_geometry_fingerprint_verified": not fingerprint_failures,
     }
 
 
@@ -129,4 +155,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

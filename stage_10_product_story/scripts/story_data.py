@@ -130,7 +130,7 @@ def build_story_config() -> dict[str, Any]:
         "POWER_FOCUS": ["10-day standby", "3-hour charging"],
         "RUGGED_FOCUS": ["-40°C ~ +80°C", "2.5 kg"],
         "REASSEMBLED": [],
-        "FINAL_HERO": ["Accurate acquisition", "Wireless transmission", "Long endurance"],
+        "FINAL_HERO": ["Accurate acquisition", "Wireless transmission"],
     }
     emphasis_by_shot = {
         "ASSEMBLED": "all",
@@ -265,6 +265,8 @@ def build_annotation_config() -> dict[str, Any]:
         "font_style": "PRODUCT_TECHNICAL_SANS",
         "safe_area_percent": 8,
         "items": [
+            {"id": "assembled_title", "text": "SMART FIELD SURVEY DEVICE", "shot_id": "ASSEMBLED"},
+            {"id": "architecture_title", "text": "PRODUCT FUNCTIONAL ARCHITECTURE", "shot_id": "PRIMARY_ARCHITECTURE"},
             {"id": "sensor_title", "text": "SMART 3-AXIS SENSING", "shot_id": "SENSOR_FOCUS"},
             {"id": "sensor_metric_1", "text": "3 Channels", "shot_id": "SENSOR_FOCUS"},
             {"id": "sensor_metric_2", "text": "99% Data Consistency", "shot_id": "SENSOR_FOCUS"},
@@ -279,6 +281,10 @@ def build_annotation_config() -> dict[str, Any]:
             {"id": "rugged_title", "text": "BUILT FOR FIELD WORK", "shot_id": "RUGGED_FOCUS"},
             {"id": "rugged_metric_1", "text": "-40°C ~ +80°C", "shot_id": "RUGGED_FOCUS"},
             {"id": "rugged_metric_2", "text": "2.5 kg", "shot_id": "RUGGED_FOCUS"},
+            {"id": "reassembled_title", "text": "FROM SENSING TO FIELD RESULTS", "shot_id": "REASSEMBLED"},
+            {"id": "final_title", "text": "SMART SURVEY. READY FOR THE FIELD.", "shot_id": "FINAL_HERO"},
+            {"id": "final_metric_1", "text": "Accurate acquisition", "shot_id": "FINAL_HERO"},
+            {"id": "final_metric_2", "text": "Wireless transmission", "shot_id": "FINAL_HERO"},
         ],
     }
 

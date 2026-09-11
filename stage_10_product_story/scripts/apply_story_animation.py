@@ -29,22 +29,21 @@ except ImportError:  # pragma: no cover
 
 KEYFRAME_STATES: tuple[tuple[int, str], ...] = (
     (1, "ASSEMBLED"),
-    (60, "ASSEMBLED"),
-    (75, "ASSEMBLED"),
-    (150, "PRIMARY_ARCHITECTURE"),
-    (165, "PRIMARY_ARCHITECTURE"),
-    (210, "SENSOR_FOCUS"),
-    (285, "SENSOR_FOCUS"),
-    (330, "PCB_FOCUS"),
-    (405, "PCB_FOCUS"),
-    (450, "COMMUNICATION_FOCUS"),
-    (495, "COMMUNICATION_FOCUS"),
-    (550, "POWER_FOCUS"),
-    (600, "POWER_FOCUS"),
-    (650, "RUGGED_FOCUS"),
-    (690, "RUGGED_FOCUS"),
-    (705, "RUGGED_FOCUS"),
-    (790, "REASSEMBLED"),
+    (74, "ASSEMBLED"),
+    (75, "PRIMARY_ARCHITECTURE"),
+    (164, "PRIMARY_ARCHITECTURE"),
+    (165, "SENSOR_FOCUS"),
+    (299, "SENSOR_FOCUS"),
+    (300, "PCB_FOCUS"),
+    (419, "PCB_FOCUS"),
+    (420, "COMMUNICATION_FOCUS"),
+    (509, "COMMUNICATION_FOCUS"),
+    (510, "POWER_FOCUS"),
+    (614, "POWER_FOCUS"),
+    (615, "RUGGED_FOCUS"),
+    (704, "RUGGED_FOCUS"),
+    (705, "REASSEMBLED"),
+    (809, "REASSEMBLED"),
     (810, "FINAL_HERO"),
     (900, "FINAL_HERO"),
 )
@@ -73,9 +72,13 @@ def apply_story_animation(project_root: Path) -> dict[str, Any]:
             obj.keyframe_insert(data_path="scale", frame=frame, group="Task10 Story Scale")
         _set_bezier(obj)
         obj["task10_animation_enabled"] = True
+        obj["task10_story_animation_enabled"] = True
+        obj["task10_story_state_source"] = "stage_10_product_story/config/state_transforms.json"
     for part_id in HIDDEN_PART_IDS:
         objects[part_id].animation_data_clear()
         objects[part_id]["task10_animation_enabled"] = False
+        objects[part_id]["task10_story_animation_enabled"] = False
+        objects[part_id]["task10_story_state_source"] = "stage_10_product_story/config/state_transforms.json"
 
     scene = bpy.context.scene
     scene.frame_start = 1
@@ -143,4 +146,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

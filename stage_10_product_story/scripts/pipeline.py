@@ -7,9 +7,10 @@ from datetime import datetime, timezone
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
-from typing import Any, Sequence
+from typing import Any, Mapping, Sequence
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
@@ -51,17 +52,77 @@ def validate_run_result(result: dict[str, Any]) -> dict[str, Any]:
         raise ValueError("Task 10 run output set is incomplete")
     if result.get("source_geometry_modified") is not False:
         raise ValueError("Task 10 source geometry modification marker is invalid")
+    if result.get("source_geometry_fingerprint_verified") is not True:
+        raise ValueError("Task 10 source geometry fingerprint was not verified")
     if result.get("source_part_count") != 82 or result.get("source_faces") != 444296 or result.get("source_indexed_vertices") != 221902:
         raise ValueError("Task 10 source baseline is invalid")
     if result.get("animation_created") is not True or float(result.get("animation_duration_seconds", 0.0)) != 30.0:
         raise ValueError("Task 10 animation contract is invalid")
     if result.get("communication_protocol_text") != "PENDING_PRODUCT_CONFIRMATION":
         raise ValueError("Task 10 communication protocol must remain pending")
+    expected_media = {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "30/1",
+        "nb_frames": 900,
+        "duration_seconds": 30.0,
+    }
+    if result.get("preview_media") != expected_media:
+        raise ValueError("Task 10 preview media was not independently validated")
     for name, path in outputs.items():
         file_path = Path(path)
         if not file_path.is_file() or file_path.stat().st_size <= 0:
             raise ValueError(f"Task 10 output is missing or empty: {name}")
     return dict(result)
+
+
+def validate_preview_media(preview_path: Path, *, ffprobe_path: str | None = None) -> dict[str, Any]:
+    """Require a playable, correctly-sized Task 10 H.264 preview container."""
+    path = Path(preview_path).expanduser().resolve()
+    if not path.is_file() or path.stat().st_size <= 0:
+        raise ValueError(f"preview media is missing or empty: {path}")
+    executable = ffprobe_path or shutil.which("ffprobe")
+    if not executable:
+        raise ValueError("ffprobe is required to validate the Task 10 preview")
+    command = [
+        executable,
+        "-v", "error",
+        "-show_entries",
+        "stream=codec_name,codec_type,width,height,r_frame_rate,nb_frames:format=duration",
+        "-of", "json",
+        str(path),
+    ]
+    completed = subprocess.run(command, capture_output=True, text=True, check=False)
+    if completed.returncode != 0:
+        detail = (completed.stderr or completed.stdout or "unknown ffprobe error").strip()
+        raise ValueError(f"ffprobe rejected preview media: {detail}")
+    try:
+        payload = json.loads(completed.stdout or "{}")
+        streams = [stream for stream in payload.get("streams", []) if stream.get("codec_type") == "video"]
+        stream = streams[0]
+        duration = float(payload["format"]["duration"])
+    except (KeyError, IndexError, TypeError, ValueError, json.JSONDecodeError) as exc:
+        raise ValueError("ffprobe returned incomplete preview metadata") from exc
+    expected = {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "30/1",
+        "nb_frames": 900,
+        "duration_seconds": 30.0,
+    }
+    actual = {
+        "codec_name": stream.get("codec_name"),
+        "width": int(stream.get("width", 0)),
+        "height": int(stream.get("height", 0)),
+        "r_frame_rate": stream.get("r_frame_rate"),
+        "nb_frames": int(stream.get("nb_frames", 0)),
+        "duration_seconds": duration,
+    }
+    if actual != expected:
+        raise ValueError(f"preview media metadata mismatch: expected {expected}, got {actual}")
+    return actual
 
 
 def run_task10(project_root: Path, *, blender_path: str | None = None, skip_blender: bool = False) -> dict[str, Any]:
@@ -87,14 +148,17 @@ def run_task10(project_root: Path, *, blender_path: str | None = None, skip_blen
             failures.append(record)
             return None
 
-    reference = python_stage(
-        "build_product_reference",
-        lambda: build_product_reference_manifest(
+    def build_verified_reference() -> dict[str, Any]:
+        manifest = build_product_reference_manifest(
             root,
             pdf_path=root / PDF_NAME,
             expected_sha256=PDF_SHA256,
-        ),
-    )
+        )
+        if manifest.get("pdf_status") != "VERIFIED_LOCAL_REFERENCE":
+            raise ValueError("approved local product PDF is required for Task 10")
+        return manifest
+
+    reference = python_stage("build_product_reference", build_verified_reference)
     if reference is not None:
         write_json(root / f"{ROOT_DIR}/config/product_reference_manifest.json", reference)
     story_outputs = None
@@ -104,6 +168,7 @@ def run_task10(project_root: Path, *, blender_path: str | None = None, skip_blen
     if not failures:
         state_data = python_stage("write_state_transforms", lambda: write_state_transforms(root, build_state_transforms(root)))
     executable = blender_path or os.environ.get("BLENDER_PATH") or "/opt/homebrew/bin/blender"
+    preview_media = None
     if not failures and not skip_blender:
         for stage_name, script_name in (
             ("build_story_scene", "build_story_scene.py"),
@@ -117,6 +182,11 @@ def run_task10(project_root: Path, *, blender_path: str | None = None, skip_blen
             if record["returncode"] != 0:
                 failures.append(record)
                 break
+        if not failures:
+            preview_media = python_stage(
+                "validate_preview_media",
+                lambda: validate_preview_media(root / f"{ROOT_DIR}/renders/product_story_preview.mp4"),
+            )
         if not failures:
             contact_command = [sys.executable, str(root / f"{ROOT_DIR}/scripts/compose_storyboard.py"), "--project-root", str(root)]
             record = _run_stage("compose_storyboard", contact_command, root, log_lines)
@@ -150,7 +220,10 @@ def run_task10(project_root: Path, *, blender_path: str | None = None, skip_blen
         "source_part_count": 82,
         "source_faces": 444296,
         "source_indexed_vertices": 221902,
-        "source_geometry_modified": False,
+        "source_geometry_modified": not bool(scene_validation and scene_validation.get("source_geometry_modified") is False),
+        "source_geometry_fingerprint_verified": bool(
+            scene_validation and scene_validation.get("source_geometry_fingerprint_verified") is True
+        ),
         "animation_created": status == "PASS",
         "animation_duration_seconds": 30.0,
         "communication_protocol_text": "PENDING_PRODUCT_CONFIRMATION",
@@ -159,6 +232,7 @@ def run_task10(project_root: Path, *, blender_path: str | None = None, skip_blen
         "story_configs": {name: str(path) for name, path in (story_outputs or {}).items()},
         "state_transforms": str(state_data) if state_data else None,
         "validation": scene_validation,
+        "preview_media": preview_media,
         "stages": stages,
         "failures": failures,
     }

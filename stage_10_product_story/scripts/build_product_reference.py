@@ -140,7 +140,7 @@ def main(argv: list[str] | None = None) -> int:
     manifest = build_product_reference_manifest(
         root,
         pdf_path=pdf_path,
-        expected_sha256=PDF_SHA256 if pdf_path.name == PDF_NAME else None,
+        expected_sha256=PDF_SHA256,
     )
     output = root / MANIFEST_RELATIVE_PATH
     write_json(output, manifest)

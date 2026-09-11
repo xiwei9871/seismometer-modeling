@@ -2,6 +2,16 @@
   "font_style": "PRODUCT_TECHNICAL_SANS",
   "items": [
     {
+      "id": "assembled_title",
+      "shot_id": "ASSEMBLED",
+      "text": "SMART FIELD SURVEY DEVICE"
+    },
+    {
+      "id": "architecture_title",
+      "shot_id": "PRIMARY_ARCHITECTURE",
+      "text": "PRODUCT FUNCTIONAL ARCHITECTURE"
+    },
+    {
       "id": "sensor_title",
       "shot_id": "SENSOR_FOCUS",
       "text": "SMART 3-AXIS SENSING"
@@ -70,6 +80,26 @@
       "id": "rugged_metric_2",
       "shot_id": "RUGGED_FOCUS",
       "text": "2.5 kg"
+    },
+    {
+      "id": "reassembled_title",
+      "shot_id": "REASSEMBLED",
+      "text": "FROM SENSING TO FIELD RESULTS"
+    },
+    {
+      "id": "final_title",
+      "shot_id": "FINAL_HERO",
+      "text": "SMART SURVEY. READY FOR THE FIELD."
+    },
+    {
+      "id": "final_metric_1",
+      "shot_id": "FINAL_HERO",
+      "text": "Accurate acquisition"
+    },
+    {
+      "id": "final_metric_2",
+      "shot_id": "FINAL_HERO",
+      "text": "Wireless transmission"
     }
   ],
   "safe_area_percent": 8

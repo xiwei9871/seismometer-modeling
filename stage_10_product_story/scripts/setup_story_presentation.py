@@ -38,9 +38,21 @@ except ImportError:  # pragma: no cover
 
 CAMERA_CONFIG_OUTPUT = "stage_10_product_story/config/camera_sequence.json"
 ANNOTATION_CONFIG_OUTPUT = "stage_10_product_story/config/annotation_config.json"
-ANNOTATION_COLLECTION = "T10_ANNOTATIONS"
-CAMERA_COLLECTION = "T10_CAMERAS"
+ANNOTATION_COLLECTION = "STORY_ANNOTATIONS"
+CAMERA_COLLECTION = "STORY_CAMERAS"
 WHITE = (0.93, 0.96, 1.0, 1.0)
+
+
+def annotation_screen_layout(*, is_metric: bool, metric_index: int) -> dict[str, float]:
+    """Return a deterministic camera-space text anchor in normalized frame units."""
+    if metric_index < 0:
+        raise ValueError("metric_index must be non-negative")
+    return {
+        "x_normalized": -0.78,
+        "y_normalized": (0.18 - metric_index * 0.28) if is_metric else 0.72,
+        "depth_mm": 260.0,
+        "font_size_mm": 3.4 if is_metric else 5.0,
+    }
 
 
 def apply_story_presentation(project_root: Path) -> dict[str, Any]:
@@ -226,7 +238,7 @@ def _normalise(value: Sequence[float]) -> list[float]:
 
 
 def _create_cameras(config: Mapping[str, Any]) -> None:
-    collection = _ensure_collection(CAMERA_COLLECTION)
+    collection = _ensure_collection(CAMERA_COLLECTION, parent_name="STORY_10")
     for name in config["camera_names"]:
         old = bpy.data.objects.get(name)
         if old is not None:
@@ -259,7 +271,7 @@ def _create_cameras(config: Mapping[str, Any]) -> None:
 
 
 def _create_annotations(config: Mapping[str, Any], camera_config: Mapping[str, Any]) -> None:
-    collection = _ensure_collection(ANNOTATION_COLLECTION)
+    collection = _ensure_collection(ANNOTATION_COLLECTION, parent_name="STORY_10")
     camera_for_shot = {record["shot_id"]: record["camera_id"] for record in build_story_config()["shots"]}
     metric_counts: dict[str, int] = {}
     for index, item in enumerate(config["items"]):
@@ -267,7 +279,11 @@ def _create_annotations(config: Mapping[str, Any], camera_config: Mapping[str, A
         text_data.body = str(item["text"])
         text_data.align_x = "LEFT"
         is_metric = "metric" in item["id"]
-        text_data.size = 8.0 if not is_metric else 5.5
+        metric_index = metric_counts.get(item["shot_id"], 0) if is_metric else 0
+        if is_metric:
+            metric_counts[item["shot_id"]] = metric_index + 1
+        layout = annotation_screen_layout(is_metric=is_metric, metric_index=metric_index)
+        text_data.size = layout["font_size_mm"]
         text_data.extrude = 0.08
         text_data.bevel_depth = 0.02
         text_data.materials.append(_text_material())
@@ -275,17 +291,16 @@ def _create_annotations(config: Mapping[str, Any], camera_config: Mapping[str, A
         collection.objects.link(text)
         camera_name = camera_for_shot[item["shot_id"]]
         cam = bpy.data.objects[camera_name]
-        cam_record = camera_config["cameras"][camera_name]
-        target = Vector(cam_record["target"])
-        right = cam.matrix_world.to_quaternion() @ Vector((1.0, 0.0, 0.0))
-        up = cam.matrix_world.to_quaternion() @ Vector((0.0, 1.0, 0.0))
-        toward_camera = (Vector(cam.location) - target).normalized()
-        metric_index = metric_counts.get(item["shot_id"], 0) if is_metric else 0
-        if is_metric:
-            metric_counts[item["shot_id"]] = metric_index + 1
-        line = (56.0 + metric_index * 12.0) if is_metric else 0.0
-        text.location = target + right * -112.0 + up * (68.0 - line) + toward_camera * 40.0
-        text.rotation_euler = (Vector(cam.location) - text.location).to_track_quat("Z", "Y").to_euler()
+        depth = layout["depth_mm"]
+        horizontal_half = depth * float(cam.data.sensor_width) / (2.0 * float(cam.data.lens))
+        vertical_half = horizontal_half / (1920.0 / 1080.0)
+        text.parent = cam
+        text.location = (
+            layout["x_normalized"] * horizontal_half,
+            layout["y_normalized"] * vertical_half,
+            -depth,
+        )
+        text.rotation_euler = (0.0, 0.0, 0.0)
         text["task10_annotation_shot"] = item["shot_id"]
         text["task10_render_text"] = item["text"]
         _key_annotation_visibility(text, item["shot_id"])
@@ -337,11 +352,15 @@ def _configure_scene() -> None:
     scene.world.color = (0.055, 0.065, 0.08)
 
 
-def _ensure_collection(name: str) -> Any:
+def _ensure_collection(name: str, *, parent_name: str | None = None) -> Any:
     collection = bpy.data.collections.get(name)
     if collection is None:
         collection = bpy.data.collections.new(name)
-        bpy.context.scene.collection.children.link(collection)
+    parent = bpy.data.collections.get(parent_name) if parent_name else bpy.context.scene.collection
+    if parent is None:
+        parent = bpy.context.scene.collection
+    if collection.name not in {child.name for child in parent.children}:
+        parent.children.link(collection)
     return collection
 
 
