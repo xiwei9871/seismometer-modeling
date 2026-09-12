@@ -1,0 +1,115 @@
+{
+  "animation_data_policy": "NO_KEYFRAMES_OR_ANIMATION_DATA",
+  "scenes": {
+    "STATE_01_PRIMARY_ARCHITECTURE": {
+      "animation_data_count": 0,
+      "camera_names": [
+        "CAM_INSPECTION_PRIMARY_FRONT",
+        "CAM_INSPECTION_PRIMARY_HERO",
+        "CAM_INSPECTION_PRIMARY_SIDE"
+      ],
+      "fingerprint_failures": [],
+      "focus_part_ids": [
+        "PART_001",
+        "PART_002",
+        "PART_003",
+        "PART_004",
+        "PART_005",
+        "PART_006",
+        "PART_007",
+        "PART_008",
+        "PART_009",
+        "PART_010",
+        "PART_011",
+        "PART_012",
+        "PART_013",
+        "PART_014",
+        "PART_015",
+        "PART_016",
+        "PART_017",
+        "PART_018",
+        "PART_019",
+        "PART_020",
+        "PART_021",
+        "PART_022"
+      ],
+      "font_object_count": 0,
+      "path": "/Users/xiwei/modeling/stage_10R_functional_inspection/scene/primary_architecture.blend",
+      "source_faces": 444296,
+      "source_indexed_vertices": 221902,
+      "source_part_count": 82,
+      "state_id": "STATE_01_PRIMARY_ARCHITECTURE"
+    },
+    "STATE_02_SENSOR_INSPECTION": {
+      "animation_data_count": 0,
+      "camera_names": [
+        "CAM_INSPECTION_SENSOR_CLEAN",
+        "CAM_INSPECTION_SENSOR_CONTEXT",
+        "CAM_INSPECTION_SENSOR_TOP"
+      ],
+      "fingerprint_failures": [],
+      "focus_part_ids": [
+        "PART_003",
+        "PART_012",
+        "PART_013",
+        "PART_014"
+      ],
+      "font_object_count": 0,
+      "path": "/Users/xiwei/modeling/stage_10R_functional_inspection/scene/sensor_inspection.blend",
+      "source_faces": 444296,
+      "source_indexed_vertices": 221902,
+      "source_part_count": 82,
+      "state_id": "STATE_02_SENSOR_INSPECTION"
+    },
+    "STATE_03_PCB_INSPECTION": {
+      "animation_data_count": 0,
+      "camera_names": [
+        "CAM_INSPECTION_PCB_CLEAN",
+        "CAM_INSPECTION_PCB_CONTEXT",
+        "CAM_INSPECTION_PCB_TOP"
+      ],
+      "fingerprint_failures": [],
+      "focus_part_ids": [
+        "PART_006",
+        "PART_007",
+        "PART_019"
+      ],
+      "font_object_count": 0,
+      "path": "/Users/xiwei/modeling/stage_10R_functional_inspection/scene/pcb_inspection.blend",
+      "source_faces": 444296,
+      "source_indexed_vertices": 221902,
+      "source_part_count": 82,
+      "state_id": "STATE_03_PCB_INSPECTION"
+    },
+    "STATE_04_POWER_INSPECTION": {
+      "animation_data_count": 0,
+      "camera_names": [
+        "CAM_INSPECTION_POWER_CLEAN",
+        "CAM_INSPECTION_POWER_CONTEXT"
+      ],
+      "fingerprint_failures": [],
+      "focus_part_ids": [
+        "PART_008",
+        "PART_009",
+        "PART_010",
+        "PART_011",
+        "PART_015",
+        "PART_016"
+      ],
+      "font_object_count": 0,
+      "path": "/Users/xiwei/modeling/stage_10R_functional_inspection/scene/power_inspection.blend",
+      "source_faces": 444296,
+      "source_indexed_vertices": 221902,
+      "source_part_count": 82,
+      "state_id": "STATE_04_POWER_INSPECTION"
+    }
+  },
+  "source_baseline": {
+    "faces": 444296,
+    "indexed_vertices": 221902,
+    "source_part_count": 82
+  },
+  "source_scene": "stage_09C_refined_explosion/scene/exploded_animation_preview.blend",
+  "source_scene_sha256": "a3b5359861877e247ad1b035b00cace3e29eea2789ac227e6eeddfaaba1a7766",
+  "text_policy": "NO_TEXT_OR_ANNOTATIONS"
+}

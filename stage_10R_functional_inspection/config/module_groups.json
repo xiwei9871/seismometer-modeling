@@ -1,0 +1,51 @@
+{
+  "modules": {
+    "MODULE_A": {
+      "focus_role": "TOP_EXTERIOR",
+      "name": "TOP_EXTERIOR_MODULE",
+      "part_ids": [
+        "PART_002",
+        "PART_004",
+        "PART_005",
+        "PART_017",
+        "PART_018"
+      ]
+    },
+    "MODULE_B": {
+      "focus_role": "ELECTRONICS_POWER",
+      "name": "ELECTRONICS_POWER_MODULE",
+      "part_ids": [
+        "PART_006",
+        "PART_007",
+        "PART_019",
+        "PART_008",
+        "PART_009",
+        "PART_010",
+        "PART_011",
+        "PART_015",
+        "PART_016"
+      ]
+    },
+    "MODULE_C": {
+      "focus_role": "SENSOR",
+      "name": "THREE_AXIS_SENSOR_MODULE",
+      "part_ids": [
+        "PART_003",
+        "PART_012",
+        "PART_013",
+        "PART_014"
+      ]
+    },
+    "MODULE_D": {
+      "focus_role": "LOWER_PLATFORM",
+      "name": "LOWER_FIELD_PLATFORM",
+      "part_ids": [
+        "PART_001",
+        "PART_020",
+        "PART_021",
+        "PART_022"
+      ]
+    }
+  },
+  "version": "task10R_module_groups_v1"
+}

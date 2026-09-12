@@ -1,0 +1,303 @@
+{
+  "cameras": {
+    "CAM_INSPECTION_PCB_CLEAN": {
+      "camera_distance_mm": 1028.013,
+      "clip_end_mm": 10000.0,
+      "clip_start_mm": 0.1,
+      "direction": [
+        0.5219584407136714,
+        -0.724942278768988,
+        0.44946421283677257
+      ],
+      "framing_margin": 1.2,
+      "framing_method": "PERSPECTIVE_BOUNDING_SPHERE",
+      "lens_mm": 60,
+      "location": [
+        807.4358458899962,
+        -660.8162078062014,
+        819.3302474482433
+      ],
+      "name": "CAM_INSPECTION_PCB_CLEAN",
+      "projection": "PERSP",
+      "state_id": "STATE_03_PCB_INSPECTION",
+      "target": [
+        270.8555603027344,
+        84.43418884277344,
+        357.2750015258789
+      ],
+      "view_role": "clean"
+    },
+    "CAM_INSPECTION_PCB_CONTEXT": {
+      "camera_distance_mm": 1722.427,
+      "clip_end_mm": 10000.0,
+      "clip_start_mm": 0.1,
+      "direction": [
+        0.5286691311661814,
+        -0.734262682175252,
+        0.42587235566164616
+      ],
+      "framing_margin": 1.2,
+      "framing_method": "PERSPECTIVE_BOUNDING_SPHERE",
+      "lens_mm": 60,
+      "location": [
+        1092.216939769378,
+        -1183.7429592683784,
+        1032.6055878098236
+      ],
+      "name": "CAM_INSPECTION_PCB_CONTEXT",
+      "projection": "PERSP",
+      "state_id": "STATE_03_PCB_INSPECTION",
+      "target": [
+        181.62274205684662,
+        80.97120422124863,
+        299.07137298583984
+      ],
+      "view_role": "context"
+    },
+    "CAM_INSPECTION_PCB_TOP": {
+      "camera_distance_mm": 1028.013,
+      "clip_end_mm": 10000.0,
+      "clip_start_mm": 0.1,
+      "direction": [
+        0.0,
+        -0.25163385176495073,
+        0.9678225067882721
+      ],
+      "framing_margin": 1.2,
+      "framing_method": "PERSPECTIVE_BOUNDING_SPHERE",
+      "lens_mm": 60,
+      "location": [
+        270.8555603027344,
+        -174.24878955459735,
+        1352.209533823459
+      ],
+      "name": "CAM_INSPECTION_PCB_TOP",
+      "projection": "PERSP",
+      "state_id": "STATE_03_PCB_INSPECTION",
+      "target": [
+        270.8555603027344,
+        84.43418884277344,
+        357.2750015258789
+      ],
+      "view_role": "top"
+    },
+    "CAM_INSPECTION_POWER_CLEAN": {
+      "camera_distance_mm": 886.491,
+      "clip_end_mm": 10000.0,
+      "clip_start_mm": 0.1,
+      "direction": [
+        0.5219584407136714,
+        -0.724942278768988,
+        0.44946421283677257
+      ],
+      "framing_margin": 1.2,
+      "framing_method": "PERSPECTIVE_BOUNDING_SPHERE",
+      "lens_mm": 60,
+      "location": [
+        383.5668677676725,
+        -546.2204048585295,
+        748.4458480948078
+      ],
+      "name": "CAM_INSPECTION_POWER_CLEAN",
+      "projection": "PERSP",
+      "state_id": "STATE_04_POWER_INSPECTION",
+      "target": [
+        -79.14443969726562,
+        96.43418884277344,
+        350.0
+      ],
+      "view_role": "clean"
+    },
+    "CAM_INSPECTION_POWER_CONTEXT": {
+      "camera_distance_mm": 1714.97,
+      "clip_end_mm": 10000.0,
+      "clip_start_mm": 0.1,
+      "direction": [
+        0.5286691311661814,
+        -0.734262682175252,
+        0.42587235566164616
+      ],
+      "framing_margin": 1.2,
+      "framing_method": "PERSPECTIVE_BOUNDING_SPHERE",
+      "lens_mm": 60,
+      "location": [
+        920.5200616480736,
+        -1178.267242125591,
+        1033.154666526431
+      ],
+      "name": "CAM_INSPECTION_POWER_CONTEXT",
+      "projection": "PERSP",
+      "state_id": "STATE_04_POWER_INSPECTION",
+      "target": [
+        13.868380278348923,
+        80.97120422124863,
+        302.7963676452637
+      ],
+      "view_role": "context"
+    },
+    "CAM_INSPECTION_PRIMARY_FRONT": {
+      "camera_distance_mm": 2447.604,
+      "clip_end_mm": 10000.0,
+      "clip_start_mm": 0.1,
+      "direction": [
+        0.0,
+        -0.9928768384869221,
+        0.11914522061843064
+      ],
+      "framing_margin": 1.2,
+      "framing_method": "PERSPECTIVE_BOUNDING_SPHERE",
+      "lens_mm": 65,
+      "location": [
+        96.50934644341469,
+        -2347.801469203047,
+        723.1315678262963
+      ],
+      "name": "CAM_INSPECTION_PRIMARY_FRONT",
+      "projection": "PERSP",
+      "state_id": "STATE_01_PRIMARY_ARCHITECTURE",
+      "target": [
+        96.50934644341469,
+        82.36814864873887,
+        431.511213684082
+      ],
+      "view_role": "front"
+    },
+    "CAM_INSPECTION_PRIMARY_HERO": {
+      "camera_distance_mm": 2447.604,
+      "clip_end_mm": 10000.0,
+      "clip_start_mm": 0.1,
+      "direction": [
+        0.5286691311661814,
+        -0.734262682175252,
+        0.42587235566164616
+      ],
+      "framing_margin": 1.2,
+      "framing_method": "PERSPECTIVE_BOUNDING_SPHERE",
+      "lens_mm": 65,
+      "location": [
+        1390.482184417998,
+        -1714.8163485381826,
+        1473.8782220524968
+      ],
+      "name": "CAM_INSPECTION_PRIMARY_HERO",
+      "projection": "PERSP",
+      "state_id": "STATE_01_PRIMARY_ARCHITECTURE",
+      "target": [
+        96.50934644341469,
+        82.36814864873887,
+        431.511213684082
+      ],
+      "view_role": "hero"
+    },
+    "CAM_INSPECTION_PRIMARY_SIDE": {
+      "camera_distance_mm": 2447.604,
+      "clip_end_mm": 10000.0,
+      "clip_start_mm": 0.1,
+      "direction": [
+        0.9687303228651607,
+        -0.19374606457303215,
+        0.15499685165842572
+      ],
+      "framing_margin": 1.2,
+      "framing_method": "PERSPECTIVE_BOUNDING_SPHERE",
+      "lens_mm": 65,
+      "location": [
+        2467.5778488633887,
+        -391.84555183525595,
+        810.8821740712779
+      ],
+      "name": "CAM_INSPECTION_PRIMARY_SIDE",
+      "projection": "PERSP",
+      "state_id": "STATE_01_PRIMARY_ARCHITECTURE",
+      "target": [
+        96.50934644341469,
+        82.36814864873887,
+        431.511213684082
+      ],
+      "view_role": "side"
+    },
+    "CAM_INSPECTION_SENSOR_CLEAN": {
+      "camera_distance_mm": 907.844,
+      "clip_end_mm": 10000.0,
+      "clip_start_mm": 0.1,
+      "direction": [
+        0.5219584407136714,
+        -0.724942278768988,
+        0.44946421283677257
+      ],
+      "framing_margin": 1.2,
+      "framing_method": "PERSPECTIVE_BOUNDING_SPHERE",
+      "lens_mm": 60,
+      "location": [
+        394.71256489895535,
+        -573.7005371139936,
+        776.5184942350413
+      ],
+      "name": "CAM_INSPECTION_SENSOR_CLEAN",
+      "projection": "PERSP",
+      "state_id": "STATE_02_SENSOR_INSPECTION",
+      "target": [
+        -79.14443778991699,
+        84.43418884277344,
+        368.4749641418457
+      ],
+      "view_role": "clean"
+    },
+    "CAM_INSPECTION_SENSOR_CONTEXT": {
+      "camera_distance_mm": 1729.409,
+      "clip_end_mm": 10000.0,
+      "clip_start_mm": 0.1,
+      "direction": [
+        0.5286691311661814,
+        -0.734262682175252,
+        0.42587235566164616
+      ],
+      "framing_margin": 1.2,
+      "framing_method": "PERSPECTIVE_BOUNDING_SPHERE",
+      "lens_mm": 60,
+      "location": [
+        923.2326697216613,
+        -1188.8693292039113,
+        1036.4038793206746
+      ],
+      "name": "CAM_INSPECTION_SENSOR_CONTEXT",
+      "projection": "PERSP",
+      "state_id": "STATE_02_SENSOR_INSPECTION",
+      "target": [
+        8.947485655546188,
+        80.97120422124863,
+        299.89636993408203
+      ],
+      "view_role": "context"
+    },
+    "CAM_INSPECTION_SENSOR_TOP": {
+      "camera_distance_mm": 907.844,
+      "clip_end_mm": 10000.0,
+      "clip_start_mm": 0.1,
+      "direction": [
+        0.0,
+        -0.25163385176495073,
+        0.9678225067882721
+      ],
+      "framing_margin": 1.2,
+      "framing_method": "PERSPECTIVE_BOUNDING_SPHERE",
+      "lens_mm": 60,
+      "location": [
+        -79.14443778991699,
+        -144.01017276073156,
+        1247.1071241553263
+      ],
+      "name": "CAM_INSPECTION_SENSOR_TOP",
+      "projection": "PERSP",
+      "state_id": "STATE_02_SENSOR_INSPECTION",
+      "target": [
+        -79.14443778991699,
+        84.43418884277344,
+        368.4749641418457
+      ],
+      "view_role": "top"
+    }
+  },
+  "projection_policy": "PERSP_60_TO_65MM",
+  "version": "task10R_inspection_cameras_v1"
+}

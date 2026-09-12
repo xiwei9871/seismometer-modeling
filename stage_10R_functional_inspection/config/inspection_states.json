@@ -1,0 +1,2287 @@
+{
+  "hidden_part_ids": [
+    "PART_023",
+    "PART_024",
+    "PART_025",
+    "PART_026",
+    "PART_027",
+    "PART_028",
+    "PART_029",
+    "PART_030",
+    "PART_031",
+    "PART_032",
+    "PART_033",
+    "PART_034",
+    "PART_035",
+    "PART_036",
+    "PART_037",
+    "PART_038",
+    "PART_039",
+    "PART_040",
+    "PART_041",
+    "PART_042",
+    "PART_043",
+    "PART_044",
+    "PART_045",
+    "PART_046",
+    "PART_047",
+    "PART_048",
+    "PART_049",
+    "PART_050",
+    "PART_051",
+    "PART_052",
+    "PART_053",
+    "PART_054",
+    "PART_055",
+    "PART_056",
+    "PART_057",
+    "PART_058",
+    "PART_059",
+    "PART_060",
+    "PART_061",
+    "PART_062",
+    "PART_063",
+    "PART_064",
+    "PART_065",
+    "PART_066",
+    "PART_067",
+    "PART_068",
+    "PART_069",
+    "PART_070",
+    "PART_071",
+    "PART_072",
+    "PART_073",
+    "PART_074",
+    "PART_075",
+    "PART_076",
+    "PART_077",
+    "PART_078",
+    "PART_079",
+    "PART_080",
+    "PART_081",
+    "PART_082"
+  ],
+  "no_animation_policy": "NO_KEYFRAMES_OR_ANIMATION_DATA",
+  "no_text_policy": "NO_TEXT_OR_ANNOTATIONS",
+  "source_baseline": {
+    "faces": 444296,
+    "indexed_vertices": 221902,
+    "source_part_count": 82
+  },
+  "source_layout": "stage_09C_refined_explosion/config/refined_layout.json",
+  "source_scene": "stage_09C_refined_explosion/scene/exploded_animation_preview.blend",
+  "source_scene_sha256": "a3b5359861877e247ad1b035b00cace3e29eea2789ac227e6eeddfaaba1a7766",
+  "states": {
+    "STATE_01_PRIMARY_ARCHITECTURE": {
+      "additional_outputs": [
+        "01_primary_architecture_front.png",
+        "01_primary_architecture_side.png"
+      ],
+      "animation_policy": "NO_KEYFRAMES",
+      "camera_id": "CAM_INSPECTION_PRIMARY_HERO",
+      "diagnostics": {
+        "frame_margin": {
+          "bottom": 0.1,
+          "left": 0.1,
+          "right": 0.1,
+          "top": 0.1
+        },
+        "frame_occupancy_ratio": 0.76,
+        "human_review_required": true,
+        "method": "ORTHOGRAPHIC_XZ_HEURISTIC",
+        "module_screen_occupancy": {
+          "MODULE_A": 0.1694,
+          "MODULE_B": 0.1251,
+          "MODULE_C": 0.0551,
+          "MODULE_D": 0.2358
+        },
+        "projected_overlap_ratio": 0.0,
+        "silhouette_separation": 1.0,
+        "visible_surface_ratio": 1.0
+      },
+      "hero_output": "01_primary_architecture_hero.png",
+      "module_layout": [
+        "MODULE_A",
+        "MODULE_B",
+        "MODULE_C",
+        "MODULE_D"
+      ],
+      "parts": {
+        "PART_001": {
+          "location": [
+            95.85556030273438,
+            84.43418884277344,
+            232.626708984375
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_002": {
+          "location": [
+            97.20170745849609,
+            80.2678726196289,
+            655.9089782714843
+          ],
+          "offset_from_assembled_mm": [
+            1.8251281738281193,
+            2.793888854980466,
+            368.5684326171875
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_003": {
+          "location": [
+            95.94433784484863,
+            84.63583564758301,
+            368.0158996582031
+          ],
+          "offset_from_assembled_mm": [
+            1.1298465728759766,
+            -1.3491497039794922,
+            143.6656494140625
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_004": {
+          "location": [
+            89.3774429321289,
+            83.70853118896484,
+            653.261181640625
+          ],
+          "offset_from_assembled_mm": [
+            1.8251281738281193,
+            2.793888854980466,
+            368.5684326171875
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_005": {
+          "location": [
+            97.63758239746093,
+            87.26338653564453,
+            695.6796691894531
+          ],
+          "offset_from_assembled_mm": [
+            1.8251281738281193,
+            2.793888854980466,
+            368.5684326171875
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_006": {
+          "location": [
+            95.06644482082791,
+            84.66142887539334,
+            519.5504421657986
+          ],
+          "offset_from_assembled_mm": [
+            0.2489323086208799,
+            -0.06793361239962792,
+            256.0952724880642
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_007": {
+          "location": [
+            95.94245190090604,
+            84.40821690029568,
+            530.1827053493923
+          ],
+          "offset_from_assembled_mm": [
+            0.2489323086208799,
+            -0.06793361239962792,
+            256.0952724880642
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_008": {
+          "location": [
+            130.8506931728787,
+            39.89491505093045,
+            524.0792812771267
+          ],
+          "offset_from_assembled_mm": [
+            0.2489323086208799,
+            -0.06793361239962792,
+            256.0952724880642
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_009": {
+          "location": [
+            61.06104702419705,
+            128.91577000088162,
+            524.0791592068142
+          ],
+          "offset_from_assembled_mm": [
+            0.2489323086208799,
+            -0.06793361239962792,
+            256.0952724880642
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_010": {
+          "location": [
+            117.05593914455838,
+            136.88093418545193,
+            524.079098171658
+          ],
+          "offset_from_assembled_mm": [
+            0.2489323086208799,
+            -0.06793361239962792,
+            256.0952724880642
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_011": {
+          "location": [
+            74.85590404934354,
+            31.930107540554474,
+            524.078854031033
+          ],
+          "offset_from_assembled_mm": [
+            0.2489323086208799,
+            -0.06793361239962792,
+            256.0952724880642
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_012": {
+          "location": [
+            113.5367603302002,
+            72.12780952453613,
+            372.8800811767578
+          ],
+          "offset_from_assembled_mm": [
+            1.1298465728759766,
+            -1.3491497039794922,
+            143.6656494140625
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_013": {
+          "location": [
+            75.73307228088379,
+            70.45237159729004,
+            369.5518493652344
+          ],
+          "offset_from_assembled_mm": [
+            1.1298465728759766,
+            -1.3491497039794922,
+            143.6656494140625
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_014": {
+          "location": [
+            98.20807075500488,
+            110.52073860168457,
+            369.5521697998047
+          ],
+          "offset_from_assembled_mm": [
+            1.1298465728759766,
+            -1.3491497039794922,
+            143.6656494140625
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_015": {
+          "location": [
+            39.95768780178494,
+            76.44082493252225,
+            524.0853542751736
+          ],
+          "offset_from_assembled_mm": [
+            0.2489323086208799,
+            -0.06793361239962792,
+            256.0952724880642
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_016": {
+          "location": [
+            151.95397991604275,
+            92.3700622982449,
+            524.0847744411892
+          ],
+          "offset_from_assembled_mm": [
+            0.2489323086208799,
+            -0.06793361239962792,
+            256.0952724880642
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_017": {
+          "location": [
+            140.99224243164062,
+            50.343380737304685,
+            650.1688049316406
+          ],
+          "offset_from_assembled_mm": [
+            1.8251281738281193,
+            2.793888854980466,
+            368.5684326171875
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_018": {
+          "location": [
+            54.06882629394531,
+            120.58777313232422,
+            644.9813659667968
+          ],
+          "offset_from_assembled_mm": [
+            1.8251281738281193,
+            2.793888854980466,
+            368.5684326171875
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_019": {
+          "location": [
+            95.9558948940701,
+            84.40543980068631,
+            530.7803310818142
+          ],
+          "offset_from_assembled_mm": [
+            0.2489323086208799,
+            -0.06793361239962792,
+            256.0952724880642
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_020": {
+          "location": [
+            157.19467163085938,
+            119.97331237792969,
+            153.118896484375
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            -24.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_021": {
+          "location": [
+            95.70979309082031,
+            13.508614540100098,
+            152.96792602539062
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            -24.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_022": {
+          "location": [
+            34.21908187866211,
+            119.97331237792969,
+            152.84274291992188
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            -24.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "state_id": "STATE_01_PRIMARY_ARCHITECTURE",
+      "text_policy": "NO_TEXT"
+    },
+    "STATE_02_SENSOR_INSPECTION": {
+      "additional_outputs": [
+        "02_sensor_inspection_context.png",
+        "02_sensor_inspection_top.png"
+      ],
+      "animation_policy": "NO_KEYFRAMES",
+      "camera_id": "CAM_INSPECTION_SENSOR_CLEAN",
+      "context_camera_id": "CAM_INSPECTION_SENSOR_CONTEXT",
+      "diagnostics": {
+        "frame_margin": {
+          "bottom": 0.1,
+          "left": 0.1,
+          "right": 0.1,
+          "top": 0.1
+        },
+        "frame_occupancy_ratio": 0.68,
+        "human_review_required": true,
+        "method": "ORTHOGRAPHIC_XZ_HEURISTIC",
+        "module_screen_occupancy": {
+          "MODULE_A": 0.1927,
+          "MODULE_B": 0.1423,
+          "MODULE_C": 0.2537,
+          "MODULE_D": 0.2215
+        },
+        "projected_overlap_ratio": 0.6841,
+        "silhouette_separation": 0.3159,
+        "visible_surface_ratio": 0.3159
+      },
+      "hero_output": "02_sensor_inspection_clean.png",
+      "local_axes": {
+        "PART_012": "X",
+        "PART_013": "Y",
+        "PART_014": "Z"
+      },
+      "parts": {
+        "PART_001": {
+          "location": [
+            95.85556030273438,
+            84.43418884277344,
+            232.626708984375
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_002": {
+          "location": [
+            95.37657928466797,
+            77.47398376464844,
+            287.3405456542969
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_003": {
+          "location": [
+            -79.14443969726562,
+            84.43418884277344,
+            330.0
+          ],
+          "offset_from_assembled_mm": [
+            -173.95893096923828,
+            -1.5507965087890625,
+            105.64974975585938
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_004": {
+          "location": [
+            87.55231475830078,
+            80.91464233398438,
+            284.6927490234375
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_005": {
+          "location": [
+            95.81245422363281,
+            84.46949768066406,
+            327.1112365722656
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_006": {
+          "location": [
+            94.81751251220703,
+            84.72936248779297,
+            263.4551696777344
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_007": {
+          "location": [
+            95.69351959228516,
+            84.47615051269531,
+            274.0874328613281
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_008": {
+          "location": [
+            130.6017608642578,
+            39.96284866333008,
+            267.9840087890625
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_009": {
+          "location": [
+            60.81211471557617,
+            128.98370361328125,
+            267.98388671875
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_010": {
+          "location": [
+            116.8070068359375,
+            136.94886779785156,
+            267.98382568359375
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_011": {
+          "location": [
+            74.60697174072266,
+            31.9980411529541,
+            267.98358154296875
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_012": {
+          "location": [
+            -157.14443969726562,
+            84.43418884277344,
+            330.0
+          ],
+          "offset_from_assembled_mm": [
+            -269.55135345458984,
+            10.957229614257812,
+            100.78556823730469
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_013": {
+          "location": [
+            -1.144439697265625,
+            84.43418884277344,
+            330.0
+          ],
+          "offset_from_assembled_mm": [
+            -75.74766540527344,
+            12.632667541503906,
+            104.11380004882812
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_014": {
+          "location": [
+            -79.14443969726562,
+            84.43418884277344,
+            418.0
+          ],
+          "offset_from_assembled_mm": [
+            -176.22266387939453,
+            -27.435699462890625,
+            192.1134796142578
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_015": {
+          "location": [
+            39.70875549316406,
+            76.50875854492188,
+            267.9900817871094
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_016": {
+          "location": [
+            151.70504760742188,
+            92.43799591064453,
+            267.989501953125
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_017": {
+          "location": [
+            139.1671142578125,
+            47.54949188232422,
+            281.6003723144531
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_018": {
+          "location": [
+            52.24369812011719,
+            117.79388427734375,
+            276.4129333496094
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_019": {
+          "location": [
+            95.70696258544922,
+            84.47337341308594,
+            274.68505859375
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_020": {
+          "location": [
+            157.19467163085938,
+            119.97331237792969,
+            177.118896484375
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_021": {
+          "location": [
+            95.70979309082031,
+            13.508614540100098,
+            176.96792602539062
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_022": {
+          "location": [
+            34.21908187866211,
+            119.97331237792969,
+            176.84274291992188
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "state_id": "STATE_02_SENSOR_INSPECTION",
+      "text_policy": "NO_TEXT"
+    },
+    "STATE_03_PCB_INSPECTION": {
+      "additional_outputs": [
+        "03_pcb_inspection_context.png",
+        "03_pcb_inspection_top.png"
+      ],
+      "animation_policy": "NO_KEYFRAMES",
+      "camera_id": "CAM_INSPECTION_PCB_CLEAN",
+      "context_camera_id": "CAM_INSPECTION_PCB_CONTEXT",
+      "diagnostics": {
+        "frame_margin": {
+          "bottom": 0.1,
+          "left": 0.1,
+          "right": 0.1,
+          "top": 0.1
+        },
+        "frame_occupancy_ratio": 0.68,
+        "human_review_required": true,
+        "method": "ORTHOGRAPHIC_XZ_HEURISTIC",
+        "module_screen_occupancy": {
+          "MODULE_A": 0.1946,
+          "MODULE_B": 0.7005,
+          "MODULE_C": 0.0633,
+          "MODULE_D": 0.2237
+        },
+        "projected_overlap_ratio": 1.0,
+        "silhouette_separation": 0.0,
+        "visible_surface_ratio": 0.0
+      },
+      "hero_output": "03_pcb_inspection_clean.png",
+      "layer_order": [
+        "PART_006",
+        "PART_019",
+        "PART_007"
+      ],
+      "parts": {
+        "PART_001": {
+          "location": [
+            95.85556030273438,
+            84.43418884277344,
+            232.626708984375
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_002": {
+          "location": [
+            95.37657928466797,
+            77.47398376464844,
+            287.3405456542969
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_003": {
+          "location": [
+            94.81449127197266,
+            85.9849853515625,
+            224.35025024414062
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_004": {
+          "location": [
+            87.55231475830078,
+            80.91464233398438,
+            284.6927490234375
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_005": {
+          "location": [
+            95.81245422363281,
+            84.46949768066406,
+            327.1112365722656
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_006": {
+          "location": [
+            270.8555603027344,
+            84.43418884277344,
+            427.0
+          ],
+          "offset_from_assembled_mm": [
+            176.03804779052734,
+            -0.29517364501953125,
+            163.54483032226562
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_007": {
+          "location": [
+            270.8555603027344,
+            84.43418884277344,
+            283.0
+          ],
+          "offset_from_assembled_mm": [
+            175.16204071044922,
+            -0.041961669921875,
+            8.912567138671875
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_008": {
+          "location": [
+            130.6017608642578,
+            39.96284866333008,
+            267.9840087890625
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_009": {
+          "location": [
+            60.81211471557617,
+            128.98370361328125,
+            267.98388671875
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_010": {
+          "location": [
+            116.8070068359375,
+            136.94886779785156,
+            267.98382568359375
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_011": {
+          "location": [
+            74.60697174072266,
+            31.9980411529541,
+            267.98358154296875
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_012": {
+          "location": [
+            112.40691375732422,
+            73.47695922851562,
+            229.2144317626953
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_013": {
+          "location": [
+            74.60322570800781,
+            71.80152130126953,
+            225.88619995117188
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_014": {
+          "location": [
+            97.0782241821289,
+            111.86988830566406,
+            225.8865203857422
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_015": {
+          "location": [
+            39.70875549316406,
+            76.50875854492188,
+            267.9900817871094
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_016": {
+          "location": [
+            151.70504760742188,
+            92.43799591064453,
+            267.989501953125
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_017": {
+          "location": [
+            139.1671142578125,
+            47.54949188232422,
+            281.6003723144531
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_018": {
+          "location": [
+            52.24369812011719,
+            117.79388427734375,
+            276.4129333496094
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_019": {
+          "location": [
+            270.8555603027344,
+            84.43418884277344,
+            355.0
+          ],
+          "offset_from_assembled_mm": [
+            175.14859771728516,
+            -0.0391845703125,
+            80.31494140625
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_020": {
+          "location": [
+            157.19467163085938,
+            119.97331237792969,
+            177.118896484375
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_021": {
+          "location": [
+            95.70979309082031,
+            13.508614540100098,
+            176.96792602539062
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_022": {
+          "location": [
+            34.21908187866211,
+            119.97331237792969,
+            176.84274291992188
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "state_id": "STATE_03_PCB_INSPECTION",
+      "text_policy": "NO_TEXT"
+    },
+    "STATE_04_POWER_INSPECTION": {
+      "additional_outputs": [
+        "04_power_inspection_context.png"
+      ],
+      "animation_policy": "NO_KEYFRAMES",
+      "array_shape": [
+        3,
+        2
+      ],
+      "camera_id": "CAM_INSPECTION_POWER_CLEAN",
+      "context_camera_id": "CAM_INSPECTION_POWER_CONTEXT",
+      "diagnostics": {
+        "frame_margin": {
+          "bottom": 0.1,
+          "left": 0.1,
+          "right": 0.1,
+          "top": 0.1
+        },
+        "frame_occupancy_ratio": 0.68,
+        "human_review_required": true,
+        "method": "ORTHOGRAPHIC_XZ_HEURISTIC",
+        "module_screen_occupancy": {
+          "MODULE_A": 0.1939,
+          "MODULE_B": 0.6582,
+          "MODULE_C": 0.063,
+          "MODULE_D": 0.2228
+        },
+        "projected_overlap_ratio": 1.0,
+        "silhouette_separation": 0.0,
+        "visible_surface_ratio": 0.0
+      },
+      "hero_output": "04_power_inspection_clean.png",
+      "parts": {
+        "PART_001": {
+          "location": [
+            95.85556030273438,
+            84.43418884277344,
+            232.626708984375
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_002": {
+          "location": [
+            95.37657928466797,
+            77.47398376464844,
+            287.3405456542969
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_003": {
+          "location": [
+            94.81449127197266,
+            85.9849853515625,
+            224.35025024414062
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_004": {
+          "location": [
+            87.55231475830078,
+            80.91464233398438,
+            284.6927490234375
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_005": {
+          "location": [
+            95.81245422363281,
+            84.46949768066406,
+            327.1112365722656
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_006": {
+          "location": [
+            94.81751251220703,
+            84.72936248779297,
+            263.4551696777344
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_007": {
+          "location": [
+            95.69351959228516,
+            84.47615051269531,
+            274.0874328613281
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_008": {
+          "location": [
+            -149.14443969726562,
+            96.43418884277344,
+            402.5
+          ],
+          "offset_from_assembled_mm": [
+            -279.74620056152344,
+            56.47134017944336,
+            134.5159912109375
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_009": {
+          "location": [
+            -79.14443969726562,
+            96.43418884277344,
+            402.5
+          ],
+          "offset_from_assembled_mm": [
+            -139.9565544128418,
+            -32.54951477050781,
+            134.51611328125
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_010": {
+          "location": [
+            -9.144439697265625,
+            96.43418884277344,
+            402.5
+          ],
+          "offset_from_assembled_mm": [
+            -125.95144653320312,
+            -40.514678955078125,
+            134.51617431640625
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_011": {
+          "location": [
+            -149.14443969726562,
+            96.43418884277344,
+            297.5
+          ],
+          "offset_from_assembled_mm": [
+            -223.75141143798828,
+            64.43614768981934,
+            29.51641845703125
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_012": {
+          "location": [
+            112.40691375732422,
+            73.47695922851562,
+            229.2144317626953
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_013": {
+          "location": [
+            74.60322570800781,
+            71.80152130126953,
+            225.88619995117188
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_014": {
+          "location": [
+            97.0782241821289,
+            111.86988830566406,
+            225.8865203857422
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_015": {
+          "location": [
+            -79.14443969726562,
+            96.43418884277344,
+            297.5
+          ],
+          "offset_from_assembled_mm": [
+            -118.85319519042969,
+            19.925430297851562,
+            29.509918212890625
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_016": {
+          "location": [
+            -9.144439697265625,
+            96.43418884277344,
+            297.5
+          ],
+          "offset_from_assembled_mm": [
+            -160.8494873046875,
+            3.9961929321289062,
+            29.510498046875
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_017": {
+          "location": [
+            139.1671142578125,
+            47.54949188232422,
+            281.6003723144531
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_018": {
+          "location": [
+            52.24369812011719,
+            117.79388427734375,
+            276.4129333496094
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_019": {
+          "location": [
+            95.70696258544922,
+            84.47337341308594,
+            274.68505859375
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_020": {
+          "location": [
+            157.19467163085938,
+            119.97331237792969,
+            177.118896484375
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_021": {
+          "location": [
+            95.70979309082031,
+            13.508614540100098,
+            176.96792602539062
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "PART_022": {
+          "location": [
+            34.21908187866211,
+            119.97331237792969,
+            176.84274291992188
+          ],
+          "offset_from_assembled_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_euler": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "state_id": "STATE_04_POWER_INSPECTION",
+      "text_policy": "NO_TEXT"
+    }
+  },
+  "status_contract": {
+    "overall_status": "REVIEW_REQUIRED",
+    "technical_status": "PASS",
+    "visual_status": "PENDING_HUMAN_REVIEW"
+  },
+  "story_part_ids": [
+    "PART_001",
+    "PART_002",
+    "PART_003",
+    "PART_004",
+    "PART_005",
+    "PART_006",
+    "PART_007",
+    "PART_008",
+    "PART_009",
+    "PART_010",
+    "PART_011",
+    "PART_012",
+    "PART_013",
+    "PART_014",
+    "PART_015",
+    "PART_016",
+    "PART_017",
+    "PART_018",
+    "PART_019",
+    "PART_020",
+    "PART_021",
+    "PART_022"
+  ],
+  "version": "task10R_functional_inspection_v1",
+  "visibility_policy": {
+    "hidden_part_ids": [
+      "PART_023",
+      "PART_024",
+      "PART_025",
+      "PART_026",
+      "PART_027",
+      "PART_028",
+      "PART_029",
+      "PART_030",
+      "PART_031",
+      "PART_032",
+      "PART_033",
+      "PART_034",
+      "PART_035",
+      "PART_036",
+      "PART_037",
+      "PART_038",
+      "PART_039",
+      "PART_040",
+      "PART_041",
+      "PART_042",
+      "PART_043",
+      "PART_044",
+      "PART_045",
+      "PART_046",
+      "PART_047",
+      "PART_048",
+      "PART_049",
+      "PART_050",
+      "PART_051",
+      "PART_052",
+      "PART_053",
+      "PART_054",
+      "PART_055",
+      "PART_056",
+      "PART_057",
+      "PART_058",
+      "PART_059",
+      "PART_060",
+      "PART_061",
+      "PART_062",
+      "PART_063",
+      "PART_064",
+      "PART_065",
+      "PART_066",
+      "PART_067",
+      "PART_068",
+      "PART_069",
+      "PART_070",
+      "PART_071",
+      "PART_072",
+      "PART_073",
+      "PART_074",
+      "PART_075",
+      "PART_076",
+      "PART_077",
+      "PART_078",
+      "PART_079",
+      "PART_080",
+      "PART_081",
+      "PART_082"
+    ],
+    "hidden_policy": "PRESENTATION_HIDDEN_NO_ANIMATION",
+    "source_parts_preserved": true,
+    "visible_part_ids": [
+      "PART_001",
+      "PART_002",
+      "PART_003",
+      "PART_004",
+      "PART_005",
+      "PART_006",
+      "PART_007",
+      "PART_008",
+      "PART_009",
+      "PART_010",
+      "PART_011",
+      "PART_012",
+      "PART_013",
+      "PART_014",
+      "PART_015",
+      "PART_016",
+      "PART_017",
+      "PART_018",
+      "PART_019",
+      "PART_020",
+      "PART_021",
+      "PART_022"
+    ]
+  },
+  "visual_status": "PENDING_HUMAN_REVIEW"
+}

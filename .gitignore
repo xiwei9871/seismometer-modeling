@@ -49,3 +49,7 @@ stage_10_product_story/scene/
 stage_10_product_story/renders/
 stage_10_product_story/logs/
 stage_10_product_story/data_task10_run_result.json
+stage_10R_functional_inspection/scene/*.blend
+stage_10R_functional_inspection/renders/
+stage_10R_functional_inspection/logs/
+stage_10R_functional_inspection/data_task10R_run_result.json

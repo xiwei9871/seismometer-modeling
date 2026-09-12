@@ -1,0 +1,265 @@
+"""Run the fail-closed Task 10-R static inspection pipeline."""
+
+from __future__ import annotations
+
+import argparse
+from datetime import datetime, timezone
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+from typing import Any, Mapping, Sequence
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from scripts.task08_data import write_json
+from stage_09C_refined_explosion.scripts.pipeline import validate_run_result_contract as validate_task09c_result
+from stage_10R_functional_inspection.scripts.build_inspection_plan import (
+    build_inspection_cameras,
+    build_inspection_plan,
+)
+from stage_10R_functional_inspection.scripts.inspection_data import build_module_groups
+from stage_10R_functional_inspection.scripts.render_inspection_states import REQUIRED_RENDERS
+
+
+ROOT_DIR = "stage_10R_functional_inspection"
+RUN_RESULT_PATH = f"{ROOT_DIR}/data_task10R_run_result.json"
+REPORT_PATH = f"{ROOT_DIR}/reports/task10R_visual_review.md"
+LOG_PATH = f"{ROOT_DIR}/logs/task10R.log"
+PLAN_PATH = f"{ROOT_DIR}/config/inspection_states.json"
+CAMERA_PATH = f"{ROOT_DIR}/config/inspection_cameras.json"
+MODULE_PATH = f"{ROOT_DIR}/config/module_groups.json"
+VALIDATION_PATH = f"{ROOT_DIR}/config/visual_validation.json"
+
+
+def status_from_technical(technical_pass: bool) -> dict[str, str]:
+    return {
+        "technical_status": "PASS" if technical_pass else "FAIL",
+        "visual_status": "PENDING_HUMAN_REVIEW",
+        "overall_status": "REVIEW_REQUIRED" if technical_pass else "FAIL",
+    }
+
+
+def require_task09c_pass(project_root: Path) -> dict[str, Any]:
+    root = Path(project_root).expanduser().resolve()
+    path = root / "stage_09C_refined_explosion/data_task09c_run_result.json"
+    if not path.is_file():
+        raise ValueError("Task 9C PASS result is required before Task 10-R")
+    try:
+        return validate_task09c_result(json.loads(path.read_text(encoding="utf-8")))
+    except Exception as exc:
+        raise ValueError(f"Task 9C must be PASS before Task 10-R: {exc}") from exc
+
+
+def run_task10r(project_root: Path, *, blender_path: str | None = None, skip_blender: bool = False) -> dict[str, Any]:
+    root = Path(project_root).expanduser().resolve()
+    task09c = require_task09c_pass(root)
+    config_dir = root / f"{ROOT_DIR}/config"
+    config_dir.mkdir(parents=True, exist_ok=True)
+    plan = build_inspection_plan(root)
+    cameras = build_inspection_cameras(root)
+    write_json(root / MODULE_PATH, {"version": "task10R_module_groups_v1", "modules": build_module_groups()})
+    write_json(root / PLAN_PATH, plan)
+    write_json(root / CAMERA_PATH, cameras)
+
+    log_lines = [
+        f"start_utc={datetime.now(timezone.utc).isoformat()}",
+        f"project_root={root}",
+        "source_geometry_modified=False",
+        f"task09c_status={task09c.get('status')}",
+        "text_policy=NO_TEXT_OR_ANNOTATIONS",
+        "animation_policy=NO_KEYFRAMES_OR_ANIMATION_DATA",
+    ]
+    stages: list[dict[str, Any]] = [
+        {"stage": "build_inspection_plan", "returncode": 0},
+        {"stage": "build_inspection_cameras", "returncode": 0},
+    ]
+    failures: list[dict[str, Any]] = []
+    scene_validation: dict[str, Any] | None = None
+
+    if not skip_blender:
+        executable = blender_path or os.environ.get("BLENDER_PATH") or "/opt/homebrew/bin/blender"
+        for stage, script in (
+            ("build_inspection_scenes", "build_inspection_scenes.py"),
+            ("render_inspection_states", "render_inspection_states.py"),
+        ):
+            command = [executable, "-b", "--python", str(root / f"{ROOT_DIR}/scripts/{script}"), "--", "--project-root", str(root)]
+            record = _run_stage(stage, command, root, log_lines)
+            stages.append(record)
+            if record["returncode"] != 0:
+                failures.append(record)
+                break
+        if not failures:
+            command = [sys.executable, str(root / f"{ROOT_DIR}/scripts/compose_inspection_contact_sheet.py"), "--project-root", str(root)]
+            record = _run_stage("compose_inspection_contact_sheet", command, root, log_lines)
+            stages.append(record)
+            if record["returncode"] != 0:
+                failures.append(record)
+        if not failures:
+            executable = blender_path or os.environ.get("BLENDER_PATH") or "/opt/homebrew/bin/blender"
+            command = [executable, "-b", "--python", str(root / f"{ROOT_DIR}/scripts/validate_inspection.py"), "--", "--project-root", str(root)]
+            record = _run_stage("validate_inspection", command, root, log_lines)
+            stages.append(record)
+            if record["returncode"] != 0:
+                failures.append(record)
+            else:
+                scene_validation = record.pop("json_output", None)
+                if scene_validation is None:
+                    failures.append({"stage": "validate_inspection_parse", "returncode": 1, "error": "Blender validation emitted no JSON"})
+    else:
+        log_lines.append("blender_status=SKIPPED_BY_REQUEST")
+
+    technical_pass = not failures and scene_validation is not None and scene_validation.get("technical_status") == "PASS"
+    statuses = status_from_technical(technical_pass)
+    outputs = _output_paths(root)
+    result: dict[str, Any] = {
+        **statuses,
+        "source_part_count": 82,
+        "source_faces": 444296,
+        "source_indexed_vertices": 221902,
+        "source_geometry_modified": False,
+        "animation_created": False,
+        "text_objects_created": False,
+        "task09c_status": task09c.get("status"),
+        "outputs": outputs,
+        "inspection_plan": str(root / PLAN_PATH),
+        "camera_config": str(root / CAMERA_PATH),
+        "validation": scene_validation,
+        "stages": stages,
+        "failures": failures,
+    }
+    write_json(root / VALIDATION_PATH, scene_validation or {**statuses, "warnings": failures})
+    (root / REPORT_PATH).parent.mkdir(parents=True, exist_ok=True)
+    (root / REPORT_PATH).write_text(_report(result), encoding="utf-8")
+    log_lines.append(f"technical_status={statuses['technical_status']}")
+    log_lines.append(f"visual_status={statuses['visual_status']}")
+    log_lines.append(f"failures={json.dumps(failures, ensure_ascii=False, sort_keys=True)}")
+    (root / LOG_PATH).parent.mkdir(parents=True, exist_ok=True)
+    (root / LOG_PATH).write_text("\n".join(log_lines) + "\n", encoding="utf-8")
+    result["outputs"]["task10R_visual_review.md"] = str(root / REPORT_PATH)
+    write_json(root / RUN_RESULT_PATH, result)
+    print(json.dumps(result, ensure_ascii=False, sort_keys=True))
+    return result
+
+
+def _output_paths(root: Path) -> dict[str, str]:
+    render_dir = root / f"{ROOT_DIR}/renders"
+    scene_dir = root / f"{ROOT_DIR}/scene"
+    outputs = {name: str(render_dir / name) for name in REQUIRED_RENDERS}
+    outputs["task10R_contact_sheet.png"] = str(render_dir / "task10R_contact_sheet.png")
+    outputs.update({
+        "primary_architecture.blend": str(scene_dir / "primary_architecture.blend"),
+        "sensor_inspection.blend": str(scene_dir / "sensor_inspection.blend"),
+        "pcb_inspection.blend": str(scene_dir / "pcb_inspection.blend"),
+        "power_inspection.blend": str(scene_dir / "power_inspection.blend"),
+        "inspection_states.json": str(root / PLAN_PATH),
+        "inspection_cameras.json": str(root / CAMERA_PATH),
+        "module_groups.json": str(root / MODULE_PATH),
+        "visual_validation.json": str(root / VALIDATION_PATH),
+    })
+    return outputs
+
+
+def _report(result: Mapping[str, Any]) -> str:
+    validation = result.get("validation") or {}
+    scenes = validation.get("scenes", {}) if isinstance(validation, Mapping) else {}
+    lines = [
+        "# Task 10-R Functional Inspection Review",
+        "",
+        f"- Technical status: `{result.get('technical_status')}`",
+        f"- Visual status: `{result.get('visual_status')}`",
+        f"- Overall status: `{result.get('overall_status')}`",
+        "- Scope: four static, subtitle-free inspection states only.",
+        "- Animation: not created; formal animation remains gated by human review.",
+        "",
+        "## Frozen geometry check",
+        "",
+        f"- Source PART meshes: {result.get('source_part_count')}",
+        f"- Faces: {result.get('source_faces')}",
+        f"- Indexed vertices: {result.get('source_indexed_vertices')}",
+        "- Source geometry modified: `False`",
+        "",
+        "## Visual review gate",
+        "",
+        "The four clean renders intentionally contain no title, metric, leader line, or annotation.",
+        "Human review must answer: primary four-layer readability; sensor central fixture plus X/Y/Z readability; PCB board visibility and plate/board/frame layering; six battery cells readable as one power system.",
+        "",
+        "| State | Human question | Status |",
+        "|---|---|---|",
+        "| PRIMARY | Are four major layers immediately readable without text? | PENDING_HUMAN_REVIEW |",
+        "| SENSOR | Are the central fixture and three directional cores immediately readable without text? | PENDING_HUMAN_REVIEW |",
+        "| PCB | Is MAIN_PCB obvious, with plate / board / frame separated? | PENDING_HUMAN_REVIEW |",
+        "| POWER | Are all six cells individually readable as one power system? | PENDING_HUMAN_REVIEW |",
+        "",
+        "## Diagnostic data",
+        "",
+        f"- Scene validation warnings: {len(validation.get('warnings', [])) if isinstance(validation, dict) else 'not available'}",
+        "- Screen-space metrics are diagnostic aids only and do not auto-approve visual quality.",
+        "",
+        "| State | Frame occupancy | Module overlap | Focus-component overlap |",
+        "|---|---:|---:|---:|",
+    ]
+    for state_id, scene in scenes.items():
+        metrics = scene.get("screen_space_metrics", {}) if isinstance(scene, Mapping) else {}
+        lines.append(
+            f"| {state_id} | {metrics.get('frame_occupancy_ratio', 'n/a')} | "
+            f"{metrics.get('projected_overlap_ratio', 'n/a')} | "
+            f"{metrics.get('component_projected_overlap_ratio', 'n/a')} |"
+        )
+    lines.extend([
+        "",
+        "## Deliberate stop boundary",
+        "",
+        "Communication, rugged-platform storytelling, annotations, sales copy, timing, reassembly, and final commercial rendering were not started.",
+    ])
+    return "\n".join(lines) + "\n"
+
+
+def _run_stage(stage: str, command: Sequence[str], cwd: Path, log_lines: list[str]) -> dict[str, Any]:
+    completed = subprocess.run(list(command), cwd=str(cwd), capture_output=True, text=True, check=False)
+    stdout, stderr = completed.stdout or "", completed.stderr or ""
+    returncode = completed.returncode
+    if "Traceback (most recent call last):" in stderr or "Error: Cannot" in stderr:
+        returncode = 1
+    record = {
+        "stage": stage,
+        "command": list(command),
+        "returncode": returncode,
+        "stdout": stdout[-8000:],
+        "stderr": stderr[-8000:],
+    }
+    if stage == "validate_inspection" and returncode == 0:
+        try:
+            record["json_output"] = _last_json(stdout)
+        except ValueError:
+            record["json_output"] = None
+    log_lines.extend([f"stage={stage}", f"returncode={completed.returncode}", f"stdout={stdout[-8000:]}", f"stderr={stderr[-8000:]}"])
+    return record
+
+
+def _last_json(output: str) -> dict[str, Any]:
+    for line in reversed((output or "").splitlines()):
+        try:
+            value = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(value, dict):
+            return value
+    raise ValueError("Blender stage did not emit JSON")
+
+
+def main(argv: Sequence[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--project-root", type=Path, default=PROJECT_ROOT)
+    parser.add_argument("--blender-path", default=None)
+    parser.add_argument("--skip-blender", action="store_true")
+    args = parser.parse_args(argv)
+    result = run_task10r(args.project_root, blender_path=args.blender_path, skip_blender=args.skip_blender)
+    return 0 if result["technical_status"] == "PASS" else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

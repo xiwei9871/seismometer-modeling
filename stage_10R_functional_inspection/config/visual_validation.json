@@ -1,0 +1,437 @@
+{
+  "contact_sheet": "/Users/xiwei/modeling/stage_10R_functional_inspection/renders/task10R_contact_sheet.png",
+  "overall_status": "REVIEW_REQUIRED",
+  "render_checks": {
+    "01_primary_architecture_front.png": true,
+    "01_primary_architecture_hero.png": true,
+    "01_primary_architecture_side.png": true,
+    "02_sensor_inspection_clean.png": true,
+    "02_sensor_inspection_context.png": true,
+    "02_sensor_inspection_top.png": true,
+    "03_pcb_inspection_clean.png": true,
+    "03_pcb_inspection_context.png": true,
+    "03_pcb_inspection_top.png": true,
+    "04_power_inspection_clean.png": true,
+    "04_power_inspection_context.png": true
+  },
+  "scene_count": 4,
+  "scenes": {
+    "STATE_01_PRIMARY_ARCHITECTURE": {
+      "animation_data_count": 0,
+      "camera_count": 3,
+      "font_object_count": 0,
+      "hidden_part_count": 60,
+      "scene_path": "/Users/xiwei/modeling/stage_10R_functional_inspection/scene/primary_architecture.blend",
+      "screen_space_metrics": {
+        "camera": "CAM_INSPECTION_PRIMARY_HERO",
+        "component_projected_overlap_ratio": 0.6347,
+        "focus_component_ids": [
+          "PART_001",
+          "PART_002",
+          "PART_003",
+          "PART_004",
+          "PART_005",
+          "PART_006",
+          "PART_007",
+          "PART_008",
+          "PART_009",
+          "PART_010",
+          "PART_011",
+          "PART_012",
+          "PART_013",
+          "PART_014",
+          "PART_015",
+          "PART_016",
+          "PART_017",
+          "PART_018",
+          "PART_019",
+          "PART_020",
+          "PART_021",
+          "PART_022"
+        ],
+        "frame_margin": {
+          "bottom": 0.1288,
+          "left": 0.4048,
+          "right": 0.4001,
+          "top": 0.1175
+        },
+        "frame_occupancy_ratio": 0.147,
+        "human_review_required": true,
+        "method": "BLENDER_CAMERA_PROJECTED_BOUNDS",
+        "metric_scope": "FOCUS_OBJECTS_FOR_FOCUS_STATES",
+        "module_screen_occupancy": {
+          "MODULE_A": 0.242,
+          "MODULE_B": 0.2523,
+          "MODULE_C": 0.117,
+          "MODULE_D": 0.3294
+        },
+        "projected_overlap_ratio": 0.0843,
+        "projected_rects": {
+          "PART_001": {
+            "x_max": 0.591101884841919,
+            "x_min": 0.4089021682739258,
+            "y_max": 0.3946164846420288,
+            "y_min": 0.13683588802814484
+          },
+          "PART_002": {
+            "x_max": 0.5998987555503845,
+            "x_min": 0.4048318564891815,
+            "y_max": 0.8543444275856018,
+            "y_min": 0.7001455426216125
+          },
+          "PART_003": {
+            "x_max": 0.5565455555915833,
+            "x_min": 0.44397494196891785,
+            "y_max": 0.5021504759788513,
+            "y_min": 0.3493019640445709
+          },
+          "PART_004": {
+            "x_max": 0.5829774737358093,
+            "x_min": 0.42176422476768494,
+            "y_max": 0.8240465521812439,
+            "y_min": 0.7094799876213074
+          },
+          "PART_005": {
+            "x_max": 0.553214967250824,
+            "x_min": 0.4537011981010437,
+            "y_max": 0.8825262784957886,
+            "y_min": 0.7680827975273132
+          },
+          "PART_006": {
+            "x_max": 0.5623188614845276,
+            "x_min": 0.4378869831562042,
+            "y_max": 0.663238525390625,
+            "y_min": 0.5599114894866943
+          },
+          "PART_007": {
+            "x_max": 0.592182993888855,
+            "x_min": 0.40810489654541016,
+            "y_max": 0.681717574596405,
+            "y_min": 0.5528061389923096
+          },
+          "PART_008": {
+            "x_max": 0.5115193724632263,
+            "x_min": 0.481444776058197,
+            "y_max": 0.5961490273475647,
+            "y_min": 0.4802436828613281
+          },
+          "PART_009": {
+            "x_max": 0.5186851620674133,
+            "x_min": 0.4900786876678467,
+            "y_max": 0.6633788347244263,
+            "y_min": 0.5531049966812134
+          },
+          "PART_010": {
+            "x_max": 0.5596863031387329,
+            "x_min": 0.5309133529663086,
+            "y_max": 0.6446384191513062,
+            "y_min": 0.5343520641326904
+          },
+          "PART_011": {
+            "x_max": 0.4695601165294647,
+            "x_min": 0.440049409866333,
+            "y_max": 0.6147341728210449,
+            "y_min": 0.5020118355751038
+          },
+          "PART_012": {
+            "x_max": 0.5225600600242615,
+            "x_min": 0.4886927306652069,
+            "y_max": 0.4574446380138397,
+            "y_min": 0.37537986040115356
+          },
+          "PART_013": {
+            "x_max": 0.5012228488922119,
+            "x_min": 0.46136122941970825,
+            "y_max": 0.4625718593597412,
+            "y_min": 0.3910291790962219
+          },
+          "PART_014": {
+            "x_max": 0.5358874797821045,
+            "x_min": 0.49408847093582153,
+            "y_max": 0.47313034534454346,
+            "y_min": 0.40415653586387634
+          },
+          "PART_015": {
+            "x_max": 0.4739724397659302,
+            "x_min": 0.44936344027519226,
+            "y_max": 0.6477816104888916,
+            "y_min": 0.540751039981842
+          },
+          "PART_016": {
+            "x_max": 0.5531874299049377,
+            "x_min": 0.5279080271720886,
+            "y_max": 0.608500599861145,
+            "y_min": 0.4984455406665802
+          },
+          "PART_017": {
+            "x_max": 0.52970290184021,
+            "x_min": 0.502483069896698,
+            "y_max": 0.7921589016914368,
+            "y_min": 0.7224869728088379
+          },
+          "PART_018": {
+            "x_max": 0.5017514824867249,
+            "x_min": 0.47719117999076843,
+            "y_max": 0.8403345942497253,
+            "y_min": 0.7701388001441956
+          },
+          "PART_019": {
+            "x_max": 0.553726851940155,
+            "x_min": 0.44691991806030273,
+            "y_max": 0.6580796837806702,
+            "y_min": 0.5816757678985596
+          },
+          "PART_020": {
+            "x_max": 0.5611134767532349,
+            "x_min": 0.5393559336662292,
+            "y_max": 0.20722311735153198,
+            "y_min": 0.16252630949020386
+          },
+          "PART_021": {
+            "x_max": 0.4817010164260864,
+            "x_min": 0.4594944715499878,
+            "y_max": 0.1745644360780716,
+            "y_min": 0.12882594764232635
+          },
+          "PART_022": {
+            "x_max": 0.4909195899963379,
+            "x_min": 0.4697158932685852,
+            "y_max": 0.2517242729663849,
+            "y_min": 0.20846331119537354
+          }
+        },
+        "silhouette_separation_proxy": 0.3653,
+        "visible_surface_ratio_proxy": 0.9157
+      },
+      "source_faces": 444296,
+      "source_geometry_fingerprint_verified": true,
+      "source_geometry_modified": false,
+      "source_indexed_vertices": 221902,
+      "source_part_count": 82,
+      "state_id": "STATE_01_PRIMARY_ARCHITECTURE",
+      "visible_part_count": 22,
+      "warnings": []
+    },
+    "STATE_02_SENSOR_INSPECTION": {
+      "animation_data_count": 0,
+      "camera_count": 3,
+      "font_object_count": 0,
+      "hidden_part_count": 60,
+      "scene_path": "/Users/xiwei/modeling/stage_10R_functional_inspection/scene/sensor_inspection.blend",
+      "screen_space_metrics": {
+        "camera": "CAM_INSPECTION_SENSOR_CLEAN",
+        "component_projected_overlap_ratio": 0.0,
+        "focus_component_ids": [
+          "PART_012",
+          "PART_013",
+          "PART_014"
+        ],
+        "frame_margin": {
+          "bottom": 0.1825,
+          "left": 0.3489,
+          "right": 0.3324,
+          "top": 0.2685
+        },
+        "frame_occupancy_ratio": 0.175,
+        "human_review_required": true,
+        "method": "BLENDER_CAMERA_PROJECTED_BOUNDS",
+        "metric_scope": "FOCUS_OBJECTS_FOR_FOCUS_STATES",
+        "module_screen_occupancy": {
+          "MODULE_C": 1.0
+        },
+        "projected_overlap_ratio": 0.0,
+        "projected_rects": {
+          "PART_003": {
+            "x_max": 0.638535737991333,
+            "x_min": 0.3574354946613312,
+            "y_max": 0.5765276551246643,
+            "y_min": 0.18254707753658295
+          },
+          "PART_012": {
+            "x_max": 0.43116816878318787,
+            "x_min": 0.3488520085811615,
+            "y_max": 0.5440440773963928,
+            "y_min": 0.3505428433418274
+          },
+          "PART_013": {
+            "x_max": 0.6675986051559448,
+            "x_min": 0.5653206706047058,
+            "y_max": 0.4062347412109375,
+            "y_min": 0.21271918714046478
+          },
+          "PART_014": {
+            "x_max": 0.5600257515907288,
+            "x_min": 0.4506594240665436,
+            "y_max": 0.7315071821212769,
+            "y_min": 0.5567474365234375
+          }
+        },
+        "silhouette_separation_proxy": 1.0,
+        "visible_surface_ratio_proxy": 1.0
+      },
+      "source_faces": 444296,
+      "source_geometry_fingerprint_verified": true,
+      "source_geometry_modified": false,
+      "source_indexed_vertices": 221902,
+      "source_part_count": 82,
+      "state_id": "STATE_02_SENSOR_INSPECTION",
+      "visible_part_count": 22,
+      "warnings": []
+    },
+    "STATE_03_PCB_INSPECTION": {
+      "animation_data_count": 0,
+      "camera_count": 3,
+      "font_object_count": 0,
+      "hidden_part_count": 60,
+      "scene_path": "/Users/xiwei/modeling/stage_10R_functional_inspection/scene/pcb_inspection.blend",
+      "screen_space_metrics": {
+        "camera": "CAM_INSPECTION_PCB_CLEAN",
+        "component_projected_overlap_ratio": 0.1125,
+        "focus_component_ids": [
+          "PART_006",
+          "PART_007",
+          "PART_019"
+        ],
+        "frame_margin": {
+          "bottom": 0.123,
+          "left": 0.3053,
+          "right": 0.3091,
+          "top": 0.1955
+        },
+        "frame_occupancy_ratio": 0.2628,
+        "human_review_required": true,
+        "method": "BLENDER_CAMERA_PROJECTED_BOUNDS",
+        "metric_scope": "FOCUS_OBJECTS_FOR_FOCUS_STATES",
+        "module_screen_occupancy": {
+          "MODULE_B": 1.0
+        },
+        "projected_overlap_ratio": 0.0,
+        "projected_rects": {
+          "PART_006": {
+            "x_max": 0.638034462928772,
+            "x_min": 0.3590189516544342,
+            "y_max": 0.8045395612716675,
+            "y_min": 0.5742180943489075
+          },
+          "PART_007": {
+            "x_max": 0.6908599138259888,
+            "x_min": 0.3053026497364044,
+            "y_max": 0.4714816212654114,
+            "y_min": 0.1229930892586708
+          },
+          "PART_019": {
+            "x_max": 0.6141898036003113,
+            "x_min": 0.3834886848926544,
+            "y_max": 0.5832237601280212,
+            "y_min": 0.39341482520103455
+          }
+        },
+        "silhouette_separation_proxy": 0.8875,
+        "visible_surface_ratio_proxy": 1.0
+      },
+      "source_faces": 444296,
+      "source_geometry_fingerprint_verified": true,
+      "source_geometry_modified": false,
+      "source_indexed_vertices": 221902,
+      "source_part_count": 82,
+      "state_id": "STATE_03_PCB_INSPECTION",
+      "visible_part_count": 22,
+      "warnings": []
+    },
+    "STATE_04_POWER_INSPECTION": {
+      "animation_data_count": 0,
+      "camera_count": 2,
+      "font_object_count": 0,
+      "hidden_part_count": 60,
+      "scene_path": "/Users/xiwei/modeling/stage_10R_functional_inspection/scene/power_inspection.blend",
+      "screen_space_metrics": {
+        "camera": "CAM_INSPECTION_POWER_CLEAN",
+        "component_projected_overlap_ratio": 0.0,
+        "focus_component_ids": [
+          "PART_008",
+          "PART_009",
+          "PART_010",
+          "PART_011",
+          "PART_015",
+          "PART_016"
+        ],
+        "frame_margin": {
+          "bottom": 0.0296,
+          "left": 0.3418,
+          "right": 0.3204,
+          "top": 0.2522
+        },
+        "frame_occupancy_ratio": 0.2426,
+        "human_review_required": true,
+        "method": "BLENDER_CAMERA_PROJECTED_BOUNDS",
+        "metric_scope": "FOCUS_OBJECTS_FOR_FOCUS_STATES",
+        "module_screen_occupancy": {
+          "MODULE_B": 1.0
+        },
+        "projected_overlap_ratio": 0.0,
+        "projected_rects": {
+          "PART_008": {
+            "x_max": 0.41938289999961853,
+            "x_min": 0.34181898832321167,
+            "y_max": 0.7477893233299255,
+            "y_min": 0.4683351218700409
+          },
+          "PART_009": {
+            "x_max": 0.5518521070480347,
+            "x_min": 0.47692012786865234,
+            "y_max": 0.7184290885925293,
+            "y_min": 0.4322940707206726
+          },
+          "PART_010": {
+            "x_max": 0.6795812845230103,
+            "x_min": 0.598388135433197,
+            "y_max": 0.6475710272789001,
+            "y_min": 0.35028523206710815
+          },
+          "PART_011": {
+            "x_max": 0.4141920804977417,
+            "x_min": 0.34318915009498596,
+            "y_max": 0.45652881264686584,
+            "y_min": 0.19720439612865448
+          },
+          "PART_015": {
+            "x_max": 0.524812638759613,
+            "x_min": 0.4652913510799408,
+            "y_max": 0.40775418281555176,
+            "y_min": 0.14998586475849152
+          },
+          "PART_016": {
+            "x_max": 0.6468685865402222,
+            "x_min": 0.5804721117019653,
+            "y_max": 0.3035714626312256,
+            "y_min": 0.029599344357848167
+          }
+        },
+        "silhouette_separation_proxy": 1.0,
+        "visible_surface_ratio_proxy": 1.0
+      },
+      "source_faces": 444296,
+      "source_geometry_fingerprint_verified": true,
+      "source_geometry_modified": false,
+      "source_indexed_vertices": 221902,
+      "source_part_count": 82,
+      "state_id": "STATE_04_POWER_INSPECTION",
+      "visible_part_count": 22,
+      "warnings": []
+    }
+  },
+  "source_baseline": {
+    "faces": 444296,
+    "indexed_vertices": 221902,
+    "source_part_count": 82
+  },
+  "technical_status": "PASS",
+  "visual_review_gate": {
+    "pcb": "PENDING_HUMAN_REVIEW",
+    "power": "PENDING_HUMAN_REVIEW",
+    "primary": "PENDING_HUMAN_REVIEW",
+    "sensor": "PENDING_HUMAN_REVIEW"
+  },
+  "visual_status": "PENDING_HUMAN_REVIEW",
+  "warnings": []
+}
