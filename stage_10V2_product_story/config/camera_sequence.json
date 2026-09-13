@@ -1,0 +1,156 @@
+{
+  "bounds": {
+    "dimensions": [
+      322.8924732208252,
+      193.01737749185475,
+      371.7685089111328
+    ],
+    "max": [
+      266.70696449279785,
+      180.98214212251034,
+      475.1112518310547
+    ],
+    "min": [
+      -56.185508728027344,
+      -12.035235369344399,
+      103.34274291992188
+    ]
+  },
+  "camera_motion_policy": "SLOW_CONTROLLED",
+  "camera_names": [
+    "CAM_STORY_HERO",
+    "CAM_STORY_SENSOR",
+    "CAM_STORY_PCB"
+  ],
+  "camera_segments": [
+    {
+      "camera_id": "CAM_STORY_HERO",
+      "frame_end": 165,
+      "frame_start": 1
+    },
+    {
+      "camera_id": "CAM_STORY_SENSOR",
+      "frame_end": 300,
+      "frame_start": 165
+    },
+    {
+      "camera_id": "CAM_STORY_PCB",
+      "frame_end": 420,
+      "frame_start": 300
+    },
+    {
+      "camera_id": "CAM_STORY_HERO",
+      "frame_end": 900,
+      "frame_start": 420
+    }
+  ],
+  "cameras": {
+    "CAM_STORY_HERO": {
+      "clip_end_mm": 10000.0,
+      "clip_start_mm": 0.1,
+      "direction": [
+        0.5286691311661814,
+        -0.734262682175252,
+        0.42587235566164616
+      ],
+      "lens_mm": 68.0,
+      "location": [
+        748.3615221032857,
+        -808.7220941524455,
+        807.2804149423247
+      ],
+      "name": "CAM_STORY_HERO",
+      "target": [
+        105.26072788238525,
+        84.47345337658297,
+        289.2269973754883
+      ],
+      "type": "PERSP"
+    },
+    "CAM_STORY_PCB": {
+      "clip_end_mm": 10000.0,
+      "clip_start_mm": 0.1,
+      "direction": [
+        0.42426406871192845,
+        -0.7071067811865475,
+        0.565685424949238
+      ],
+      "lens_mm": 70.0,
+      "location": [
+        563.5114714583176,
+        -509.2008080416947,
+        770.4244037575745
+      ],
+      "name": "CAM_STORY_PCB",
+      "target": [
+        215.70696258544922,
+        70.47337341308594,
+        306.68505859375
+      ],
+      "type": "PERSP"
+    },
+    "CAM_STORY_SENSOR": {
+      "clip_end_mm": 10000.0,
+      "clip_start_mm": 0.1,
+      "direction": [
+        0.5196444618551648,
+        -0.7641830321399481,
+        0.38209151606997405
+      ],
+      "lens_mm": 70.0,
+      "location": [
+        458.94685034745646,
+        -608.3065682438324,
+        603.8793039812301
+      ],
+      "name": "CAM_STORY_SENSOR",
+      "target": [
+        -8.274286270141602,
+        78.78333854675293,
+        260.3343505859375
+      ],
+      "type": "PERSP"
+    }
+  },
+  "fps": 30,
+  "hero_camera": "CAM_STORY_HERO",
+  "max_orbit_degrees_per_second": 8,
+  "shots": [
+    {
+      "camera_id": "CAM_STORY_HERO",
+      "shot_id": "ASSEMBLED"
+    },
+    {
+      "camera_id": "CAM_STORY_HERO",
+      "shot_id": "PRIMARY_ARCHITECTURE"
+    },
+    {
+      "camera_id": "CAM_STORY_SENSOR",
+      "shot_id": "SENSOR_FOCUS"
+    },
+    {
+      "camera_id": "CAM_STORY_PCB",
+      "shot_id": "PCB_FOCUS"
+    },
+    {
+      "camera_id": "CAM_STORY_HERO",
+      "shot_id": "COMMUNICATION_FOCUS"
+    },
+    {
+      "camera_id": "CAM_STORY_HERO",
+      "shot_id": "POWER_FOCUS"
+    },
+    {
+      "camera_id": "CAM_STORY_HERO",
+      "shot_id": "RUGGED_FOCUS"
+    },
+    {
+      "camera_id": "CAM_STORY_HERO",
+      "shot_id": "REASSEMBLED"
+    },
+    {
+      "camera_id": "CAM_STORY_HERO",
+      "shot_id": "FINAL_HERO"
+    }
+  ]
+}

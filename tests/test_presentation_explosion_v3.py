@@ -239,4 +239,5 @@ def test_v3_generated_outputs_are_ignored_without_ignoring_reference_photos():
     assert "data/presentation_review_queue_v3.csv" in gitignore
     assert "output/explosion_validation_v3/" in gitignore
     assert "output/stage03_presentation_exploded_v3.blend" in gitignore
-    assert "*.png" not in gitignore
+    # Scoped asset ignores are fine; a blanket top-level PNG ignore is not.
+    assert "*.png" not in {line.strip() for line in gitignore.splitlines()}

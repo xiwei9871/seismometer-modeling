@@ -1,0 +1,144 @@
+{
+  "communication_protocol_text": "PENDING_PRODUCT_CONFIRMATION",
+  "duration_seconds": 30.0,
+  "fps": 30,
+  "frame_range": [
+    1,
+    900
+  ],
+  "functional_module_order": [
+    "SMART_3_AXIS_SENSING_SYSTEM",
+    "HIGH_PRECISION_ACQUISITION_CORE",
+    "REAL_TIME_COMMUNICATION_SYSTEM",
+    "LONG_ENDURANCE_POWER_SYSTEM",
+    "RUGGED_FIELD_PLATFORM"
+  ],
+  "shots": [
+    {
+      "camera_id": "CAM_STORY_HERO",
+      "emphasis": "all",
+      "focus_module": null,
+      "frame_end": 75,
+      "frame_start": 1,
+      "metrics": [],
+      "shot_id": "ASSEMBLED",
+      "state_id": "ASSEMBLED",
+      "title": "SMART FIELD SURVEY DEVICE",
+      "validation_target": "assembly_context_clear"
+    },
+    {
+      "camera_id": "CAM_STORY_HERO",
+      "emphasis": "architecture",
+      "focus_module": null,
+      "frame_end": 165,
+      "frame_start": 75,
+      "metrics": [],
+      "shot_id": "PRIMARY_ARCHITECTURE",
+      "state_id": "PRIMARY_ARCHITECTURE",
+      "title": "PRODUCT FUNCTIONAL ARCHITECTURE",
+      "validation_target": "assembly_context_clear"
+    },
+    {
+      "camera_id": "CAM_STORY_SENSOR",
+      "emphasis": "focus_sensor",
+      "focus_module": "SMART_3_AXIS_SENSING_SYSTEM",
+      "frame_end": 300,
+      "frame_start": 165,
+      "metrics": [
+        "3 Channels",
+        "99% Data Consistency"
+      ],
+      "shot_id": "SENSOR_FOCUS",
+      "state_id": "SENSOR_FOCUS",
+      "title": "SMART 3-AXIS SENSING",
+      "validation_target": "focus_module_clear"
+    },
+    {
+      "camera_id": "CAM_STORY_PCB",
+      "emphasis": "focus_pcb",
+      "focus_module": "HIGH_PRECISION_ACQUISITION_CORE",
+      "frame_end": 420,
+      "frame_start": 300,
+      "metrics": [
+        "32-bit ADC",
+        "3 Channels"
+      ],
+      "shot_id": "PCB_FOCUS",
+      "state_id": "PCB_FOCUS",
+      "title": "HIGH-PRECISION ACQUISITION",
+      "validation_target": "focus_module_clear"
+    },
+    {
+      "camera_id": "CAM_STORY_HERO",
+      "emphasis": "focus_communication",
+      "focus_module": "REAL_TIME_COMMUNICATION_SYSTEM",
+      "frame_end": 510,
+      "frame_start": 420,
+      "metrics": [
+        "Multi-network communication"
+      ],
+      "shot_id": "COMMUNICATION_FOCUS",
+      "state_id": "COMMUNICATION_FOCUS",
+      "title": "REAL-TIME WIRELESS TRANSMISSION",
+      "validation_target": "focus_module_clear"
+    },
+    {
+      "camera_id": "CAM_STORY_HERO",
+      "emphasis": "focus_power",
+      "focus_module": "LONG_ENDURANCE_POWER_SYSTEM",
+      "frame_end": 615,
+      "frame_start": 510,
+      "metrics": [
+        "10-day standby",
+        "3-hour charging"
+      ],
+      "shot_id": "POWER_FOCUS",
+      "state_id": "POWER_FOCUS",
+      "title": "LONG-ENDURANCE POWER",
+      "validation_target": "focus_module_clear"
+    },
+    {
+      "camera_id": "CAM_STORY_HERO",
+      "emphasis": "focus_rugged",
+      "focus_module": "RUGGED_FIELD_PLATFORM",
+      "frame_end": 705,
+      "frame_start": 615,
+      "metrics": [
+        "-40°C ~ +80°C",
+        "2.5 kg"
+      ],
+      "shot_id": "RUGGED_FOCUS",
+      "state_id": "RUGGED_FOCUS",
+      "title": "BUILT FOR FIELD WORK",
+      "validation_target": "focus_module_clear"
+    },
+    {
+      "camera_id": "CAM_STORY_HERO",
+      "emphasis": "reassembly",
+      "focus_module": null,
+      "frame_end": 810,
+      "frame_start": 705,
+      "metrics": [],
+      "shot_id": "REASSEMBLED",
+      "state_id": "REASSEMBLED",
+      "title": "FROM SENSING TO FIELD RESULTS",
+      "validation_target": "assembly_context_clear"
+    },
+    {
+      "camera_id": "CAM_STORY_HERO",
+      "emphasis": "all",
+      "focus_module": null,
+      "frame_end": 900,
+      "frame_start": 810,
+      "metrics": [
+        "Accurate acquisition",
+        "Wireless transmission"
+      ],
+      "shot_id": "FINAL_HERO",
+      "state_id": "FINAL_HERO",
+      "title": "SMART SURVEY. READY FOR THE FIELD.",
+      "validation_target": "assembly_context_clear"
+    }
+  ],
+  "story_id": "TASK10_PRODUCT_FUNCTIONAL_STORY"
+}

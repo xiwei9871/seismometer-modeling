@@ -58,3 +58,8 @@ stage_10R_pcb_presentation/renders/
 stage_10R_pcb_presentation/logs/
 stage_10R_pcb_presentation/assets/*.png
 stage_10R_pcb_presentation/data_task10R_pcb_run_result.json
+stage_10V2_product_story/scene/
+stage_10V2_product_story/renders/
+stage_10V2_product_story/logs/
+stage_10V2_product_story/assets/*.png
+stage_10V2_product_story/data_task10V2_run_result.json

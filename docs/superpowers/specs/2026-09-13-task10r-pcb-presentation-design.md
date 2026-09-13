@@ -70,11 +70,11 @@ X/Y in millimetres, octagon keep-out derived from the real PART_019 outline
 | CONN_MAIN | bevel box | (0, -35) | 44 x 8 | 7 | long edge connector |
 | CONN_TOP | bevel box | (-4, 33) | 30 x 7 | 5 | top connector |
 | SHIELD_MAIN | bevel box | (13, -3) | 30 x 30 | 9 | dominant shield can |
-| SHIELD_LEFT | bevel box | (-26, 6) | 18 x 15 | 7 | secondary shield |
+| SHIELD_LEFT | bevel box | (-25, 6) | 17 x 14 | 7 | secondary shield |
 | MODULE_RT | bevel box | (23, 23) | 18 x 13 | 7 | right-top module |
 | MODULE_LB | bevel box | (-26, -22) | 16 x 10 | 6 | left-bottom module |
-| CAP_L1 / CAP_L2 | cylinder r4 | (-39, -6) / (-39, 14) | h 11 | tall caps |
-| CAP_R1 / CAP_R2 | cylinder r4 | (38, -8) / (38, 8) | h 11 | tall caps |
+| CAP_L1 / CAP_L2 | cylinder r3.8 | (-39, -6) / (-39, 14) | h 11 | tall caps |
+| CAP_R1 / CAP_R2 | cylinder r3.8 | (38, -8) / (38, 8) | h 11 | tall caps |
 | IC_B1..B3 | bevel box | (-12/-1/10, -23.5) | 9 x 6 | 2.5 | bottom IC row |
 | IC_T1 / IC_T2 | bevel box | (-8, 16) / (2, 22) | 8 x 6 | 2.5 | top IC pair |
 
