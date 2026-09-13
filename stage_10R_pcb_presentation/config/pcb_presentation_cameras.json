@@ -1,0 +1,83 @@
+{
+  "cameras": {
+    "CAM_PCB_CLEAN": {
+      "camera_distance_mm": 437.615,
+      "clip_end_mm": 10000.0,
+      "clip_start_mm": 0.1,
+      "direction": [
+        0.55,
+        -1.0,
+        0.62
+      ],
+      "framing_margin": 1.02,
+      "framing_method": "PERSPECTIVE_BOUNDING_SPHERE",
+      "lens_mm": 60,
+      "location": [
+        456.021750860636,
+        -252.4626052690719,
+        489.0853638508089
+      ],
+      "name": "CAM_PCB_CLEAN",
+      "projection": "PERSP",
+      "target": [
+        270.7069625854492,
+        84.47337341308594,
+        280.18505706787107
+      ],
+      "view_role": "clean"
+    },
+    "CAM_PCB_CONTEXT": {
+      "camera_distance_mm": 1195.512,
+      "clip_end_mm": 10000.0,
+      "clip_start_mm": 0.1,
+      "direction": [
+        0.68,
+        -1.0,
+        0.55
+      ],
+      "framing_margin": 1.06,
+      "framing_method": "PERSPECTIVE_BOUNDING_SPHERE",
+      "lens_mm": 55,
+      "location": [
+        774.7306771141662,
+        -818.9277187279587,
+        754.1714049975524
+      ],
+      "name": "CAM_PCB_CONTEXT",
+      "projection": "PERSP",
+      "target": [
+        162.79940950870514,
+        80.97120422124863,
+        259.2269973754883
+      ],
+      "view_role": "context"
+    },
+    "CAM_PCB_TOP": {
+      "camera_distance_mm": 437.615,
+      "clip_end_mm": 10000.0,
+      "clip_start_mm": 0.1,
+      "direction": [
+        0.0,
+        -0.18,
+        1.0
+      ],
+      "framing_margin": 1.02,
+      "framing_method": "PERSPECTIVE_BOUNDING_SPHERE",
+      "lens_mm": 60,
+      "location": [
+        270.7069625854492,
+        6.948589471043732,
+        710.8783011903279
+      ],
+      "name": "CAM_PCB_TOP",
+      "projection": "PERSP",
+      "target": [
+        270.7069625854492,
+        84.47337341308594,
+        280.18505706787107
+      ],
+      "view_role": "top"
+    }
+  },
+  "version": "task10R_pcb_presentation_cameras_v1"
+}

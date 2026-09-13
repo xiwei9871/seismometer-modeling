@@ -1,0 +1,1122 @@
+{
+  "board_top_z_mm": 275.48505859375,
+  "board_zone_center_mm": [
+    270.7069625854492,
+    84.47337341308594,
+    274.68505859375
+  ],
+  "component_count": 15,
+  "components": [
+    {
+      "bevel_mm": 0.6,
+      "center_xy_mm": [
+        0.0,
+        -35.0
+      ],
+      "component_id": "PCB_COMP_CONN_MAIN",
+      "footprint_board_local": {
+        "x_max": 22.0,
+        "x_min": -22.0,
+        "y_max": -31.0,
+        "y_min": -39.0
+      },
+      "height_mm": 7.0,
+      "material_role": "connector",
+      "mounted_on": "PART_019",
+      "reference_source": "REF_PCB_002",
+      "shape": "bevel_box",
+      "size_xy_mm": [
+        44.0,
+        8.0
+      ],
+      "source": "photographic_presentation_reconstruction",
+      "visual_role": "connector",
+      "world_location": [
+        270.7069625854492,
+        49.47337341308594,
+        278.98505859375
+      ]
+    },
+    {
+      "bevel_mm": 0.6,
+      "center_xy_mm": [
+        -4.0,
+        33.0
+      ],
+      "component_id": "PCB_COMP_CONN_TOP",
+      "footprint_board_local": {
+        "x_max": 11.0,
+        "x_min": -19.0,
+        "y_max": 36.5,
+        "y_min": 29.5
+      },
+      "height_mm": 5.0,
+      "material_role": "connector",
+      "mounted_on": "PART_019",
+      "reference_source": "REF_PCB_002",
+      "shape": "bevel_box",
+      "size_xy_mm": [
+        30.0,
+        7.0
+      ],
+      "source": "photographic_presentation_reconstruction",
+      "visual_role": "connector",
+      "world_location": [
+        266.7069625854492,
+        117.47337341308594,
+        277.98505859375
+      ]
+    },
+    {
+      "bevel_mm": 0.6,
+      "center_xy_mm": [
+        13.0,
+        -3.0
+      ],
+      "component_id": "PCB_COMP_SHIELD_MAIN",
+      "footprint_board_local": {
+        "x_max": 28.0,
+        "x_min": -2.0,
+        "y_max": 12.0,
+        "y_min": -18.0
+      },
+      "height_mm": 9.0,
+      "material_role": "shield",
+      "mounted_on": "PART_019",
+      "reference_source": "REF_PCB_002",
+      "shape": "bevel_box",
+      "size_xy_mm": [
+        30.0,
+        30.0
+      ],
+      "source": "photographic_presentation_reconstruction",
+      "visual_role": "shield",
+      "world_location": [
+        283.7069625854492,
+        81.47337341308594,
+        279.98505859375
+      ]
+    },
+    {
+      "bevel_mm": 0.6,
+      "center_xy_mm": [
+        -25.0,
+        6.0
+      ],
+      "component_id": "PCB_COMP_SHIELD_LEFT",
+      "footprint_board_local": {
+        "x_max": -16.5,
+        "x_min": -33.5,
+        "y_max": 13.0,
+        "y_min": -1.0
+      },
+      "height_mm": 7.0,
+      "material_role": "shield",
+      "mounted_on": "PART_019",
+      "reference_source": "REF_PCB_002",
+      "shape": "bevel_box",
+      "size_xy_mm": [
+        17.0,
+        14.0
+      ],
+      "source": "photographic_presentation_reconstruction",
+      "visual_role": "shield",
+      "world_location": [
+        245.70696258544922,
+        90.47337341308594,
+        278.98505859375
+      ]
+    },
+    {
+      "bevel_mm": 0.6,
+      "center_xy_mm": [
+        23.0,
+        23.0
+      ],
+      "component_id": "PCB_COMP_MODULE_RT",
+      "footprint_board_local": {
+        "x_max": 32.0,
+        "x_min": 14.0,
+        "y_max": 29.5,
+        "y_min": 16.5
+      },
+      "height_mm": 7.0,
+      "material_role": "ic",
+      "mounted_on": "PART_019",
+      "reference_source": "REF_PCB_002",
+      "shape": "bevel_box",
+      "size_xy_mm": [
+        18.0,
+        13.0
+      ],
+      "source": "photographic_presentation_reconstruction",
+      "visual_role": "ic",
+      "world_location": [
+        293.7069625854492,
+        107.47337341308594,
+        278.98505859375
+      ]
+    },
+    {
+      "bevel_mm": 0.6,
+      "center_xy_mm": [
+        -26.0,
+        -22.0
+      ],
+      "component_id": "PCB_COMP_MODULE_LB",
+      "footprint_board_local": {
+        "x_max": -18.0,
+        "x_min": -34.0,
+        "y_max": -17.0,
+        "y_min": -27.0
+      },
+      "height_mm": 6.0,
+      "material_role": "ic",
+      "mounted_on": "PART_019",
+      "reference_source": "REF_PCB_002",
+      "shape": "bevel_box",
+      "size_xy_mm": [
+        16.0,
+        10.0
+      ],
+      "source": "photographic_presentation_reconstruction",
+      "visual_role": "ic",
+      "world_location": [
+        244.70696258544922,
+        62.47337341308594,
+        278.48505859375
+      ]
+    },
+    {
+      "bevel_mm": 0.4,
+      "center_xy_mm": [
+        -39.0,
+        -6.0
+      ],
+      "component_id": "PCB_COMP_CAP_L1",
+      "footprint_board_local": {
+        "x_max": -35.2,
+        "x_min": -42.8,
+        "y_max": -2.2,
+        "y_min": -9.8
+      },
+      "height_mm": 11.0,
+      "material_role": "cap",
+      "mounted_on": "PART_019",
+      "radius_mm": 3.8,
+      "reference_source": "REF_PCB_001+REF_PCB_003",
+      "shape": "cylinder",
+      "source": "photographic_presentation_reconstruction",
+      "visual_role": "capacitor",
+      "world_location": [
+        231.70696258544922,
+        78.47337341308594,
+        280.98505859375
+      ]
+    },
+    {
+      "bevel_mm": 0.4,
+      "center_xy_mm": [
+        -39.0,
+        14.0
+      ],
+      "component_id": "PCB_COMP_CAP_L2",
+      "footprint_board_local": {
+        "x_max": -35.2,
+        "x_min": -42.8,
+        "y_max": 17.8,
+        "y_min": 10.2
+      },
+      "height_mm": 11.0,
+      "material_role": "cap",
+      "mounted_on": "PART_019",
+      "radius_mm": 3.8,
+      "reference_source": "REF_PCB_001+REF_PCB_003",
+      "shape": "cylinder",
+      "source": "photographic_presentation_reconstruction",
+      "visual_role": "capacitor",
+      "world_location": [
+        231.70696258544922,
+        98.47337341308594,
+        280.98505859375
+      ]
+    },
+    {
+      "bevel_mm": 0.4,
+      "center_xy_mm": [
+        38.0,
+        -8.0
+      ],
+      "component_id": "PCB_COMP_CAP_R1",
+      "footprint_board_local": {
+        "x_max": 41.8,
+        "x_min": 34.2,
+        "y_max": -4.2,
+        "y_min": -11.8
+      },
+      "height_mm": 11.0,
+      "material_role": "cap",
+      "mounted_on": "PART_019",
+      "radius_mm": 3.8,
+      "reference_source": "REF_PCB_001+REF_PCB_003",
+      "shape": "cylinder",
+      "source": "photographic_presentation_reconstruction",
+      "visual_role": "capacitor",
+      "world_location": [
+        308.7069625854492,
+        76.47337341308594,
+        280.98505859375
+      ]
+    },
+    {
+      "bevel_mm": 0.4,
+      "center_xy_mm": [
+        38.0,
+        8.0
+      ],
+      "component_id": "PCB_COMP_CAP_R2",
+      "footprint_board_local": {
+        "x_max": 41.8,
+        "x_min": 34.2,
+        "y_max": 11.8,
+        "y_min": 4.2
+      },
+      "height_mm": 11.0,
+      "material_role": "cap",
+      "mounted_on": "PART_019",
+      "radius_mm": 3.8,
+      "reference_source": "REF_PCB_001+REF_PCB_003",
+      "shape": "cylinder",
+      "source": "photographic_presentation_reconstruction",
+      "visual_role": "capacitor",
+      "world_location": [
+        308.7069625854492,
+        92.47337341308594,
+        280.98505859375
+      ]
+    },
+    {
+      "bevel_mm": 0.6,
+      "center_xy_mm": [
+        -12.0,
+        -23.5
+      ],
+      "component_id": "PCB_COMP_IC_B1",
+      "footprint_board_local": {
+        "x_max": -7.5,
+        "x_min": -16.5,
+        "y_max": -20.5,
+        "y_min": -26.5
+      },
+      "height_mm": 2.5,
+      "material_role": "ic",
+      "mounted_on": "PART_019",
+      "reference_source": "REF_PCB_002",
+      "shape": "bevel_box",
+      "size_xy_mm": [
+        9.0,
+        6.0
+      ],
+      "source": "photographic_presentation_reconstruction",
+      "visual_role": "ic",
+      "world_location": [
+        258.7069625854492,
+        60.97337341308594,
+        276.73505859375
+      ]
+    },
+    {
+      "bevel_mm": 0.6,
+      "center_xy_mm": [
+        -1.0,
+        -23.5
+      ],
+      "component_id": "PCB_COMP_IC_B2",
+      "footprint_board_local": {
+        "x_max": 3.5,
+        "x_min": -5.5,
+        "y_max": -20.5,
+        "y_min": -26.5
+      },
+      "height_mm": 2.5,
+      "material_role": "ic",
+      "mounted_on": "PART_019",
+      "reference_source": "REF_PCB_002",
+      "shape": "bevel_box",
+      "size_xy_mm": [
+        9.0,
+        6.0
+      ],
+      "source": "photographic_presentation_reconstruction",
+      "visual_role": "ic",
+      "world_location": [
+        269.7069625854492,
+        60.97337341308594,
+        276.73505859375
+      ]
+    },
+    {
+      "bevel_mm": 0.6,
+      "center_xy_mm": [
+        10.0,
+        -23.5
+      ],
+      "component_id": "PCB_COMP_IC_B3",
+      "footprint_board_local": {
+        "x_max": 14.5,
+        "x_min": 5.5,
+        "y_max": -20.5,
+        "y_min": -26.5
+      },
+      "height_mm": 2.5,
+      "material_role": "ic",
+      "mounted_on": "PART_019",
+      "reference_source": "REF_PCB_002",
+      "shape": "bevel_box",
+      "size_xy_mm": [
+        9.0,
+        6.0
+      ],
+      "source": "photographic_presentation_reconstruction",
+      "visual_role": "ic",
+      "world_location": [
+        280.7069625854492,
+        60.97337341308594,
+        276.73505859375
+      ]
+    },
+    {
+      "bevel_mm": 0.6,
+      "center_xy_mm": [
+        -8.0,
+        16.0
+      ],
+      "component_id": "PCB_COMP_IC_T1",
+      "footprint_board_local": {
+        "x_max": -4.0,
+        "x_min": -12.0,
+        "y_max": 19.0,
+        "y_min": 13.0
+      },
+      "height_mm": 2.5,
+      "material_role": "ic",
+      "mounted_on": "PART_019",
+      "reference_source": "REF_PCB_001+REF_PCB_003",
+      "shape": "bevel_box",
+      "size_xy_mm": [
+        8.0,
+        6.0
+      ],
+      "source": "photographic_presentation_reconstruction",
+      "visual_role": "ic",
+      "world_location": [
+        262.7069625854492,
+        100.47337341308594,
+        276.73505859375
+      ]
+    },
+    {
+      "bevel_mm": 0.6,
+      "center_xy_mm": [
+        2.0,
+        22.0
+      ],
+      "component_id": "PCB_COMP_IC_T2",
+      "footprint_board_local": {
+        "x_max": 6.0,
+        "x_min": -2.0,
+        "y_max": 25.0,
+        "y_min": 19.0
+      },
+      "height_mm": 2.5,
+      "material_role": "ic",
+      "mounted_on": "PART_019",
+      "reference_source": "REF_PCB_001+REF_PCB_003",
+      "shape": "bevel_box",
+      "size_xy_mm": [
+        8.0,
+        6.0
+      ],
+      "source": "photographic_presentation_reconstruction",
+      "visual_role": "ic",
+      "world_location": [
+        272.7069625854492,
+        106.47337341308594,
+        276.73505859375
+      ]
+    }
+  ],
+  "context_part_ids": [
+    "PART_001",
+    "PART_002",
+    "PART_003",
+    "PART_004",
+    "PART_005",
+    "PART_008",
+    "PART_009",
+    "PART_010",
+    "PART_011",
+    "PART_012",
+    "PART_013",
+    "PART_014",
+    "PART_015",
+    "PART_016",
+    "PART_017",
+    "PART_018",
+    "PART_020",
+    "PART_021",
+    "PART_022"
+  ],
+  "hidden_part_ids": [
+    "PART_023",
+    "PART_024",
+    "PART_025",
+    "PART_026",
+    "PART_027",
+    "PART_028",
+    "PART_029",
+    "PART_030",
+    "PART_031",
+    "PART_032",
+    "PART_033",
+    "PART_034",
+    "PART_035",
+    "PART_036",
+    "PART_037",
+    "PART_038",
+    "PART_039",
+    "PART_040",
+    "PART_041",
+    "PART_042",
+    "PART_043",
+    "PART_044",
+    "PART_045",
+    "PART_046",
+    "PART_047",
+    "PART_048",
+    "PART_049",
+    "PART_050",
+    "PART_051",
+    "PART_052",
+    "PART_053",
+    "PART_054",
+    "PART_055",
+    "PART_056",
+    "PART_057",
+    "PART_058",
+    "PART_059",
+    "PART_060",
+    "PART_061",
+    "PART_062",
+    "PART_063",
+    "PART_064",
+    "PART_065",
+    "PART_066",
+    "PART_067",
+    "PART_068",
+    "PART_069",
+    "PART_070",
+    "PART_071",
+    "PART_072",
+    "PART_073",
+    "PART_074",
+    "PART_075",
+    "PART_076",
+    "PART_077",
+    "PART_078",
+    "PART_079",
+    "PART_080",
+    "PART_081",
+    "PART_082"
+  ],
+  "no_animation_policy": "NO_KEYFRAMES_OR_ANIMATION_DATA",
+  "part_reclassification": {
+    "PART_006": {
+      "follow_parent": "PCB_ASSEMBLY",
+      "functional_importance": "MEDIUM",
+      "independent_focus": false,
+      "presentation_priority": "SECONDARY",
+      "presentation_weight": 0.15,
+      "semantic_name": "PCB_PROTECTIVE_PLATE"
+    },
+    "PART_007": {
+      "follow_parent": "PCB_ASSEMBLY",
+      "functional_importance": "LOW",
+      "independent_focus": false,
+      "presentation_priority": "SUPPORT",
+      "presentation_weight": 0.1,
+      "semantic_name": "PCB_CONNECTING_FRAME"
+    },
+    "PART_019": {
+      "follow_parent": null,
+      "functional_importance": "HIGH",
+      "independent_focus": true,
+      "presentation_priority": "HERO",
+      "presentation_weight": 0.75,
+      "semantic_name": "MAIN_PCB"
+    }
+  },
+  "part_transforms": {
+    "PART_001": {
+      "location": [
+        95.85556030273438,
+        84.43418884277344,
+        232.626708984375
+      ],
+      "presentation_tier": "CONTEXT",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_002": {
+      "location": [
+        95.37657928466797,
+        77.47398376464844,
+        287.3405456542969
+      ],
+      "presentation_tier": "CONTEXT",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_003": {
+      "location": [
+        94.81449127197266,
+        85.9849853515625,
+        224.35025024414062
+      ],
+      "presentation_tier": "CONTEXT",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_004": {
+      "location": [
+        87.55231475830078,
+        80.91464233398438,
+        284.6927490234375
+      ],
+      "presentation_tier": "CONTEXT",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_005": {
+      "location": [
+        95.81245422363281,
+        84.46949768066406,
+        327.1112365722656
+      ],
+      "presentation_tier": "CONTEXT",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_006": {
+      "location": [
+        269.81751251220703,
+        84.72936248779297,
+        263.4551696777344
+      ],
+      "presentation_tier": "SECONDARY",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_007": {
+      "location": [
+        95.69351959228516,
+        84.47615051269531,
+        274.0874328613281
+      ],
+      "presentation_tier": "SUPPORT",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_008": {
+      "location": [
+        130.6017608642578,
+        39.96284866333008,
+        267.9840087890625
+      ],
+      "presentation_tier": "CONTEXT",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_009": {
+      "location": [
+        60.81211471557617,
+        128.98370361328125,
+        267.98388671875
+      ],
+      "presentation_tier": "CONTEXT",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_010": {
+      "location": [
+        116.8070068359375,
+        136.94886779785156,
+        267.98382568359375
+      ],
+      "presentation_tier": "CONTEXT",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_011": {
+      "location": [
+        74.60697174072266,
+        31.9980411529541,
+        267.98358154296875
+      ],
+      "presentation_tier": "CONTEXT",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_012": {
+      "location": [
+        112.40691375732422,
+        73.47695922851562,
+        229.2144317626953
+      ],
+      "presentation_tier": "CONTEXT",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_013": {
+      "location": [
+        74.60322570800781,
+        71.80152130126953,
+        225.88619995117188
+      ],
+      "presentation_tier": "CONTEXT",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_014": {
+      "location": [
+        97.0782241821289,
+        111.86988830566406,
+        225.8865203857422
+      ],
+      "presentation_tier": "CONTEXT",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_015": {
+      "location": [
+        39.70875549316406,
+        76.50875854492188,
+        267.9900817871094
+      ],
+      "presentation_tier": "CONTEXT",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_016": {
+      "location": [
+        151.70504760742188,
+        92.43799591064453,
+        267.989501953125
+      ],
+      "presentation_tier": "CONTEXT",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_017": {
+      "location": [
+        139.1671142578125,
+        47.54949188232422,
+        281.6003723144531
+      ],
+      "presentation_tier": "CONTEXT",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_018": {
+      "location": [
+        52.24369812011719,
+        117.79388427734375,
+        276.4129333496094
+      ],
+      "presentation_tier": "CONTEXT",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_019": {
+      "location": [
+        270.7069625854492,
+        84.47337341308594,
+        274.68505859375
+      ],
+      "presentation_tier": "HERO",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_020": {
+      "location": [
+        157.19467163085938,
+        119.97331237792969,
+        177.118896484375
+      ],
+      "presentation_tier": "CONTEXT",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_021": {
+      "location": [
+        95.70979309082031,
+        13.508614540100098,
+        176.96792602539062
+      ],
+      "presentation_tier": "CONTEXT",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "PART_022": {
+      "location": [
+        34.21908187866211,
+        119.97331237792969,
+        176.84274291992188
+      ],
+      "presentation_tier": "CONTEXT",
+      "rotation_euler": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "presentation_hierarchy": {
+    "MAIN_PCB_PRESENTATION": {
+      "members": [
+        "PART_019",
+        "PCB_COMP_CONN_MAIN",
+        "PCB_COMP_CONN_TOP",
+        "PCB_COMP_SHIELD_MAIN",
+        "PCB_COMP_SHIELD_LEFT",
+        "PCB_COMP_MODULE_RT",
+        "PCB_COMP_MODULE_LB",
+        "PCB_COMP_CAP_L1",
+        "PCB_COMP_CAP_L2",
+        "PCB_COMP_CAP_R1",
+        "PCB_COMP_CAP_R2",
+        "PCB_COMP_IC_B1",
+        "PCB_COMP_IC_B2",
+        "PCB_COMP_IC_B3",
+        "PCB_COMP_IC_T1",
+        "PCB_COMP_IC_T2"
+      ],
+      "presentation_weight": 0.75,
+      "tier": "HERO"
+    },
+    "PART_006": {
+      "presentation_weight": 0.15,
+      "tier": "SECONDARY"
+    },
+    "PART_007": {
+      "presentation_weight": 0.1,
+      "tier": "SUPPORT"
+    }
+  },
+  "reference_images": {
+    "REF_PCB_001": {
+      "path": "references/pcb/REF_PCB_001.png",
+      "role": "detail_supplement",
+      "sha256": "a8d2d720dc0dc1913cf881647a2851f26a27f9e8a190972e894fe25e9302f4ee"
+    },
+    "REF_PCB_002": {
+      "path": "references/pcb/REF_PCB_002.png",
+      "role": "primary_layout",
+      "sha256": "7f88f6257e591b4c6d7a6feb159e0d281db8b13ab4b4aee0212ccd0d5d555706"
+    },
+    "REF_PCB_003": {
+      "path": "references/pcb/REF_PCB_003.png",
+      "role": "detail_supplement",
+      "sha256": "ad3c54967873106a2353e157dba40338d76d19745f40042c477205bff3b3d746"
+    }
+  },
+  "source_baseline": {
+    "faces": 444296,
+    "indexed_vertices": 221902,
+    "source_part_count": 82
+  },
+  "source_layout": "stage_09C_refined_explosion/config/refined_layout.json",
+  "source_scene": "stage_09C_refined_explosion/scene/exploded_animation_preview.blend",
+  "source_scene_sha256": "a3b5359861877e247ad1b035b00cace3e29eea2789ac227e6eeddfaaba1a7766",
+  "status_contract": {
+    "overall_status": "REVIEW_REQUIRED",
+    "technical_status": "PASS",
+    "visual_status": "PENDING_HUMAN_REVIEW"
+  },
+  "story_part_ids": [
+    "PART_001",
+    "PART_002",
+    "PART_003",
+    "PART_004",
+    "PART_005",
+    "PART_006",
+    "PART_007",
+    "PART_008",
+    "PART_009",
+    "PART_010",
+    "PART_011",
+    "PART_012",
+    "PART_013",
+    "PART_014",
+    "PART_015",
+    "PART_016",
+    "PART_017",
+    "PART_018",
+    "PART_019",
+    "PART_020",
+    "PART_021",
+    "PART_022"
+  ],
+  "surface_texture": "stage_10R_pcb_presentation/assets/pcb_surface_detail.png",
+  "version": "task10R_pcb_presentation_v1",
+  "view_visibility": {
+    "clean": {
+      "context_visible": false,
+      "hidden": [
+        "PART_006",
+        "PART_007"
+      ],
+      "visible_focus": [
+        "PART_019",
+        "PCB_COMP_CONN_MAIN",
+        "PCB_COMP_CONN_TOP",
+        "PCB_COMP_SHIELD_MAIN",
+        "PCB_COMP_SHIELD_LEFT",
+        "PCB_COMP_MODULE_RT",
+        "PCB_COMP_MODULE_LB",
+        "PCB_COMP_CAP_L1",
+        "PCB_COMP_CAP_L2",
+        "PCB_COMP_CAP_R1",
+        "PCB_COMP_CAP_R2",
+        "PCB_COMP_IC_B1",
+        "PCB_COMP_IC_B2",
+        "PCB_COMP_IC_B3",
+        "PCB_COMP_IC_T1",
+        "PCB_COMP_IC_T2"
+      ]
+    },
+    "context": {
+      "context_visible": true,
+      "hidden": [],
+      "secondary_visible": true,
+      "support_visible": true,
+      "visible_focus": [
+        "PART_019",
+        "PCB_COMP_CONN_MAIN",
+        "PCB_COMP_CONN_TOP",
+        "PCB_COMP_SHIELD_MAIN",
+        "PCB_COMP_SHIELD_LEFT",
+        "PCB_COMP_MODULE_RT",
+        "PCB_COMP_MODULE_LB",
+        "PCB_COMP_CAP_L1",
+        "PCB_COMP_CAP_L2",
+        "PCB_COMP_CAP_R1",
+        "PCB_COMP_CAP_R2",
+        "PCB_COMP_IC_B1",
+        "PCB_COMP_IC_B2",
+        "PCB_COMP_IC_B3",
+        "PCB_COMP_IC_T1",
+        "PCB_COMP_IC_T2"
+      ]
+    },
+    "top": {
+      "context_visible": false,
+      "hidden": [
+        "PART_006",
+        "PART_007"
+      ],
+      "visible_focus": [
+        "PART_019",
+        "PCB_COMP_CONN_MAIN",
+        "PCB_COMP_CONN_TOP",
+        "PCB_COMP_SHIELD_MAIN",
+        "PCB_COMP_SHIELD_LEFT",
+        "PCB_COMP_MODULE_RT",
+        "PCB_COMP_MODULE_LB",
+        "PCB_COMP_CAP_L1",
+        "PCB_COMP_CAP_L2",
+        "PCB_COMP_CAP_R1",
+        "PCB_COMP_CAP_R2",
+        "PCB_COMP_IC_B1",
+        "PCB_COMP_IC_B2",
+        "PCB_COMP_IC_B3",
+        "PCB_COMP_IC_T1",
+        "PCB_COMP_IC_T2"
+      ]
+    }
+  },
+  "zone_offset_x_mm": 175.0
+}

@@ -9,6 +9,9 @@ import pytest
 from stage_10R_pcb_presentation.scripts import pcb_presentation_data as data
 
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+
+
 def test_frozen_baseline_and_source_scene():
     assert data.BASELINE == {
         "source_part_count": 82,
@@ -107,6 +110,74 @@ def test_status_contract():
     assert status["technical_status"] == "PASS"
     assert status["visual_status"] == "PENDING_HUMAN_REVIEW"
     assert status["overall_status"] == "REVIEW_REQUIRED"
+
+
+def test_planner_moves_board_to_dedicated_zone(tmp_path):
+    from stage_10R_pcb_presentation.scripts.build_presentation_plan import (
+        build_presentation_manifest,
+    )
+
+    manifest = build_presentation_manifest(PROJECT_ROOT)
+    board = manifest["part_transforms"]["PART_019"]
+    plate = manifest["part_transforms"]["PART_006"]
+    frame = manifest["part_transforms"]["PART_007"]
+    zone = manifest["board_zone_center_mm"]
+    # Board and plate move +175 mm in X at assembled Z; frame stays assembled.
+    assert board["location"][0] == pytest.approx(zone[0])
+    assert board["location"][2] == pytest.approx(zone[2])
+    assert plate["location"][2] < board["location"][2]
+    assert frame["location"][0] == pytest.approx(zone[0] - 175.0, abs=1.0)
+    assert manifest["component_count"] == len(manifest["components"])
+    for component in manifest["components"]:
+        # Components sit on the board top surface in the inspection zone.
+        assert component["world_location"][2] > board["location"][2]
+        assert component["world_location"][0] == pytest.approx(
+            zone[0] + component["center_xy_mm"][0]
+        )
+        assert component["mounted_on"] == "PART_019"
+
+
+def test_planner_manifest_registry_and_provenance():
+    from stage_10R_pcb_presentation.scripts.build_presentation_plan import (
+        build_presentation_manifest,
+    )
+
+    manifest = build_presentation_manifest(PROJECT_ROOT)
+    assert set(manifest["part_transforms"]) == set(data.STORY_PART_IDS)
+    assert manifest["part_reclassification"]["PART_007"]["presentation_priority"] == "SUPPORT"
+    hierarchy = manifest["presentation_hierarchy"]["MAIN_PCB_PRESENTATION"]
+    assert "PART_019" in hierarchy["members"]
+    assert len(hierarchy["members"]) == 1 + manifest["component_count"]
+    refs = manifest["reference_images"]
+    assert refs["REF_PCB_002"]["role"] == "primary_layout"
+
+
+def test_camera_plan_frames_board_and_context():
+    from stage_10R_pcb_presentation.scripts.build_presentation_plan import (
+        build_presentation_cameras,
+    )
+
+    cameras = build_presentation_cameras(PROJECT_ROOT)["cameras"]
+    assert set(cameras) == {"CAM_PCB_CLEAN", "CAM_PCB_TOP", "CAM_PCB_CONTEXT"}
+    # Context camera must frame the device too: farther than the clean camera.
+    assert cameras["CAM_PCB_CONTEXT"]["camera_distance_mm"] > cameras["CAM_PCB_CLEAN"]["camera_distance_mm"]
+    # Clean camera looks at the inspection zone, not the device.
+    assert cameras["CAM_PCB_CLEAN"]["target"][0] > 200.0
+
+
+def test_surface_texture_is_deterministic(tmp_path):
+    from stage_10R_pcb_presentation.scripts.generate_surface_texture import (
+        generate_surface_texture,
+    )
+
+    first = generate_surface_texture(PROJECT_ROOT).read_bytes()
+    second = generate_surface_texture(PROJECT_ROOT).read_bytes()
+    assert first == second
+    from PIL import Image
+    import io
+
+    image = Image.open(io.BytesIO(first))
+    assert image.size == (1024, 1024)
 
 
 def test_reference_manifest_entries_exist():

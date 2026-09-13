@@ -1,0 +1,35 @@
+{
+  "overall_status": "REVIEW_REQUIRED",
+  "render_checks": {
+    "pcb_presentation_clean.png": true,
+    "pcb_presentation_context.png": true,
+    "pcb_presentation_reference_comparison.png": true,
+    "pcb_presentation_top.png": true
+  },
+  "scene": {
+    "animation_data_count": 0,
+    "camera_count": 3,
+    "component_count": 15,
+    "font_object_count": 0,
+    "hidden_part_count": 60,
+    "source_faces": 444296,
+    "source_geometry_fingerprint_verified": true,
+    "source_geometry_modified": false,
+    "source_indexed_vertices": 221902,
+    "source_part_count": 82
+  },
+  "source_baseline": {
+    "faces": 444296,
+    "indexed_vertices": 221902,
+    "source_part_count": 82
+  },
+  "technical_status": "PASS",
+  "visual_review_gate": {
+    "density": "PENDING_HUMAN_REVIEW",
+    "hierarchy": "PENDING_HUMAN_REVIEW",
+    "part007_demoted": "PENDING_HUMAN_REVIEW",
+    "reference_fidelity": "PENDING_HUMAN_REVIEW"
+  },
+  "visual_status": "PENDING_HUMAN_REVIEW",
+  "warnings": []
+}

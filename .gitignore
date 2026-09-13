@@ -53,3 +53,8 @@ stage_10R_functional_inspection/scene/*.blend
 stage_10R_functional_inspection/renders/
 stage_10R_functional_inspection/logs/
 stage_10R_functional_inspection/data_task10R_run_result.json
+stage_10R_pcb_presentation/scene/*.blend
+stage_10R_pcb_presentation/renders/
+stage_10R_pcb_presentation/logs/
+stage_10R_pcb_presentation/assets/*.png
+stage_10R_pcb_presentation/data_task10R_pcb_run_result.json

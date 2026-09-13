@@ -1,0 +1,82 @@
+{
+  "materials": {
+    "cap": {
+      "base_color": [
+        0.018,
+        0.02,
+        0.024,
+        1.0
+      ],
+      "metallic": 0.35,
+      "roughness": 0.38
+    },
+    "connector": {
+      "base_color": [
+        0.045,
+        0.05,
+        0.058,
+        1.0
+      ],
+      "metallic": 0.15,
+      "roughness": 0.42
+    },
+    "context": {
+      "weight": 0.3
+    },
+    "ic": {
+      "base_color": [
+        0.022,
+        0.026,
+        0.032,
+        1.0
+      ],
+      "metallic": 0.05,
+      "roughness": 0.48
+    },
+    "pcb_soldermask": {
+      "base_color": [
+        0.075,
+        0.42,
+        0.09,
+        1.0
+      ],
+      "metallic": 0.05,
+      "roughness": 0.42,
+      "texture": "stage_10R_pcb_presentation/assets/pcb_surface_detail.png",
+      "texture_mapping": "GENERATED_XY"
+    },
+    "secondary_plate": {
+      "base_color": [
+        0.42,
+        0.45,
+        0.48,
+        1.0
+      ],
+      "metallic": 0.55,
+      "roughness": 0.45,
+      "weight": 0.15
+    },
+    "shield": {
+      "base_color": [
+        0.1,
+        0.11,
+        0.125,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.32
+    },
+    "support_frame": {
+      "base_color": [
+        0.3,
+        0.33,
+        0.36,
+        1.0
+      ],
+      "metallic": 0.4,
+      "roughness": 0.5,
+      "weight": 0.1
+    }
+  },
+  "version": "task10R_pcb_presentation_materials_v1"
+}
