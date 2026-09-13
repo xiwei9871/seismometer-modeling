@@ -32,12 +32,12 @@ TEXTURE_SEED = 0x10C8
 BORDER_PX = 28
 MM_TO_PX = TEXTURE_SIZE / (BOARD_HALF_EXTENT_MM * 2.0)
 
-BASE = (20, 96, 22)
-TRACE_DARK = (12, 70, 16)
-TRACE_LIGHT = (44, 132, 48)
-VIA_GOLD = (176, 148, 62)
-PAD_GOLD = (198, 168, 68)
-SILKSCREEN = (200, 208, 196)
+BASE = (30, 124, 33)
+TRACE_DARK = (18, 88, 21)
+TRACE_LIGHT = (58, 158, 62)
+VIA_GOLD = (186, 158, 72)
+PAD_GOLD = (208, 178, 78)
+SILKSCREEN = (210, 218, 206)
 
 
 def board_to_px(x_mm: float, y_mm: float) -> tuple[float, float]:

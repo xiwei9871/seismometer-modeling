@@ -19,6 +19,7 @@ from scripts.task08_data import write_json
 from stage_09C_refined_explosion.scripts.pipeline import validate_run_result_contract as validate_task09c_result
 from stage_10R_pcb_presentation.scripts.build_presentation_plan import write_presentation_configs
 from stage_10R_pcb_presentation.scripts.pcb_presentation_data import (
+    APPROVAL_PATH,
     CAMERAS_PATH,
     COMPARISON_RENDER,
     MANIFEST_PATH,
@@ -28,6 +29,7 @@ from stage_10R_pcb_presentation.scripts.pcb_presentation_data import (
     ROOT_DIR,
     SCENE_OUTPUT,
     VALIDATION_PATH,
+    load_human_approval,
 )
 
 RUN_RESULT_PATH = f"{ROOT_DIR}/data_task10R_pcb_run_result.json"
@@ -35,11 +37,12 @@ REPORT_PATH = f"{ROOT_DIR}/reports/task10R_pcb_visual_review.md"
 LOG_PATH = f"{ROOT_DIR}/logs/task10R_pcb.log"
 
 
-def status_from_technical(technical_pass: bool) -> dict[str, str]:
+def status_from_technical(technical_pass: bool, approval: Mapping[str, Any] | None = None) -> dict[str, str]:
+    approved = approval is not None and approval.get("approved") is True
     return {
         "technical_status": "PASS" if technical_pass else "FAIL",
-        "visual_status": "PENDING_HUMAN_REVIEW",
-        "overall_status": "REVIEW_REQUIRED" if technical_pass else "FAIL",
+        "visual_status": "APPROVED" if approved else "PENDING_HUMAN_REVIEW",
+        "overall_status": "PASS" if technical_pass and approved else ("REVIEW_REQUIRED" if technical_pass else "FAIL"),
     }
 
 
@@ -113,7 +116,8 @@ def run_task10r_pcb(project_root: Path, *, blender_path: str | None = None, skip
         log_lines.append("blender_status=SKIPPED_BY_REQUEST")
 
     technical_pass = not failures and scene_validation is not None and scene_validation.get("technical_status") == "PASS"
-    statuses = status_from_technical(technical_pass)
+    approval = load_human_approval(root)
+    statuses = status_from_technical(technical_pass, approval)
     result: dict[str, Any] = {
         **statuses,
         "source_part_count": 82,
@@ -123,6 +127,7 @@ def run_task10r_pcb(project_root: Path, *, blender_path: str | None = None, skip
         "animation_created": False,
         "text_objects_created": False,
         "task09c_status": task09c.get("status"),
+        "human_approval": approval,
         "outputs": _output_paths(root),
         "manifest": str(root / MANIFEST_PATH),
         "camera_config": str(root / CAMERAS_PATH),
@@ -160,6 +165,7 @@ def _output_paths(root: Path) -> dict[str, str]:
 def _report(result: Mapping[str, Any]) -> str:
     validation = result.get("validation") or {}
     scene = validation.get("scene", {}) if isinstance(validation, Mapping) else {}
+    review_status = "APPROVED" if result.get("visual_status") == "APPROVED" else "PENDING_HUMAN_REVIEW"
     lines = [
         "# Task 10-R-PCB-V1 Presentation PCB Review",
         "",
@@ -183,10 +189,10 @@ def _report(result: Mapping[str, Any]) -> str:
         "",
         "| Question | Status |",
         "|---|---|",
-        "| Does MAIN_PCB_PRESENTATION read as a densely populated product PCB (connectors, shield cans, caps, ICs, traces)? | PENDING_HUMAN_REVIEW |",
-        "| Is the presentation hierarchy 75/15/10 with the board as the sole hero? | PENDING_HUMAN_REVIEW |",
-        "| Is PART_007 no longer a visual protagonist? | PENDING_HUMAN_REVIEW |",
-        "| Is the generated board recognisably aligned with REF_PCB_002 in the comparison sheet? | PENDING_HUMAN_REVIEW |",
+        f"| Does MAIN_PCB_PRESENTATION read as a densely populated product PCB (connectors, shield cans, caps, ICs, traces)? | {review_status} |",
+        f"| Is the presentation hierarchy 75/15/10 with the board as the sole hero? | {review_status} |",
+        f"| Is PART_007 no longer a visual protagonist? | {review_status} |",
+        f"| Is the generated board recognisably aligned with REF_PCB_002 in the comparison sheet? | {review_status} |",
         "",
         "## Diagnostic data",
         "",

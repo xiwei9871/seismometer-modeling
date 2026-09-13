@@ -23,6 +23,7 @@ MANIFEST_PATH = f"{ROOT_DIR}/config/pcb_presentation_manifest.json"
 MATERIALS_PATH = f"{ROOT_DIR}/config/pcb_presentation_materials.json"
 CAMERAS_PATH = f"{ROOT_DIR}/config/pcb_presentation_cameras.json"
 VALIDATION_PATH = f"{ROOT_DIR}/config/pcb_presentation_validation.json"
+APPROVAL_PATH = f"{ROOT_DIR}/config/human_approval.json"
 REQUIRED_RENDERS = (
     "pcb_presentation_clean.png",
     "pcb_presentation_context.png",
@@ -284,9 +285,9 @@ def build_material_contract() -> dict[str, Any]:
         "connector": {"base_color": (0.045, 0.05, 0.058, 1.0), "roughness": 0.42, "metallic": 0.15},
         "shield": {"base_color": (0.10, 0.11, 0.125, 1.0), "roughness": 0.32, "metallic": 0.72},
         "cap": {"base_color": (0.018, 0.02, 0.024, 1.0), "roughness": 0.38, "metallic": 0.35},
-        "secondary_plate": {"base_color": (0.42, 0.45, 0.48, 1.0), "roughness": 0.45, "metallic": 0.55, "weight": 0.15},
-        "support_frame": {"base_color": (0.30, 0.33, 0.36, 1.0), "roughness": 0.5, "metallic": 0.4, "weight": 0.10},
-        "context": {"weight": 0.30},
+        "secondary_plate": {"base_color": (0.46, 0.49, 0.52, 1.0), "roughness": 0.45, "metallic": 0.55, "weight": 0.15},
+        "support_frame": {"base_color": (0.34, 0.37, 0.40, 1.0), "roughness": 0.5, "metallic": 0.4, "weight": 0.10},
+        "context": {"weight": 0.45},
     }
 
 
@@ -296,3 +297,19 @@ def build_status_contract() -> dict[str, str]:
         "visual_status": "PENDING_HUMAN_REVIEW",
         "overall_status": "REVIEW_REQUIRED",
     }
+
+
+def load_human_approval(project_root: Path) -> dict[str, Any] | None:
+    """Return the recorded human visual approval, if the user supplied one."""
+    import json
+
+    path = Path(project_root).expanduser().resolve() / APPROVAL_PATH
+    if not path.is_file():
+        return None
+    try:
+        record = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    if not isinstance(record, dict) or record.get("approved") is not True:
+        return None
+    return record

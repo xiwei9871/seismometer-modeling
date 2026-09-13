@@ -112,6 +112,31 @@ def test_status_contract():
     assert status["overall_status"] == "REVIEW_REQUIRED"
 
 
+def test_human_approval_gate():
+    from stage_10R_pcb_presentation.scripts.pipeline import status_from_technical
+
+    pending = status_from_technical(True)
+    assert pending["visual_status"] == "PENDING_HUMAN_REVIEW"
+    assert pending["overall_status"] == "REVIEW_REQUIRED"
+    approved = status_from_technical(True, {"approved": True})
+    assert approved["visual_status"] == "APPROVED"
+    assert approved["overall_status"] == "PASS"
+    failed = status_from_technical(False, {"approved": True})
+    assert failed["overall_status"] == "FAIL"
+
+
+def test_recorded_approval_file_is_valid():
+    import json
+
+    path = PROJECT_ROOT / data.APPROVAL_PATH
+    if not path.is_file():
+        pytest.skip("approval not yet recorded")
+    record = json.loads(path.read_text(encoding="utf-8"))
+    assert record["approved"] is True
+    assert record["reviewer"] == "user"
+    assert data.load_human_approval(PROJECT_ROOT) is not None
+
+
 def test_planner_moves_board_to_dedicated_zone(tmp_path):
     from stage_10R_pcb_presentation.scripts.build_presentation_plan import (
         build_presentation_manifest,

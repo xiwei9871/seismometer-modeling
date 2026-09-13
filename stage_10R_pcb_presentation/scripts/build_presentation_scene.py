@@ -320,9 +320,9 @@ def _create_light_rig(manifest: Mapping[str, Any], collection: Any) -> None:
     anchor = [zone[0] - 175.0, zone[1], zone[2]]
     mid = [(zone[0] + anchor[0]) / 2.0, (zone[1] + anchor[1]) / 2.0, zone[2]]
     rig = [
-        ("LIGHT_KEY", (mid[0] + 40.0, mid[1] - 160.0, mid[2] + 430.0), 42000.0, 380.0),
-        ("LIGHT_FILL", (mid[0] - 60.0, mid[1] + 200.0, mid[2] + 300.0), 18000.0, 320.0),
-        ("LIGHT_RIM", (mid[0] + 60.0, mid[1] + 40.0, mid[2] + 520.0), 24000.0, 260.0),
+        ("LIGHT_KEY", (mid[0] + 40.0, mid[1] - 160.0, mid[2] + 430.0), 65000.0, 380.0),
+        ("LIGHT_FILL", (mid[0] - 60.0, mid[1] + 200.0, mid[2] + 300.0), 28000.0, 320.0),
+        ("LIGHT_RIM", (mid[0] + 60.0, mid[1] + 40.0, mid[2] + 520.0), 36000.0, 260.0),
     ]
     for name, location, energy, size in rig:
         data = bpy.data.lights.new(name, type="AREA")
@@ -354,9 +354,9 @@ def _configure_scene(manifest: Mapping[str, Any]) -> None:
     world.use_nodes = True
     background = world.node_tree.nodes.get("Background")
     if background is not None:
-        background.inputs["Color"].default_value = (0.09, 0.105, 0.14, 1.0)
-        background.inputs["Strength"].default_value = 0.6
-    scene.view_settings.exposure = 0.9
+        background.inputs["Color"].default_value = (0.11, 0.125, 0.16, 1.0)
+        background.inputs["Strength"].default_value = 0.85
+    scene.view_settings.exposure = 1.7
     scene["task10r_pcb_source_scene"] = SOURCE_SCENE
     scene["task10r_pcb_source_scene_sha256"] = SOURCE_SCENE_SHA256
     scene["task10r_pcb_animation_data_count"] = 0

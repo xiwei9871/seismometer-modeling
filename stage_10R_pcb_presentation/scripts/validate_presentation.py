@@ -25,6 +25,7 @@ from stage_10R_pcb_presentation.scripts.pcb_presentation_data import (
     REQUIRED_RENDERS,
     SCENE_OUTPUT,
     STORY_PART_IDS,
+    load_human_approval,
 )
 from stage_10_product_story.scripts.build_story_scene import mesh_geometry_fingerprint
 
@@ -75,19 +76,21 @@ def validate_presentation(project_root: Path) -> dict[str, Any]:
         warnings.append({"code": "RENDER_MISSING", "renders": missing})
 
     technical_status = "PASS" if not warnings else "FAIL"
+    approved = load_human_approval(root) is not None
+    gate_status = "APPROVED" if approved else "PENDING_HUMAN_REVIEW"
     return {
         "technical_status": technical_status,
-        "visual_status": "PENDING_HUMAN_REVIEW",
-        "overall_status": "REVIEW_REQUIRED" if technical_status == "PASS" else "FAIL",
+        "visual_status": gate_status,
+        "overall_status": "PASS" if technical_status == "PASS" and approved else ("REVIEW_REQUIRED" if technical_status == "PASS" else "FAIL"),
         "source_baseline": dict(BASELINE),
         "scene": scene_report,
         "render_checks": render_checks,
         "warnings": warnings,
         "visual_review_gate": {
-            "density": "PENDING_HUMAN_REVIEW",
-            "hierarchy": "PENDING_HUMAN_REVIEW",
-            "part007_demoted": "PENDING_HUMAN_REVIEW",
-            "reference_fidelity": "PENDING_HUMAN_REVIEW",
+            "density": gate_status,
+            "hierarchy": gate_status,
+            "part007_demoted": gate_status,
+            "reference_fidelity": gate_status,
         },
     }
 

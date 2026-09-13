@@ -21,7 +21,7 @@
       "roughness": 0.42
     },
     "context": {
-      "weight": 0.3
+      "weight": 0.45
     },
     "ic": {
       "base_color": [
@@ -47,9 +47,9 @@
     },
     "secondary_plate": {
       "base_color": [
-        0.42,
-        0.45,
-        0.48,
+        0.46,
+        0.49,
+        0.52,
         1.0
       ],
       "metallic": 0.55,
@@ -68,9 +68,9 @@
     },
     "support_frame": {
       "base_color": [
-        0.3,
-        0.33,
-        0.36,
+        0.34,
+        0.37,
+        0.4,
         1.0
       ],
       "metallic": 0.4,
