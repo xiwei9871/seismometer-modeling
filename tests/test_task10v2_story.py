@@ -47,23 +47,40 @@ def test_v2_story_config_is_the_unchanged_v1_story():
     assert "Bluetooth" not in rendered_text
 
 
-def test_v2_state_transforms_keep_v1_part_motion_except_pcb_focus_layout():
+def test_v2_state_transforms_keep_v1_part_motion_except_focus_layouts():
     v1 = build_state_transforms(PROJECT_ROOT)
     payload = v2.build_story_v2_state_transforms(PROJECT_ROOT)
     assert payload["version"] == "task10V2_story_states_v1"
+    changed_states = set(v2.STATE_V2_OFFSETS)
+    assert changed_states == {"PCB_FOCUS", "SENSOR_FOCUS"}
     for state_id, state in payload["states"].items():
-        if state_id == "PCB_FOCUS":
+        if state_id in changed_states:
             continue
         assert state["parts"] == v1["states"][state_id]["parts"]
+    for state_id, offsets in v2.STATE_V2_OFFSETS.items():
+        v1_parts = v1["states"][state_id]["parts"]
+        v2_parts = payload["states"][state_id]["parts"]
+        for part_id in v1_parts:
+            if part_id in offsets:
+                continue
+            assert v2_parts[part_id] == v1_parts[part_id]
+    # The V2 board slides +x out from under the protective plate.
     v1_pcb = v1["states"]["PCB_FOCUS"]["parts"]
     v2_pcb = payload["states"]["PCB_FOCUS"]["parts"]
-    for part_id in v1_pcb:
-        if part_id in v2.PCB_FOCUS_V2_OFFSETS:
-            continue
-        assert v2_pcb[part_id] == v1_pcb[part_id]
-    # The V2 board slides +x out from under the protective plate.
     assert v2_pcb["PART_019"]["location"][0] > v1_pcb["PART_019"]["location"][0] + 40.0
     assert v2_pcb["PART_019"]["location"][2] < v1_pcb["PART_006"]["location"][2]
+
+
+def test_v2_sensor_cluster_clears_the_housing_silhouette():
+    v1 = build_state_transforms(PROJECT_ROOT)
+    payload = v2.build_story_v2_state_transforms(PROJECT_ROOT)
+    v1_sensor = v1["states"]["SENSOR_FOCUS"]["parts"]["PART_003"]
+    v2_sensor = payload["states"]["SENSOR_FOCUS"]["parts"]["PART_003"]
+    # Pulled further left (-x) and toward the camera (-y).
+    assert v2_sensor["location"][0] < v1_sensor["location"][0] - 35.0
+    assert v2_sensor["location"][1] < v1_sensor["location"][1]
+    # Well clear of the housing left edge (housing spans roughly x -5..200).
+    assert v2_sensor["location"][0] < -35.0
 
 
 def test_v2_components_ride_with_part019_in_every_state():

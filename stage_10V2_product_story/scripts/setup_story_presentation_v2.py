@@ -123,6 +123,14 @@ def _component_objects() -> dict[str, Any]:
 
 def _apply_materials(objects: Mapping[str, Any]) -> None:
     roles = build_material_roles()
+    # The v1 near-black sensor material reads as a dark blob under Eevee;
+    # V2 lifts it so the focus subject stays legible against the internals.
+    roles["SENSOR"] = {
+        **roles["SENSOR"],
+        "base_color": (0.20, 0.235, 0.27, 1.0),
+        "metallic": 0.6,
+        "roughness": 0.3,
+    }
     part_role: dict[str, str] = {
         "PART_001": "LOWER_HOUSING",
         "PART_002": "UPPER_HOUSING",
@@ -216,9 +224,9 @@ def _focus_factors(module_id: str, story: Mapping[str, Any], cap: float | None) 
         if focus is None or focus == module_id:
             factor = 1.0
         elif module_id in FUNCTIONAL_MODULES and focus in FUNCTIONAL_MODULES:
-            factor = 0.48
+            factor = 0.40
         else:
-            factor = 0.32
+            factor = 0.28
         if cap is not None:
             factor = min(factor, cap)
         factors.extend(

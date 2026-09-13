@@ -60,8 +60,24 @@ PART_EMPHASIS_CAP = {"PART_007": 0.55}
 # MAIN_PCB_PRESENTATION surface reads clearly; plate/frame stay as context.
 PCB_FOCUS_V2_OFFSETS = {
     "PART_006": [64.0, 2.0, 84.0],
-    "PART_019": [120.0, -14.0, 32.0],
+    "PART_019": [135.0, -18.0, 26.0],
     "PART_007": [50.0, 8.0, 14.0],
+}
+
+# V2-only SENSOR_FOCUS layout: in v1 the sensor cluster stopped at the
+# housing's left silhouette and the body occluded its right half. V2 pulls
+# the cluster further left and toward the camera so the focus subject clears
+# the housing outline completely.
+SENSOR_FOCUS_V2_OFFSETS = {
+    "PART_003": [-138.0, -22.0, 14.0],
+    "PART_012": [-164.0, -22.0, 26.0],
+    "PART_013": [-138.0, -52.0, 26.0],
+    "PART_014": [-138.0, -22.0, 54.0],
+}
+
+STATE_V2_OFFSETS = {
+    "PCB_FOCUS": PCB_FOCUS_V2_OFFSETS,
+    "SENSOR_FOCUS": SENSOR_FOCUS_V2_OFFSETS,
 }
 
 
@@ -117,7 +133,7 @@ def build_story_v2_state_transforms(project_root: Path) -> dict[str, Any]:
     """V1 story transforms plus presentation components riding with PART_019."""
     root = Path(project_root).expanduser().resolve()
     payload = build_state_transforms(root)
-    _apply_pcb_focus_v2_layout(payload)
+    _apply_v2_focus_layouts(payload)
     manifest = load_pcb_manifest(root)
     registry = build_component_registry(manifest)
     for state in payload["states"].values():
@@ -148,16 +164,17 @@ def build_story_v2_state_transforms(project_root: Path) -> dict[str, Any]:
     return validate_story_v2_state_transforms(payload)
 
 
-def _apply_pcb_focus_v2_layout(payload: dict[str, Any]) -> None:
+def _apply_v2_focus_layouts(payload: dict[str, Any]) -> None:
     assembled = payload["states"]["ASSEMBLED"]["parts"]
-    pcb_parts = payload["states"]["PCB_FOCUS"]["parts"]
-    for part_id, delta in PCB_FOCUS_V2_OFFSETS.items():
-        record = pcb_parts[part_id]
-        record["location"] = [
-            float(assembled[part_id]["location"][axis]) + float(delta[axis])
-            for axis in range(3)
-        ]
-        record["offset_from_assembled_mm"] = [float(value) for value in delta]
+    for state_id, offsets in STATE_V2_OFFSETS.items():
+        parts = payload["states"][state_id]["parts"]
+        for part_id, delta in offsets.items():
+            record = parts[part_id]
+            record["location"] = [
+                float(assembled[part_id]["location"][axis]) + float(delta[axis])
+                for axis in range(3)
+            ]
+            record["offset_from_assembled_mm"] = [float(value) for value in delta]
 
 
 def validate_story_v2_state_transforms(payload: Mapping[str, Any]) -> dict[str, Any]:
