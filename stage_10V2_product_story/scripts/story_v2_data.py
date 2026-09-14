@@ -49,9 +49,9 @@ WORLD_GRADIENT_TOP = (0.149, 0.169, 0.20, 1.0)
 # Annotations shrink to small captions (极简 style) instead of hero titles.
 ANNOTATION_SCALE = 0.45
 LIGHT_RIG = (
-    ("STORY_LIGHT_KEY", (40.0, -160.0, 430.0), 65000.0, 380.0),
-    ("STORY_LIGHT_FILL", (-60.0, 200.0, 300.0), 28000.0, 320.0),
-    ("STORY_LIGHT_RIM", (60.0, 40.0, 520.0), 36000.0, 260.0),
+    ("STORY_LIGHT_KEY", (40.0, -160.0, 430.0), 68000.0, 380.0),
+    ("STORY_LIGHT_FILL", (-60.0, 200.0, 300.0), 36000.0, 320.0),
+    ("STORY_LIGHT_RIM", (60.0, 40.0, 520.0), 46000.0, 260.0),
 )
 LIGHT_TARGET_OFFSET_Z = -20.0
 
@@ -72,12 +72,14 @@ PCB_FOCUS_V2_OFFSETS = {
 # V2-only SENSOR_FOCUS layout: in v1 the sensor cluster stopped at the
 # housing's left silhouette and the body occluded its right half. V2 pulls
 # the cluster further left and toward the camera so the focus subject clears
-# the housing outline completely.
+# the housing outline completely. V4 additionally spreads the four parts
+# radially from the cluster centroid (~1.8x) so the isolate shot shows the
+# sensing cores exploded off the carrier instead of a fused blob.
 SENSOR_FOCUS_V2_OFFSETS = {
-    "PART_003": [-138.0, -22.0, 14.0],
-    "PART_012": [-164.0, -22.0, 26.0],
-    "PART_013": [-138.0, -52.0, 26.0],
-    "PART_014": [-138.0, -22.0, 54.0],
+    "PART_003": [-132.7, -15.8, -0.4],
+    "PART_012": [-165.5, -25.8, 25.1],
+    "PART_013": [-148.9, -81.2, 22.4],
+    "PART_014": [-130.9, 4.9, 72.8],
 }
 
 STATE_V2_OFFSETS = {

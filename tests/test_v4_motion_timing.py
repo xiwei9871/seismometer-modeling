@@ -56,6 +56,19 @@ def test_arrival_windows_reassembled_shell_last():
     assert wins["PART_003"][0] <= wins["PART_001"][0]
 
 
+def test_arrival_windows_reassembled_uses_override_len():
+    prev = {"PART_001": (0, 0, 80), "PART_003": (0, 0, 40)}
+    nxt = {"PART_001": (0, 0, 0), "PART_003": (0, 0, 0)}
+    wins = arrival_windows(
+        prev, nxt, frame_start=705, shell_first=False, shot_id="REASSEMBLED"
+    )
+    limit = 705 + MOTION_TIMING["arrive_len_overrides"]["REASSEMBLED"] + MOTION_TIMING["two_phase_gap"]
+    for lo, hi in wins.values():
+        assert 705 <= lo < hi <= limit
+    default = arrival_windows(prev, nxt, frame_start=705, shell_first=False)
+    assert max(hi for _, hi in wins.values()) > max(hi for _, hi in default.values())
+
+
 def test_arrival_windows_no_movers_is_empty():
     same = {"A": (0, 0, 0), "B": (1, 2, 3)}
     assert arrival_windows(same, dict(same), frame_start=1, shell_first=True) == {}

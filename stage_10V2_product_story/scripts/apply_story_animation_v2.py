@@ -136,7 +136,13 @@ def _shot_windows(
         next_locs = {pid: r["location"] for pid, r in next_state["parts"].items()}
         shell_first = shot["state_id"] != "REASSEMBLED"
         per_shot.append(
-            arrival_windows(prev_locs, next_locs, int(shot["frame_start"]), shell_first)
+            arrival_windows(
+                prev_locs,
+                next_locs,
+                int(shot["frame_start"]),
+                shell_first,
+                shot_id=shot["state_id"],
+            )
         )
     return per_shot
 

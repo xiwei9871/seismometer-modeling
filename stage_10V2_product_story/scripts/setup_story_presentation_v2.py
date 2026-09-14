@@ -138,28 +138,46 @@ def _component_objects() -> dict[str, Any]:
 
 def _apply_materials(objects: Mapping[str, Any]) -> None:
     roles = build_material_roles()
-    # The v1 near-black sensor material reads as a dark blob under Eevee;
-    # V2 lifts it so the focus subject stays legible against the internals.
+    # V4 studio pass: 极简AI reads as clean molded/metal surfaces with one
+    # soft specular family — lift every dark role to a readable graphite,
+    # tighten roughness for crisper highlights, and give the housings a
+    # clearcoat sheen so they read as molded shells rather than flat paint.
+    roles["LOWER_HOUSING"] = {
+        **roles["LOWER_HOUSING"],
+        "base_color": (0.86, 0.155, 0.02, 1.0),
+        "roughness": 0.30,
+        "coat": 0.35,
+    }
+    for role in ("UPPER_HOUSING", "UPPER_HOUSING_TOP_COVER"):
+        roles[role] = {
+            **roles[role],
+            "base_color": (0.052, 0.058, 0.068, 1.0),
+            "roughness": 0.28,
+            "coat": 0.40,
+        }
+    roles["SUPPORT"] = {
+        **roles["SUPPORT"],
+        "base_color": (0.42, 0.45, 0.48, 1.0),
+        "metallic": 0.75,
+        "roughness": 0.26,
+    }
     roles["SENSOR"] = {
         **roles["SENSOR"],
-        "base_color": (0.20, 0.235, 0.27, 1.0),
-        "metallic": 0.6,
-        "roughness": 0.3,
+        "base_color": (0.24, 0.27, 0.30, 1.0),
+        "metallic": 0.85,
+        "roughness": 0.22,
     }
-    # V4: isolate subjects own the frame — the near-black v1 module colors
-    # read as silhouettes on the gradient backdrop, so lift them to a
-    # readable dark graphite (context dimming still applies elsewhere).
     roles["COMMUNICATION"] = {
         **roles["COMMUNICATION"],
-        "base_color": (0.17, 0.19, 0.22, 1.0),
-        "metallic": 0.55,
-        "roughness": 0.35,
+        "base_color": (0.20, 0.23, 0.27, 1.0),
+        "metallic": 0.70,
+        "roughness": 0.26,
     }
     roles["BATTERY"] = {
         **roles["BATTERY"],
-        "base_color": (0.15, 0.17, 0.20, 1.0),
-        "metallic": 0.45,
-        "roughness": 0.38,
+        "base_color": (0.18, 0.20, 0.24, 1.0),
+        "metallic": 0.55,
+        "roughness": 0.30,
     }
     part_role: dict[str, str] = {
         "PART_001": "LOWER_HOUSING",
@@ -208,6 +226,9 @@ def _apply_materials(objects: Mapping[str, Any]) -> None:
             bsdf.inputs["Roughness"].default_value = float(descriptor.get("roughness", 0.4))
             if "Metallic" in bsdf.inputs:
                 bsdf.inputs["Metallic"].default_value = float(descriptor.get("metallic", 0.0))
+            coat = bsdf.inputs.get("Coat Weight") or bsdf.inputs.get("Clearcoat")
+            if coat is not None and "coat" in descriptor:
+                coat.default_value = float(descriptor["coat"])
         obj.data.materials.clear()
         obj.data.materials.append(material)
         cap = PART_EMPHASIS_CAP.get(part_id)
@@ -502,8 +523,10 @@ def _create_annotations(config: Mapping[str, Any], camera_config: Mapping[str, A
         )
         for record in build_story_config()["shots"]
     }
+    # V4 极简: titles only — the per-shot metric rows cluttered the frame.
+    items = [item for item in config["items"] if "metric" not in item["id"]]
     metric_counts: dict[str, int] = {}
-    for index, item in enumerate(config["items"]):
+    for index, item in enumerate(items):
         text_data = bpy.data.curves.new(f"T10V2_TEXT_{item['id']}", type="FONT")
         text_data.body = str(item["text"])
         text_data.align_x = "LEFT"
@@ -591,6 +614,19 @@ def _configure_scene(lighting: Mapping[str, Any]) -> None:
     _configure_gradient_world(lighting)
     if hasattr(scene.render, "use_motion_blur"):
         scene.render.use_motion_blur = True
+    # EEVEE quality pass — raytraced reflections/AO give the metal roles
+    # something real to reflect, which is what separates a studio read from
+    # flat paint. Only set attributes this Blender build actually exposes.
+    eevee = getattr(scene, "eevee", None)
+    if eevee is not None:
+        for attr, value in (
+            ("use_raytracing", True),
+            ("use_gtao", True),
+            ("taa_render_samples", 64),
+            ("taa_samples", 64),
+        ):
+            if hasattr(eevee, attr):
+                setattr(eevee, attr, value)
     scene.view_settings.exposure = float(lighting["exposure"])
     scene["task10v2_render_engine"] = RENDER_ENGINE
 

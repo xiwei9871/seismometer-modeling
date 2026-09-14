@@ -139,7 +139,7 @@ def test_v2_lighting_uses_the_approved_eevee_rig():
     assert [light["name"] for light in config["lights"]] == [
         "STORY_LIGHT_KEY", "STORY_LIGHT_FILL", "STORY_LIGHT_RIM",
     ]
-    assert [light["energy"] for light in config["lights"]] == [65000.0, 28000.0, 36000.0]
+    assert [light["energy"] for light in config["lights"]] == [68000.0, 36000.0, 46000.0]
     assert all(light["type"] == "AREA" for light in config["lights"])
     # Lights anchor on the story bounds, not on a single part.
     bounds = config["bounds"]

@@ -25,6 +25,9 @@ from stage_10V2_product_story.scripts.story_v2_data import FOCUS_SHOT_POLICY
 
 MOTION_TIMING: dict[str, Any] = {
     "arrive_len": 36,
+    # Longer converge for the reassembly beat — a fast fly-in followed by a
+    # dead hold reads as stutter; the parts should settle gracefully.
+    "arrive_len_overrides": {"REASSEMBLED": 64},
     "rank_tolerance_mm": 8.0,
     "stagger_overlap": 0.35,
     "two_phase_gap": 12,
@@ -67,6 +70,7 @@ def arrival_windows(
     frame_start: int,
     shell_first: bool,
     timing: Mapping[str, Any] = MOTION_TIMING,
+    shot_id: str | None = None,
 ) -> dict[str, tuple[float, float]]:
     """Per-part ``(window_start, window_end)`` inside the arrive span.
 
@@ -74,8 +78,9 @@ def arrival_windows(
     controls which phase leads — explosions lead with shell, reassembly
     with interior). Each phase staggers its ranks across its slice via
     ``staggered_window``; phase 1 is offset by ``two_phase_gap``.
+    ``arrive_len_overrides`` retimes individual shots (e.g. REASSEMBLED).
     """
-    arrive_len = float(timing["arrive_len"])
+    arrive_len = float(timing.get("arrive_len_overrides", {}).get(shot_id, timing["arrive_len"]))
     gap = float(timing["two_phase_gap"])
     movers = {
         pid: v_sub(nxt[pid], prev.get(pid, nxt[pid]))
