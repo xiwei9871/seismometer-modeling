@@ -26,6 +26,9 @@ POWER_DIRECTION = (0.5, -0.95, 0.55)
 
 HERO_LENS_MM = 68.0
 FOCUS_LENS_MM = 70.0
+# Shallow depth of field on the isolate cameras — the subject stays sharp
+# while the backdrop falls off, the 极简 product-render signature.
+FOCUS_FSTOP = 5.0
 
 SENSOR_PART_IDS = ("PART_003", "PART_012", "PART_013", "PART_014")
 PCB_PART_IDS = ("PART_019",)
@@ -117,10 +120,11 @@ def _camera_record(
     direction: Sequence[float],
     distance: float,
     lens: float,
+    fstop: float | None = None,
 ) -> dict[str, Any]:
     unit = _normalise(direction)
     location = [float(target[i]) + unit[i] * distance for i in range(3)]
-    return {
+    record = {
         "name": name,
         "type": "PERSP",
         "target": [float(v) for v in target],
@@ -130,6 +134,10 @@ def _camera_record(
         "clip_start_mm": 0.1,
         "clip_end_mm": max(distance * 4.0, 10000.0),
     }
+    if fstop is not None:
+        record["fstop"] = float(fstop)
+        record["focus_distance_mm"] = float(distance)
+    return record
 
 
 def drifted_pose(
@@ -185,6 +193,7 @@ def build_camera_records(
         SENSOR_DIRECTION,
         fm.framing_distance(sensor_radius, fov_y_70, SENSOR_SCREEN_FRACTION),
         FOCUS_LENS_MM,
+        fstop=FOCUS_FSTOP,
     )
 
     pcb_centroid, pcb_radius = module_bounds(
@@ -197,6 +206,7 @@ def build_camera_records(
         PCB_DIRECTION,
         fm.framing_distance(pcb_radius, fov_y_70, PCB_SCREEN_FRACTION),
         FOCUS_LENS_MM,
+        fstop=FOCUS_FSTOP,
     )
 
     # V4: every isolate shot gets its own fitted camera — the subject owns
@@ -210,6 +220,7 @@ def build_camera_records(
         COMM_DIRECTION,
         fm.framing_distance(comm_radius, fov_y_70, COMM_SCREEN_FRACTION),
         FOCUS_LENS_MM,
+        fstop=FOCUS_FSTOP,
     )
     power_centroid, power_radius = module_bounds(
         state_data["states"]["POWER_FOCUS"], POWER_PART_IDS, layout
@@ -220,6 +231,7 @@ def build_camera_records(
         POWER_DIRECTION,
         fm.framing_distance(power_radius, fov_y_70, POWER_SCREEN_FRACTION),
         FOCUS_LENS_MM,
+        fstop=FOCUS_FSTOP,
     )
 
     return {

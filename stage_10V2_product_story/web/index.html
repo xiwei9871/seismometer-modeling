@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Product Story — Interactive Viewer</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #1a1d22;
+    font-family: -apple-system, "SF Pro", "PingFang SC", sans-serif; }
+  #app { position: fixed; inset: 0; }
+  #hud { position: fixed; top: 16px; left: 18px; color: #e8eaee;
+    font-size: 13px; letter-spacing: 0.08em; user-select: none; }
+  #hud .title { font-size: 17px; font-weight: 600; margin-bottom: 2px; }
+  #hud .sub { opacity: 0.55; }
+  #shots { position: fixed; left: 18px; bottom: 64px; display: flex;
+    flex-direction: column; gap: 6px; }
+  #shots button { all: unset; cursor: pointer; padding: 5px 12px;
+    border-radius: 6px; color: #cfd3da; font-size: 12px; letter-spacing: 0.06em;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); }
+  #shots button:hover { background: rgba(255,255,255,0.12); }
+  #shots button.active { background: #e8eaee; color: #1a1d22; font-weight: 600; }
+  #transport { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%);
+    display: flex; align-items: center; gap: 12px; width: min(720px, 80vw); }
+  #play { all: unset; cursor: pointer; color: #e8eaee; font-size: 13px;
+    padding: 6px 14px; border-radius: 6px; background: rgba(255,255,255,0.08); }
+  #scrub { flex: 1; accent-color: #e8eaee; }
+  #time { color: #9aa0aa; font-size: 12px; font-variant-numeric: tabular-nums; }
+  #hint { position: fixed; right: 18px; bottom: 18px; color: #5c626c;
+    font-size: 11px; letter-spacing: 0.05em; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="hud"><div class="title" id="shotTitle">SMART FIELD SURVEY DEVICE</div>
+  <div class="sub" id="shotSub">interactive exploded view</div></div>
+<div id="shots"></div>
+<div id="transport">
+  <button id="play">▶ play</button>
+  <input id="scrub" type="range" min="0" max="899" value="0" />
+  <span id="time">00:00</span>
+</div>
+<div id="hint">drag orbit · wheel zoom · buttons switch shots</div>
+<script type="importmap">
+{ "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+<script type="module" src="./viewer.js"></script>
+</body>
+</html>

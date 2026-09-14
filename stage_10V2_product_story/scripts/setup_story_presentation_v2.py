@@ -459,6 +459,10 @@ def _create_cameras(config: Mapping[str, Any]) -> None:
         data.lens = float(record["lens_mm"])
         data.clip_start = float(record["clip_start_mm"])
         data.clip_end = float(record["clip_end_mm"])
+        if record.get("fstop"):
+            data.dof.use_dof = True
+            data.dof.focus_distance = float(record["focus_distance_mm"])
+            data.dof.aperture_fstop = float(record["fstop"])
         camera["task10v2_camera_role"] = name.removeprefix("CAM_STORY_").lower()
     scene = bpy.context.scene
     for marker in list(scene.timeline_markers):

@@ -63,3 +63,4 @@ stage_10V2_product_story/renders/
 stage_10V2_product_story/logs/
 stage_10V2_product_story/assets/*.png
 stage_10V2_product_story/data_task10V2_run_result.json
+stage_10V2_product_story/web/*.glb

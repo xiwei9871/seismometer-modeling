@@ -76,14 +76,13 @@ PCB_FOCUS_V2_OFFSETS = {
 # radially from the cluster centroid (~1.8x) so the isolate shot shows the
 # sensing cores exploded off the carrier instead of a fused blob.
 SENSOR_FOCUS_V2_OFFSETS = {
-    # Carrier holds the screen center; the three sensing cores sit on a
-    # 120° ring (radius ~55mm) in the sensor camera's screen plane with
-    # alternating small depth offsets — a proper exploded cluster instead
-    # of overlapping silhouettes.
-    "PART_003": [-144.6, -29.7, 32.0],
-    "PART_012": [-181.4, 11.0, 80.2],
-    "PART_013": [-155.2, -65.9, 7.1],
-    "PART_014": [-102.8, -24.8, -3.3],
+    # 夹具打开: the carrier sits low and the three sensing cores fan out
+    # above it (30°/90°/150° in the sensor camera's screen plane, ~72mm
+    # out) — cores visibly extracted from the fixture, not a fused ring.
+    "PART_003": [-140.3, -36.0, 13.5],
+    "PART_012": [-181.9, 11.7, 90.6],
+    "PART_013": [-178.5, -46.8, 67.6],
+    "PART_014": [-108.2, -11.7, 60.0],
 }
 
 STATE_V2_OFFSETS = {

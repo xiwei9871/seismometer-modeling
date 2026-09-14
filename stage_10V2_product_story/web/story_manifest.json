@@ -1,0 +1,190 @@
+{
+  "cameras": {
+    "CAM_STORY_COMM": {
+      "lens_mm": 70.0,
+      "location": [
+        881.9968551857345,
+        1075.577059216849,
+        1067.97280212128
+      ],
+      "target": [
+        137.07442220052084,
+        398.3748474121094,
+        -83.27095794677734
+      ]
+    },
+    "CAM_STORY_HERO": {
+      "lens_mm": 68.0,
+      "location": [
+        786.6735270640226,
+        857.9439289868104,
+        896.0729804360413
+      ],
+      "target": [
+        80.6800947189331,
+        289.2269973754883,
+        -84.47345337658297
+      ]
+    },
+    "CAM_STORY_PCB": {
+      "lens_mm": 70.0,
+      "location": [
+        594.9518724971641,
+        792.6418134760365,
+        545.1327264397722
+      ],
+      "target": [
+        228.83196258544922,
+        304.48193359375,
+        -65.06712341308594
+      ]
+    },
+    "CAM_STORY_POWER": {
+      "lens_mm": 70.0,
+      "location": [
+        797.7648288746209,
+        1078.2494977919882,
+        1249.4366350115577
+      ],
+      "target": [
+        95.70693489320887,
+        305.9858144124349,
+        -84.47336355312525
+      ]
+    },
+    "CAM_STORY_SENSOR": {
+      "lens_mm": 70.0,
+      "location": [
+        719.7888517597507,
+        855.7947461961523,
+        1077.987452673677
+      ],
+      "target": [
+        -57.49928627014161,
+        284.2593505859375,
+        -65.08333854675293
+      ]
+    }
+  },
+  "fps": 30,
+  "frame_end": 900,
+  "frame_start": 1,
+  "glb": "product_story_v2.glb",
+  "shots": [
+    {
+      "camera": "CAM_STORY_HERO",
+      "focus_components": false,
+      "frame_end": 75,
+      "frame_start": 1,
+      "mode": "full",
+      "shot_id": "ASSEMBLED",
+      "subject_parts": [],
+      "title": "SMART FIELD SURVEY DEVICE"
+    },
+    {
+      "camera": "CAM_STORY_HERO",
+      "focus_components": false,
+      "frame_end": 165,
+      "frame_start": 75,
+      "mode": "full",
+      "shot_id": "PRIMARY_ARCHITECTURE",
+      "subject_parts": [],
+      "title": "PRODUCT FUNCTIONAL ARCHITECTURE"
+    },
+    {
+      "camera": "CAM_STORY_SENSOR",
+      "focus_components": false,
+      "frame_end": 300,
+      "frame_start": 165,
+      "mode": "isolate",
+      "shot_id": "SENSOR_FOCUS",
+      "subject_parts": [
+        "PART_003",
+        "PART_012",
+        "PART_013",
+        "PART_014"
+      ],
+      "title": "SMART 3-AXIS SENSING"
+    },
+    {
+      "camera": "CAM_STORY_PCB",
+      "focus_components": true,
+      "frame_end": 420,
+      "frame_start": 300,
+      "mode": "isolate",
+      "shot_id": "PCB_FOCUS",
+      "subject_parts": [
+        "PART_019"
+      ],
+      "title": "HIGH-PRECISION ACQUISITION"
+    },
+    {
+      "camera": "CAM_STORY_COMM",
+      "focus_components": false,
+      "frame_end": 510,
+      "frame_start": 420,
+      "mode": "isolate",
+      "shot_id": "COMMUNICATION_FOCUS",
+      "subject_parts": [
+        "PART_005",
+        "PART_017",
+        "PART_018"
+      ],
+      "title": "REAL-TIME WIRELESS TRANSMISSION"
+    },
+    {
+      "camera": "CAM_STORY_POWER",
+      "focus_components": false,
+      "frame_end": 615,
+      "frame_start": 510,
+      "mode": "isolate",
+      "shot_id": "POWER_FOCUS",
+      "subject_parts": [
+        "PART_008",
+        "PART_009",
+        "PART_010",
+        "PART_011",
+        "PART_015",
+        "PART_016"
+      ],
+      "title": "LONG-ENDURANCE POWER"
+    },
+    {
+      "camera": "CAM_STORY_HERO",
+      "focus_components": false,
+      "frame_end": 705,
+      "frame_start": 615,
+      "mode": "layer",
+      "shot_id": "RUGGED_FOCUS",
+      "subject_parts": [
+        "PART_001",
+        "PART_002",
+        "PART_004",
+        "PART_020",
+        "PART_021",
+        "PART_022"
+      ],
+      "title": "BUILT FOR FIELD WORK"
+    },
+    {
+      "camera": "CAM_STORY_HERO",
+      "focus_components": false,
+      "frame_end": 810,
+      "frame_start": 705,
+      "mode": "full",
+      "shot_id": "REASSEMBLED",
+      "subject_parts": [],
+      "title": "FROM SENSING TO FIELD RESULTS"
+    },
+    {
+      "camera": "CAM_STORY_HERO",
+      "focus_components": false,
+      "frame_end": 900,
+      "frame_start": 810,
+      "mode": "full",
+      "shot_id": "FINAL_HERO",
+      "subject_parts": [],
+      "title": "SMART SURVEY. READY FOR THE FIELD."
+    }
+  ]
+}
