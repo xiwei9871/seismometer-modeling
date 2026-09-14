@@ -68,3 +68,24 @@ in place while V2 is unapproved).
 
 pipeline → stills → contact sheet → MP4 → validation (occlusion gate green) →
 ocular check → commit. Human approval unchanged (still required).
+
+## Outcome (as implemented, commit 60b786e)
+
+- Solver became a Blender stage (`solve_focus_layouts.py`) running on real
+  meshes after `build_story_scene_v2`, writing solved travels back into
+  `state_transforms.json` — silhouette hulls from sampled verts + bbox, not
+  disc approximations.
+- Cameras frozen on the deterministic baseline (`build_story_v2_state_
+  transforms`) in both solver and `setup_story_presentation_v2`; the hero
+  camera's all-state bounds otherwise couple shots (later solves moved the
+  shared camera and invalidated earlier ones).
+- Occlusion gate evaluates the animated scene at each focus shot's mid-frame
+  through the real camera object; context strictly behind the subject counts
+  as layering, not occlusion.
+- Two latent bugs found and fixed by the gate: `transform_apply(scale=True)`
+  had baked component locations into mesh verts (double-offset, fixed with
+  `location=False`), and Blender stages silently passed script exceptions
+  (fixed with `--python-exit-code 1`).
+- Step 5 (stagger + idle float) deferred: the v1 keyframe scheme is
+  hold-tableau with 1-frame cuts; staggering would change the video's visual
+  language and needs an explicit product decision.
