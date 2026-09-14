@@ -43,6 +43,11 @@ except ImportError:  # pragma: no cover
 # never breathes while assembled.
 IDLE_MIN_DISPLACEMENT_MM = 1.0
 PCB_BOARD_PART_ID = "PART_019"
+# Two-stage arrival (per the DCT teaching-manual reference): movers cover
+# SETTLE_FRACTION of the travel quickly, then creep the last stretch so the
+# landing reads as a mechanical seat rather than a hard stop.
+SETTLE_FRACTION = 0.85
+SETTLE_FRAMES = 10
 
 
 def apply_story_animation_v2(project_root: Path) -> dict[str, Any]:
@@ -175,7 +180,13 @@ def _key_part_motion(
         next_pose = next_state["parts"][part_id]
         _insert_pose(obj, start, prev_pose)
         window = windows[index].get(part_id)
+        if window is not None:
+            # Hold the previous pose until this part's stagger window opens —
+            # without this key every part departs at the shot boundary and
+            # the stagger only shows in arrival order.
+            _insert_pose(obj, int(round(window[0])), prev_pose)
         arrive_end = int(round(window[1])) if window else start
+        _key_settle(obj, prev_pose, next_pose, window, arrive_end)
         _insert_pose(obj, arrive_end, next_pose)
         axis = _idle_axis(next_pose["location"], assembled_location)
         if axis is not None:
@@ -205,7 +216,10 @@ def _key_component_motion(
         next_pose = next_state["components"][component_id]
         _insert_pose(obj, start, prev_pose)
         window = windows[index].get(PCB_BOARD_PART_ID)
+        if window is not None:
+            _insert_pose(obj, int(round(window[0])), prev_pose)
         arrive_end = int(round(window[1])) if window else start
+        _key_settle(obj, prev_pose, next_pose, window, arrive_end)
         _insert_pose(obj, arrive_end, next_pose)
         if assembled_record is not None and board_axis is not None:
             own_axis = _idle_axis(next_pose["location"], assembled_record["location"])
@@ -231,6 +245,38 @@ def _key_idle(
         location = fm.v_add(base, fm.v_scale(axis, offset))
         obj.location = location
         obj.keyframe_insert(data_path="location", frame=frame, group="Task10V2 Idle Float")
+
+
+def _key_settle(
+    obj: Any,
+    prev_pose: Mapping[str, Any],
+    next_pose: Mapping[str, Any],
+    window: tuple[float, float] | None,
+    arrive_end: int,
+) -> None:
+    """Key the 85%-travel pose shortly before ``arrive_end``.
+
+    The Bezier slope between the settle key and the landing key is much
+    shallower than the main travel, so the part visibly decelerates into
+    its seat — the 入位 beat from the reference manual.
+    """
+    if window is None:
+        return
+    window_start = int(round(window[0]))
+    if arrive_end - window_start <= 2:
+        return
+    seat_frame = max(window_start + 1, arrive_end - SETTLE_FRAMES)
+    mid = {
+        "location": [
+            float(prev_pose["location"][axis])
+            + (float(next_pose["location"][axis]) - float(prev_pose["location"][axis]))
+            * SETTLE_FRACTION
+            for axis in range(3)
+        ],
+        "rotation_euler": list(next_pose["rotation_euler"]),
+        "scale": list(next_pose["scale"]),
+    }
+    _insert_pose(obj, seat_frame, mid)
 
 
 def _insert_pose(obj: Any, frame: int, pose: Mapping[str, Any]) -> None:

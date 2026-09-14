@@ -163,7 +163,7 @@ def _apply_materials(objects: Mapping[str, Any]) -> None:
     }
     roles["SENSOR"] = {
         **roles["SENSOR"],
-        "base_color": (0.24, 0.27, 0.30, 1.0),
+        "base_color": (0.30, 0.34, 0.38, 1.0),
         "metallic": 0.85,
         "roughness": 0.22,
     }

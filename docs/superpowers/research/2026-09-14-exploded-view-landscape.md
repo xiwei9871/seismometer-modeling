@@ -133,3 +133,25 @@ legitimate manual substitute at this scale.
 blender-exploded-assembly-studio is GPL-2.0 — reference algorithms only, clean
 reimplementation, no copied code in this repo. Smart Explode / Xplod are paid;
 buy only if we want the addon itself, not needed for the math.
+
+## 9. Reference: 极简AI DCT teaching-manual (user-provided, 2026-09-14)
+
+湿式七速双离合教学动画手册 (REV 02) — techniques worth borrowing:
+
+- **两段式回装入位**: "自动回装沿原路径逆序进行，在接近轴承座、花键与
+  壳体定位面时减速" — reassembly reverses the explode path and *decelerates
+  into mating surfaces* (settle/入位 beat). Implemented as SETTLE_FRACTION/
+  SETTLE_FRAMES pre-landing keys in `apply_story_animation_v2.py`.
+- **层级延迟展开**: system explosion expands layer-by-layer with delays —
+  equivalent to our two-phase + staggered windows.
+- **局部爆炸**: partial explosion inside a subassembly (离合器片组) —
+  equivalent to our SENSOR_FOCUS core spread.
+- **观察模式矩阵**: 主剖视 / X Ray (shell weakened, internals readable) /
+  局部爆炸 / Ghost Motion (start+end ghosts). Our isolate-hiding covers the
+  "see internals" need; X-Ray transparency is an alternative if context
+  presence is ever wanted back.
+- **视觉编码纪律**: line style + color encode active vs standby power
+  paths (solid vs dashed). If we ever annotate flow/roles, keep a strict
+  codebook like theirs.
+- **15s pacing**: overall → explode → subassembly focus → function demo →
+  final state, with explicit per-beat checkpoints.
