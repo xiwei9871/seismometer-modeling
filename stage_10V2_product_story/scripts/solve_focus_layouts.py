@@ -329,6 +329,10 @@ def _shot_hulls(
         if ndc is not None:
             focus_points.append(ndc)
 
+    # V4: isolate shots hide every non-subject part outright, so context
+    # cannot occlude — only layer-mode shots still evaluate context hulls.
+    isolate = spec.get("mode") == "isolate"
+
     for part_id in VISIBLE_PART_IDS:
         obj = part_objects.get(part_id)
         record = state["parts"].get(part_id)
@@ -342,7 +346,7 @@ def _shot_hulls(
                 focus_point(tuple(matrix @ verts[i].co))
             for corner in obj.bound_box:
                 focus_point(tuple(matrix @ Vector(tuple(corner))))
-        else:
+        elif not isolate:
             entry = _object_hull(obj, matrix, cam, basis, fovs)
             if entry is not None:
                 context[part_id] = entry
@@ -355,7 +359,7 @@ def _shot_hulls(
         if spec.get("focus_components"):
             for corner in obj.bound_box:
                 focus_point(tuple(matrix @ Vector(tuple(corner))))
-        else:
+        elif not isolate:
             entry = _object_hull(obj, matrix, cam, basis, fovs)
             if entry is not None:
                 context[component_id] = entry

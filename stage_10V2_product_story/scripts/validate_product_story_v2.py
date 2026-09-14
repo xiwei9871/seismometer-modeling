@@ -273,12 +273,14 @@ def _occlusion_report(warnings, part_objects, components, scene):
                     into.append(ndc)
             return front
 
+        visible_context: list[str] = []
         for part_id, obj in part_objects.items():
             if part_id not in VISIBLE_PART_IDS or obj.hide_render:
                 continue
             if part_id in focus_ids:
                 focus_front = min(focus_front, collect(obj, focus_pts))
             else:
+                visible_context.append(part_id)
                 pts: list[tuple[float, float]] = []
                 front = collect(obj, pts)
                 hull = fm.convex_hull_2d(pts)
@@ -288,11 +290,16 @@ def _occlusion_report(warnings, part_objects, components, scene):
                     )
         if spec.get("focus_components"):
             for obj in components.values():
+                if obj.hide_render:
+                    continue
                 focus_front = min(focus_front, collect(obj, focus_pts))
-        elif shot_id != "PCB_FOCUS":
+        else:
             # Mounted components stay with the board elsewhere; when the board
-            # is not the subject they are context.
+            # is not the subject they are context (and hidden in isolate shots).
             for obj in components.values():
+                if obj.hide_render:
+                    continue
+                visible_context.append(obj.name)
                 pts = []
                 front = collect(obj, pts)
                 hull = fm.convex_hull_2d(pts)
@@ -309,6 +316,14 @@ def _occlusion_report(warnings, part_objects, components, scene):
             # The subject is the housing environment itself; visibility is the
             # only meaningful check — it legitimately fills the frame.
             continue
+        if spec.get("mode") == "isolate" and visible_context:
+            # V4: isolate shots must render the subject alone — every other
+            # part and presentation component is keyed hidden for the range.
+            warnings.append({
+                "code": "ISOLATE_CONTEXT_VISIBLE",
+                "shot_id": shot_id,
+                "parts": sorted(visible_context),
+            })
         frame_margin = max(FOCUS_FRAME_MARGIN_NDC, spec["margin_ndc"] * 0.5)
         if not fm.hull_inside_frame(focus_hull, frame_margin):
             warnings.append({"code": "FOCUS_SUBJECT_OFFFRAME", "shot_id": shot_id})

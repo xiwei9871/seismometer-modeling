@@ -23,8 +23,16 @@ from stage_10_product_story.scripts.story_data import (
     build_story_config,
 )
 from stage_10_product_story.scripts.setup_story_presentation import annotation_screen_layout
-from stage_10V2_product_story.scripts.camera_plan import build_camera_records
+from stage_10V2_product_story.scripts.camera_plan import (
+    build_camera_records,
+    drifted_pose,
+)
+from stage_10V2_product_story.scripts.motion_timing import (
+    MOTION_TIMING,
+    hide_schedule,
+)
 from stage_10V2_product_story.scripts.story_v2_data import (
+    ANNOTATION_SCALE,
     ASSET_TEXTURE,
     EXPOSURE,
     LIGHTING_OUTPUT,
@@ -33,6 +41,8 @@ from stage_10V2_product_story.scripts.story_v2_data import (
     SCENE_OUTPUT,
     STATE_OUTPUT,
     WORLD_COLOR,
+    WORLD_GRADIENT_BOTTOM,
+    WORLD_GRADIENT_TOP,
     WORLD_STRENGTH,
     build_component_material_roles,
     build_lighting_config,
@@ -70,6 +80,8 @@ def apply_story_presentation_v2(project_root: Path) -> dict[str, Any]:
     state_data = load_json(root / STATE_OUTPUT)
     _apply_materials(objects)
     _apply_presentation_materials(objects, components, state_data, root)
+
+    _key_context_visibility(objects, components)
 
     camera_config = _build_camera_config(root, state_data)
     write_json(root / CAMERA_CONFIG_OUTPUT, camera_config)
@@ -304,6 +316,29 @@ def _assign_soldermask(obj: Any, story: Mapping[str, Any], texture_path: Path) -
     obj["task10v2_focus_material_keyed"] = True
 
 
+def _key_context_visibility(
+    objects: Mapping[str, Any], components: Mapping[str, Any]
+) -> None:
+    """Isolate focus shots hide every non-subject part/component outright.
+
+    Minimalist presentation: the subject floats alone on the backdrop
+    instead of competing with dimmed context geometry.
+    """
+    story = build_story_config()
+    all_ids = list(objects) + list(components)
+    schedule = hide_schedule(story["shots"], all_ids)
+    for pid in all_ids:
+        obj = objects.get(pid) or components.get(pid)
+        if obj is None:
+            continue
+        for frame, hidden in schedule.get(pid, []):
+            obj.hide_render = hidden
+            obj.hide_viewport = hidden
+            obj.keyframe_insert(data_path="hide_render", frame=frame)
+            obj.keyframe_insert(data_path="hide_viewport", frame=frame)
+        obj["task10v2_isolate_visibility_keyed"] = True
+
+
 def _build_camera_config(root: Path, state_data: Mapping[str, Any]) -> dict[str, Any]:
     layout = load_json(root / "stage_09C_refined_explosion/config/refined_layout.json")
     # Cameras are frozen on the deterministic builder output — the same
@@ -343,6 +378,49 @@ def _create_cameras(config: Mapping[str, Any]) -> None:
             frame=int(segment["frame_start"]),
         )
         marker.camera = bpy.data.objects[segment["camera_id"]]
+    _key_camera_drift(config)
+
+
+def _key_camera_drift(config: Mapping[str, Any]) -> None:
+    """Every segment slowly pushes in and orbits — motion never stops."""
+    push = float(MOTION_TIMING["camera_push_fraction"])
+    orbit = float(MOTION_TIMING["camera_orbit_deg"])
+    for index, segment in enumerate(config["camera_segments"]):
+        camera = bpy.data.objects[segment["camera_id"]]
+        record = config["cameras"][segment["camera_id"]]
+        target = Vector(record["target"])
+        sign = 1.0 if index % 2 == 0 else -1.0
+        end_location = drifted_pose(record, push, orbit * sign)
+        for frame, location in (
+            (int(segment["frame_start"]), record["location"]),
+            (int(segment["frame_end"]), end_location),
+        ):
+            camera.location = location
+            camera.rotation_euler = (target - camera.location).to_track_quat("-Z", "Y").to_euler()
+            camera.keyframe_insert(data_path="location", frame=frame)
+            camera.keyframe_insert(data_path="rotation_euler", frame=frame)
+        camera["task10v2_camera_drift"] = True
+        _auto_bezier(camera)
+
+
+def _auto_bezier(obj: Any) -> None:
+    action = obj.animation_data.action if obj.animation_data else None
+    if action is None:
+        return
+    curves = getattr(action, "fcurves", None)
+    if curves is None:
+        curves = [
+            fc
+            for layer in action.layers
+            for strip in layer.strips
+            for bag in strip.channelbags
+            for fc in bag.fcurves
+        ]
+    for curve in curves:
+        for key in curve.keyframe_points:
+            key.interpolation = "BEZIER"
+            key.handle_left_type = "AUTO_CLAMPED"
+            key.handle_right_type = "AUTO_CLAMPED"
 
 
 def _create_annotations(config: Mapping[str, Any], camera_config: Mapping[str, Any]) -> None:
@@ -358,7 +436,7 @@ def _create_annotations(config: Mapping[str, Any], camera_config: Mapping[str, A
         if is_metric:
             metric_counts[item["shot_id"]] = metric_index + 1
         layout = annotation_screen_layout(is_metric=is_metric, metric_index=metric_index)
-        text_data.size = layout["font_size_mm"]
+        text_data.size = layout["font_size_mm"] * ANNOTATION_SCALE
         text_data.extrude = 0.08
         text_data.bevel_depth = 0.02
         text_data.materials.append(_text_material())
@@ -434,15 +512,35 @@ def _configure_scene(lighting: Mapping[str, Any]) -> None:
     scene.render.engine = RENDER_ENGINE
     scene.render.film_transparent = False
     scene.render.image_settings.color_mode = "RGBA"
+    _configure_gradient_world(lighting)
+    if hasattr(scene.render, "use_motion_blur"):
+        scene.render.use_motion_blur = True
+    scene.view_settings.exposure = float(lighting["exposure"])
+    scene["task10v2_render_engine"] = RENDER_ENGINE
+
+
+def _configure_gradient_world(lighting: Mapping[str, Any]) -> None:
+    """Vertical studio gradient backdrop (top lighter, floor darker)."""
+    scene = bpy.context.scene
     world = scene.world or bpy.data.worlds.new("TASK10V2_WORLD")
     scene.world = world
     world.use_nodes = True
-    background = world.node_tree.nodes.get("Background")
-    if background is not None:
-        background.inputs["Color"].default_value = tuple(lighting["world"]["color"])
-        background.inputs["Strength"].default_value = float(lighting["world"]["strength"])
-    scene.view_settings.exposure = float(lighting["exposure"])
-    scene["task10v2_render_engine"] = RENDER_ENGINE
+    nodes = world.node_tree.nodes
+    links = world.node_tree.links
+    for node in list(nodes):
+        nodes.remove(node)
+    output = nodes.new("ShaderNodeOutputWorld")
+    background = nodes.new("ShaderNodeBackground")
+    texcoord = nodes.new("ShaderNodeTexCoord")
+    separate = nodes.new("ShaderNodeSeparateXYZ")
+    ramp = nodes.new("ShaderNodeValToRGB")
+    ramp.color_ramp.elements[0].color = tuple(WORLD_GRADIENT_BOTTOM)
+    ramp.color_ramp.elements[1].color = tuple(WORLD_GRADIENT_TOP)
+    links.new(texcoord.outputs["Normal"], separate.inputs["Vector"])
+    links.new(separate.outputs["Z"], ramp.inputs["Fac"])
+    links.new(ramp.outputs["Color"], background.inputs["Color"])
+    links.new(background.outputs["Background"], output.inputs["Surface"])
+    background.inputs["Strength"].default_value = float(lighting["world"]["strength"])
 
 
 def _ensure_collection(name: str) -> Any:

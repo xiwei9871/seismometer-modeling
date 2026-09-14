@@ -43,6 +43,11 @@ RENDER_ENGINE = "BLENDER_EEVEE"
 EXPOSURE = 1.7
 WORLD_COLOR = (0.11, 0.125, 0.16, 1.0)
 WORLD_STRENGTH = 0.85
+# V4 minimalist backdrop: vertical gradient, darker toward the floor.
+WORLD_GRADIENT_BOTTOM = (0.063, 0.071, 0.086, 1.0)
+WORLD_GRADIENT_TOP = (0.149, 0.169, 0.20, 1.0)
+# Annotations shrink to small captions (极简 style) instead of hero titles.
+ANNOTATION_SCALE = 0.45
 LIGHT_RIG = (
     ("STORY_LIGHT_KEY", (40.0, -160.0, 430.0), 65000.0, 380.0),
     ("STORY_LIGHT_FILL", (-60.0, 200.0, 300.0), 28000.0, 320.0),
