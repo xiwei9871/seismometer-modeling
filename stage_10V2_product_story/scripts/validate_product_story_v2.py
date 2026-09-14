@@ -24,8 +24,14 @@ from stage_10V2_product_story.scripts.render_product_story_v2 import (
     RENDER_DIR,
     REQUIRED_STILLS,
 )
+from stage_10_product_story.scripts.story_data import build_story_config
+from stage_10V2_product_story.scripts import frustum_math as fm
 from stage_10V2_product_story.scripts.story_v2_data import (
     EXPOSURE,
+    FOCUS_FRAME_MARGIN_NDC,
+    FOCUS_MAX_HEIGHT_NDC,
+    FOCUS_MIN_HEIGHT_NDC,
+    FOCUS_SHOT_POLICY,
     LIGHTING_OUTPUT,
     RENDER_ENGINE,
     SCENE_OUTPUT,
@@ -34,8 +40,10 @@ from stage_10V2_product_story.scripts.story_v2_data import (
 
 try:  # pragma: no cover - Blender-only validation.
     import bpy  # type: ignore
+    from mathutils import Vector  # type: ignore
 except ImportError:  # pragma: no cover
     bpy = None  # type: ignore
+    Vector = None  # type: ignore
 
 
 REQUIRED_COLLECTIONS = {
@@ -101,14 +109,22 @@ def validate_product_story_v2(project_root: Path) -> dict[str, Any]:
     for frame in COMPONENT_FRAME_CHECKS:
         state_id = COMPONENT_STATE_BY_FRAME[frame]
         scene.frame_set(frame)
+        bpy.context.view_layer.update()
         board = objects["PART_019"]
         for component_id, local in local_by_id.items():
             obj = components.get(component_id)
             if obj is None:
                 continue
+            # Check the rendered geometry (matrix_world @ mesh bounds), not just
+            # obj.location — a baked-in mesh offset would pass a location check
+            # while rendering double-offset.
+            bbox_center = sum(
+                (Vector(tuple(corner)) for corner in obj.bound_box), Vector()
+            ) / 8
+            world_center = obj.matrix_world @ bbox_center
             for axis in range(3):
                 expected = float(board.location[axis]) + float(local[axis])
-                if abs(float(obj.location[axis]) - expected) > 1e-4:
+                if abs(float(world_center[axis]) - expected) > 1.0:
                     warnings.append({
                         "code": "COMPONENT_NOT_ON_BOARD",
                         "frame": frame,
@@ -174,6 +190,8 @@ def validate_product_story_v2(project_root: Path) -> dict[str, Any]:
     if stray_fonts:
         warnings.append({"code": "STRAY_TEXT_OBJECTS", "objects": stray_fonts})
 
+    _occlusion_report(warnings, objects, components, scene)
+
     outputs = _output_paths(root)
     missing = [name for name, path in outputs.items() if not path.is_file() or path.stat().st_size <= 0]
     if missing:
@@ -199,6 +217,122 @@ def validate_product_story_v2(project_root: Path) -> dict[str, Any]:
         "source_geometry_modified": bool(fingerprint_failures),
         "source_geometry_fingerprint_verified": not fingerprint_failures,
     }
+
+
+_MAX_VERT_SAMPLES = 1600
+_FRAME_HULL = ((-1.0, -1.0), (1.0, -1.0), (1.0, 1.0), (-1.0, 1.0))
+
+
+def _occlusion_report(warnings, part_objects, components, scene):
+    """Fail-closed frustum gate (Task 10-V3).
+
+    Evaluates the animated scene at each focus shot's mid-frame through the
+    actual camera object and requires the focus subject's projected
+    silhouette to stay on-frame, subject-scaled, and — for isolate-mode
+    shots — silhouette-clean of every context part.
+    """
+    frame_for_shot = {
+        record["shot_id"]: (record["frame_start"] + record["frame_end"]) // 2
+        for record in build_story_config()["shots"]
+    }
+    aspect = scene.render.resolution_x / scene.render.resolution_y
+    for shot_id, spec in FOCUS_SHOT_POLICY.items():
+        cam_obj = bpy.data.objects.get(spec["camera"])
+        if cam_obj is None:
+            warnings.append({"code": "FOCUS_CAMERA_MISSING", "shot_id": shot_id})
+            continue
+        scene.frame_set(frame_for_shot[shot_id])
+        bpy.context.view_layer.update()
+        matrix = cam_obj.matrix_world
+        cam_loc = tuple(matrix.translation)
+        basis = (
+            tuple(matrix.col[0].xyz),
+            tuple(matrix.col[1].xyz),
+            tuple(matrix.col[2].xyz),
+        )
+        fovs = fm.fov_xy(cam_obj.data.lens, cam_obj.data.sensor_width, aspect)
+
+        focus_ids = set(spec["parts"])
+        focus_pts: list[tuple[float, float]] = []
+        focus_front = float("inf")
+        context_entries: list[dict[str, Any]] = []
+
+        def collect(obj, into):
+            """Sampled NDC points plus nearest camera-space depth."""
+            obj_matrix = obj.matrix_world
+            count = len(obj.data.vertices)
+            step = max(1, count // _MAX_VERT_SAMPLES)
+            front = float("inf")
+            for index in range(0, count, step):
+                world = obj_matrix @ obj.data.vertices[index].co
+                local = fm.world_to_camera(world, cam_loc, basis)
+                if local[2] < -fm.EPSILON:
+                    front = min(front, -local[2])
+                ndc = fm.project_ndc(world, cam_loc, basis, fovs)
+                if ndc is not None:
+                    into.append(ndc)
+            return front
+
+        for part_id, obj in part_objects.items():
+            if part_id not in VISIBLE_PART_IDS or obj.hide_render:
+                continue
+            if part_id in focus_ids:
+                focus_front = min(focus_front, collect(obj, focus_pts))
+            else:
+                pts: list[tuple[float, float]] = []
+                front = collect(obj, pts)
+                hull = fm.convex_hull_2d(pts)
+                if len(hull) >= 3 and fm.hulls_overlap(hull, _FRAME_HULL):
+                    context_entries.append(
+                        {"name": part_id, "hull": hull, "front_depth": front}
+                    )
+        if spec.get("focus_components"):
+            for obj in components.values():
+                focus_front = min(focus_front, collect(obj, focus_pts))
+        elif shot_id != "PCB_FOCUS":
+            # Mounted components stay with the board elsewhere; when the board
+            # is not the subject they are context.
+            for obj in components.values():
+                pts = []
+                front = collect(obj, pts)
+                hull = fm.convex_hull_2d(pts)
+                if len(hull) >= 3 and fm.hulls_overlap(hull, _FRAME_HULL):
+                    context_entries.append(
+                        {"name": obj.name, "hull": hull, "front_depth": front}
+                    )
+
+        focus_hull = fm.convex_hull_2d(focus_pts)
+        if len(focus_hull) < 3:
+            warnings.append({"code": "FOCUS_SUBJECT_OFFFRAME", "shot_id": shot_id})
+            continue
+        if spec.get("mode") == "layer":
+            # The subject is the housing environment itself; visibility is the
+            # only meaningful check — it legitimately fills the frame.
+            continue
+        frame_margin = max(FOCUS_FRAME_MARGIN_NDC, spec["margin_ndc"] * 0.5)
+        if not fm.hull_inside_frame(focus_hull, frame_margin):
+            warnings.append({"code": "FOCUS_SUBJECT_OFFFRAME", "shot_id": shot_id})
+        height = fm.hull_extent(focus_hull)[1]
+        if not FOCUS_MIN_HEIGHT_NDC <= height <= FOCUS_MAX_HEIGHT_NDC:
+            warnings.append({
+                "code": "FOCUS_SUBJECT_SCALE",
+                "shot_id": shot_id,
+                "height_ndc": height,
+            })
+        offenders = sorted(
+            entry["name"]
+            for entry in context_entries
+            # Occlusion = context closer than the subject's nearest surface.
+            # Overlapping context behind the subject is layering by design.
+            if entry["front_depth"] < focus_front
+            and not fm.hulls_separated(focus_hull, entry["hull"], spec["margin_ndc"])
+        )
+        if offenders:
+            warnings.append({
+                "code": "FOCUS_OCCLUSION",
+                "shot_id": shot_id,
+                "occluders": offenders,
+            })
 
 
 def _output_paths(root: Path) -> dict[str, Path]:

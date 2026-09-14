@@ -23,6 +23,7 @@ from stage_10_product_story.scripts.story_data import (
     build_story_config,
 )
 from stage_10_product_story.scripts.setup_story_presentation import annotation_screen_layout
+from stage_10V2_product_story.scripts.camera_plan import build_camera_records
 from stage_10V2_product_story.scripts.story_v2_data import (
     ASSET_TEXTURE,
     EXPOSURE,
@@ -35,6 +36,7 @@ from stage_10V2_product_story.scripts.story_v2_data import (
     WORLD_STRENGTH,
     build_component_material_roles,
     build_lighting_config,
+    build_story_v2_state_transforms,
 )
 
 try:  # pragma: no cover - Blender-only implementation.
@@ -304,68 +306,14 @@ def _assign_soldermask(obj: Any, story: Mapping[str, Any], texture_path: Path) -
 
 def _build_camera_config(root: Path, state_data: Mapping[str, Any]) -> dict[str, Any]:
     layout = load_json(root / "stage_09C_refined_explosion/config/refined_layout.json")
-    bounds = _state_bounds(state_data, layout)
-    low, high = bounds["min"], bounds["max"]
-    target = [(low[index] + high[index]) / 2.0 for index in range(3)]
-    dimensions = bounds["dimensions"]
-    diagonal = math.sqrt(sum(value * value for value in dimensions))
-    hero = _camera_record("CAM_STORY_HERO", target, (0.72, -1.0, 0.58), max(diagonal * 2.30, 1050.0), 68.0)
-    sensor_target = _module_target(state_data, "SENSOR_FOCUS", ("PART_003", "PART_012", "PART_013", "PART_014"))
-    # V2 aims the PCB camera at the populated board itself; the V2 PCB_FOCUS
-    # layout slides the board +x out from under the protective plate, so a
-    # steeper look-down angle reads the components and soldermask detail.
-    pcb_target = [
-        float(v) for v in state_data["states"]["PCB_FOCUS"]["parts"]["PART_019"]["location"]
-    ]
-    sensor = _camera_record("CAM_STORY_SENSOR", sensor_target, (0.68, -1.0, 0.5), max(diagonal * 1.70, 700.0), 70.0)
-    pcb = _camera_record("CAM_STORY_PCB", pcb_target, (0.6, -1.0, 0.8), max(diagonal * 1.55, 620.0), 70.0)
+    # Cameras are frozen on the deterministic builder output — the same
+    # baseline the layout solver evaluates against. Basing cameras on solved
+    # positions would let later solves retroactively invalidate earlier ones
+    # (the hero camera depends on bounds over all states).
+    baseline = build_story_v2_state_transforms(root)
+    records = build_camera_records(baseline, layout)
     config = build_camera_sequence()
-    return {
-        **config,
-        "camera_names": ["CAM_STORY_HERO", "CAM_STORY_SENSOR", "CAM_STORY_PCB"],
-        "bounds": bounds,
-        "cameras": {record["name"]: record for record in (hero, sensor, pcb)},
-    }
-
-
-def _state_bounds(state_data: Mapping[str, Any], layout: Mapping[str, Any]) -> dict[str, Any]:
-    low = [float("inf")] * 3
-    high = [float("-inf")] * 3
-    for state in state_data["states"].values():
-        for part_id, record in state["parts"].items():
-            dims = layout["parts"][part_id]["bbox_dimensions_mm"]
-            for axis in range(3):
-                half = float(dims[axis]) / 2.0
-                low[axis] = min(low[axis], float(record["location"][axis]) - half)
-                high[axis] = max(high[axis], float(record["location"][axis]) + half)
-    return {"min": low, "max": high, "dimensions": [high[i] - low[i] for i in range(3)]}
-
-
-def _module_target(state_data: Mapping[str, Any], state_id: str, part_ids: Sequence[str]) -> list[float]:
-    records = state_data["states"][state_id]["parts"]
-    return [sum(float(records[part_id]["location"][axis]) for part_id in part_ids) / len(part_ids) for axis in range(3)]
-
-
-def _camera_record(name: str, target: Sequence[float], direction: Sequence[float], distance: float, lens: float) -> dict[str, Any]:
-    unit = _normalise(direction)
-    location = [float(target[index]) + unit[index] * distance for index in range(3)]
-    return {
-        "name": name,
-        "type": "PERSP",
-        "target": [float(value) for value in target],
-        "location": location,
-        "direction": unit,
-        "lens_mm": float(lens),
-        "clip_start_mm": 0.1,
-        "clip_end_mm": max(distance * 4.0, 10000.0),
-    }
-
-
-def _normalise(value: Sequence[float]) -> list[float]:
-    length = math.sqrt(sum(float(item) ** 2 for item in value))
-    if length <= 0.0:
-        raise ValueError("camera direction cannot be zero")
-    return [float(item) / length for item in value]
+    return {**config, **records}
 
 
 def _create_cameras(config: Mapping[str, Any]) -> None:

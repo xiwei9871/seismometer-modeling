@@ -80,6 +80,67 @@ STATE_V2_OFFSETS = {
     "SENSOR_FOCUS": SENSOR_FOCUS_V2_OFFSETS,
 }
 
+# Task 10-V3 frustum-aware focus policy. ``isolate`` shots require the focus
+# subject's projected silhouette to keep ``margin_ndc`` screen gap from every
+# context part; ``layer`` subjects contain context by design and are checked
+# for framing only. ``per_part`` continues each part's own explode direction;
+# otherwise the module receives one shared rigid translation along
+# ``direction``. ``focus_components`` mounts the PCB presentation components
+# into the subject.
+FOCUS_SHOT_POLICY: dict[str, dict[str, Any]] = {
+    "SENSOR_FOCUS": {
+        "parts": ("PART_003", "PART_012", "PART_013", "PART_014"),
+        "camera": "CAM_STORY_SENSOR",
+        "direction": (-0.98077, -0.16518, 0.10324),
+        "per_part": False,
+        "margin_ndc": 0.04,
+        "mode": "isolate",
+        "focus_components": False,
+    },
+    "PCB_FOCUS": {
+        "parts": ("PART_019",),
+        "camera": "CAM_STORY_PCB",
+        "direction": (0.97297, -0.13040, 0.19058),
+        "per_part": False,
+        "margin_ndc": 0.04,
+        "mode": "isolate",
+        "focus_components": True,
+    },
+    "COMMUNICATION_FOCUS": {
+        "parts": ("PART_005", "PART_017", "PART_018"),
+        "camera": "CAM_STORY_HERO",
+        # Toward the hero camera — the module must pass in FRONT of the
+        # housing silhouette; pure +z travel never clears it in-frame.
+        "direction": (0.52882, -0.73447, 0.42593),
+        "per_part": False,
+        "margin_ndc": 0.03,
+        "mode": "isolate",
+        "focus_components": False,
+    },
+    "POWER_FOCUS": {
+        "parts": ("PART_008", "PART_009", "PART_010", "PART_011", "PART_015", "PART_016"),
+        "camera": "CAM_STORY_HERO",
+        "direction": (0.0, -0.34894, 0.93714),
+        "per_part": True,
+        "margin_ndc": 0.03,
+        "mode": "isolate",
+        "focus_components": False,
+    },
+    "RUGGED_FOCUS": {
+        "parts": ("PART_001", "PART_002", "PART_004", "PART_020", "PART_021", "PART_022"),
+        "camera": "CAM_STORY_HERO",
+        "direction": (0.0, 0.0, 1.0),
+        "per_part": False,
+        "margin_ndc": 0.03,
+        "mode": "layer",
+        "focus_components": False,
+    },
+}
+
+FOCUS_FRAME_MARGIN_NDC = 0.03
+FOCUS_MIN_HEIGHT_NDC = 0.25
+FOCUS_MAX_HEIGHT_NDC = 1.75
+
 
 def sha256_file(path: Path) -> str:
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()

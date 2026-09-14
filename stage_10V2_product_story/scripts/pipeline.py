@@ -190,11 +190,16 @@ def run_task10v2(project_root: Path, *, blender_path: str | None = None, skip_bl
     if not failures and not skip_blender:
         for stage_name, script_name in (
             ("build_story_scene_v2", "build_story_scene_v2.py"),
+            ("solve_focus_layouts", "solve_focus_layouts.py"),
             ("apply_story_animation_v2", "apply_story_animation_v2.py"),
             ("setup_story_presentation_v2", "setup_story_presentation_v2.py"),
             ("render_product_story_v2", "render_product_story_v2.py"),
         ):
-            command = [executable, "-b", "--python", str(root / f"{ROOT_DIR}/scripts/{script_name}"), "--", "--project-root", str(root)]
+            command = [
+                executable, "-b", "--python-exit-code", "1",
+                "--python", str(root / f"{ROOT_DIR}/scripts/{script_name}"),
+                "--", "--project-root", str(root),
+            ]
             record = _run_stage(stage_name, command, root, log_lines)
             stages.append(record)
             if record["returncode"] != 0:
@@ -212,7 +217,11 @@ def run_task10v2(project_root: Path, *, blender_path: str | None = None, skip_bl
             if record["returncode"] != 0:
                 failures.append(record)
         if not failures:
-            validate_command = [executable, "-b", "--python", str(root / f"{ROOT_DIR}/scripts/validate_product_story_v2.py"), "--", "--project-root", str(root)]
+            validate_command = [
+                executable, "-b", "--python-exit-code", "1",
+                "--python", str(root / f"{ROOT_DIR}/scripts/validate_product_story_v2.py"),
+                "--", "--project-root", str(root),
+            ]
             record = _run_stage("validate_product_story_v2", validate_command, root, log_lines)
             stages.append(record)
             if record["returncode"] != 0:

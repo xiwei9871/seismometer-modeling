@@ -159,7 +159,7 @@ def _build_component(component: Mapping[str, Any], transform: Mapping[str, Any],
         w, d = (float(v) for v in component["size_xy_mm"])
         bpy.ops.mesh.primitive_cube_add(size=1.0, location=location)
         bpy.context.object.scale = (w, d, float(component["height_mm"]))
-        bpy.ops.object.transform_apply(scale=True)
+        bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
     obj = bpy.context.object
     obj.name = cid
     bevel = obj.modifiers.new("presentation_edge_bevel", "BEVEL")
