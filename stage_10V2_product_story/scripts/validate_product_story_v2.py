@@ -84,6 +84,10 @@ def validate_product_story_v2(project_root: Path) -> dict[str, Any]:
     missing_collections = sorted(name for name in REQUIRED_COLLECTIONS if bpy.data.collections.get(name) is None)
     if missing_collections:
         warnings.append({"code": "TASK10V2_COLLECTIONS_MISSING", "collections": missing_collections})
+    # Visibility is keyframed (isolate shots hide context), so evaluate the
+    # policy at frame 1 — ASSEMBLED — where every presentation part shows.
+    bpy.context.scene.frame_set(1)
+    bpy.context.view_layer.update()
     visible = sorted([part_id for part_id, obj in objects.items() if not obj.hide_render], key=_part_number)
     hidden = sorted([part_id for part_id, obj in objects.items() if obj.hide_render], key=_part_number)
     if visible != list(VISIBLE_PART_IDS) or hidden != list(HIDDEN_PART_IDS):

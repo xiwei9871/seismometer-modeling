@@ -17,10 +17,11 @@ from stage_10V2_product_story.scripts.story_v2_data import FOCUS_SHOT_POLICY
 
 
 def _shots():
+    """Contiguous ranges matching the real story config (shared boundaries)."""
     return [
-        {"shot_id": "SENSOR_FOCUS", "frame_start": 165, "frame_end": 299},
-        {"shot_id": "PCB_FOCUS", "frame_start": 300, "frame_end": 419},
-        {"shot_id": "RUGGED_FOCUS", "frame_start": 615, "frame_end": 704},
+        {"shot_id": "SENSOR_FOCUS", "frame_start": 165, "frame_end": 300},
+        {"shot_id": "PCB_FOCUS", "frame_start": 300, "frame_end": 420},
+        {"shot_id": "RUGGED_FOCUS", "frame_start": 615, "frame_end": 705},
     ]
 
 
@@ -55,6 +56,11 @@ def test_arrival_windows_reassembled_shell_last():
     assert wins["PART_003"][0] <= wins["PART_001"][0]
 
 
+def test_arrival_windows_no_movers_is_empty():
+    same = {"A": (0, 0, 0), "B": (1, 2, 3)}
+    assert arrival_windows(same, dict(same), frame_start=1, shell_first=True) == {}
+
+
 def test_arrival_windows_skips_non_movers():
     prev = {"A": (0, 0, 0), "B": (1, 1, 1)}
     nxt = {"A": (0, 0, 50), "B": (1, 1, 1)}
@@ -78,7 +84,8 @@ def test_hide_schedule_isolate_only():
     assert _hidden_at(sched["PART_001"], 1) is False
     assert _hidden_at(sched["PART_001"], 200) is True
     assert _hidden_at(sched["PART_001"], 350) is True
-    assert _hidden_at(sched["PART_001"], 420) is False
+    assert _hidden_at(sched["PART_001"], 420) is True   # shared end frame still hidden
+    assert _hidden_at(sched["PART_001"], 421) is False
     # PART_003 is the SENSOR subject: visible there, hidden during PCB_FOCUS.
     assert _hidden_at(sched["PART_003"], 200) is False
     assert _hidden_at(sched["PART_003"], 350) is True

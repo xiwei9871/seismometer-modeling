@@ -37,6 +37,7 @@ def test_focus_policy_covers_every_focus_shot():
     for shot_id, spec in v2.FOCUS_SHOT_POLICY.items():
         assert spec["camera"] in {
             "CAM_STORY_HERO", "CAM_STORY_SENSOR", "CAM_STORY_PCB",
+            "CAM_STORY_COMM", "CAM_STORY_POWER",
         }
         assert spec["parts"]
         assert math.isclose(fm.v_len(spec["direction"]), 1.0, abs_tol=0.02)

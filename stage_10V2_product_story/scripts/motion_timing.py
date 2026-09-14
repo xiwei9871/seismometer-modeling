@@ -77,12 +77,14 @@ def arrival_windows(
     """
     arrive_len = float(timing["arrive_len"])
     gap = float(timing["two_phase_gap"])
-    axis = shot_axis(prev, nxt)
     movers = {
         pid: v_sub(nxt[pid], prev.get(pid, nxt[pid]))
         for pid in nxt
         if v_len(v_sub(nxt[pid], prev.get(pid, nxt[pid]))) > MOVE_EPSILON_MM
     }
+    if not movers:
+        return {}  # hold-only shot (ASSEMBLED, FINAL_HERO)
+    axis = shot_axis(prev, nxt)
     windows: dict[str, tuple[float, float]] = {}
     for phase in (0, 1):
         members = [pid for pid in movers if _phase_of(pid, shell_first) == phase]
@@ -109,43 +111,40 @@ def hide_schedule(
 ) -> dict[str, list[tuple[int, bool]]]:
     """``{id: [(frame, hidden)]}`` — context hidden during isolate shots.
 
-    A part is hidden over ``[frame_start, frame_end]`` of every isolate
-    shot in which it is not the subject; subjects stay visible. Layer
-    shots hide nothing. Keys are sorted, deduplicated on ties (hidden
-    wins), and stripped of redundant repeats.
+    Shots share boundary frames (shot N's end = shot N+1's start), so the
+    hidden intervals for each id are merged before emitting transition
+    keys — otherwise a restore key at ``end+1`` lands inside the next
+    isolate shot and the part flashes back on for its whole range.
     """
-    isolate = [
-        shot
-        for shot in shots
-        if policy.get(shot["shot_id"], {}).get("mode") == "isolate"
-    ]
+    isolate = sorted(
+        (
+            shot
+            for shot in shots
+            if policy.get(shot["shot_id"], {}).get("mode") == "isolate"
+        ),
+        key=lambda shot: int(shot["frame_start"]),
+    )
     schedule: dict[str, list[tuple[int, bool]]] = {}
     for pid in part_ids:
-        keys: list[tuple[int, bool]] = [(1, False)]
+        intervals: list[list[int]] = []
         for shot in isolate:
             spec = policy[shot["shot_id"]]
             is_subject = pid in spec["parts"] or (
                 spec.get("focus_components") and pid.startswith(COMPONENT_PREFIX)
             )
-            if not is_subject:
-                keys.append((int(shot["frame_start"]), True))
-                keys.append((int(shot["frame_end"]) + 1, False))
-        schedule[pid] = _dedupe(keys)
+            if is_subject:
+                continue
+            lo, hi = int(shot["frame_start"]), int(shot["frame_end"])
+            if intervals and lo <= intervals[-1][1] + 1:
+                intervals[-1][1] = max(intervals[-1][1], hi)
+            else:
+                intervals.append([lo, hi])
+        keys: list[tuple[int, bool]] = [(1, False)]
+        for lo, hi in intervals:
+            keys.append((lo, True))
+            keys.append((hi + 1, False))
+        schedule[pid] = keys
     return schedule
-
-
-def _dedupe(keys: Sequence[tuple[int, bool]]) -> list[tuple[int, bool]]:
-    """Collapse to minimal transition keys; same-frame conflicts hide."""
-    by_frame: dict[int, bool] = {}
-    for frame, hidden in keys:
-        by_frame[frame] = by_frame.get(frame, False) or hidden
-    result: list[tuple[int, bool]] = []
-    for frame in sorted(by_frame):
-        hidden = by_frame[frame]
-        if result and result[-1][1] == hidden:
-            continue  # already in this state — no transition needed
-        result.append((frame, hidden))
-    return result
 
 
 def idle_offsets(sign: float, timing: Mapping[str, Any] = MOTION_TIMING) -> list[float]:

@@ -20,7 +20,9 @@
   "camera_names": [
     "CAM_STORY_HERO",
     "CAM_STORY_SENSOR",
-    "CAM_STORY_PCB"
+    "CAM_STORY_PCB",
+    "CAM_STORY_COMM",
+    "CAM_STORY_POWER"
   ],
   "camera_segments": [
     {
@@ -39,12 +41,44 @@
       "frame_start": 300
     },
     {
+      "camera_id": "CAM_STORY_COMM",
+      "frame_end": 510,
+      "frame_start": 420
+    },
+    {
+      "camera_id": "CAM_STORY_POWER",
+      "frame_end": 615,
+      "frame_start": 510
+    },
+    {
       "camera_id": "CAM_STORY_HERO",
       "frame_end": 900,
-      "frame_start": 420
+      "frame_start": 615
     }
   ],
   "cameras": {
+    "CAM_STORY_COMM": {
+      "clip_end_mm": 10000.0,
+      "clip_start_mm": 0.1,
+      "direction": [
+        0.4870881870470525,
+        -0.752772652709081,
+        0.4428074427700477
+      ],
+      "lens_mm": 70.0,
+      "location": [
+        881.9968551857345,
+        -1067.97280212128,
+        1075.577059216849
+      ],
+      "name": "CAM_STORY_COMM",
+      "target": [
+        137.07442220052084,
+        83.27095794677734,
+        398.3748474121094
+      ],
+      "type": "PERSP"
+    },
     "CAM_STORY_HERO": {
       "clip_end_mm": 10000.0,
       "clip_start_mm": 0.1,
@@ -86,6 +120,28 @@
         228.83196258544922,
         65.06712341308594,
         304.48193359375
+      ],
+      "type": "PERSP"
+    },
+    "CAM_STORY_POWER": {
+      "clip_end_mm": 10000.0,
+      "clip_start_mm": 0.1,
+      "direction": [
+        0.41451333614483915,
+        -0.7875753386751944,
+        0.4559646697593231
+      ],
+      "lens_mm": 70.0,
+      "location": [
+        797.7648288746209,
+        -1249.4366350115577,
+        1078.2494977919882
+      ],
+      "name": "CAM_STORY_POWER",
+      "target": [
+        95.70693489320887,
+        84.47336355312525,
+        305.9858144124349
       ],
       "type": "PERSP"
     },

@@ -21,16 +21,22 @@ from stage_10V2_product_story.scripts import frustum_math as fm
 HERO_DIRECTION = (0.72, -1.0, 0.58)
 SENSOR_DIRECTION = (0.68, -1.0, 0.5)
 PCB_DIRECTION = (0.6, -1.0, 0.8)
+COMM_DIRECTION = (0.55, -0.85, 0.5)
+POWER_DIRECTION = (0.5, -0.95, 0.55)
 
 HERO_LENS_MM = 68.0
 FOCUS_LENS_MM = 70.0
 
 SENSOR_PART_IDS = ("PART_003", "PART_012", "PART_013", "PART_014")
 PCB_PART_IDS = ("PART_019",)
+COMM_PART_IDS = ("PART_005", "PART_017", "PART_018")
+POWER_PART_IDS = ("PART_008", "PART_009", "PART_010", "PART_011", "PART_015", "PART_016")
 
 # Subject's angular diameter as a fraction of the vertical FOV.
 SENSOR_SCREEN_FRACTION = 0.55
 PCB_SCREEN_FRACTION = 0.62
+COMM_SCREEN_FRACTION = 0.58
+POWER_SCREEN_FRACTION = 0.55
 # Hero shot keeps the whole device in frame with context.
 HERO_MIN_DISTANCE_MM = 1050.0
 HERO_DISTANCE_FACTOR = 2.30
@@ -193,8 +199,37 @@ def build_camera_records(
         FOCUS_LENS_MM,
     )
 
+    # V4: every isolate shot gets its own fitted camera — the subject owns
+    # the frame instead of floating small inside the whole-device hero view.
+    comm_centroid, comm_radius = module_bounds(
+        state_data["states"]["COMMUNICATION_FOCUS"], COMM_PART_IDS, layout
+    )
+    comm = _camera_record(
+        "CAM_STORY_COMM",
+        comm_centroid,
+        COMM_DIRECTION,
+        fm.framing_distance(comm_radius, fov_y_70, COMM_SCREEN_FRACTION),
+        FOCUS_LENS_MM,
+    )
+    power_centroid, power_radius = module_bounds(
+        state_data["states"]["POWER_FOCUS"], POWER_PART_IDS, layout
+    )
+    power = _camera_record(
+        "CAM_STORY_POWER",
+        power_centroid,
+        POWER_DIRECTION,
+        fm.framing_distance(power_radius, fov_y_70, POWER_SCREEN_FRACTION),
+        FOCUS_LENS_MM,
+    )
+
     return {
         "bounds": bounds,
-        "camera_names": ["CAM_STORY_HERO", "CAM_STORY_SENSOR", "CAM_STORY_PCB"],
-        "cameras": {r["name"]: r for r in (hero, sensor, pcb)},
+        "camera_names": [
+            "CAM_STORY_HERO",
+            "CAM_STORY_SENSOR",
+            "CAM_STORY_PCB",
+            "CAM_STORY_COMM",
+            "CAM_STORY_POWER",
+        ],
+        "cameras": {r["name"]: r for r in (hero, sensor, pcb, comm, power)},
     }

@@ -113,10 +113,9 @@ FOCUS_SHOT_POLICY: dict[str, dict[str, Any]] = {
     },
     "COMMUNICATION_FOCUS": {
         "parts": ("PART_005", "PART_017", "PART_018"),
-        "camera": "CAM_STORY_HERO",
-        # Toward the hero camera — the module must pass in FRONT of the
-        # housing silhouette; pure +z travel never clears it in-frame.
-        "direction": (0.52882, -0.73447, 0.42593),
+        "camera": "CAM_STORY_COMM",
+        # Toward the dedicated comm camera (its view direction).
+        "direction": (0.48, -0.74, 0.44),
         "per_part": False,
         "margin_ndc": 0.03,
         "mode": "isolate",
@@ -124,7 +123,7 @@ FOCUS_SHOT_POLICY: dict[str, dict[str, Any]] = {
     },
     "POWER_FOCUS": {
         "parts": ("PART_008", "PART_009", "PART_010", "PART_011", "PART_015", "PART_016"),
-        "camera": "CAM_STORY_HERO",
+        "camera": "CAM_STORY_POWER",
         "direction": (0.0, -0.34894, 0.93714),
         "per_part": True,
         "margin_ndc": 0.03,

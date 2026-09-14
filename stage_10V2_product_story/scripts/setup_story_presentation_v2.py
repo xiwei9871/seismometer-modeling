@@ -35,6 +35,7 @@ from stage_10V2_product_story.scripts.story_v2_data import (
     ANNOTATION_SCALE,
     ASSET_TEXTURE,
     EXPOSURE,
+    FOCUS_SHOT_POLICY,
     LIGHTING_OUTPUT,
     PART_EMPHASIS_CAP,
     RENDER_ENGINE,
@@ -144,6 +145,21 @@ def _apply_materials(objects: Mapping[str, Any]) -> None:
         "base_color": (0.20, 0.235, 0.27, 1.0),
         "metallic": 0.6,
         "roughness": 0.3,
+    }
+    # V4: isolate subjects own the frame — the near-black v1 module colors
+    # read as silhouettes on the gradient backdrop, so lift them to a
+    # readable dark graphite (context dimming still applies elsewhere).
+    roles["COMMUNICATION"] = {
+        **roles["COMMUNICATION"],
+        "base_color": (0.17, 0.19, 0.22, 1.0),
+        "metallic": 0.55,
+        "roughness": 0.35,
+    }
+    roles["BATTERY"] = {
+        **roles["BATTERY"],
+        "base_color": (0.15, 0.17, 0.20, 1.0),
+        "metallic": 0.45,
+        "roughness": 0.38,
     }
     part_role: dict[str, str] = {
         "PART_001": "LOWER_HOUSING",
@@ -325,8 +341,29 @@ def _key_context_visibility(
     instead of competing with dimmed context geometry.
     """
     story = build_story_config()
-    all_ids = list(objects) + list(components)
+    # Only the 22 animated presentation parts plus PCB components take part in
+    # the hide schedule — source-hidden parts (PART_023..082) must keep their
+    # permanent hidden state untouched, and keying them would also leak
+    # animation_data onto objects the scope check expects static.
+    all_ids = [
+        pid for pid, obj in objects.items() if obj.get("task10v2_animation_enabled")
+    ] + list(components)
     schedule = hide_schedule(story["shots"], all_ids)
+    # keyframe_insert only upserts same-frame points — stale keys from a
+    # previous schedule would keep evaluating. Strip hide fcurves first on
+    # every object, including ones this run no longer schedules.
+    for obj in list(objects.values()) + list(components.values()):
+        _clear_fcurves(obj, {"hide_render", "hide_viewport"})
+    scheduled = set(all_ids)
+    for pid, obj in objects.items():
+        if pid not in scheduled:
+            # A previous run may have left the base property visible after its
+            # last key write — restore the permanent hidden state, and drop
+            # the now-empty animation_data shell so the scope check still sees
+            # exactly the animated parts.
+            obj.hide_render = True
+            obj.hide_viewport = True
+            obj.animation_data_clear()
     for pid in all_ids:
         obj = objects.get(pid) or components.get(pid)
         if obj is None:
@@ -339,6 +376,22 @@ def _key_context_visibility(
         obj["task10v2_isolate_visibility_keyed"] = True
 
 
+def _clear_fcurves(obj: Any, data_paths: set[str]) -> None:
+    action = obj.animation_data.action if obj.animation_data else None
+    if action is None:
+        return
+    curves = getattr(action, "fcurves", None)
+    if curves is not None:
+        for fc in [f for f in curves if f.data_path in data_paths]:
+            curves.remove(fc)
+        return
+    for layer in action.layers:
+        for strip in layer.strips:
+            for bag in strip.channelbags:
+                for fc in [f for f in bag.fcurves if f.data_path in data_paths]:
+                    bag.fcurves.remove(fc)
+
+
 def _build_camera_config(root: Path, state_data: Mapping[str, Any]) -> dict[str, Any]:
     layout = load_json(root / "stage_09C_refined_explosion/config/refined_layout.json")
     # Cameras are frozen on the deterministic builder output — the same
@@ -348,7 +401,25 @@ def _build_camera_config(root: Path, state_data: Mapping[str, Any]) -> dict[str,
     baseline = build_story_v2_state_transforms(root)
     records = build_camera_records(baseline, layout)
     config = build_camera_sequence()
-    return {**config, **records}
+    # V4: every isolate focus shot owns a fitted camera; consecutive shots
+    # on the same camera merge into one segment so the drift never resets
+    # mid-stretch.
+    segments: list[dict[str, Any]] = []
+    for shot in build_story_config()["shots"]:
+        camera_id = FOCUS_SHOT_POLICY.get(shot["shot_id"], {}).get(
+            "camera", "CAM_STORY_HERO"
+        )
+        if segments and segments[-1]["camera_id"] == camera_id:
+            segments[-1]["frame_end"] = int(shot["frame_end"])
+        else:
+            segments.append(
+                {
+                    "frame_start": int(shot["frame_start"]),
+                    "frame_end": int(shot["frame_end"]),
+                    "camera_id": camera_id,
+                }
+            )
+    return {**config, **records, "camera_segments": segments}
 
 
 def _create_cameras(config: Mapping[str, Any]) -> None:
@@ -425,7 +496,12 @@ def _auto_bezier(obj: Any) -> None:
 
 def _create_annotations(config: Mapping[str, Any], camera_config: Mapping[str, Any]) -> None:
     collection = _ensure_collection(ANNOTATION_COLLECTION)
-    camera_for_shot = {record["shot_id"]: record["camera_id"] for record in build_story_config()["shots"]}
+    camera_for_shot = {
+        record["shot_id"]: FOCUS_SHOT_POLICY.get(record["shot_id"], {}).get(
+            "camera", record["camera_id"]
+        )
+        for record in build_story_config()["shots"]
+    }
     metric_counts: dict[str, int] = {}
     for index, item in enumerate(config["items"]):
         text_data = bpy.data.curves.new(f"T10V2_TEXT_{item['id']}", type="FONT")
