@@ -126,6 +126,30 @@ def _camera_record(
     }
 
 
+def drifted_pose(
+    record: Mapping[str, Any],
+    push_fraction: float,
+    orbit_deg: float,
+) -> list[float]:
+    """End-of-shot camera location: push in, then orbit about the target's Z.
+
+    ``target + Rz(orbit) @ ((location - target) * (1 - push))`` — the shot
+    slowly dollies toward the subject while swinging around the vertical
+    axis, the minimalist "product floats in a studio" drift.
+    """
+    target = [float(v) for v in record["target"]]
+    offset = fm.v_sub(record["location"], target)
+    scaled = fm.v_scale(offset, 1.0 - float(push_fraction))
+    angle = math.radians(float(orbit_deg))
+    cos_a, sin_a = math.cos(angle), math.sin(angle)
+    orbited = (
+        scaled[0] * cos_a - scaled[1] * sin_a,
+        scaled[0] * sin_a + scaled[1] * cos_a,
+        scaled[2],
+    )
+    return [target[i] + orbited[i] for i in range(3)]
+
+
 def build_camera_records(
     state_data: Mapping[str, Any], layout: Mapping[str, Any]
 ) -> dict[str, Any]:
