@@ -1,0 +1,17 @@
+{
+  "name": "product-v1-viewer",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/main.ts --bundle --format=esm --outfile=dist/app.js --sourcemap",
+    "serve": "python3 -m http.server 8941"
+  },
+  "dependencies": {
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.170.0",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.6.0"
+  }
+}

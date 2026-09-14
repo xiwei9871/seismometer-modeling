@@ -1,0 +1,552 @@
+{
+  "cameraPresets": {
+    "SYS_ACQUISITION": {
+      "context": {
+        "lens_mm": 70.0,
+        "position": [
+          700.3987825089363,
+          828.5579770069621,
+          738.1498661377202
+        ],
+        "target": [
+          228.83196258544922,
+          304.48193359375,
+          -65.06712341308594
+        ]
+      },
+      "inspect": {
+        "fstop": 5.0,
+        "lens_mm": 70.0,
+        "position": [
+          594.9518724971641,
+          792.6418134760365,
+          545.1327264397722
+        ],
+        "target": [
+          228.83196258544922,
+          304.48193359375,
+          -65.06712341308594
+        ]
+      }
+    },
+    "SYS_POWER": {
+      "context": {
+        "lens_mm": 70.0,
+        "position": [
+          791.6646128787918,
+          957.0814349491404,
+          1055.0866249950236
+        ],
+        "target": [
+          95.70693489320887,
+          305.9858144124349,
+          -84.47336355312525
+        ]
+      },
+      "inspect": {
+        "fstop": 5.0,
+        "lens_mm": 70.0,
+        "position": [
+          797.7648288746209,
+          1078.2494977919882,
+          1249.4366350115577
+        ],
+        "target": [
+          95.70693489320887,
+          305.9858144124349,
+          -84.47336355312525
+        ]
+      }
+    },
+    "SYS_SENSOR": {
+      "context": {
+        "lens_mm": 70.0,
+        "position": [
+          756.5754231771002,
+          856.9767967310142,
+          977.9344929429774
+        ],
+        "target": [
+          -57.49928627014161,
+          284.2593505859375,
+          -65.08333854675293
+        ]
+      },
+      "inspect": {
+        "fstop": 5.0,
+        "lens_mm": 70.0,
+        "position": [
+          719.7888517597507,
+          855.7947461961523,
+          1077.987452673677
+        ],
+        "target": [
+          -57.49928627014161,
+          284.2593505859375,
+          -65.08333854675293
+        ]
+      }
+    },
+    "architectureHero": {
+      "fstop": null,
+      "lens_mm": 68.0,
+      "position": [
+        786.6735270640226,
+        857.9439289868104,
+        896.0729804360413
+      ],
+      "target": [
+        80.6800947189331,
+        289.2269973754883,
+        -84.47345337658297
+      ]
+    },
+    "overviewHero": {
+      "fstop": null,
+      "lens_mm": 68.0,
+      "position": [
+        786.6735270640226,
+        857.9439289868104,
+        896.0729804360413
+      ],
+      "target": [
+        80.6800947189331,
+        289.2269973754883,
+        -84.47345337658297
+      ]
+    }
+  },
+  "components": {
+    "PART_001": {
+      "assembled": [
+        95.85556030273438,
+        232.626708984375,
+        -84.43418884277344
+      ],
+      "displayName": "Lower Housing",
+      "inspectable": true,
+      "role": "SECONDARY",
+      "semanticId": "CMP_LOWER_HOUSING",
+      "systemId": "SYS_FIELD_PLATFORM"
+    },
+    "PART_002": {
+      "assembled": [
+        95.37657928466797,
+        287.3405456542969,
+        -77.47398376464844
+      ],
+      "displayName": "Upper Housing",
+      "inspectable": true,
+      "role": "SECONDARY",
+      "semanticId": "CMP_UPPER_HOUSING",
+      "systemId": "SYS_TOP"
+    },
+    "PART_003": {
+      "assembled": [
+        94.81449127197266,
+        224.35025024414062,
+        -85.9849853515625
+      ],
+      "displayName": "Sensor Fixture",
+      "inspect": [
+        -45.485508728027355,
+        237.85025024414062,
+        -49.9849853515625
+      ],
+      "inspectable": true,
+      "role": "PRIMARY",
+      "semanticId": "CMP_SENSOR_FIXTURE",
+      "systemId": "SYS_SENSOR"
+    },
+    "PART_004": {
+      "assembled": [
+        87.55231475830078,
+        284.6927490234375,
+        -80.91464233398438
+      ],
+      "displayName": "Top Cover",
+      "inspectable": true,
+      "role": "SECONDARY",
+      "semanticId": "CMP_TOP_COVER",
+      "systemId": "SYS_TOP"
+    },
+    "PART_005": {
+      "assembled": [
+        95.81245422363281,
+        327.1112365722656,
+        -84.46949768066406
+      ],
+      "displayName": "Carry Handle",
+      "inspectable": true,
+      "role": "SECONDARY",
+      "semanticId": "CMP_HANDLE",
+      "systemId": "SYS_TOP"
+    },
+    "PART_006": {
+      "assembled": [
+        94.81751251220703,
+        263.4551696777344,
+        -84.72936248779297
+      ],
+      "displayName": "PCB Protective Plate",
+      "inspect": [
+        158.81751251220703,
+        347.4551696777344,
+        -86.72936248779297
+      ],
+      "inspectable": true,
+      "role": "SUPPORT",
+      "semanticId": "CMP_PCB_PROTECTIVE_PLATE",
+      "systemId": "SYS_ACQUISITION"
+    },
+    "PART_007": {
+      "assembled": [
+        95.69351959228516,
+        274.0874328613281,
+        -84.47615051269531
+      ],
+      "displayName": "PCB Connecting Frame",
+      "inspect": [
+        145.69351959228516,
+        288.0874328613281,
+        -92.47615051269531
+      ],
+      "inspectable": false,
+      "role": "SUPPORT",
+      "semanticId": "CMP_PCB_CONNECTING_FRAME",
+      "systemId": "SYS_ACQUISITION"
+    },
+    "PART_008": {
+      "assembled": [
+        130.6017608642578,
+        267.9840087890625,
+        -39.96284866333008
+      ],
+      "displayName": "Cell 01",
+      "inspect": [
+        151.57878851036946,
+        305.9840087890625,
+        -13.205339228887798
+      ],
+      "inspectable": true,
+      "role": "PRIMARY",
+      "semanticId": "CMP_CELL_01",
+      "systemId": "SYS_POWER"
+    },
+    "PART_009": {
+      "assembled": [
+        60.81211471557617,
+        267.98388671875,
+        -128.98370361328125
+      ],
+      "displayName": "Cell 02",
+      "inspect": [
+        39.83502890793549,
+        305.98388671875,
+        -155.7411674508515
+      ],
+      "inspectable": true,
+      "role": "PRIMARY",
+      "semanticId": "CMP_CELL_02",
+      "systemId": "SYS_POWER"
+    },
+    "PART_010": {
+      "assembled": [
+        116.8070068359375,
+        267.98382568359375,
+        -136.94886779785156
+      ],
+      "displayName": "Cell 03",
+      "inspect": [
+        129.49120422915757,
+        305.98382568359375,
+        -168.49424997163143
+      ],
+      "inspectable": true,
+      "role": "PRIMARY",
+      "semanticId": "CMP_CELL_03",
+      "systemId": "SYS_POWER"
+    },
+    "PART_011": {
+      "assembled": [
+        74.60697174072266,
+        267.98358154296875,
+        -31.9980411529541
+      ],
+      "displayName": "Cell 04",
+      "inspect": [
+        61.92278692831745,
+        305.98358154296875,
+        -0.4526539205115583
+      ],
+      "inspectable": true,
+      "role": "PRIMARY",
+      "semanticId": "CMP_CELL_04",
+      "systemId": "SYS_POWER"
+    },
+    "PART_012": {
+      "assembled": [
+        112.40691375732422,
+        229.2144317626953,
+        -73.47695922851562
+      ],
+      "displayName": "Sensing Core X",
+      "extractDirection": [
+        -0.2598952462376721,
+        0.8873073980678128,
+        -0.38097249548646905
+      ],
+      "inspect": [
+        -69.49308624267579,
+        319.81443176269534,
+        -85.17695922851563
+      ],
+      "inspectable": true,
+      "role": "HERO",
+      "semanticId": "CMP_SENSOR_X",
+      "systemId": "SYS_SENSOR"
+    },
+    "PART_013": {
+      "assembled": [
+        74.60322570800781,
+        225.88619995117188,
+        -71.80152130126953
+      ],
+      "displayName": "Sensing Core Y",
+      "extractDirection": [
+        -0.6916859662001323,
+        0.6588216375217634,
+        0.29584552404072556
+      ],
+      "inspect": [
+        -103.89677429199219,
+        293.4861999511719,
+        -25.001521301269534
+      ],
+      "inspectable": true,
+      "role": "HERO",
+      "semanticId": "CMP_SENSOR_Y",
+      "systemId": "SYS_SENSOR"
+    },
+    "PART_014": {
+      "assembled": [
+        97.0782241821289,
+        225.8865203857422,
+        -111.86988830566406
+      ],
+      "displayName": "Sensing Core Z",
+      "extractDirection": [
+        0.4433799788048103,
+        0.619790652340645,
+        -0.6475135069372715
+      ],
+      "inspect": [
+        -11.121775817871097,
+        285.8865203857422,
+        -100.16988830566406
+      ],
+      "inspectable": true,
+      "role": "HERO",
+      "semanticId": "CMP_SENSOR_Z",
+      "systemId": "SYS_SENSOR"
+    },
+    "PART_015": {
+      "assembled": [
+        39.70875549316406,
+        267.9900817871094,
+        -76.50875854492188
+      ],
+      "displayName": "Cell 05",
+      "inspect": [
+        6.047522650547847,
+        305.9900817871094,
+        -71.72112828401245
+      ],
+      "inspectable": true,
+      "role": "PRIMARY",
+      "semanticId": "CMP_CELL_05",
+      "systemId": "SYS_POWER"
+    },
+    "PART_016": {
+      "assembled": [
+        151.70504760742188,
+        267.989501953125,
+        -92.43799591064453
+      ],
+      "displayName": "Cell 06",
+      "inspect": [
+        185.3662781329254,
+        305.989501953125,
+        -97.22564246285681
+      ],
+      "inspectable": true,
+      "role": "PRIMARY",
+      "semanticId": "CMP_CELL_06",
+      "systemId": "SYS_POWER"
+    },
+    "PART_017": {
+      "assembled": [
+        139.1671142578125,
+        281.6003723144531,
+        -47.54949188232422
+      ],
+      "displayName": "Interface Port A",
+      "inspectable": true,
+      "role": "SUPPORT",
+      "semanticId": "CMP_INTERFACE_PORT_01",
+      "systemId": "SYS_TOP"
+    },
+    "PART_018": {
+      "assembled": [
+        52.24369812011719,
+        276.4129333496094,
+        -117.79388427734375
+      ],
+      "displayName": "Interface Port B",
+      "inspectable": true,
+      "role": "SUPPORT",
+      "semanticId": "CMP_INTERFACE_PORT_02",
+      "systemId": "SYS_TOP"
+    },
+    "PART_019": {
+      "assembled": [
+        95.70696258544922,
+        274.68505859375,
+        -84.47337341308594
+      ],
+      "displayName": "Acquisition Core Board",
+      "inspect": [
+        230.70696258544922,
+        300.68505859375,
+        -66.47337341308594
+      ],
+      "inspectable": true,
+      "role": "HERO",
+      "semanticId": "CMP_MAIN_PCB",
+      "systemId": "SYS_ACQUISITION"
+    },
+    "PART_020": {
+      "assembled": [
+        157.19467163085938,
+        177.118896484375,
+        -119.97331237792969
+      ],
+      "displayName": "Leveling Cone 01",
+      "inspectable": true,
+      "role": "SUPPORT",
+      "semanticId": "CMP_LEVELING_01",
+      "systemId": "SYS_FIELD_PLATFORM"
+    },
+    "PART_021": {
+      "assembled": [
+        95.70979309082031,
+        176.96792602539062,
+        -13.508614540100098
+      ],
+      "displayName": "Leveling Cone 02",
+      "inspectable": true,
+      "role": "SUPPORT",
+      "semanticId": "CMP_LEVELING_02",
+      "systemId": "SYS_FIELD_PLATFORM"
+    },
+    "PART_022": {
+      "assembled": [
+        34.21908187866211,
+        176.84274291992188,
+        -119.97331237792969
+      ],
+      "displayName": "Leveling Cone 03",
+      "inspectable": true,
+      "role": "SUPPORT",
+      "semanticId": "CMP_LEVELING_03",
+      "systemId": "SYS_FIELD_PLATFORM"
+    }
+  },
+  "glb": "product_v1.glb",
+  "systems": {
+    "SYS_ACQUISITION": {
+      "displayName": "Acquisition System",
+      "explodeVector": [
+        0.0,
+        40.0,
+        -0.0
+      ],
+      "oneLiner": "High-precision acquisition core and its protective stack.",
+      "order": 1,
+      "parts": [
+        "PART_019",
+        "PART_006",
+        "PART_007"
+      ]
+    },
+    "SYS_FIELD_PLATFORM": {
+      "displayName": "Field Platform",
+      "explodeVector": [
+        0.0,
+        -34.5,
+        -0.0
+      ],
+      "oneLiner": "Rugged base and three-point leveling.",
+      "order": 4,
+      "parts": [
+        "PART_001",
+        "PART_020",
+        "PART_021",
+        "PART_022"
+      ]
+    },
+    "SYS_POWER": {
+      "displayName": "Power System",
+      "explodeVector": [
+        0.0,
+        24.0,
+        -0.0
+      ],
+      "oneLiner": "Six-cell long-endurance power pack.",
+      "order": 2,
+      "parts": [
+        "PART_008",
+        "PART_009",
+        "PART_010",
+        "PART_011",
+        "PART_015",
+        "PART_016"
+      ]
+    },
+    "SYS_SENSOR": {
+      "displayName": "Sensing System",
+      "explodeVector": [
+        0.0,
+        -14.0,
+        -0.0
+      ],
+      "oneLiner": "Smart three-axis sensing: one fixture, three orthogonal cores.",
+      "order": 3,
+      "parts": [
+        "PART_003",
+        "PART_012",
+        "PART_013",
+        "PART_014"
+      ]
+    },
+    "SYS_TOP": {
+      "displayName": "Top Assembly",
+      "explodeVector": [
+        0.0,
+        92.0,
+        -0.0
+      ],
+      "oneLiner": "Carry handle, top cover and field interface ports.",
+      "order": 0,
+      "parts": [
+        "PART_002",
+        "PART_004",
+        "PART_005",
+        "PART_017",
+        "PART_018"
+      ]
+    }
+  },
+  "unit": "mm",
+  "version": 1
+}

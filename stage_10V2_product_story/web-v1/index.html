@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Field Survey Device — Interactive</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; overflow: hidden; background: #111417;
+      font-family: -apple-system, "SF Pro", "PingFang SC", sans-serif; }
+    #view { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+
+    /* chapter rail — thin, subordinate to the model (spec §33: 80/20) */
+    #rail { position: fixed; left: 28px; top: 50%; transform: translateY(-50%);
+      display: flex; flex-direction: column; gap: 6px; }
+    .rail-btn { display: flex; align-items: baseline; gap: 10px;
+      background: none; border: none; color: rgba(255,255,255,.42);
+      font-size: 13px; letter-spacing: .04em; padding: 7px 10px;
+      cursor: pointer; text-align: left; border-left: 1px solid rgba(255,255,255,.12);
+      transition: color .25s, border-color .25s; }
+    .rail-btn:hover { color: rgba(255,255,255,.9); border-color: rgba(255,255,255,.5); }
+    .rail-btn .num { font-size: 10px; opacity: .5; font-variant-numeric: tabular-nums; }
+
+    #hud { position: fixed; left: 50%; bottom: 34px; transform: translateX(-50%);
+      color: rgba(255,255,255,.55); font-size: 12px; letter-spacing: .08em;
+      pointer-events: none; }
+
+    #inspect-btn, #back-btn { position: fixed; border: 1px solid rgba(255,255,255,.25);
+      background: rgba(20,24,28,.55); color: rgba(255,255,255,.85);
+      backdrop-filter: blur(8px); font-size: 12px; letter-spacing: .12em;
+      padding: 9px 18px; border-radius: 999px; cursor: pointer;
+      transition: border-color .25s, color .25s; display: none; }
+    #inspect-btn:hover, #back-btn:hover { border-color: rgba(255,255,255,.7); color: #fff; }
+    #inspect-btn { right: 36px; bottom: 32px; }
+    #back-btn { left: 36px; bottom: 32px; }
+
+    #brand { position: fixed; left: 36px; top: 30px; color: rgba(255,255,255,.8);
+      font-size: 13px; letter-spacing: .22em; font-weight: 500; }
+    #brand small { display: block; color: rgba(255,255,255,.35); font-size: 10px;
+      letter-spacing: .12em; margin-top: 4px; font-weight: 400; }
+  </style>
+</head>
+<body>
+  <canvas id="view"></canvas>
+  <div id="brand">SMART FIELD SURVEY DEVICE<small>INTERACTIVE DIGITAL PRODUCT</small></div>
+  <nav id="rail"></nav>
+  <div id="hud"></div>
+  <button id="inspect-btn">INSPECT ▸</button>
+  <button id="back-btn">◂ OVERVIEW</button>
+  <script type="module" src="./dist/app.js"></script>
+</body>
+</html>

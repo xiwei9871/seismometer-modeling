@@ -64,3 +64,8 @@ stage_10V2_product_story/logs/
 stage_10V2_product_story/assets/*.png
 stage_10V2_product_story/data_task10V2_run_result.json
 stage_10V2_product_story/web/*.glb
+
+# web-v1 interactive product — generated artifacts
+stage_10V2_product_story/web-v1/product_v1.glb
+stage_10V2_product_story/web-v1/node_modules/
+stage_10V2_product_story/web-v1/dist/
