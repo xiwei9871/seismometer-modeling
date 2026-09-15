@@ -46,11 +46,12 @@ def _mat(name, base, rough, metal=0.0):
 
 
 def build_a3_materials():
-    _mat("MAT_CONNECTOR_WHITE", (0.72, 0.70, 0.65), 0.55)      # warm off-white
-    _mat("MAT_CONJ_CAVITY", (0.035, 0.033, 0.030), 0.65)       # dark cavity
+    _mat("MAT_CONNECTOR_WHITE", (0.68, 0.66, 0.60), 0.58)      # warm eng. plastic
+    _mat("MAT_CONJ_CAVITY", (0.020, 0.019, 0.018), 0.70)       # deeper cavity
     _mat("MAT_INDUCTOR_GREY", (0.15, 0.15, 0.17), 0.42, 0.15)  # molded ferrite
     _mat("MAT_TERMINAL_METAL", (0.55, 0.56, 0.60), 0.30, 0.95)
     _mat("MAT_IC_BLACK_MATTE", (0.016, 0.017, 0.020), 0.55, 0.10)
+    _mat("MAT_PRINT_DARK", (0.09, 0.09, 0.10), 0.60)           # ink on label
 
 
 # ---------------------------------------------------------------------------
@@ -116,54 +117,84 @@ def _boolean_cut(target, board, local_xyz, size, rot=0.0):
     bpy.data.objects.remove(c)
 
 
-def jst_vertical(name, x, y, w, d, h, board, rot=0.0):
-    """top-entry JST: housing with a REAL recessed top cavity (boolean),
-    pin strip visible at the cavity floor, locking ramp."""
+def _solder_tails(name, x, y, w, d, board, rot, axis="x"):
+    """tiny metal stubs poking out of the housing ends at board level."""
     parts = []
-    housing = box(f"{name}_HOUSING", (x, y, TOP_Z + h / 2), (w, d, h),
-                  "MAT_CONNECTOR_WHITE", "CONNECTOR", board, bevel=0.4,
-                  rot_z=rot, props={"pkg": "VERTICAL"})
+    for s in (-1, 1):
+        if axis == "x":
+            dx, dy = math.cos(rot) * s * (w / 2 + 0.35), \
+                math.sin(rot) * s * (w / 2 + 0.35)
+            size = (0.9, d * 0.55, 0.5)
+        else:
+            dx, dy = -math.sin(rot) * s * (d / 2 + 0.35), \
+                math.cos(rot) * s * (d / 2 + 0.35)
+            size = (w * 0.55, 0.9, 0.5)
+        parts.append(box(f"{name}_TAIL_{s:+d}",
+                         (x + dx, y + dy, TOP_Z + 0.35), size,
+                         "MAT_TERMINAL_METAL", "CONNECTOR_PINS", board,
+                         bevel=0.08, rot_z=rot))
+    return parts
+
+
+def jst_vertical(name, x, y, w, d, h, board, rot=0.0):
+    """top-entry JST: thin-wall look — base skirt + housing with a real
+    recessed cavity + pin strip on the floor + locking ramp + solder
+    tails at the ends."""
+    parts = []
+    # base skirt: 0.9mm proud, 0.7 tall — the solder/base interface
+    parts.append(box(f"{name}_BASE", (x, y, TOP_Z + 0.35),
+                     (w + 0.9, d + 0.9, 0.7), "MAT_CONNECTOR_WHITE",
+                     "CONNECTOR", board, bevel=0.15, rot_z=rot))
+    hb = h - 0.5                        # housing sits on the skirt
+    housing = box(f"{name}_HOUSING", (x, y, TOP_Z + 0.5 + hb / 2),
+                  (w, d, hb), "MAT_CONNECTOR_WHITE", "CONNECTOR", board,
+                  bevel=0.3, rot_z=rot, props={"pkg": "VERTICAL"})
     parts.append(housing)
-    # real cavity: cut ~1.7mm into the housing top
+    # real cavity cut into the housing top
     cw, cd = w * 0.72, d * 0.55
-    _boolean_cut(housing, board, (x, y, TOP_Z + h - 0.85), (cw, cd, 1.7),
-                 rot)
-    # pin strip at the cavity floor — visible through the opening
-    parts.append(box(f"{name}_PINS", (x, y, TOP_Z + h - 1.5),
-                     (cw * 0.8, 0.5, 0.9), "MAT_TERMINAL_METAL",
+    _boolean_cut(housing, board, (x, y, TOP_Z + 0.5 + hb - 0.8),
+                 (cw, cd, 1.6), rot)
+    # pin strip visible on the cavity floor
+    parts.append(box(f"{name}_PINS", (x, y, TOP_Z + 0.5 + hb - 1.4),
+                     (cw * 0.8, 0.45, 0.8), "MAT_TERMINAL_METAL",
                      "CONNECTOR_PINS", board, bevel=0.08, rot_z=rot))
-    # inner cavity floor plate (dark) just under pin level for contrast
-    parts.append(box(f"{name}_CAVFLOOR", (x, y, TOP_Z + h - 1.72),
+    parts.append(box(f"{name}_CAVFLOOR", (x, y, TOP_Z + 0.5 + hb - 1.62),
                      (cw, cd, 0.15), "MAT_CONJ_CAVITY",
                      "CONNECTOR_CAVITY", board, bevel=0.05, rot_z=rot))
-    # locking ramp: small wedge on the -d side, tilted
+    # locking ramp on the -d side
     ramp = box(f"{name}_RAMP",
-               (x - math.sin(rot) * -(d / 2 - 0.4),
-                y - math.cos(rot) * -(d / 2 - 0.4), TOP_Z + h - 0.9),
-               (w * 0.45, 0.8, 1.4), "MAT_CONNECTOR_WHITE",
-               "CONNECTOR_LOCK", board, bevel=0.12, rot_z=rot)
+               (x - math.sin(rot) * -(d / 2 - 0.3),
+                y - math.cos(rot) * -(d / 2 - 0.3), TOP_Z + h - 0.8),
+               (w * 0.45, 0.7, 1.1), "MAT_CONNECTOR_WHITE",
+               "CONNECTOR_LOCK", board, bevel=0.1, rot_z=rot)
     ramp.rotation_euler.x = math.radians(-18)
     parts.append(ramp)
+    parts += _solder_tails(name, x, y, w, d, board, rot,
+                           "x" if w >= d else "y")
     return parts
 
 
 def jst_right_angle(name, x, y, w, d, h, board, rot=0.0):
-    """side-entry JST: real cavity cut into the outward (+x local) face,
-    horizontal pin strip visible inside it."""
+    """side-entry JST: base skirt + housing + real side cavity +
+    horizontal pins + rear tab + solder tails on the flanks."""
     parts = []
-    housing = box(f"{name}_HOUSING", (x, y, TOP_Z + h / 2), (w, d, h),
-                  "MAT_CONNECTOR_WHITE", "CONNECTOR", board, bevel=0.35,
-                  rot_z=rot, props={"pkg": "RIGHT_ANGLE"})
+    parts.append(box(f"{name}_BASE", (x, y, TOP_Z + 0.35),
+                     (w + 0.9, d + 0.9, 0.7), "MAT_CONNECTOR_WHITE",
+                     "CONNECTOR", board, bevel=0.15, rot_z=rot))
+    hb = h - 0.5
+    housing = box(f"{name}_HOUSING", (x, y, TOP_Z + 0.5 + hb / 2),
+                  (w, d, hb), "MAT_CONNECTOR_WHITE", "CONNECTOR", board,
+                  bevel=0.3, rot_z=rot, props={"pkg": "RIGHT_ANGLE"})
     parts.append(housing)
-    # cavity opening on the outward face
+    # cavity opening on the outward (+x local) face
     fx = w / 2 - 0.7
     cx, cy = x + math.cos(rot) * fx, y + math.sin(rot) * fx
-    _boolean_cut(housing, board, (cx, cy, TOP_Z + h * 0.55),
-                 (1.8, d * 0.6, h * 0.45), rot)
+    _boolean_cut(housing, board, (cx, cy, TOP_Z + 0.5 + hb * 0.5),
+                 (1.8, d * 0.6, hb * 0.45), rot)
     # horizontal pins inside the side cavity
     px = w / 2 - 1.1
     px_, py_ = x + math.cos(rot) * px, y + math.sin(rot) * px
-    parts.append(box(f"{name}_PINS", (px_, py_, TOP_Z + h * 0.55),
+    parts.append(box(f"{name}_PINS", (px_, py_, TOP_Z + 0.5 + hb * 0.5),
                      (0.7, d * 0.45, 0.5), "MAT_TERMINAL_METAL",
                      "CONNECTOR_PINS", board, bevel=0.05, rot_z=rot))
     # rear locking tab
@@ -172,6 +203,7 @@ def jst_right_angle(name, x, y, w, d, h, board, rot=0.0):
     parts.append(box(f"{name}_TAB", (bx_, by_, TOP_Z + h - 0.6),
                      (1.4, d * 0.4, 1.0), "MAT_CONNECTOR_WHITE",
                      "CONNECTOR_LOCK", board, bevel=0.1, rot_z=rot))
+    parts += _solder_tails(name, x, y, w, d, board, rot, "y")
     return parts
 
 
@@ -197,6 +229,26 @@ def power_inductor(name, x, y, w, d, h, board, rot=0.0, label=True):
                          (w * 0.55, d * 0.45, 0.15), "MAT_IC_BLACK_MATTE",
                          "INDUCTOR_MARK", board, bevel=0.05, rot_z=rot))
     return parts
+
+
+def top_marking(name, text, x, y, z, size, board, rot=0.0):
+    """flat printed marking (e.g. '3R3') straight on the package top."""
+    cu = bpy.data.curves.new(name + "_c", "FONT")
+    cu.body = text
+    cu.size = size
+    cu.extrude = 0.01
+    cu.align_x, cu.align_y = "CENTER", "CENTER"
+    o = bpy.data.objects.new(name, cu)
+    bpy.context.scene.collection.objects.link(o)
+    o.rotation_euler.z = rot
+    o.location = (x, y, z)
+    bpy.context.view_layer.objects.active = o
+    o.select_set(True)
+    bpy.ops.object.convert(target="MESH")     # freeze text -> mesh
+    o.select_set(False)
+    _assign(o, "MAT_PRINT_DARK", "INDUCTOR_MARK", board)
+    o.location = (x, y, z)
+    return o
 
 
 # ---------------------------------------------------------------------------
@@ -356,14 +408,15 @@ def main():
     board_b = bpy.data.objects["PCB_B_AUXILIARY_INTERFACE_BOARD"]
 
     # --- replace B connectors -------------------------------------------
-    # measured positions/rotations carried over from V4 (registration)
-    jsts = [("CONN_B_01", (-11, 14), (15, 7, 5.2), 0.0, "V"),
-            ("CONN_B_02", (5.5, 16), (5, 6, 4.8), 0.0, "V"),
-            ("CONN_B_03", (-26, -3.5), (6, 11, 4.8), 0.0, "V"),
-            ("CONN_B_04", (-11.5, -12), (16, 7, 5.2), -0.4, "RA"),
-            ("CONN_B_05", (20.5, 8.75), (9, 6.5, 4.8), -0.5, "RA"),
-            ("CONN_B_06", (15, -10), (8.5, 6, 4.8), 0.0, "V"),
-            ("CONN_B_07", (4, -22.7), (10, 6.5, 4.8), 0.0, "V")]
+    # Step 1.1: footprints re-checked against the registered photo's white
+    # blobs; heights reduced ~25-30% (real JST proportion vs board width)
+    jsts = [("CONN_B_01", (-11, 14), (15, 7, 3.6), 0.0, "V"),
+            ("CONN_B_02", (5.5, 16), (5, 6, 3.0), 0.0, "V"),
+            ("CONN_B_03", (-26.5, -8), (7.5, 9.5, 3.4), 0.0, "V"),
+            ("CONN_B_04", (-11.5, -12), (16, 10, 3.6), -0.4, "RA"),
+            ("CONN_B_05", (20.5, 8.75), (9, 7, 3.0), -0.5, "RA"),
+            ("CONN_B_06", (18, -11.5), (9, 5.5, 3.0), 0.0, "V"),
+            ("CONN_B_07", (3.5, -23.5), (9, 8, 3.2), 0.0, "V")]
     _kill([f"PCB_B_JST_{i}" for i in range(7)] +
           [f"PCB_B_JST_{i}_SLOT" for i in range(7)])
     made = []
@@ -377,9 +430,13 @@ def main():
     _kill(["PCB_B_INDUCTOR_3R3", "PCB_B_3R3_MARK", "PCB_B_INDUCTOR_6R8",
            "PCB_B_INDUCTOR_3"])
     made += power_inductor("INDUCTOR_B_3R3", 9.9, -4.75, 10, 7.5, 4.2,
-                           board_b, rot=-0.15)
+                           board_b, rot=-0.15, label=False)
+    made += [top_marking("INDUCTOR_B_3R3_PRINT", "3R3", 9.9, -4.75,
+                         TOP_Z + 4.2 + 0.06, 2.6, board_b, rot=-0.15)]
     made += power_inductor("INDUCTOR_B_6R8", -2.2, -9.6, 6.5, 4, 3.4,
-                           board_b)
+                           board_b, label=False)
+    made += [top_marking("INDUCTOR_B_6R8_PRINT", "6R8", -2.2, -9.6,
+                         TOP_Z + 3.4 + 0.06, 1.9, board_b)]
     made += power_inductor("INDUCTOR_B_03", -3.2, -23, 5.5, 3.5, 3.2,
                            board_b, label=False)
 
