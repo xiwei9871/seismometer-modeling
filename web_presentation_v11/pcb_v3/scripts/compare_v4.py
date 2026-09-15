@@ -1,10 +1,12 @@
-"""Photo-vs-render overlay validation for A2.2.
+"""Photo-vs-render overlay validation for A2.2 / A3.
 
-Scales the top-down V4 render so its board matches the registered photo
+Scales the top-down render so its board matches the registered photo
 width, aligns centres, alpha-blends, and draws both contours.
 
-Run: .venv/bin/python scripts/compare_v4.py
+Run: .venv/bin/python scripts/compare_v4.py [--ren renders_v41] [--out validation_v41]
 """
+import argparse
+import sys
 from pathlib import Path
 
 import cv2
@@ -12,16 +14,6 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parents[1]
 REG = HERE / "registration"
-REN = HERE / "renders_v4"
-OUT = HERE / "validation"
-OUT.mkdir(exist_ok=True)
-
-PAIRS = [
-    ("a_front", REG / "registered_a_front.png",
-     REN / "v4_topdown_a_front.png"),
-    ("b_front", REG / "registered_b_front.png",
-     REN / "v4_topdown_b_front.png"),
-]
 
 
 def green_mask(img):
@@ -32,7 +24,7 @@ def green_mask(img):
     return m, max(cnts, key=cv2.contourArea)
 
 
-def compare(tag, photo_path, render_path):
+def compare(tag, photo_path, render_path, out_dir):
     photo = cv2.imread(str(photo_path))
     render = cv2.imread(str(render_path))
     pm, pcnt = green_mask(photo)
@@ -71,14 +63,27 @@ def compare(tag, photo_path, render_path):
 
     cv2.putText(blend, f"{tag}  IoU={iou:.2f}  scale={s:.3f}",
                 (16, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 255, 255), 2)
-    out = OUT / f"compare_{tag}.png"
+    out = out_dir / f"compare_{tag}.png"
     cv2.imwrite(str(out), blend)
     print(f"[compare] {tag}: IoU={iou:.3f} -> {out.name}")
     return iou
 
 
 def main():
-    ious = [compare(t, p, r) for t, p, r in PAIRS]
+    p = argparse.ArgumentParser()
+    p.add_argument("--ren", type=Path, default=HERE / "renders_v4")
+    p.add_argument("--out", type=Path, default=HERE / "validation")
+    p.add_argument("--prefix", default="v4_topdown")
+    a = p.parse_args(sys.argv[1:])
+    a.out.mkdir(exist_ok=True)
+    pairs = [
+        ("a_front", REG / "registered_a_front.png",
+         a.ren / f"{a.prefix}_a_front.png"),
+        ("b_front", REG / "registered_b_front.png",
+         a.ren / f"{a.prefix}_b_front.png"),
+    ]
+    ious = [compare(t, ph, r, a.out) for t, ph, r in pairs
+            if r.exists()]
     print(f"[compare] mean IoU={sum(ious)/len(ious):.3f}")
 
 
