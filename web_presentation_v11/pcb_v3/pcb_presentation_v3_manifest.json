@@ -1,0 +1,105 @@
+{
+  "project": "Smart Field Survey Device — PCB Presentation V3",
+  "stage": "Phase A2",
+  "blend": "pcb_presentation_v3.blend",
+  "generated_by": [
+    "scripts/build_pcb_v3.py",
+    "scripts/render_pcb_v3.py"
+  ],
+  "units": "mm (assumed)",
+  "reference_photos": {
+    "photo_pcb_a_front.jpg": "PCB-A front: big black compute module + coax antenna, ceramic patch antenna, green shield/daughter zone + coil, white ribbon at right edge, 2 large interior holes",
+    "photo_pcb_a_back.jpg": "PCB-A back: near-bare soldermask, faint traces, white ribbon at left edge, SN label, ground tab + wire loop",
+    "photo_pcb_b_front.jpg": "PCB-B front: 7 white JST connectors, 3R3 gray power inductor, dense mid/small ICs, centre hole",
+    "photo_pcb_b_back.jpg": "PCB-B back: near-bare, one red-top bulk cap, corner mounting holes",
+    "note": "earlier CAD renders in reference/ (pcb_a_*, exploded_assembly) are supporting evidence only; real photos are authoritative"
+  },
+  "boards": [
+    {
+      "object": "PCB_A_MAIN_SYSTEM_BOARD",
+      "semantic": "MAIN_SYSTEM_BOARD",
+      "outline_mm": "~104 x 88 irregular, chamfered corners, double notch right edge",
+      "thickness_mm": 1.6,
+      "holes": "6 plated mounting holes, 2 large interior holes, 1 small top hole",
+      "source_photo": ["photo_pcb_a_front.jpg", "photo_pcb_a_back.jpg"],
+      "geometry": "curve-outline extrusion, holes as cyclic splines",
+      "materials": ["MAT_pcb_a_front (tex)", "MAT_pcb_a_back (tex)", "MAT_pcb_edge"],
+      "web_export": true,
+      "closeup": true
+    },
+    {
+      "object": "PCB_B_AUXILIARY_INTERFACE_BOARD",
+      "semantic": "AUXILIARY_INTERFACE_BOARD",
+      "outline_mm": "~62 x 56 irregular, chamfered corners, edge notches",
+      "thickness_mm": 1.6,
+      "holes": "4 corner mounting holes, 1 left-edge hole, 1 centre hole",
+      "source_photo": ["photo_pcb_b_front.jpg", "photo_pcb_b_back.jpg"],
+      "geometry": "curve-outline extrusion",
+      "materials": ["MAT_pcb_b_front (tex)", "MAT_pcb_b_back (tex)", "MAT_pcb_edge"],
+      "web_export": true,
+      "closeup": true
+    }
+  ],
+  "component_tiers": {
+    "level_A": [
+      "PCB_A_MAIN_MODULE (compute module + 2 dies + label)",
+      "PCB_A_COAX_ANTENNA + PCB_A_COAX_PLUG",
+      "PCB_A_CERAMIC_ANTENNA + feed dot",
+      "PCB_A_SHIELD_ZONE (green daughter/shield) + PCB_A_COIL_*",
+      "PCB_A_RIBBON + PCB_A_RIBBON_PLUG",
+      "PCB_A_RF_MODULE + stub lead",
+      "PCB_B_JST_* x7 white JST connectors (+ slot inserts)",
+      "PCB_B_INDUCTOR_3R3 (+ marking strip), PCB_B_INDUCTOR_2",
+      "PCB_A_B_SHIELD_TAB + GROUND_LOOP (back)",
+      "PCB_B_B_CAP + red top (back)"
+    ],
+    "level_B": [
+      "PCB_A_IC_* x10 mid ICs",
+      "PCB_A_IND_* x3 power inductors",
+      "PCB_A_TANT_* x4 tantalum caps",
+      "PCB_A_CRYSTAL",
+      "PCB_A_DCONN_* edge connectors",
+      "PCB_B_IC_* x8 mid ICs",
+      "PCB_B_TANT_* x5 tantalum row"
+    ],
+    "level_C": [
+      "PCB_A_SMT_*/ROW_* ~160 passives (front) + ~10 back",
+      "PCB_B_SMT_*/ROW_* ~160 passives (front) + ~6 back",
+      "baked texture: traces/vias/pads/silkscreen/speckle"
+    ]
+  },
+  "textures": {
+    "TEX_pcb_a_front": {"file": "textures/TEX_pcb_a_front.png", "res": "2048x~1700", "closeup": true},
+    "TEX_pcb_a_back": {"file": "textures/TEX_pcb_a_back.png", "res": "1024x~850"},
+    "TEX_pcb_b_front": {"file": "textures/TEX_pcb_b_front.png", "res": "2048x~1850", "closeup": true},
+    "TEX_pcb_b_back": {"file": "textures/TEX_pcb_b_back.png", "res": "1024x~925"}
+  },
+  "semantic_empties": [
+    "SEM_PCB_A_MAIN_SYSTEM_BOARD",
+    "SEM_PCB_B_AUXILIARY_INTERFACE_BOARD",
+    "SEM_PCB_RIBBON_CABLE",
+    "SEM_PCB_A_BACK"
+  ],
+  "collections": {
+    "PRESENTATION_PCB_V3": "all boards + components + semantic empties",
+    "RIG_V3": "lights, cameras, floor"
+  },
+  "renders": [
+    "renders/01_pcb_overview.png",
+    "renders/02_pcb_architecture.png",
+    "renders/03_pcb_main_board_front.png",
+    "renders/04_pcb_main_board_back.png",
+    "renders/05_pcb_secondary_board_front.png",
+    "renders/06_pcb_secondary_board_back.png",
+    "renders/07_pcb_closeup_main.png",
+    "renders/08_pcb_closeup_secondary.png",
+    "renders/09_pcb_contact_sheet.png"
+  ],
+  "engineering_boundary": {
+    "chip_models": "not assigned — no silicon part numbers claimed",
+    "electrical_functions": "neutral semantics only (JST_CONNECTOR, POWER_INDUCTOR, MID_IC)",
+    "traces": "procedural Manhattan-style routing for look only, not real netlist",
+    "uncertain": "exact component placements are approximate, photo-grounded"
+  },
+  "baseline_integrity": "source STL / Stage01 / Stage02 / PART_* meshes untouched; all V3 assets live in PRESENTATION_PCB_V3 collection in a separate .blend"
+}
