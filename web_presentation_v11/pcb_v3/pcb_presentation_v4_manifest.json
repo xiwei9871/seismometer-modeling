@@ -1,0 +1,116 @@
+{
+  "project": "Smart Field Survey Device — PCB Presentation V4",
+  "stage": "Phase A2.2 — registration-driven reconstruction",
+  "blend": "pcb_presentation_v4.blend",
+  "generated_by": [
+    "scripts/precompute_board_geometry.py  (venv: cv2 + mapbox_earcut)",
+    "scripts/bake_textures_v4.py           (venv: cv2 + numpy)",
+    "scripts/build_pcb_v4.py              (blender 5.2.1)",
+    "scripts/render_pcb_v4.py             (blender 5.2.1)",
+    "scripts/compare_v4.py                (venv: cv2)"
+  ],
+  "units": "mm (assumed)",
+  "pipeline": "4 real photos -> registration/board_map.json + board_mesh.json -> earcut-triangulated board meshes -> photo-derived textures -> level-A/B/C components -> photo-matched top-down renders -> IoU overlay validation",
+  "registration_inputs": {
+    "board_map.json": "traced outlines (476/230 pts), detected holes, edge notches, front/back homography validation",
+    "board_mesh.json": "earcut triangles for top/bottom caps + hole/slot rings; supersedes Blender curve tessellation which failed on self-touching traced contours",
+    "registered_*.png": "perspective-corrected top-down board images used for silkscreen/trace-shadow extraction"
+  },
+  "boards": [
+    {
+      "object": "PCB_A_MAIN_SYSTEM_BOARD",
+      "semantic": "MAIN_SYSTEM_BOARD",
+      "outline": "real traced contour, 476 points — wavy edge undulation, deep left/top notches, edge lobes",
+      "outline_mm": "104.0 x 101.1 (registered measurement)",
+      "thickness_mm": 1.6,
+      "holes": "2 large interior through-holes (front/back registered, 1.31mm mean offset) + 10 plated perimeter holes read from overlays (nudged inward to fit traced lobes; 2 unverifiable positions dropped) + right-centre kidney slot 14x8",
+      "geometry": "earcut triangulation: 781 cap triangles + wall quads; no boolean/curve-fill dependency",
+      "materials": ["MAT4_pcb_a_front (TEX4_pcb_a_front)", "MAT4_pcb_a_back (TEX4_pcb_a_back)", "MAT_pcb_edge"],
+      "web_export": true,
+      "closeup": true
+    },
+    {
+      "object": "PCB_B_AUXILIARY_INTERFACE_BOARD",
+      "semantic": "AUXILIARY_INTERFACE_BOARD",
+      "outline": "real traced contour, 230 points — chamfered corners, edge notches",
+      "outline_mm": "62.0 x 56.2 (registered measurement)",
+      "thickness_mm": 1.6,
+      "holes": "1 centre hole (detected) + 5 perimeter plated holes (overlay-read, nudged to fit)",
+      "geometry": "earcut triangulation: 408 cap triangles + wall quads",
+      "materials": ["MAT4_pcb_b_front (TEX4_pcb_b_front)", "MAT4_pcb_b_back (TEX4_pcb_b_back)", "MAT_pcb_edge"],
+      "web_export": true,
+      "closeup": true
+    }
+  ],
+  "measured_vs_inferred": {
+    "measured_from_registration": [
+      "board outlines (exact traced polygons)",
+      "2 big A-board interior holes (front/back matched)",
+      "A-board centre slot position/size",
+      "B-board centre hole",
+      "real silkscreen marks baked into TEX4_* (thin white connected components)",
+      "real trace-shadow luminance baked into TEX4_*",
+      "board green tone mottling from photo"
+    ],
+    "overlay_read_manual": [
+      "CLMP module ~44x32 at top-centre (-3,31)",
+      "ceramic patch antenna 18x18 at (-25,-28)",
+      "daughter/shield zone 28x40 at (1,-29), flush to bottom edge",
+      "wound silver coil dia16 inside zone bottom (1,-36)",
+      "vertical SN strip on zone left edge, text strip at zone base",
+      "2R2 inductors at (19,4)/(19,-5)",
+      "7 JST connectors on B at measured positions/rotations",
+      "3R3 inductor 10x7.5 at (9.9,-4.75)"
+    ],
+    "procedural_presentation": [
+      "Manhattan trace lines + via dots (random-seeded)",
+      "SMT passive scatter (point-in-polygon constrained)",
+      "mid ICs / tantalum caps at plausible positions",
+      "ribbon cable + plug at right edge",
+      "coax antenna lead arc",
+      "back-side sparse features (tab, wire loop, white edge conns, red-top cap)"
+    ]
+  },
+  "component_counts": {"pcb_a": 98, "pcb_b": 132},
+  "validation": {
+    "method": "compare_v4.py — green-mask segmentation, scale+centre align, 50% overlay + IoU",
+    "iou": {"a_front": 0.68, "b_front": 0.61, "mean": 0.64},
+    "caveat": "IoU is sensitive to render brightness and the single-scale alignment; right-edge drift ~2% comes from the pxmm assumption in registration, not a modelling error. Inspect validation/compare_*.png visually.",
+    "dropped_features": [
+      "A perimeter hole (23,44) — no fit inside traced outline",
+      "A perimeter hole (46,-30) — initial guess wrong, nudge collided with slot",
+      "B front: 2 of 4 detected 'holes' are black-IC false positives (documented in registration_report.md)"
+    ]
+  },
+  "semantic_empties": [
+    "SEM_PCB_A_MAIN_SYSTEM_BOARD",
+    "SEM_PCB_B_AUXILIARY_INTERFACE_BOARD",
+    "SEM_PCB_RIBBON_CABLE"
+  ],
+  "collections": {
+    "PRESENTATION_PCB_V4": "boards + components + semantic empties",
+    "RIG_V4": "lights, cameras, floor"
+  },
+  "renders": [
+    "renders_v4/01_pcb_overview.png",
+    "renders_v4/02_pcb_architecture.png",
+    "renders_v4/03_pcb_main_board_front.png",
+    "renders_v4/04_pcb_main_board_back.png",
+    "renders_v4/05_pcb_secondary_board_front.png",
+    "renders_v4/06_pcb_secondary_board_back.png",
+    "renders_v4/07_pcb_closeup_main.png",
+    "renders_v4/08_pcb_closeup_secondary.png",
+    "renders_v4/09_pcb_contact_sheet.png",
+    "renders_v4/v4_topdown_a_front.png",
+    "renders_v4/v4_topdown_b_front.png",
+    "validation/compare_a_front.png",
+    "validation/compare_b_front.png"
+  ],
+  "engineering_boundary": {
+    "chip_models": "not assigned — no silicon part numbers claimed",
+    "electrical_functions": "neutral semantics only (JST_CONNECTOR, POWER_INDUCTOR, SMT_PASSIVE)",
+    "traces": "procedural Manhattan routing + real photo trace-shadows for look only, not a netlist",
+    "part_007": "absent from PCB layer entirely"
+  },
+  "baseline_integrity": "source STL / Stage01 / Stage02 / PART_* untouched; V4 lives in pcb_presentation_v4.blend; master integration is a later reviewable step"
+}
