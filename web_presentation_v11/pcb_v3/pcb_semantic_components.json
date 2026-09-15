@@ -35,7 +35,7 @@
     },
     {
       "id": "CONNECTOR_02",
-      "object": "CONN_B_01_PINS",
+      "object": "CONN_B_01_PIN_0",
       "board": "PCB_B",
       "side": "FRONT",
       "category": "CONNECTOR",
@@ -46,7 +46,7 @@
     },
     {
       "id": "CONNECTOR_03",
-      "object": "CONN_B_01_RAMP",
+      "object": "CONN_B_01_PIN_1",
       "board": "PCB_B",
       "side": "FRONT",
       "category": "CONNECTOR",
@@ -57,7 +57,7 @@
     },
     {
       "id": "CONNECTOR_04",
-      "object": "CONN_B_01_TAIL_+1",
+      "object": "CONN_B_01_PIN_2",
       "board": "PCB_B",
       "side": "FRONT",
       "category": "CONNECTOR",
@@ -68,6 +68,61 @@
     },
     {
       "id": "CONNECTOR_05",
+      "object": "CONN_B_01_PIN_3",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "CONNECTOR",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "CONNECTOR_06",
+      "object": "CONN_B_01_PIN_4",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "CONNECTOR",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "CONNECTOR_07",
+      "object": "CONN_B_01_PIN_5",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "CONNECTOR",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "CONNECTOR_08",
+      "object": "CONN_B_01_RAMP",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "CONNECTOR",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "CONNECTOR_09",
+      "object": "CONN_B_01_TAIL_+1",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "CONNECTOR",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "CONNECTOR_10",
       "object": "CONN_B_01_TAIL_-1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -89,7 +144,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_06",
+      "id": "CONNECTOR_11",
       "object": "CONN_B_02_CAVFLOOR",
       "board": "PCB_B",
       "side": "FRONT",
@@ -111,7 +166,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_07",
+      "id": "CONNECTOR_12",
       "object": "CONN_B_02_PINS",
       "board": "PCB_B",
       "side": "FRONT",
@@ -122,7 +177,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_08",
+      "id": "CONNECTOR_13",
       "object": "CONN_B_02_RAMP",
       "board": "PCB_B",
       "side": "FRONT",
@@ -133,7 +188,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_09",
+      "id": "CONNECTOR_14",
       "object": "CONN_B_02_TAIL_+1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -144,7 +199,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_10",
+      "id": "CONNECTOR_15",
       "object": "CONN_B_02_TAIL_-1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -166,17 +221,6 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_11",
-      "object": "CONN_B_03_CAVFLOOR",
-      "board": "PCB_B",
-      "side": "FRONT",
-      "category": "CONNECTOR",
-      "confidence": "HIGH",
-      "source": "PHOTO",
-      "presentation_priority": "SECONDARY",
-      "geometry_mode": "INSTANCED"
-    },
-    {
       "id": "UNKNOWN_COMPONENT_06",
       "object": "CONN_B_03_HOUSING",
       "board": "PCB_B",
@@ -188,7 +232,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_12",
+      "id": "CONNECTOR_16",
       "object": "CONN_B_03_PINS",
       "board": "PCB_B",
       "side": "FRONT",
@@ -199,8 +243,8 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_13",
-      "object": "CONN_B_03_RAMP",
+      "id": "CONNECTOR_17",
+      "object": "CONN_B_03_TAB",
       "board": "PCB_B",
       "side": "FRONT",
       "category": "CONNECTOR",
@@ -210,7 +254,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_14",
+      "id": "CONNECTOR_18",
       "object": "CONN_B_03_TAIL_+1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -221,7 +265,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_15",
+      "id": "CONNECTOR_19",
       "object": "CONN_B_03_TAIL_-1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -254,7 +298,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_16",
+      "id": "CONNECTOR_20",
       "object": "CONN_B_04_PINS",
       "board": "PCB_B",
       "side": "FRONT",
@@ -265,7 +309,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_17",
+      "id": "CONNECTOR_21",
       "object": "CONN_B_04_TAB",
       "board": "PCB_B",
       "side": "FRONT",
@@ -276,7 +320,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_18",
+      "id": "CONNECTOR_22",
       "object": "CONN_B_04_TAIL_+1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -287,7 +331,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_19",
+      "id": "CONNECTOR_23",
       "object": "CONN_B_04_TAIL_-1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -320,7 +364,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_20",
+      "id": "CONNECTOR_24",
       "object": "CONN_B_05_PINS",
       "board": "PCB_B",
       "side": "FRONT",
@@ -331,7 +375,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_21",
+      "id": "CONNECTOR_25",
       "object": "CONN_B_05_TAB",
       "board": "PCB_B",
       "side": "FRONT",
@@ -342,7 +386,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_22",
+      "id": "CONNECTOR_26",
       "object": "CONN_B_05_TAIL_+1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -353,7 +397,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_23",
+      "id": "CONNECTOR_27",
       "object": "CONN_B_05_TAIL_-1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -375,7 +419,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_24",
+      "id": "CONNECTOR_28",
       "object": "CONN_B_06_CAVFLOOR",
       "board": "PCB_B",
       "side": "FRONT",
@@ -397,7 +441,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_25",
+      "id": "CONNECTOR_29",
       "object": "CONN_B_06_PINS",
       "board": "PCB_B",
       "side": "FRONT",
@@ -408,7 +452,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_26",
+      "id": "CONNECTOR_30",
       "object": "CONN_B_06_RAMP",
       "board": "PCB_B",
       "side": "FRONT",
@@ -419,7 +463,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_27",
+      "id": "CONNECTOR_31",
       "object": "CONN_B_06_TAIL_+1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -430,7 +474,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_28",
+      "id": "CONNECTOR_32",
       "object": "CONN_B_06_TAIL_-1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -452,17 +496,6 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_29",
-      "object": "CONN_B_07_CAVFLOOR",
-      "board": "PCB_B",
-      "side": "FRONT",
-      "category": "CONNECTOR",
-      "confidence": "HIGH",
-      "source": "PHOTO",
-      "presentation_priority": "SECONDARY",
-      "geometry_mode": "INSTANCED"
-    },
-    {
       "id": "UNKNOWN_COMPONENT_14",
       "object": "CONN_B_07_HOUSING",
       "board": "PCB_B",
@@ -474,7 +507,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_30",
+      "id": "CONNECTOR_33",
       "object": "CONN_B_07_PINS",
       "board": "PCB_B",
       "side": "FRONT",
@@ -485,8 +518,8 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_31",
-      "object": "CONN_B_07_RAMP",
+      "id": "CONNECTOR_34",
+      "object": "CONN_B_07_TAB",
       "board": "PCB_B",
       "side": "FRONT",
       "category": "CONNECTOR",
@@ -496,7 +529,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_32",
+      "id": "CONNECTOR_35",
       "object": "CONN_B_07_TAIL_+1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -507,7 +540,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "CONNECTOR_33",
+      "id": "CONNECTOR_36",
       "object": "CONN_B_07_TAIL_-1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -552,7 +585,7 @@
     },
     {
       "id": "INDUCTOR_04",
-      "object": "INDUCTOR_B_3R3_BODY",
+      "object": "INDUCTOR_B_2R2_BODY",
       "board": "PCB_B",
       "side": "FRONT",
       "category": "INDUCTOR",
@@ -563,7 +596,7 @@
     },
     {
       "id": "LABEL_01",
-      "object": "INDUCTOR_B_3R3_PRINT",
+      "object": "INDUCTOR_B_2R2_PRINT",
       "board": "PCB_B",
       "side": "FRONT",
       "category": "LABEL",
@@ -574,7 +607,7 @@
     },
     {
       "id": "INDUCTOR_05",
-      "object": "INDUCTOR_B_3R3_TERM_+1",
+      "object": "INDUCTOR_B_2R2_TERM_+1",
       "board": "PCB_B",
       "side": "FRONT",
       "category": "INDUCTOR",
@@ -585,7 +618,7 @@
     },
     {
       "id": "INDUCTOR_06",
-      "object": "INDUCTOR_B_3R3_TERM_-1",
+      "object": "INDUCTOR_B_2R2_TERM_-1",
       "board": "PCB_B",
       "side": "FRONT",
       "category": "INDUCTOR",
@@ -596,7 +629,7 @@
     },
     {
       "id": "INDUCTOR_07",
-      "object": "INDUCTOR_B_6R8_BODY",
+      "object": "INDUCTOR_B_3R3_BODY",
       "board": "PCB_B",
       "side": "FRONT",
       "category": "INDUCTOR",
@@ -607,7 +640,18 @@
     },
     {
       "id": "LABEL_02",
-      "object": "INDUCTOR_B_6R8_PRINT",
+      "object": "INDUCTOR_B_3R3_PRINT",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_03",
+      "object": "INDUCTOR_B_3R3_PRINT2",
       "board": "PCB_B",
       "side": "FRONT",
       "category": "LABEL",
@@ -618,7 +662,7 @@
     },
     {
       "id": "INDUCTOR_08",
-      "object": "INDUCTOR_B_6R8_TERM_+1",
+      "object": "INDUCTOR_B_3R3_TERM_+1",
       "board": "PCB_B",
       "side": "FRONT",
       "category": "INDUCTOR",
@@ -629,7 +673,7 @@
     },
     {
       "id": "INDUCTOR_09",
-      "object": "INDUCTOR_B_6R8_TERM_-1",
+      "object": "INDUCTOR_B_3R3_TERM_-1",
       "board": "PCB_B",
       "side": "FRONT",
       "category": "INDUCTOR",
@@ -650,7 +694,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "LABEL_03",
+      "id": "LABEL_04",
       "object": "PCB_A_2R2_0_mark",
       "board": "PCB_A",
       "side": "FRONT",
@@ -672,7 +716,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "LABEL_04",
+      "id": "LABEL_05",
       "object": "PCB_A_2R2_1_mark",
       "board": "PCB_A",
       "side": "FRONT",
@@ -716,7 +760,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "LABEL_05",
+      "id": "LABEL_06",
       "object": "PCB_A_B_SN",
       "board": "PCB_A",
       "side": "FRONT",
@@ -738,7 +782,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "CONNECTOR_34",
+      "id": "CONNECTOR_37",
       "object": "PCB_A_B_WC_0",
       "board": "PCB_A",
       "side": "FRONT",
@@ -749,7 +793,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "CONNECTOR_35",
+      "id": "CONNECTOR_38",
       "object": "PCB_A_B_WC_1",
       "board": "PCB_A",
       "side": "FRONT",
@@ -760,7 +804,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "CONNECTOR_36",
+      "id": "CONNECTOR_39",
       "object": "PCB_A_B_WC_2",
       "board": "PCB_A",
       "side": "FRONT",
@@ -1200,7 +1244,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "CONNECTOR_37",
+      "id": "CONNECTOR_40",
       "object": "PCB_A_LEFT_CONN",
       "board": "PCB_A",
       "side": "FRONT",
@@ -1244,7 +1288,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "LABEL_06",
+      "id": "LABEL_07",
       "object": "PCB_A_MODULE_LABEL",
       "board": "PCB_A",
       "side": "FRONT",
@@ -1266,7 +1310,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "CONNECTOR_38",
+      "id": "CONNECTOR_41",
       "object": "PCB_A_RIBBON_PLUG",
       "board": "PCB_A",
       "side": "FRONT",
@@ -1882,7 +1926,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "CONNECTOR_39",
+      "id": "CONNECTOR_42",
       "object": "PCB_A_TOP_CONN",
       "board": "PCB_A",
       "side": "FRONT",
@@ -1893,7 +1937,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "LABEL_07",
+      "id": "LABEL_08",
       "object": "PCB_A_ZONE_SN",
       "board": "PCB_A",
       "side": "FRONT",
@@ -1904,7 +1948,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "LABEL_08",
+      "id": "LABEL_09",
       "object": "PCB_A_ZONE_TEXT",
       "board": "PCB_A",
       "side": "FRONT",
