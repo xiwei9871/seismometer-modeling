@@ -1,0 +1,618 @@
+{
+ "MAT4_pcb_a_back": {
+  "base": [
+   0.800000011920929,
+   0.800000011920929,
+   0.800000011920929
+  ],
+  "rough": 0.5,
+  "metal": 0.0,
+  "texture": "TEX4_pcb_a_back.png",
+  "used_by": 0
+ },
+ "MAT4_pcb_a_front": {
+  "base": [
+   0.800000011920929,
+   0.800000011920929,
+   0.800000011920929
+  ],
+  "rough": 0.5,
+  "metal": 0.0,
+  "texture": "TEX4_pcb_a_front.png",
+  "used_by": 0
+ },
+ "MAT4_pcb_b_back": {
+  "base": [
+   0.800000011920929,
+   0.800000011920929,
+   0.800000011920929
+  ],
+  "rough": 0.5,
+  "metal": 0.0,
+  "texture": "TEX4_pcb_b_back.png",
+  "used_by": 0
+ },
+ "MAT4_pcb_b_front": {
+  "base": [
+   0.800000011920929,
+   0.800000011920929,
+   0.800000011920929
+  ],
+  "rough": 0.5,
+  "metal": 0.0,
+  "texture": "TEX4_pcb_b_front.png",
+  "used_by": 0
+ },
+ "MAT_ADHESIVE_WHITE": {
+  "base": [
+   0.699999988079071,
+   0.6899999976158142,
+   0.6499999761581421
+  ],
+  "rough": 0.48,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 2
+ },
+ "MAT_BRAID_METAL": {
+  "base": [
+   0.5,
+   0.5199999809265137,
+   0.550000011920929
+  ],
+  "rough": 0.38,
+  "metal": 0.95,
+  "texture": null,
+  "used_by": 1
+ },
+ "MAT_cable_white": {
+  "base": [
+   0.8199999928474426,
+   0.8100000023841858,
+   0.7799999713897705
+  ],
+  "rough": 0.6,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 1
+ },
+ "MAT_CABLE_WHITE": {
+  "base": [
+   0.7599999904632568,
+   0.7200000286102295,
+   0.6600000262260437
+  ],
+  "rough": 0.55,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 9
+ },
+ "MAT_cap_red": {
+  "base": [
+   0.44999998807907104,
+   0.05000000074505806,
+   0.03999999910593033
+  ],
+  "rough": 0.42,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 0
+ },
+ "MAT_cap_silver": {
+  "base": [
+   0.46000000834465027,
+   0.47999998927116394,
+   0.5199999809265137
+  ],
+  "rough": 0.38,
+  "metal": 0.85,
+  "texture": null,
+  "used_by": 1
+ },
+ "MAT_CAP_SLEEVE_RED": {
+  "base": [
+   0.3799999952316284,
+   0.05000000074505806,
+   0.03999999910593033
+  ],
+  "rough": 0.5,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 2
+ },
+ "MAT_CAP_TOP_METAL": {
+  "base": [
+   0.5799999833106995,
+   0.6000000238418579,
+   0.6399999856948853
+  ],
+  "rough": 0.3,
+  "metal": 0.85,
+  "texture": null,
+  "used_by": 2
+ },
+ "MAT_ceramic_tan": {
+  "base": [
+   0.7200000286102295,
+   0.6200000047683716,
+   0.44999998807907104
+  ],
+  "rough": 0.55,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 0
+ },
+ "MAT_ceramic_white": {
+  "base": [
+   0.8500000238418579,
+   0.8199999928474426,
+   0.75
+  ],
+  "rough": 0.5,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 0
+ },
+ "MAT_CERAMIC_WHITE": {
+  "base": [
+   0.7599999904632568,
+   0.7400000095367432,
+   0.6800000071525574
+  ],
+  "rough": 0.58,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 6
+ },
+ "MAT_CHIP_TAN": {
+  "base": [
+   0.41999998688697815,
+   0.30000001192092896,
+   0.1599999964237213
+  ],
+  "rough": 0.5,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 125
+ },
+ "MAT_COIL_METAL": {
+  "base": [
+   0.6000000238418579,
+   0.5799999833106995,
+   0.5299999713897705
+  ],
+  "rough": 0.32,
+  "metal": 0.92,
+  "texture": null,
+  "used_by": 2
+ },
+ "MAT_coil_silver": {
+  "base": [
+   0.6200000047683716,
+   0.6299999952316284,
+   0.6499999761581421
+  ],
+  "rough": 0.28,
+  "metal": 0.92,
+  "texture": null,
+  "used_by": 0
+ },
+ "MAT_CONJ_CAVITY": {
+  "base": [
+   0.019999999552965164,
+   0.01899999938905239,
+   0.017999999225139618
+  ],
+  "rough": 0.7,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 3
+ },
+ "MAT_connector_dark": {
+  "base": [
+   0.02800000086426735,
+   0.029999999329447746,
+   0.03400000184774399
+  ],
+  "rough": 0.4,
+  "metal": 0.3,
+  "texture": null,
+  "used_by": 0
+ },
+ "MAT_connector_white": {
+  "base": [
+   0.800000011920929,
+   0.7799999713897705,
+   0.7300000190734863
+  ],
+  "rough": 0.55,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 1
+ },
+ "MAT_CONNECTOR_WHITE": {
+  "base": [
+   0.6800000071525574,
+   0.6600000262260437,
+   0.6000000238418579
+  ],
+  "rough": 0.58,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 22
+ },
+ "MAT_COPPER_PATCH": {
+  "base": [
+   0.4399999976158142,
+   0.23999999463558197,
+   0.07999999821186066
+  ],
+  "rough": 0.4,
+  "metal": 0.8,
+  "texture": null,
+  "used_by": 1
+ },
+ "MAT_daughter_green": {
+  "base": [
+   0.10000000149011612,
+   0.23999999463558197,
+   0.10999999940395355
+  ],
+  "rough": 0.42,
+  "metal": 0.1,
+  "texture": null,
+  "used_by": 0
+ },
+ "MAT_DB_TOP_SURF": {
+  "base": [
+   0.800000011920929,
+   0.800000011920929,
+   0.800000011920929
+  ],
+  "rough": 0.45,
+  "metal": 0.0,
+  "texture": "TEX42_db_top.png",
+  "used_by": 1
+ },
+ "MAT_EDGE_GOLD": {
+  "base": [
+   0.44999998807907104,
+   0.3799999952316284,
+   0.2199999988079071
+  ],
+  "rough": 0.42,
+  "metal": 0.85,
+  "texture": null,
+  "used_by": 4
+ },
+ "MAT_EDGEMOD_CREAM": {
+  "base": [
+   0.800000011920929,
+   0.75,
+   0.6200000047683716
+  ],
+  "rough": 0.55,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 1
+ },
+ "MAT_GOLD_PAD": {
+  "base": [
+   0.550000011920929,
+   0.41999998688697815,
+   0.1599999964237213
+  ],
+  "rough": 0.35,
+  "metal": 0.9,
+  "texture": null,
+  "used_by": 14
+ },
+ "MAT_ic_black": {
+  "base": [
+   0.012000000104308128,
+   0.013000000268220901,
+   0.01600000075995922
+  ],
+  "rough": 0.34,
+  "metal": 0.15,
+  "texture": null,
+  "used_by": 165
+ },
+ "MAT_IC_BLACK_02": {
+  "base": [
+   0.009999999776482582,
+   0.010999999940395355,
+   0.013000000268220901
+  ],
+  "rough": 0.5,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 2
+ },
+ "MAT_IC_BLACK_MATTE": {
+  "base": [
+   0.01600000075995922,
+   0.017000000923871994,
+   0.019999999552965164
+  ],
+  "rough": 0.55,
+  "metal": 0.1,
+  "texture": null,
+  "used_by": 138
+ },
+ "MAT_IC_BLACK_SEMIMATTE": {
+  "base": [
+   0.014000000432133675,
+   0.014999999664723873,
+   0.017999999225139618
+  ],
+  "rough": 0.34,
+  "metal": 0.12,
+  "texture": null,
+  "used_by": 42
+ },
+ "MAT_inductor_gray": {
+  "base": [
+   0.30000001192092896,
+   0.30000001192092896,
+   0.3100000023841858
+  ],
+  "rough": 0.45,
+  "metal": 0.1,
+  "texture": null,
+  "used_by": 5
+ },
+ "MAT_INDUCTOR_GREY": {
+  "base": [
+   0.15000000596046448,
+   0.15000000596046448,
+   0.17000000178813934
+  ],
+  "rough": 0.42,
+  "metal": 0.15,
+  "texture": null,
+  "used_by": 5
+ },
+ "MAT_label_white": {
+  "base": [
+   0.8199999928474426,
+   0.8100000023841858,
+   0.7799999713897705
+  ],
+  "rough": 0.65,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 2
+ },
+ "MAT_LABEL_WHITE": {
+  "base": [
+   0.8600000143051147,
+   0.8500000238418579,
+   0.8199999928474426
+  ],
+  "rough": 0.65,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 12
+ },
+ "MAT_LED_WHITE": {
+  "base": [
+   0.8799999952316284,
+   0.8700000047683716,
+   0.800000011920929
+  ],
+  "rough": 0.32,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 3
+ },
+ "MAT_LOGO_DARK": {
+  "base": [
+   0.01600000075995922,
+   0.15000000596046448,
+   0.054999999701976776
+  ],
+  "rough": 0.5,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 0
+ },
+ "MAT_METAL_SCREW": {
+  "base": [
+   0.18000000715255737,
+   0.20000000298023224,
+   0.23999999463558197
+  ],
+  "rough": 0.3,
+  "metal": 0.95,
+  "texture": null,
+  "used_by": 20
+ },
+ "MAT_MOD_TOP_SURF": {
+  "base": [
+   0.800000011920929,
+   0.800000011920929,
+   0.800000011920929
+  ],
+  "rough": 0.42,
+  "metal": 0.0,
+  "texture": "TEX42_mod_top.png",
+  "used_by": 1
+ },
+ "MAT_module_black": {
+  "base": [
+   0.019999999552965164,
+   0.020999999716877937,
+   0.024000000208616257
+  ],
+  "rough": 0.3,
+  "metal": 0.1,
+  "texture": null,
+  "used_by": 0
+ },
+ "MAT_MODULE_PCB_BLACK": {
+  "base": [
+   0.017999999225139618,
+   0.024000000208616257,
+   0.020999999716877937
+  ],
+  "rough": 0.46,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 6
+ },
+ "MAT_pcb_edge": {
+  "base": [
+   0.30000001192092896,
+   0.41999998688697815,
+   0.25999999046325684
+  ],
+  "rough": 0.55,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 2
+ },
+ "MAT_PCB_GREEN_A_BACK": {
+  "base": [
+   0.800000011920929,
+   0.800000011920929,
+   0.800000011920929
+  ],
+  "rough": 0.45,
+  "metal": 0.0,
+  "texture": "TEX42_pcb_a_back.png",
+  "used_by": 1
+ },
+ "MAT_PCB_GREEN_A_FRONT": {
+  "base": [
+   0.800000011920929,
+   0.800000011920929,
+   0.800000011920929
+  ],
+  "rough": 0.45,
+  "metal": 0.0,
+  "texture": "TEX42_pcb_a_front.png",
+  "used_by": 1
+ },
+ "MAT_PCB_GREEN_B_BACK": {
+  "base": [
+   0.800000011920929,
+   0.800000011920929,
+   0.800000011920929
+  ],
+  "rough": 0.45,
+  "metal": 0.0,
+  "texture": "TEX42_pcb_b_back.png",
+  "used_by": 1
+ },
+ "MAT_PCB_GREEN_B_FRONT": {
+  "base": [
+   0.800000011920929,
+   0.800000011920929,
+   0.800000011920929
+  ],
+  "rough": 0.45,
+  "metal": 0.0,
+  "texture": "TEX42_pcb_b_front.png",
+  "used_by": 1
+ },
+ "MAT_pin_metal": {
+  "base": [
+   0.550000011920929,
+   0.550000011920929,
+   0.5799999833106995
+  ],
+  "rough": 0.35,
+  "metal": 0.9,
+  "texture": null,
+  "used_by": 28
+ },
+ "MAT_PRINT_DARK": {
+  "base": [
+   0.09000000357627869,
+   0.09000000357627869,
+   0.10000000149011612
+  ],
+  "rough": 0.6,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 14
+ },
+ "MAT_shield_metal": {
+  "base": [
+   0.47999998927116394,
+   0.5,
+   0.5400000214576721
+  ],
+  "rough": 0.32,
+  "metal": 0.9,
+  "texture": null,
+  "used_by": 0
+ },
+ "MAT_SHIELD_PLATE": {
+  "base": [
+   0.41999998688697815,
+   0.4399999976158142,
+   0.47999998927116394
+  ],
+  "rough": 0.35,
+  "metal": 0.9,
+  "texture": null,
+  "used_by": 2
+ },
+ "MAT_SUBBOARD_DARK": {
+  "base": [
+   0.02199999988079071,
+   0.1899999976158142,
+   0.07000000029802322
+  ],
+  "rough": 0.5,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 5
+ },
+ "MAT_SUBBOARD_GREEN": {
+  "base": [
+   0.029999999329447746,
+   0.25999999046325684,
+   0.0949999988079071
+  ],
+  "rough": 0.44,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 1
+ },
+ "MAT_tantalum": {
+  "base": [
+   0.44999998807907104,
+   0.23999999463558197,
+   0.09000000357627869
+  ],
+  "rough": 0.45,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 10
+ },
+ "MAT_TERMINAL_METAL": {
+  "base": [
+   0.550000011920929,
+   0.5600000023841858,
+   0.6000000238418579
+  ],
+  "rough": 0.3,
+  "metal": 0.95,
+  "texture": null,
+  "used_by": 139
+ },
+ "MAT_v4_floor": {
+  "base": [
+   0.03500000014901161,
+   0.03799999877810478,
+   0.04500000178813934
+  ],
+  "rough": 0.92,
+  "metal": 0.0,
+  "texture": null,
+  "used_by": 1
+ }
+}

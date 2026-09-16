@@ -1,0 +1,31 @@
+{
+ "stage": "STEP4_SURFACE",
+ "blend": "pcb_v42_surface.blend",
+ "textures": {
+  "TEX42_pcb_a_front": "textures/TEX42_pcb_a_front.png",
+  "TEX42_pcb_a_back": "textures/TEX42_pcb_a_back.png",
+  "TEX42_pcb_b_front": "textures/TEX42_pcb_b_front.png",
+  "TEX42_pcb_b_back": "textures/TEX42_pcb_b_back.png",
+  "TEX42_mod_top": "textures/TEX42_mod_top.png",
+  "TEX42_db_top": "textures/TEX42_db_top.png"
+ },
+ "texture_source": "registered photos (real traces/vias/pads/silkscreen extracted; no procedural routing)",
+ "smt_fields": {
+  "a_front": 2299,
+  "a_back": 376,
+  "b_front": 324,
+  "b_back": 76
+ },
+ "new_parts": 302,
+ "frozen_geometry": [
+  "PCB_A outline+holes",
+  "PCB_B outline+holes",
+  "PCB-B connectors/inductors (STEP1.1b)",
+  "A_MAIN_BLACK_MODULE (STEP2)",
+  "A_CERAMIC_PATCH_ANT (STEP3)",
+  "A_COIL_SUBBOARD (STEP3)"
+ ],
+ "removed_decals": "daughterboard logo/pads/SN/pinmarks/triangles now carried by the real photo texture",
+ "sn_policy": "master keeps real SN; objects flagged serial_real must render 'SN: XXXXXXXX' in PUBLIC_WEB exports",
+ "public_web_note": "replace serials: A_BK_SN, A_DB_SN(texture), module CLMP157BI sticker region"
+}
