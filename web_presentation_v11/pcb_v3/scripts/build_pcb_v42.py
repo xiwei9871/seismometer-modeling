@@ -421,13 +421,13 @@ def main():
     BZB = -TOP_Z
     bb = []
     # photo positions mirrored to board coords (back photo = x-flip)
-    bb.append(cyl_at("B_BK_CAP1", (3.7, -28.3, BZB - 3.5), 3.75, 7.0,
+    bb.append(cyl_at("B_BK_CAP1", (4.1, -19.9 - 80.0, BZB - 3.5), 3.75, 7.0,
                      "MAT_CAP_SLEEVE_RED", "BULK_CAP", board_b))
-    bb.append(cyl_at("B_BK_CAP1_TOP", (3.7, -28.3, BZB - 7.15), 3.5, 0.5,
+    bb.append(cyl_at("B_BK_CAP1_TOP", (4.1, -19.9 - 80.0, BZB - 7.15), 3.5, 0.5,
                      "MAT_CAP_TOP_METAL", "BULK_CAP_TOP", board_b))
-    bb.append(cyl_at("B_BK_CAP2", (5.0, -21.5, BZB - 2.8), 2.5, 5.5,
+    bb.append(cyl_at("B_BK_CAP2", (3.5, -16.6 - 80.0, BZB - 2.8), 2.5, 5.5,
                      "MAT_CAP_SLEEVE_RED", "BULK_CAP", board_b))
-    bb.append(cyl_at("B_BK_CAP2_TOP", (5.0, -21.5, BZB - 5.7), 2.3, 0.4,
+    bb.append(cyl_at("B_BK_CAP2_TOP", (3.5, -16.6 - 80.0, BZB - 5.7), 2.3, 0.4,
                      "MAT_CAP_TOP_METAL", "BULK_CAP_TOP", board_b))
     for o in bb:
         o.parent = bpy.data.objects["PCB_B_AUXILIARY_BOARD_BOTTOM"]

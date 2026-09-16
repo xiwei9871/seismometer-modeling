@@ -164,6 +164,21 @@ def bake(name, size_mm, holes, slot, reg_png, res=2048):
 
     out = TEX / f"{name}.png"
     cv2.imwrite(str(out), np.clip(base, 0, 255).astype(np.uint8))
+
+    # STEP 5: control masks for the material — silk ink (warm, rough,
+    # dielectric) vs exposed metal (solder pads, plated rings)
+    metal = pad.copy()
+    for hx, hy, hr in holes:
+        cv2.circle(metal, (mx(hx), my(hy)),
+                   int(hr * pxmm) + int(0.8 * pxmm), 255, int(0.7 * pxmm))
+    if slot:
+        sx, sy, sw_, sh_, srot = slot
+        cv2.ellipse(metal, (mx(sx), my(sy)),
+                    (int(sw_ / 2 * pxmm) + int(0.8 * pxmm),
+                     int(sh_ / 2 * pxmm) + int(0.8 * pxmm)),
+                    np.degrees(-srot), 0, 360, 255, int(0.7 * pxmm))
+    cv2.imwrite(str(TEX / f"{name}_silk.png"), silk)
+    cv2.imwrite(str(TEX / f"{name}_metal.png"), metal)
     print(f"[bake42] {name} {w}x{h} silk={int((silk>0).sum())} "
           f"via={int((via>0).sum())} pad={int((pad>0).sum())}")
     return out
@@ -236,13 +251,18 @@ def bake_region(name, reg_png, board_mm, rect_mm, res, tone,
     crop = cv2.resize(crop, (cw, ch))
     if neutral_mm:
         m = np.zeros(crop.shape[:2], np.uint8)
+        grow = 0.8                       # widen masks to hide photo ghosts
         for ncx, ncy, nw, nh in neutral_mm:
+            nw, nh = nw + 2 * grow, nh + 2 * grow
             nx = int((ncx - (cx - w_ / 2)) / w_ * cw)
             ny = int(((cy + h_ / 2) - ncy) / h_ * ch)
             cv2.rectangle(m, (int(nx - nw / w_ * cw / 2), int(ny - nh / h_ * ch / 2)),
                           (int(nx + nw / w_ * cw / 2), int(ny + nh / h_ * ch / 2)),
                           255, -1)
-        crop[m > 0] = neutral_tone or tone
+        m = cv2.GaussianBlur(m, (0, 0), 5) / 255.0
+        fill = cv2.GaussianBlur(crop, (0, 0), 11)   # local tone, ghost-free
+        crop = (crop * (1 - m[:, :, None])
+                + fill * m[:, :, None]).astype(np.uint8)
     out = TEX / f"{name}.png"
     cv2.imwrite(str(out), crop)
     print(f"[bake42] {name} {cw}x{ch}")

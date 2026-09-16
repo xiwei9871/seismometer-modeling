@@ -1,0 +1,554 @@
+{
+ "MAT_ADHESIVE_WHITE": {
+  "base": [
+   0.66,
+   0.65,
+   0.61
+  ],
+  "rough": 0.44,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_BRAID_METAL": {
+  "base": [
+   0.5,
+   0.52,
+   0.56
+  ],
+  "rough": 0.34,
+  "metal": 0.95,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_cable_white": {
+  "base": [
+   0.82,
+   0.81,
+   0.78
+  ],
+  "rough": 0.6,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_CABLE_WHITE": {
+  "base": [
+   0.62,
+   0.59,
+   0.54
+  ],
+  "rough": 0.44,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_cap_red": {
+  "base": [
+   0.45,
+   0.05,
+   0.04
+  ],
+  "rough": 0.42,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_cap_silver": {
+  "base": [
+   0.46,
+   0.48,
+   0.52
+  ],
+  "rough": 0.38,
+  "metal": 0.85,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_CAP_SLEEVE_RED": {
+  "base": [
+   0.3,
+   0.045,
+   0.035
+  ],
+  "rough": 0.48,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_CAP_TOP_METAL": {
+  "base": [
+   0.6,
+   0.62,
+   0.66
+  ],
+  "rough": 0.27,
+  "metal": 0.95,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_CERAMIC_WHITE": {
+  "base": [
+   0.8,
+   0.77,
+   0.7
+  ],
+  "rough": 0.48,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_CHIP_TAN": {
+  "base": [
+   0.34,
+   0.26,
+   0.17
+  ],
+  "rough": 0.54,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_COIL_METAL": {
+  "base": [
+   0.58,
+   0.56,
+   0.51
+  ],
+  "rough": 0.3,
+  "metal": 0.95,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_CONJ_CAVITY": {
+  "base": [
+   0.016,
+   0.015,
+   0.014
+  ],
+  "rough": 0.72,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_connector_white": {
+  "base": [
+   0.8,
+   0.78,
+   0.73
+  ],
+  "rough": 0.55,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_CONNECTOR_WHITE": {
+  "base": [
+   0.5,
+   0.47,
+   0.42
+  ],
+  "rough": 0.55,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_COPPER_PATCH": {
+  "base": [
+   0.38,
+   0.2,
+   0.065
+  ],
+  "rough": 0.27,
+  "metal": 1.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_DB_TOP_SURF": {
+  "base": [
+   0.8,
+   0.8,
+   0.8
+  ],
+  "rough": 0.5,
+  "metal": 0.0,
+  "coat": 0.1,
+  "texture": "TEX42_db_top.png.001",
+  "layered": "photo crop"
+ },
+ "MAT_EDGE_GOLD": {
+  "base": [
+   0.42,
+   0.34,
+   0.18
+  ],
+  "rough": 0.35,
+  "metal": 0.85,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_EDGEMOD_CREAM": {
+  "base": [
+   0.78,
+   0.73,
+   0.6
+  ],
+  "rough": 0.55,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_GOLD_PAD": {
+  "base": [
+   0.42,
+   0.32,
+   0.12
+  ],
+  "rough": 0.26,
+  "metal": 1.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_ic_black": {
+  "base": [
+   0.012,
+   0.013,
+   0.016
+  ],
+  "rough": 0.34,
+  "metal": 0.15,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_IC_BLACK_02": {
+  "base": [
+   0.012,
+   0.013,
+   0.015
+  ],
+  "rough": 0.4,
+  "metal": 0.1,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_IC_BLACK_MATTE": {
+  "base": [
+   0.02,
+   0.021,
+   0.024
+  ],
+  "rough": 0.45,
+  "metal": 0.08,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_IC_BLACK_SEMIMATTE": {
+  "base": [
+   0.016,
+   0.017,
+   0.02
+  ],
+  "rough": 0.34,
+  "metal": 0.1,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_inductor_gray": {
+  "base": [
+   0.3,
+   0.3,
+   0.31
+  ],
+  "rough": 0.45,
+  "metal": 0.1,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_INDUCTOR_GREY": {
+  "base": [
+   0.16,
+   0.16,
+   0.18
+  ],
+  "rough": 0.52,
+  "metal": 0.05,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_label_white": {
+  "base": [
+   0.82,
+   0.81,
+   0.78
+  ],
+  "rough": 0.65,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_LABEL_WHITE": {
+  "base": [
+   0.66,
+   0.65,
+   0.62
+  ],
+  "rough": 0.62,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_LED_WHITE": {
+  "base": [
+   0.55,
+   0.54,
+   0.5
+  ],
+  "rough": 0.38,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_LOGO_DARK": {
+  "base": [
+   0.016,
+   0.14,
+   0.052
+  ],
+  "rough": 0.55,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_METAL_SCREW": {
+  "base": [
+   0.19,
+   0.21,
+   0.25
+  ],
+  "rough": 0.3,
+  "metal": 0.95,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_MOD_TOP_SURF": {
+  "base": [
+   0.8,
+   0.8,
+   0.8
+  ],
+  "rough": 0.5,
+  "metal": 0.0,
+  "coat": 0.1,
+  "texture": "TEX42_mod_top.png.001",
+  "layered": "photo crop"
+ },
+ "MAT_MODULE_PCB_BLACK": {
+  "base": [
+   0.016,
+   0.021,
+   0.019
+  ],
+  "rough": 0.44,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_pcb_edge": {
+  "base": [
+   0.16,
+   0.22,
+   0.12
+  ],
+  "rough": 0.5,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_PCB_GREEN_A_BACK": {
+  "base": [
+   0.8,
+   0.8,
+   0.8
+  ],
+  "rough": 0.5,
+  "metal": 0.0,
+  "coat": 0.15,
+  "texture": "TEX42_pcb_a_back.png.001",
+  "layered": "silk+metal masks"
+ },
+ "MAT_PCB_GREEN_A_FRONT": {
+  "base": [
+   0.8,
+   0.8,
+   0.8
+  ],
+  "rough": 0.5,
+  "metal": 0.0,
+  "coat": 0.15,
+  "texture": "TEX42_pcb_a_front.png.001",
+  "layered": "silk+metal masks"
+ },
+ "MAT_PCB_GREEN_B_BACK": {
+  "base": [
+   0.8,
+   0.8,
+   0.8
+  ],
+  "rough": 0.5,
+  "metal": 0.0,
+  "coat": 0.15,
+  "texture": "TEX42_pcb_b_back.png.001",
+  "layered": "silk+metal masks"
+ },
+ "MAT_PCB_GREEN_B_FRONT": {
+  "base": [
+   0.8,
+   0.8,
+   0.8
+  ],
+  "rough": 0.5,
+  "metal": 0.0,
+  "coat": 0.15,
+  "texture": "TEX42_pcb_b_front.png.001",
+  "layered": "silk+metal masks"
+ },
+ "MAT_pin_metal": {
+  "base": [
+   0.55,
+   0.55,
+   0.58
+  ],
+  "rough": 0.35,
+  "metal": 0.9,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_PRINT_DARK": {
+  "base": [
+   0.06,
+   0.06,
+   0.07
+  ],
+  "rough": 0.62,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_shield_metal": {
+  "base": [
+   0.44,
+   0.46,
+   0.5
+  ],
+  "rough": 0.38,
+  "metal": 0.9,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_SHIELD_PLATE": {
+  "base": [
+   0.44,
+   0.46,
+   0.5
+  ],
+  "rough": 0.38,
+  "metal": 0.9,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_SUBBOARD_DARK": {
+  "base": [
+   0.022,
+   0.18,
+   0.066
+  ],
+  "rough": 0.52,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_SUBBOARD_GREEN": {
+  "base": [
+   0.03,
+   0.24,
+   0.09
+  ],
+  "rough": 0.46,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_tantalum": {
+  "base": [
+   0.45,
+   0.24,
+   0.09
+  ],
+  "rough": 0.45,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_TERMINAL_METAL": {
+  "base": [
+   0.52,
+   0.54,
+   0.58
+  ],
+  "rough": 0.28,
+  "metal": 0.95,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ },
+ "MAT_v4_floor": {
+  "base": [
+   0.03,
+   0.032,
+   0.038
+  ],
+  "rough": 0.85,
+  "metal": 0.0,
+  "coat": 0.0,
+  "texture": null,
+  "layered": "flat"
+ }
+}
