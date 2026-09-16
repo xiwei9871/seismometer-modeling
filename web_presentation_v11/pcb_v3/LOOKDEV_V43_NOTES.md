@@ -107,3 +107,19 @@ board in `07_B_back_final`).  Photo-verified board-local targets
 `lookdev_pcb_v43.py` and source `build_pcb_v42.py` coords corrected
 (`board_local − 80`).  Whitelisted in the regression report —
 all other frozen objects diff-clean.
+
+## STEP 5.1 — pre-freeze material corrections (gate feedback)
+
+- `A_COIL_SUBBOARD`: killed glass/resin read — coat 0.10→0.04,
+  explicit Transmission=0, `MAT_SUBBOARD_GREEN` darkened to opaque
+  FR4 green, `MAT_DB_TOP_SURF` val 0.78 / rough 0.48
+- `MAT_MODULE_PCB_BLACK` + `MAT_MOD_TOP_SURF`: charcoal carrier —
+  neutral base, roughness 0.55–0.58, spec 0.25–0.28, photo texture
+  desaturated to sat 0.42 / val 0.68 (residual streaks are baked
+  photo content of the real shielded lid, kept subdued)
+- `MAT_METAL_SCREW` (antenna screws+washers, module hardware):
+  industrial zinc/steel — rough 0.37, darker base, spec 0.32
+- Global soldermask value −7% (0.88→0.82), saturation unchanged
+- `MAT_INDUCTOR_GREY` darkened (moulded grey, not light plastic)
+- Re-rendered 01/03/08/09/10; regression re-run: PASS
+  (821 objects 0-diff, 18 cameras 0-diff)

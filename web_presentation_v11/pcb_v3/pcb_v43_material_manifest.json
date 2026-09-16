@@ -187,7 +187,7 @@
   ],
   "rough": 0.5,
   "metal": 0.0,
-  "coat": 0.1,
+  "coat": 0.04,
   "texture": "TEX42_db_top.png.001",
   "layered": "photo crop"
  },
@@ -289,11 +289,11 @@
  },
  "MAT_INDUCTOR_GREY": {
   "base": [
-   0.16,
-   0.16,
-   0.18
+   0.115,
+   0.115,
+   0.13
   ],
-  "rough": 0.52,
+  "rough": 0.55,
   "metal": 0.05,
   "coat": 0.0,
   "texture": null,
@@ -349,11 +349,11 @@
  },
  "MAT_METAL_SCREW": {
   "base": [
-   0.19,
-   0.21,
-   0.25
+   0.14,
+   0.15,
+   0.18
   ],
-  "rough": 0.3,
+  "rough": 0.37,
   "metal": 0.95,
   "coat": 0.0,
   "texture": null,
@@ -367,17 +367,17 @@
   ],
   "rough": 0.5,
   "metal": 0.0,
-  "coat": 0.1,
+  "coat": 0.04,
   "texture": "TEX42_mod_top.png.001",
   "layered": "photo crop"
  },
  "MAT_MODULE_PCB_BLACK": {
   "base": [
-   0.016,
-   0.021,
-   0.019
+   0.012,
+   0.012,
+   0.013
   ],
-  "rough": 0.44,
+  "rough": 0.55,
   "metal": 0.0,
   "coat": 0.0,
   "texture": null,
@@ -493,11 +493,11 @@
  },
  "MAT_SUBBOARD_DARK": {
   "base": [
-   0.022,
-   0.18,
-   0.066
+   0.016,
+   0.13,
+   0.048
   ],
-  "rough": 0.52,
+  "rough": 0.55,
   "metal": 0.0,
   "coat": 0.0,
   "texture": null,
@@ -505,11 +505,11 @@
  },
  "MAT_SUBBOARD_GREEN": {
   "base": [
-   0.03,
-   0.24,
-   0.09
+   0.02,
+   0.155,
+   0.058
   ],
-  "rough": 0.46,
+  "rough": 0.48,
   "metal": 0.0,
   "coat": 0.0,
   "texture": null,

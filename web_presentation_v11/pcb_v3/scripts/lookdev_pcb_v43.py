@@ -88,7 +88,7 @@ def soldermask_mat(name, tex_base):
     # industrial deep green: pull saturation/value down
     hs = _n(nt, "ShaderNodeHueSaturation", -420, 120)
     hs.inputs["Saturation"].default_value = 0.78
-    hs.inputs["Value"].default_value = 0.88
+    hs.inputs["Value"].default_value = 0.82
     nt.links.new(tex.outputs["Color"], hs.inputs["Color"])
 
     # base colour: silk pixels pulled toward warm off-white ink
@@ -153,7 +153,7 @@ def soldermask_mat(name, tex_base):
 
 
 def surface_mat(name, tex_base, rough=0.44, bump_strength=0.08,
-                sat=0.90, val=0.92):
+                sat=0.90, val=0.92, spec=None):
     """simpler textured top surface (module / daughterboard)."""
     m = bpy.data.materials.get(name) or bpy.data.materials.new(name)
     m.use_nodes = True
@@ -182,8 +182,11 @@ def surface_mat(name, tex_base, rough=0.44, bump_strength=0.08,
     bump.inputs["Distance"].default_value = 0.03
     nt.links.new(bw.outputs["Val"], bump.inputs["Height"])
     nt.links.new(bump.outputs["Normal"], bsdf.inputs["Normal"])
-    bsdf.inputs["Coat Weight"].default_value = 0.10
-    bsdf.inputs["Coat Roughness"].default_value = 0.35
+    bsdf.inputs["Coat Weight"].default_value = 0.04
+    bsdf.inputs["Coat Roughness"].default_value = 0.38
+    bsdf.inputs["Transmission Weight"].default_value = 0.0
+    if spec is not None:
+        bsdf.inputs["Specular IOR Level"].default_value = spec
     return m
 
 
@@ -249,16 +252,16 @@ def main():
     soldermask_mat("MAT_PCB_GREEN_A_BACK", "TEX42_pcb_a_back")
     soldermask_mat("MAT_PCB_GREEN_B_FRONT", "TEX42_pcb_b_front")
     soldermask_mat("MAT_PCB_GREEN_B_BACK", "TEX42_pcb_b_back")
-    surface_mat("MAT_MOD_TOP_SURF", "TEX42_mod_top", rough=0.42)
-    surface_mat("MAT_DB_TOP_SURF", "TEX42_db_top", rough=0.52, sat=0.80, val=0.82)
+    surface_mat("MAT_MOD_TOP_SURF", "TEX42_mod_top", rough=0.58, sat=0.42, val=0.68, spec=0.25)
+    surface_mat("MAT_DB_TOP_SURF", "TEX42_db_top", rough=0.48, sat=0.80, val=0.78)
 
     _mat("MAT_pcb_edge", (0.16, 0.22, 0.12), 0.5)
     _mat("MAT_IC_BLACK_MATTE", (0.020, 0.021, 0.024), 0.45, 0.08)
     _mat("MAT_IC_BLACK_SEMIMATTE", (0.016, 0.017, 0.020), 0.34, 0.10)
     _mat("MAT_IC_BLACK_02", (0.012, 0.013, 0.015), 0.40, 0.10)
-    _mat("MAT_MODULE_PCB_BLACK", (0.016, 0.021, 0.019), 0.44)
+    _mat("MAT_MODULE_PCB_BLACK", (0.012, 0.012, 0.013), 0.55, spec=0.28)
     _mat("MAT_CHIP_TAN", (0.34, 0.26, 0.17), 0.54)
-    _mat("MAT_INDUCTOR_GREY", (0.16, 0.16, 0.18), 0.52, 0.05)
+    _mat("MAT_INDUCTOR_GREY", (0.115, 0.115, 0.13), 0.55, 0.05)
     _mat("MAT_PRINT_DARK", (0.06, 0.06, 0.07), 0.62)
     _mat("MAT_CONNECTOR_WHITE", (0.50, 0.47, 0.42), 0.55, spec=0.30)
     _mat("MAT_CONJ_CAVITY", (0.016, 0.015, 0.014), 0.72)
@@ -269,10 +272,10 @@ def main():
     _mat("MAT_COPPER_PATCH", (0.38, 0.20, 0.065), 0.27, 1.0)
     _mat("MAT_GOLD_PAD", (0.42, 0.32, 0.12), 0.26, 1.0)
     _mat("MAT_TERMINAL_METAL", (0.52, 0.54, 0.58), 0.28, 0.95)
-    _mat("MAT_METAL_SCREW", (0.19, 0.21, 0.25), 0.30, 0.95)
+    _mat("MAT_METAL_SCREW", (0.14, 0.15, 0.18), 0.37, 0.95, spec=0.32)
     _mat("MAT_COIL_METAL", (0.58, 0.56, 0.51), 0.30, 0.95)
-    _mat("MAT_SUBBOARD_GREEN", (0.030, 0.24, 0.090), 0.46)
-    _mat("MAT_SUBBOARD_DARK", (0.022, 0.18, 0.066), 0.52)
+    _mat("MAT_SUBBOARD_GREEN", (0.020, 0.155, 0.058), 0.48)
+    _mat("MAT_SUBBOARD_DARK", (0.016, 0.13, 0.048), 0.55)
     _mat("MAT_LOGO_DARK", (0.016, 0.14, 0.052), 0.55)
     _mat("MAT_LED_WHITE", (0.55, 0.54, 0.50), 0.38)
     _mat("MAT_CAP_SLEEVE_RED", (0.30, 0.045, 0.035), 0.48)
