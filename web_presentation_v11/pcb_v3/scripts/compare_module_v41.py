@@ -1,14 +1,14 @@
-"""STEP 2 photo-match overlay for the A main black module.
+"""Photo-match region overlays for the A-board STEP 2/3 features.
 
-Crops the module rectangle out of the registered A-front photo and the
-v41 top-down render (aligned by the green board masks), alpha-blends the
-pair, and tiles a 6-image contact sheet.
+Crops a feature rectangle out of the registered A-front photo and the
+v41 top-down render (both aligned by their green board masks), writes a
+reference crop, a matched render crop and a 50/50 overlay per region,
+plus a contact sheet for the module review set.
 
 Outputs into validation_v41/:
-  A_module_reference_crop.png   photo crop
-  A_module_render_match.png     render crop (04)
-  A_module_overlay.png          50/50 blend  (05)
-  A_module_contact_sheet.png    all six      (06)
+  A_<region>_reference_crop.png / A_<region>_render_match.png /
+  A_<region>_overlay.png        for region in module, antenna, coil
+  A_module_contact_sheet.png    six-image STEP2 review sheet
 
 Run: .venv/bin/python scripts/compare_module_v41.py
 """
@@ -23,9 +23,13 @@ REG = HERE / "registration"
 REN = HERE / "renders_v41"
 OUT = HERE / "validation_v41"
 
-# module rect in board-local mm (x_min, x_max, y_min, y_max) — measured
-# on registered_a_front, includes screw heads, small margin
-MOD_MM = (-23.5, 20.5, 14.5, 45.5)
+# board-local mm rects (x_min, x_max, y_min, y_max) — measured on
+# registered_a_front; each includes the feature + a small margin
+REGIONS = {
+    "module":   (-23.5, 20.5, 14.5, 45.5),
+    "antenna":  (-35.5, -9.0, -43.5, -17.0),
+    "coil":     (-12.0, 18.5, -50.5, -8.0),
+}
 
 
 def green_mask(img):
@@ -75,20 +79,20 @@ def main():
     if render is None:
         sys.exit("missing renders_v41/v41_topdown_a_front.png")
 
-    # board spans 104x101.1 mm on the photo and the same in the render
-    pc = crop_mm(photo, 104.0, 101.1, MOD_MM)
-    rc = crop_mm(render, 104.0, 101.1, MOD_MM)
-    if rc.size == 0 or pc.size == 0:
-        sys.exit("empty crop — check board mask / render")
-    rc = cv2.resize(rc, (pc.shape[1], pc.shape[0]))
-
-    overlay = cv2.addWeighted(pc, 0.5, rc, 0.5, 0)
-    cv2.rectangle(overlay, (2, 2), (overlay.shape[1] - 3,
-                  overlay.shape[0] - 3), (0, 255, 255), 2)
-    cv2.imwrite(str(OUT / "A_module_reference_crop.png"), pc)
-    cv2.imwrite(str(OUT / "A_module_render_match.png"), rc)
-    cv2.imwrite(str(OUT / "A_module_overlay.png"), overlay)
-    print("[module] wrote reference/render/overlay crops")
+    for tag, rect in REGIONS.items():
+        pc = crop_mm(photo, 104.0, 101.1, rect)
+        rc = crop_mm(render, 104.0, 101.1, rect)
+        if rc.size == 0 or pc.size == 0:
+            print(f"[{tag}] empty crop — skipped")
+            continue
+        rc = cv2.resize(rc, (pc.shape[1], pc.shape[0]))
+        overlay = cv2.addWeighted(pc, 0.5, rc, 0.5, 0)
+        cv2.rectangle(overlay, (2, 2), (overlay.shape[1] - 3,
+                      overlay.shape[0] - 3), (0, 255, 255), 2)
+        cv2.imwrite(str(OUT / f"A_{tag}_reference_crop.png"), pc)
+        cv2.imwrite(str(OUT / f"A_{tag}_render_match.png"), rc)
+        cv2.imwrite(str(OUT / f"A_{tag}_overlay.png"), overlay)
+        print(f"[{tag}] wrote reference/render/overlay crops")
 
     sheet_imgs = [OUT / "A_module_reference_crop.png",
                   OUT / "A_module_render_match.png",

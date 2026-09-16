@@ -56,11 +56,18 @@ def build_a3_materials():
     # STEP 2 module set — black PCB / die / hardware kept distinguishable
     _mat("MAT_MODULE_PCB_BLACK", (0.018, 0.024, 0.021), 0.46)  # charcoal-green
     _mat("MAT_IC_BLACK_02", (0.010, 0.011, 0.013), 0.50)       # deeper matte
-    _mat("MAT_METAL_SCREW", (0.30, 0.32, 0.36), 0.28, 0.95)
+    _mat("MAT_METAL_SCREW", (0.20, 0.22, 0.26), 0.26, 0.95)
     _mat("MAT_CABLE_WHITE", (0.76, 0.72, 0.66), 0.55)          # soft warm polymer
     _mat("MAT_ADHESIVE_WHITE", (0.70, 0.69, 0.65), 0.48)       # matte-ish glue
     _mat("MAT_LABEL_WHITE", (0.86, 0.85, 0.82), 0.65)          # flat print
     _mat("MAT_EDGE_GOLD", (0.45, 0.38, 0.22), 0.42, 0.85)      # exposed edge
+    # STEP 3 — ceramic patch antenna + coil subboard
+    _mat("MAT_CERAMIC_WHITE", (0.82, 0.80, 0.74), 0.50)
+    _mat("MAT_COPPER_PATCH", (0.50, 0.27, 0.09), 0.35, 0.82)
+    _mat("MAT_SUBBOARD_GREEN", (0.030, 0.26, 0.095), 0.44)
+    _mat("MAT_SUBBOARD_DARK", (0.022, 0.19, 0.070), 0.50)      # coil pad
+    _mat("MAT_COIL_METAL", (0.60, 0.58, 0.53), 0.32, 0.92)     # tinned spiral
+    _mat("MAT_LOGO_DARK", (0.016, 0.15, 0.055), 0.50)          # etched logo
 
 
 # ---------------------------------------------------------------------------
@@ -341,6 +348,28 @@ def ic_leaded(name, x, y, w, d, h, z_base, board, rot=0.0,
     return parts
 
 
+def spiral_curve(name, cx, cy, z, r0, r1, turns, radius, mk, sem, parent):
+    """flat archimedean spiral — the wound metallic coil."""
+    cu = bpy.data.curves.new(name + "_c", "CURVE")
+    cu.dimensions = "3D"
+    cu.resolution_u = 2
+    cu.bevel_depth = radius
+    cu.bevel_resolution = 3
+    n = int(turns * 24)
+    spl = cu.splines.new("POLY")
+    spl.points.add(n - 1)
+    for i in range(n):
+        t = i / (n - 1)
+        a = 2 * math.pi * turns * t
+        r = r0 + (r1 - r0) * t
+        spl.points[i].co = (cx + r * math.cos(a), cy + r * math.sin(a),
+                            z, 1)
+    o = bpy.data.objects.new(name, cu)
+    bpy.context.scene.collection.objects.link(o)
+    _assign(o, mk, sem, parent)
+    return o
+
+
 def top_marking(name, text, x, y, z, size, board, rot=0.0):
     """flat printed marking (e.g. '3R3') straight on the package top."""
     cu = bpy.data.curves.new(name + "_c", "FONT")
@@ -447,7 +476,7 @@ CATEGORY_MAP = {
     "MODULE_PCB": "MODULE", "MODULE_EDGE": "MODULE",
     "STANDOFF": "MOUNTING_HARDWARE", "FASTENER": "FASTENER",
     "ADHESIVE": "MOUNTING_HARDWARE", "LABEL": "LABEL",
-    "IC": "SMALL_IC",
+    "IC": "SMALL_IC", "TEST_PAD": "TEST_PAD",
 }
 CONF = {"CONNECTOR": "HIGH", "MODULE": "HIGH", "ANTENNA": "HIGH",
         "COIL": "HIGH", "INDUCTOR": "MEDIUM", "LARGE_IC": "MEDIUM",
@@ -694,6 +723,131 @@ def main():
     mp += blob("A_MOD_GLUE_END", (8.9, 27.5, MOD_TOP + 0.3),
                1.5, 1.4, 0.65, "MAT_ADHESIVE_WHITE", "ADHESIVE", board_a)
 
+    # --- STEP 3: ceramic patch antenna + coil subboard --------------------
+    # CV-measured on registered_a_front crops:
+    #   antenna frame 22x22 @ (-22,-29.9), 4 corner screws, left-edge slot,
+    #   copper ring + white ceramic centre + feed dot
+    #   daughterboard 27x41 @ (3,-29) raised ~1.0, etched maze logo top,
+    #   6 silver pads, flat wound spiral Ø14.5 @ (0.25,-37.5) on darker
+    #   pad, pin row under coil, vertical SN label at left edge
+    _kill(["PCB_A_CERAMIC_ANT", "PCB_A_ANT_PATCH", "PCB_A_ANT_DOT",
+           "PCB_A_SHIELD_ZONE", "PCB_A_SHIELD_IC", "PCB_A_ZONE_SN",
+           "PCB_A_ZONE_TEXT", "PCB_A_COIL_BASE"] +
+          [f"PCB_A_COIL_{i}" for i in range(4)])
+    sp = []
+    AX, AY = -21.5, -31.6                       # antenna centre (photo)
+    # white ceramic carrier frame — box with a real window through it
+    frame = box("A_ANT_FRAME", (AX, AY, TOP_Z + 1.5), (22.0, 22.0, 3.0),
+                "MAT_CERAMIC_WHITE", "ANTENNA", board_a, bevel=0.3)
+    _boolean_cut(frame, board_a, (AX, AY, TOP_Z + 1.5), (13.6, 13.6, 3.4))
+    # left-edge feed slot + smaller bottom-edge notch (both in photo)
+    _boolean_cut(frame, board_a, (AX - 11.0, AY + 0.5, TOP_Z + 1.6),
+                 (2.2, 3.6, 1.6))
+    _boolean_cut(frame, board_a, (AX - 0.5, AY - 11.0, TOP_Z + 1.7),
+                 (3.0, 2.0, 1.4))
+    sp.append(frame)
+    # copper patch ring + white ceramic centre + feed dot
+    sp.append(box("A_ANT_PATCH", (AX, AY, TOP_Z + 1.15), (13.2, 13.2, 0.5),
+                  "MAT_COPPER_PATCH", "ANTENNA_PATCH", board_a, bevel=0.3))
+    sp.append(box("A_ANT_CERAMIC", (AX, AY, TOP_Z + 1.65), (8.6, 8.6, 0.6),
+                  "MAT_CERAMIC_WHITE", "ANTENNA_PATCH", board_a, bevel=0.2))
+    sp.append(cyl_at("A_ANT_FEED", (AX, AY, TOP_Z + 2.1), 0.85, 0.35,
+                     "MAT_TERMINAL_METAL", "ANTENNA_FEED", board_a))
+    # small dark patch inside the window at bottom-right (photo feature)
+    sp.append(box("A_ANT_DARKPATCH", (AX + 6.2, AY - 6.8, TOP_Z + 1.45),
+                  (2.2, 3.2, 0.25), "MAT_IC_BLACK_MATTE", "ANTENNA_PATCH",
+                  board_a, bevel=0.05))
+    # 4 corner mounts: square boss ear on the frame corner + metal washer
+    # ring at frame top + small screw head — reads as screwed hardware,
+    # not a ceramic dome
+    for i, (sx, sy) in enumerate(((-31.5, -20.5), (-13.0, -20.5),
+                                  (-31.5, -40.25), (-12.75, -40.25))):
+        sp.append(box(f"A_ANT_BOSS_{i}", (sx, sy, TOP_Z + 1.5),
+                      (4.0, 4.0, 3.0), "MAT_CERAMIC_WHITE", "ANTENNA",
+                      board_a, bevel=0.3))
+        sp.append(cyl_at(f"A_ANT_WASHER_{i}", (sx, sy, TOP_Z + 3.05), 1.55,
+                         0.3, "MAT_METAL_SCREW", "MOUNTING_HARDWARE",
+                         board_a))
+        sp.append(cyl_at(f"A_ANT_SCREW_{i}", (sx, sy, TOP_Z + 3.5), 1.0,
+                         0.8, "MAT_METAL_SCREW", "FASTENER", board_a,
+                         verts=12))
+
+    # daughterboard — thin green PCB raised ~1.0 over the main board
+    DB_X, DB_Y, DB_W, DB_D = 3.0, -29.0, 27.0, 41.0
+    DB_TOP = TOP_Z + 1.9
+    sp.append(box("A_DB_PCB", (DB_X, DB_Y, TOP_Z + 1.4), (DB_W, DB_D, 1.0),
+                  "MAT_SUBBOARD_GREEN", "MODULE_PCB", board_a, bevel=0.4,
+                  props={"thickness_estimated": True}))
+    for i, (fx, fy) in enumerate(((DB_X - DB_W / 2 + 2, DB_Y - DB_D / 2 + 2),
+                                  (DB_X + DB_W / 2 - 2, DB_Y - DB_D / 2 + 2),
+                                  (DB_X - DB_W / 2 + 2, DB_Y + DB_D / 2 - 2),
+                                  (DB_X + DB_W / 2 - 2, DB_Y + DB_D / 2 - 2))):
+        sp.append(box(f"A_DB_FOOT_{i}", (fx, fy, TOP_Z + 0.5),
+                      (2.5, 2.5, 1.0), "MAT_SUBBOARD_DARK",
+                      "MOUNTING_HARDWARE", board_a, bevel=0.2))
+    # etched maze-like logo centred ~(-0.4,-19.6), spans y -14..-26 —
+    # a few nested dark-green bars approximating the monogram
+    for j, (lx, ly, lw, lh) in enumerate(((-4.6, -15.0, 7.5, 0.5),
+                                         (-4.6, -19.5, 0.5, 9.0),
+                                         (0.2, -24.0, 7.5, 0.5),
+                                         (3.5, -19.5, 0.5, 9.0),
+                                         (-0.5, -17.5, 4.5, 0.5),
+                                         (-2.2, -21.8, 0.5, 4.5),
+                                         (-0.8, -20.5, 3.0, 0.5),
+                                         (1.4, -22.5, 0.5, 3.0))):
+        sp.append(box(f"A_DB_LOGO_{j}", (lx, ly, DB_TOP + 0.05),
+                      (lw, lh, 0.08), "MAT_LOGO_DARK", "SILKSCREEN_TEXT",
+                      board_a, bevel=0.02))
+    # 6 silver pads in a row above the logo (photo row y≈-11.6)
+    for k in range(6):
+        sp.append(box(f"A_DB_PAD_{k}", (-0.75 + k * 1.7, -11.6,
+                      DB_TOP + 0.1), (0.9, 1.4, 0.2), "MAT_TERMINAL_METAL",
+                      "TEST_PAD", board_a, bevel=0.05))
+    # coil pad — darker rounded mount area under the spiral
+    sp.append(box("A_DB_COILPAD", (-0.25, -38.0, DB_TOP + 0.12),
+                  (16.0, 17.0, 0.22), "MAT_SUBBOARD_DARK", "COIL",
+                  board_a, bevel=0.9))
+    # flat wound metallic spiral Ø~13 @ (0.1,-36.4) — photo shows ~14
+    # tight turns of fine wire; keep pitch slightly wider than the wire
+    sp.append(spiral_curve("A_DB_COIL", 0.1, -36.4, DB_TOP + 0.5,
+                           0.55, 6.4, 14.0, 0.17, "MAT_COIL_METAL",
+                           "COIL", board_a))
+    # centre terminal hook — tiny wire end poking into the spiral centre
+    sp.append(cable_curve("A_DB_COIL_TAIL",
+                          [(0.1, -36.4, DB_TOP + 0.5),
+                           (0.8, -37.1, DB_TOP + 0.5),
+                           (1.7, -37.7, DB_TOP + 0.3)],
+                          0.20, "MAT_COIL_METAL", "COIL", board_a))
+    # white pin/marker row under the coil (photo: 8 marks at y≈-45.6)
+    for k in range(8):
+        sp.append(box(f"A_DB_PIN_{k}", (-2.0 + k * 1.4, -45.6,
+                      DB_TOP + 0.1), (0.7, 1.2, 0.18), "MAT_LABEL_WHITE",
+                      "SILKSCREEN_TEXT", board_a, bevel=0.03))
+    # vertical SN label on the daughterboard's left edge
+    sp.append(box("A_DB_SN", (-9.3, -36.5, DB_TOP + 0.1), (2.8, 10.5, 0.18),
+                  "MAT_LABEL_WHITE", "LABEL", board_a, bevel=0.05))
+    sp.append(box("A_DB_SN_TXT", (-9.3, -36.5, DB_TOP + 0.22),
+                  (1.2, 9.0, 0.06), "MAT_PRINT_DARK", "LABEL", board_a,
+                  bevel=0.02))
+    # two small white triangles at the right edge (photo markers)
+    for i, (tx, ty) in enumerate(((10.7, -46.0), (17.6, -47.6))):
+        sp.append(cyl_at(f"A_DB_TRI_{i}", (tx, ty, DB_TOP + 0.08), 1.1,
+                         0.14, "MAT_LABEL_WHITE", "SILKSCREEN_TEXT",
+                         board_a, verts=3))
+    # sparse SMT on the daughterboard — near top pads and right edge
+    rng2 = random.Random(733)
+    dfree = [(-8.0, -11.0, 4.0, 2.0), (8.0, -12.0, 5.0, 2.5),
+             (12.0, -20.0, 3.0, 6.0), (-8.5, -20.0, 3.0, 4.0),
+             (12.0, -44.0, 3.0, 3.0), (-7.0, -45.0, 4.0, 2.0)]
+    for i in range(16):
+        fx, fy, fw, fd = rng2.choice(dfree)
+        px_, py_ = fx + rng2.uniform(-fw / 2, fw / 2), \
+            fy + rng2.uniform(-fd / 2, fd / 2)
+        s = rng2.uniform(0.5, 1.0)
+        sp.append(box(f"A_DB_SMT_{i}", (px_, py_, DB_TOP + 0.15),
+                      (s, s * 0.6, 0.3), "MAT_IC_BLACK_MATTE",
+                      "SMT_PASSIVE", board_a, bevel=0.05))
+
     # --- hierarchy -------------------------------------------------------
     asm, groups = build_hierarchy(board_a, board_b)
     moved_a = reparent_existing(board_a, groups, "PCB_A_MAIN_BOARD")
@@ -706,6 +860,11 @@ def main():
                           groups[("PCB_A_MAIN_BOARD", "MODULES")])
     for o in mp:
         o.parent = mod_root
+    # STEP 3 assemblies under MODULES too
+    ant_root = make_empty("A_CERAMIC_PATCH_ANT", mod_root.parent)
+    db_root = make_empty("A_COIL_SUBBOARD", mod_root.parent)
+    for o in sp:
+        o.parent = ant_root if o.name.startswith("A_ANT_") else db_root
 
     # --- review cameras ---------------------------------------------------
     add_cam("CAM_V41_B_CONN", (-16, -6, 4), (0.75, -0.85, 0.75), 95, 78)
@@ -718,6 +877,11 @@ def main():
             115, 70, ref="PCB_A_MAIN_SYSTEM_BOARD")
     add_cam("CAM_V41_A_MOD_CLOSE", (-4, 30, 4), (0.5, -0.72, 0.55),
             68, 88, ref="PCB_A_MAIN_SYSTEM_BOARD")
+    # STEP 3 review cams — antenna + coil subboard closeups
+    add_cam("CAM_V41_A_ANT", (-22, -31, 3), (0.45, -0.7, 0.7), 80, 85,
+            ref="PCB_A_MAIN_SYSTEM_BOARD")
+    add_cam("CAM_V41_A_COIL", (2, -30, 3), (0.35, -0.72, 0.72), 100, 68,
+            ref="PCB_A_MAIN_SYSTEM_BOARD")
 
     n = write_registry(board_a, board_b)
     bpy.ops.wm.save_as_mainfile(filepath=str(OUT_BLEND))

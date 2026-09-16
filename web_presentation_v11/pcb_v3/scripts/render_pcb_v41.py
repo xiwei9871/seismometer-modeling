@@ -27,6 +27,8 @@ SHOTS = [
     ("01_A_module_topdown", "CAM_V41_A_MOD_TOP", "A"),
     ("02_A_module_3quarter", "CAM_V41_A_MOD_34", "A"),
     ("03_A_module_closeup", "CAM_V41_A_MOD_CLOSE", "A"),
+    ("07_A_closeup_gnss", "CAM_V41_A_ANT", "A"),
+    ("08_A_closeup_coil", "CAM_V41_A_COIL", "A"),
     ("v41_topdown_a_front", "CAM_V4_A_TOP", "A"),
 ]
 

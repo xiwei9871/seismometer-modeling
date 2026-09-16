@@ -2,6 +2,743 @@
   "components": [
     {
       "id": "UNKNOWN_COMPONENT_01",
+      "object": "A_ANT_BOSS_0",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "UNKNOWN_COMPONENT",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "UNKNOWN_COMPONENT_02",
+      "object": "A_ANT_BOSS_1",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "UNKNOWN_COMPONENT",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "UNKNOWN_COMPONENT_03",
+      "object": "A_ANT_BOSS_2",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "UNKNOWN_COMPONENT",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "UNKNOWN_COMPONENT_04",
+      "object": "A_ANT_BOSS_3",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "UNKNOWN_COMPONENT",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "ANTENNA_01",
+      "object": "A_ANT_CERAMIC",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "ANTENNA",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "ANTENNA_02",
+      "object": "A_ANT_DARKPATCH",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "ANTENNA",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "ANTENNA_03",
+      "object": "A_ANT_FEED",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "ANTENNA",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "UNKNOWN_COMPONENT_05",
+      "object": "A_ANT_FRAME",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "UNKNOWN_COMPONENT",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "ANTENNA_04",
+      "object": "A_ANT_PATCH",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "ANTENNA",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "FASTENER_01",
+      "object": "A_ANT_SCREW_0",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "FASTENER",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "FASTENER_02",
+      "object": "A_ANT_SCREW_1",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "FASTENER",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "FASTENER_03",
+      "object": "A_ANT_SCREW_2",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "FASTENER",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "FASTENER_04",
+      "object": "A_ANT_SCREW_3",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "FASTENER",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "UNKNOWN_COMPONENT_06",
+      "object": "A_ANT_WASHER_0",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "UNKNOWN_COMPONENT",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "UNKNOWN_COMPONENT_07",
+      "object": "A_ANT_WASHER_1",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "UNKNOWN_COMPONENT",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "UNKNOWN_COMPONENT_08",
+      "object": "A_ANT_WASHER_2",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "UNKNOWN_COMPONENT",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "UNKNOWN_COMPONENT_09",
+      "object": "A_ANT_WASHER_3",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "UNKNOWN_COMPONENT",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "UNKNOWN_COMPONENT_10",
+      "object": "A_DB_COIL",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "UNKNOWN_COMPONENT",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "UNKNOWN_COMPONENT_11",
+      "object": "A_DB_COIL_TAIL",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "UNKNOWN_COMPONENT",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "UNKNOWN_COMPONENT_12",
+      "object": "A_DB_COILPAD",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "UNKNOWN_COMPONENT",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "UNKNOWN_COMPONENT_13",
+      "object": "A_DB_FOOT_0",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "UNKNOWN_COMPONENT",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "UNKNOWN_COMPONENT_14",
+      "object": "A_DB_FOOT_1",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "UNKNOWN_COMPONENT",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "UNKNOWN_COMPONENT_15",
+      "object": "A_DB_FOOT_2",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "UNKNOWN_COMPONENT",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "UNKNOWN_COMPONENT_16",
+      "object": "A_DB_FOOT_3",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "UNKNOWN_COMPONENT",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_01",
+      "object": "A_DB_LOGO_0",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_02",
+      "object": "A_DB_LOGO_1",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_03",
+      "object": "A_DB_LOGO_2",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_04",
+      "object": "A_DB_LOGO_3",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_05",
+      "object": "A_DB_LOGO_4",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_06",
+      "object": "A_DB_LOGO_5",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_07",
+      "object": "A_DB_LOGO_6",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_08",
+      "object": "A_DB_LOGO_7",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "TEST_PAD_01",
+      "object": "A_DB_PAD_0",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "TEST_PAD",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "TEST_PAD_02",
+      "object": "A_DB_PAD_1",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "TEST_PAD",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "TEST_PAD_03",
+      "object": "A_DB_PAD_2",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "TEST_PAD",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "TEST_PAD_04",
+      "object": "A_DB_PAD_3",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "TEST_PAD",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "TEST_PAD_05",
+      "object": "A_DB_PAD_4",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "TEST_PAD",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "TEST_PAD_06",
+      "object": "A_DB_PAD_5",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "TEST_PAD",
+      "confidence": "UNKNOWN",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "MODULE_01",
+      "object": "A_DB_PCB",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "MODULE",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_09",
+      "object": "A_DB_PIN_0",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_10",
+      "object": "A_DB_PIN_1",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_11",
+      "object": "A_DB_PIN_2",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_12",
+      "object": "A_DB_PIN_3",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_13",
+      "object": "A_DB_PIN_4",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_14",
+      "object": "A_DB_PIN_5",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_15",
+      "object": "A_DB_PIN_6",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_16",
+      "object": "A_DB_PIN_7",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "RESISTOR_CAPACITOR_CLUSTER_01",
+      "object": "A_DB_SMT_0",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "RESISTOR_CAPACITOR_CLUSTER",
+      "confidence": "LOW",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "RESISTOR_CAPACITOR_CLUSTER_02",
+      "object": "A_DB_SMT_1",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "RESISTOR_CAPACITOR_CLUSTER",
+      "confidence": "LOW",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "RESISTOR_CAPACITOR_CLUSTER_03",
+      "object": "A_DB_SMT_10",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "RESISTOR_CAPACITOR_CLUSTER",
+      "confidence": "LOW",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "RESISTOR_CAPACITOR_CLUSTER_04",
+      "object": "A_DB_SMT_11",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "RESISTOR_CAPACITOR_CLUSTER",
+      "confidence": "LOW",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "RESISTOR_CAPACITOR_CLUSTER_05",
+      "object": "A_DB_SMT_12",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "RESISTOR_CAPACITOR_CLUSTER",
+      "confidence": "LOW",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "RESISTOR_CAPACITOR_CLUSTER_06",
+      "object": "A_DB_SMT_13",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "RESISTOR_CAPACITOR_CLUSTER",
+      "confidence": "LOW",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "RESISTOR_CAPACITOR_CLUSTER_07",
+      "object": "A_DB_SMT_14",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "RESISTOR_CAPACITOR_CLUSTER",
+      "confidence": "LOW",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "RESISTOR_CAPACITOR_CLUSTER_08",
+      "object": "A_DB_SMT_15",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "RESISTOR_CAPACITOR_CLUSTER",
+      "confidence": "LOW",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "RESISTOR_CAPACITOR_CLUSTER_09",
+      "object": "A_DB_SMT_2",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "RESISTOR_CAPACITOR_CLUSTER",
+      "confidence": "LOW",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "RESISTOR_CAPACITOR_CLUSTER_10",
+      "object": "A_DB_SMT_3",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "RESISTOR_CAPACITOR_CLUSTER",
+      "confidence": "LOW",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "RESISTOR_CAPACITOR_CLUSTER_11",
+      "object": "A_DB_SMT_4",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "RESISTOR_CAPACITOR_CLUSTER",
+      "confidence": "LOW",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "RESISTOR_CAPACITOR_CLUSTER_12",
+      "object": "A_DB_SMT_5",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "RESISTOR_CAPACITOR_CLUSTER",
+      "confidence": "LOW",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "RESISTOR_CAPACITOR_CLUSTER_13",
+      "object": "A_DB_SMT_6",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "RESISTOR_CAPACITOR_CLUSTER",
+      "confidence": "LOW",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "RESISTOR_CAPACITOR_CLUSTER_14",
+      "object": "A_DB_SMT_7",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "RESISTOR_CAPACITOR_CLUSTER",
+      "confidence": "LOW",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "RESISTOR_CAPACITOR_CLUSTER_15",
+      "object": "A_DB_SMT_8",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "RESISTOR_CAPACITOR_CLUSTER",
+      "confidence": "LOW",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "RESISTOR_CAPACITOR_CLUSTER_16",
+      "object": "A_DB_SMT_9",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "RESISTOR_CAPACITOR_CLUSTER",
+      "confidence": "LOW",
+      "source": "PROCEDURAL",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_17",
+      "object": "A_DB_SN",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_18",
+      "object": "A_DB_SN_TXT",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_19",
+      "object": "A_DB_TRI_0",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "LABEL_20",
+      "object": "A_DB_TRI_1",
+      "board": "PCB_B",
+      "side": "FRONT",
+      "category": "LABEL",
+      "confidence": "HIGH",
+      "source": "PHOTO",
+      "presentation_priority": "SECONDARY",
+      "geometry_mode": "INSTANCED"
+    },
+    {
+      "id": "UNKNOWN_COMPONENT_17",
       "object": "A_MOD_CABLE",
       "board": "PCB_B",
       "side": "FRONT",
@@ -12,7 +749,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "MODULE_01",
+      "id": "MODULE_02",
       "object": "A_MOD_EDGE_0",
       "board": "PCB_B",
       "side": "FRONT",
@@ -23,7 +760,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "MODULE_02",
+      "id": "MODULE_03",
       "object": "A_MOD_EDGE_1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -34,7 +771,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "MODULE_03",
+      "id": "MODULE_04",
       "object": "A_MOD_EDGE_2",
       "board": "PCB_B",
       "side": "FRONT",
@@ -45,7 +782,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "MODULE_04",
+      "id": "MODULE_05",
       "object": "A_MOD_EDGE_3",
       "board": "PCB_B",
       "side": "FRONT",
@@ -67,7 +804,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_01",
+      "id": "LABEL_21",
       "object": "A_MOD_ESD",
       "board": "PCB_B",
       "side": "FRONT",
@@ -78,7 +815,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_02",
+      "id": "LABEL_22",
       "object": "A_MOD_ESD_IN",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1057,7 +1794,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_03",
+      "id": "LABEL_23",
       "object": "A_MOD_IC04_MARK0",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1068,7 +1805,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_04",
+      "id": "LABEL_24",
       "object": "A_MOD_IC04_MARK1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1079,7 +1816,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_05",
+      "id": "LABEL_25",
       "object": "A_MOD_IC04_MARK2",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1354,7 +2091,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_06",
+      "id": "LABEL_26",
       "object": "A_MOD_ICON",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1365,7 +2102,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_07",
+      "id": "LABEL_27",
       "object": "A_MOD_ICON_IN",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1376,7 +2113,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_08",
+      "id": "LABEL_28",
       "object": "A_MOD_LABEL",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1387,7 +2124,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_09",
+      "id": "LABEL_29",
       "object": "A_MOD_LABEL_TXT",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1398,7 +2135,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_10",
+      "id": "LABEL_30",
       "object": "A_MOD_LABEL_TXT2",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1409,7 +2146,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "MODULE_05",
+      "id": "MODULE_06",
       "object": "A_MOD_PCB",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1420,7 +2157,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_11",
+      "id": "LABEL_31",
       "object": "A_MOD_QR",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1431,7 +2168,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_12",
+      "id": "LABEL_32",
       "object": "A_MOD_QR_P0",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1442,7 +2179,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_13",
+      "id": "LABEL_33",
       "object": "A_MOD_QR_P1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1453,7 +2190,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_14",
+      "id": "LABEL_34",
       "object": "A_MOD_QR_P2",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1464,7 +2201,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "FASTENER_01",
+      "id": "FASTENER_05",
       "object": "A_MOD_SCREW_0",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1475,7 +2212,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "FASTENER_02",
+      "id": "FASTENER_06",
       "object": "A_MOD_SCREW_1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1486,7 +2223,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "FASTENER_03",
+      "id": "FASTENER_07",
       "object": "A_MOD_SCREW_2",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1497,7 +2234,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "FASTENER_04",
+      "id": "FASTENER_08",
       "object": "A_MOD_SCREW_3",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1508,7 +2245,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_01",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_17",
       "object": "A_MOD_SMT_0",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1519,7 +2256,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_02",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_18",
       "object": "A_MOD_SMT_1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1530,7 +2267,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_03",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_19",
       "object": "A_MOD_SMT_10",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1541,7 +2278,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_04",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_20",
       "object": "A_MOD_SMT_11",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1552,7 +2289,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_05",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_21",
       "object": "A_MOD_SMT_12",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1563,7 +2300,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_06",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_22",
       "object": "A_MOD_SMT_13",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1574,7 +2311,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_07",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_23",
       "object": "A_MOD_SMT_14",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1585,7 +2322,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_08",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_24",
       "object": "A_MOD_SMT_15",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1596,7 +2333,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_09",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_25",
       "object": "A_MOD_SMT_16",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1607,7 +2344,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_10",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_26",
       "object": "A_MOD_SMT_17",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1618,7 +2355,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_11",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_27",
       "object": "A_MOD_SMT_18",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1629,7 +2366,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_12",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_28",
       "object": "A_MOD_SMT_19",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1640,7 +2377,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_13",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_29",
       "object": "A_MOD_SMT_2",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1651,7 +2388,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_14",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_30",
       "object": "A_MOD_SMT_20",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1662,7 +2399,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_15",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_31",
       "object": "A_MOD_SMT_21",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1673,7 +2410,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_16",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_32",
       "object": "A_MOD_SMT_22",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1684,7 +2421,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_17",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_33",
       "object": "A_MOD_SMT_23",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1695,7 +2432,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_18",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_34",
       "object": "A_MOD_SMT_24",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1706,7 +2443,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_19",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_35",
       "object": "A_MOD_SMT_25",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1717,7 +2454,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_20",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_36",
       "object": "A_MOD_SMT_3",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1728,7 +2465,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_21",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_37",
       "object": "A_MOD_SMT_4",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1739,7 +2476,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_22",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_38",
       "object": "A_MOD_SMT_5",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1750,7 +2487,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_23",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_39",
       "object": "A_MOD_SMT_6",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1761,7 +2498,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_24",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_40",
       "object": "A_MOD_SMT_7",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1772,7 +2509,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_25",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_41",
       "object": "A_MOD_SMT_8",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1783,7 +2520,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_26",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_42",
       "object": "A_MOD_SMT_9",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1794,7 +2531,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_15",
+      "id": "LABEL_35",
       "object": "A_MOD_SS_0",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1805,7 +2542,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_16",
+      "id": "LABEL_36",
       "object": "A_MOD_SS_1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1816,7 +2553,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_17",
+      "id": "LABEL_37",
       "object": "A_MOD_SS_2",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1827,7 +2564,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_18",
+      "id": "LABEL_38",
       "object": "A_MOD_SS_3",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1838,7 +2575,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_19",
+      "id": "LABEL_39",
       "object": "A_MOD_SS_4",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1849,7 +2586,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_20",
+      "id": "LABEL_40",
       "object": "A_MOD_SS_5",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1860,7 +2597,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_21",
+      "id": "LABEL_41",
       "object": "A_MOD_SS_6",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1915,7 +2652,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "FASTENER_05",
+      "id": "FASTENER_09",
       "object": "A_MOD_WASHER_0",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1926,7 +2663,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "FASTENER_06",
+      "id": "FASTENER_10",
       "object": "A_MOD_WASHER_1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1937,7 +2674,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "FASTENER_07",
+      "id": "FASTENER_11",
       "object": "A_MOD_WASHER_2",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1948,7 +2685,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "FASTENER_08",
+      "id": "FASTENER_12",
       "object": "A_MOD_WASHER_3",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1959,7 +2696,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "UNKNOWN_COMPONENT_02",
+      "id": "UNKNOWN_COMPONENT_18",
       "object": "CONN_B_01_BASE",
       "board": "PCB_B",
       "side": "FRONT",
@@ -1981,7 +2718,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "UNKNOWN_COMPONENT_03",
+      "id": "UNKNOWN_COMPONENT_19",
       "object": "CONN_B_01_HOUSING",
       "board": "PCB_B",
       "side": "FRONT",
@@ -2091,7 +2828,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "UNKNOWN_COMPONENT_04",
+      "id": "UNKNOWN_COMPONENT_20",
       "object": "CONN_B_02_BASE",
       "board": "PCB_B",
       "side": "FRONT",
@@ -2113,7 +2850,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "UNKNOWN_COMPONENT_05",
+      "id": "UNKNOWN_COMPONENT_21",
       "object": "CONN_B_02_HOUSING",
       "board": "PCB_B",
       "side": "FRONT",
@@ -2168,7 +2905,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "UNKNOWN_COMPONENT_06",
+      "id": "UNKNOWN_COMPONENT_22",
       "object": "CONN_B_03_BASE",
       "board": "PCB_B",
       "side": "FRONT",
@@ -2179,7 +2916,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "UNKNOWN_COMPONENT_07",
+      "id": "UNKNOWN_COMPONENT_23",
       "object": "CONN_B_03_HOUSING",
       "board": "PCB_B",
       "side": "FRONT",
@@ -2234,7 +2971,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "UNKNOWN_COMPONENT_08",
+      "id": "UNKNOWN_COMPONENT_24",
       "object": "CONN_B_04_BASE",
       "board": "PCB_B",
       "side": "FRONT",
@@ -2245,7 +2982,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "UNKNOWN_COMPONENT_09",
+      "id": "UNKNOWN_COMPONENT_25",
       "object": "CONN_B_04_HOUSING",
       "board": "PCB_B",
       "side": "FRONT",
@@ -2300,7 +3037,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "UNKNOWN_COMPONENT_10",
+      "id": "UNKNOWN_COMPONENT_26",
       "object": "CONN_B_05_BASE",
       "board": "PCB_B",
       "side": "FRONT",
@@ -2311,7 +3048,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "UNKNOWN_COMPONENT_11",
+      "id": "UNKNOWN_COMPONENT_27",
       "object": "CONN_B_05_HOUSING",
       "board": "PCB_B",
       "side": "FRONT",
@@ -2366,7 +3103,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "UNKNOWN_COMPONENT_12",
+      "id": "UNKNOWN_COMPONENT_28",
       "object": "CONN_B_06_BASE",
       "board": "PCB_B",
       "side": "FRONT",
@@ -2388,7 +3125,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "UNKNOWN_COMPONENT_13",
+      "id": "UNKNOWN_COMPONENT_29",
       "object": "CONN_B_06_HOUSING",
       "board": "PCB_B",
       "side": "FRONT",
@@ -2443,7 +3180,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "UNKNOWN_COMPONENT_14",
+      "id": "UNKNOWN_COMPONENT_30",
       "object": "CONN_B_07_BASE",
       "board": "PCB_B",
       "side": "FRONT",
@@ -2454,7 +3191,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "UNKNOWN_COMPONENT_15",
+      "id": "UNKNOWN_COMPONENT_31",
       "object": "CONN_B_07_HOUSING",
       "board": "PCB_B",
       "side": "FRONT",
@@ -2553,7 +3290,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_22",
+      "id": "LABEL_42",
       "object": "INDUCTOR_B_2R2_PRINT",
       "board": "PCB_B",
       "side": "FRONT",
@@ -2597,7 +3334,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_23",
+      "id": "LABEL_43",
       "object": "INDUCTOR_B_3R3_PRINT",
       "board": "PCB_B",
       "side": "FRONT",
@@ -2608,7 +3345,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "LABEL_24",
+      "id": "LABEL_44",
       "object": "INDUCTOR_B_3R3_PRINT2",
       "board": "PCB_B",
       "side": "FRONT",
@@ -2652,7 +3389,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "LABEL_25",
+      "id": "LABEL_45",
       "object": "PCB_A_2R2_0_mark",
       "board": "PCB_A",
       "side": "FRONT",
@@ -2674,7 +3411,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "LABEL_26",
+      "id": "LABEL_46",
       "object": "PCB_A_2R2_1_mark",
       "board": "PCB_A",
       "side": "FRONT",
@@ -2682,28 +3419,6 @@
       "confidence": "HIGH",
       "source": "PHOTO",
       "presentation_priority": "SECONDARY",
-      "geometry_mode": "FULL_3D"
-    },
-    {
-      "id": "ANTENNA_01",
-      "object": "PCB_A_ANT_DOT",
-      "board": "PCB_A",
-      "side": "FRONT",
-      "category": "ANTENNA",
-      "confidence": "HIGH",
-      "source": "PHOTO",
-      "presentation_priority": "PRIMARY",
-      "geometry_mode": "FULL_3D"
-    },
-    {
-      "id": "ANTENNA_02",
-      "object": "PCB_A_ANT_PATCH",
-      "board": "PCB_A",
-      "side": "FRONT",
-      "category": "ANTENNA",
-      "confidence": "HIGH",
-      "source": "PHOTO",
-      "presentation_priority": "PRIMARY",
       "geometry_mode": "FULL_3D"
     },
     {
@@ -2718,7 +3433,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "LABEL_27",
+      "id": "LABEL_47",
       "object": "PCB_A_B_SN",
       "board": "PCB_A",
       "side": "FRONT",
@@ -2767,72 +3482,6 @@
       "board": "PCB_A",
       "side": "FRONT",
       "category": "CONNECTOR",
-      "confidence": "HIGH",
-      "source": "PHOTO",
-      "presentation_priority": "PRIMARY",
-      "geometry_mode": "FULL_3D"
-    },
-    {
-      "id": "ANTENNA_03",
-      "object": "PCB_A_CERAMIC_ANT",
-      "board": "PCB_A",
-      "side": "FRONT",
-      "category": "ANTENNA",
-      "confidence": "HIGH",
-      "source": "PHOTO",
-      "presentation_priority": "PRIMARY",
-      "geometry_mode": "FULL_3D"
-    },
-    {
-      "id": "COIL_01",
-      "object": "PCB_A_COIL_0",
-      "board": "PCB_A",
-      "side": "FRONT",
-      "category": "COIL",
-      "confidence": "HIGH",
-      "source": "PHOTO",
-      "presentation_priority": "PRIMARY",
-      "geometry_mode": "FULL_3D"
-    },
-    {
-      "id": "COIL_02",
-      "object": "PCB_A_COIL_1",
-      "board": "PCB_A",
-      "side": "FRONT",
-      "category": "COIL",
-      "confidence": "HIGH",
-      "source": "PHOTO",
-      "presentation_priority": "PRIMARY",
-      "geometry_mode": "FULL_3D"
-    },
-    {
-      "id": "COIL_03",
-      "object": "PCB_A_COIL_2",
-      "board": "PCB_A",
-      "side": "FRONT",
-      "category": "COIL",
-      "confidence": "HIGH",
-      "source": "PHOTO",
-      "presentation_priority": "PRIMARY",
-      "geometry_mode": "FULL_3D"
-    },
-    {
-      "id": "COIL_04",
-      "object": "PCB_A_COIL_3",
-      "board": "PCB_A",
-      "side": "FRONT",
-      "category": "COIL",
-      "confidence": "HIGH",
-      "source": "PHOTO",
-      "presentation_priority": "PRIMARY",
-      "geometry_mode": "FULL_3D"
-    },
-    {
-      "id": "COIL_05",
-      "object": "PCB_A_COIL_BASE",
-      "board": "PCB_A",
-      "side": "FRONT",
-      "category": "COIL",
       "confidence": "HIGH",
       "source": "PHOTO",
       "presentation_priority": "PRIMARY",
@@ -3224,29 +3873,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "SMALL_IC_140",
-      "object": "PCB_A_SHIELD_IC",
-      "board": "PCB_A",
-      "side": "FRONT",
-      "category": "SMALL_IC",
-      "confidence": "LOW",
-      "source": "PROCEDURAL",
-      "presentation_priority": "PRIMARY",
-      "geometry_mode": "FULL_3D"
-    },
-    {
-      "id": "MODULE_06",
-      "object": "PCB_A_SHIELD_ZONE",
-      "board": "PCB_A",
-      "side": "FRONT",
-      "category": "MODULE",
-      "confidence": "HIGH",
-      "source": "PHOTO",
-      "presentation_priority": "PRIMARY",
-      "geometry_mode": "FULL_3D"
-    },
-    {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_27",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_43",
       "object": "PCB_A_SMT_01",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3257,7 +3884,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_28",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_44",
       "object": "PCB_A_SMT_04",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3268,7 +3895,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_29",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_45",
       "object": "PCB_A_SMT_07",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3279,7 +3906,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_30",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_46",
       "object": "PCB_A_SMT_105",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3290,7 +3917,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_31",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_47",
       "object": "PCB_A_SMT_107",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3301,7 +3928,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_32",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_48",
       "object": "PCB_A_SMT_11",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3312,7 +3939,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_33",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_49",
       "object": "PCB_A_SMT_111",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3323,7 +3950,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_34",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_50",
       "object": "PCB_A_SMT_112",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3334,7 +3961,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_35",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_51",
       "object": "PCB_A_SMT_113",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3345,7 +3972,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_36",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_52",
       "object": "PCB_A_SMT_119",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3356,7 +3983,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_37",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_53",
       "object": "PCB_A_SMT_12",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3367,7 +3994,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_38",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_54",
       "object": "PCB_A_SMT_120",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3378,7 +4005,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_39",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_55",
       "object": "PCB_A_SMT_123",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3389,7 +4016,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_40",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_56",
       "object": "PCB_A_SMT_124",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3400,7 +4027,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_41",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_57",
       "object": "PCB_A_SMT_126",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3411,7 +4038,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_42",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_58",
       "object": "PCB_A_SMT_128",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3422,7 +4049,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_43",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_59",
       "object": "PCB_A_SMT_129",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3433,7 +4060,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_44",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_60",
       "object": "PCB_A_SMT_16",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3444,7 +4071,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_45",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_61",
       "object": "PCB_A_SMT_17",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3455,7 +4082,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_46",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_62",
       "object": "PCB_A_SMT_21",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3466,7 +4093,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_47",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_63",
       "object": "PCB_A_SMT_23",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3477,7 +4104,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_48",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_64",
       "object": "PCB_A_SMT_34",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3488,7 +4115,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_49",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_65",
       "object": "PCB_A_SMT_36",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3499,7 +4126,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_50",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_66",
       "object": "PCB_A_SMT_49",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3510,7 +4137,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_51",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_67",
       "object": "PCB_A_SMT_52",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3521,7 +4148,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_52",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_68",
       "object": "PCB_A_SMT_56",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3532,7 +4159,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_53",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_69",
       "object": "PCB_A_SMT_58",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3543,7 +4170,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_54",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_70",
       "object": "PCB_A_SMT_59",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3554,7 +4181,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_55",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_71",
       "object": "PCB_A_SMT_60",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3565,7 +4192,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_56",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_72",
       "object": "PCB_A_SMT_65",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3576,7 +4203,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_57",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_73",
       "object": "PCB_A_SMT_67",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3587,7 +4214,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_58",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_74",
       "object": "PCB_A_SMT_68",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3598,7 +4225,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_59",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_75",
       "object": "PCB_A_SMT_69",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3609,7 +4236,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_60",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_76",
       "object": "PCB_A_SMT_71",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3620,7 +4247,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_61",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_77",
       "object": "PCB_A_SMT_72",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3631,7 +4258,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_62",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_78",
       "object": "PCB_A_SMT_73",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3642,7 +4269,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_63",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_79",
       "object": "PCB_A_SMT_75",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3653,7 +4280,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_64",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_80",
       "object": "PCB_A_SMT_77",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3664,7 +4291,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_65",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_81",
       "object": "PCB_A_SMT_78",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3675,7 +4302,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_66",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_82",
       "object": "PCB_A_SMT_79",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3686,7 +4313,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_67",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_83",
       "object": "PCB_A_SMT_80",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3697,7 +4324,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_68",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_84",
       "object": "PCB_A_SMT_82",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3708,7 +4335,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_69",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_85",
       "object": "PCB_A_SMT_83",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3719,7 +4346,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_70",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_86",
       "object": "PCB_A_SMT_87",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3730,7 +4357,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_71",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_87",
       "object": "PCB_A_SMT_91",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3741,7 +4368,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_72",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_88",
       "object": "PCB_A_SMT_93",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3752,7 +4379,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_73",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_89",
       "object": "PCB_A_SMT_95",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3763,7 +4390,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_74",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_90",
       "object": "PCB_A_SMT_98",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3774,7 +4401,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_75",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_91",
       "object": "PCB_A_SMT_99",
       "board": "PCB_A",
       "side": "FRONT",
@@ -3829,28 +4456,6 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "LABEL_28",
-      "object": "PCB_A_ZONE_SN",
-      "board": "PCB_A",
-      "side": "FRONT",
-      "category": "LABEL",
-      "confidence": "HIGH",
-      "source": "PHOTO",
-      "presentation_priority": "SECONDARY",
-      "geometry_mode": "FULL_3D"
-    },
-    {
-      "id": "LABEL_29",
-      "object": "PCB_A_ZONE_TEXT",
-      "board": "PCB_A",
-      "side": "FRONT",
-      "category": "LABEL",
-      "confidence": "HIGH",
-      "source": "PHOTO",
-      "presentation_priority": "SECONDARY",
-      "geometry_mode": "FULL_3D"
-    },
-    {
       "id": "CAPACITOR_LARGE_05",
       "object": "PCB_B_B_CAP",
       "board": "PCB_B",
@@ -3873,7 +4478,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_76",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_92",
       "object": "PCB_B_B_SMT_0",
       "board": "PCB_B",
       "side": "FRONT",
@@ -3884,7 +4489,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_77",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_93",
       "object": "PCB_B_B_SMT_1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -3895,7 +4500,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_78",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_94",
       "object": "PCB_B_B_SMT_2",
       "board": "PCB_B",
       "side": "FRONT",
@@ -3906,7 +4511,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_79",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_95",
       "object": "PCB_B_B_SMT_3",
       "board": "PCB_B",
       "side": "FRONT",
@@ -3917,7 +4522,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_80",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_96",
       "object": "PCB_B_B_SMT_4",
       "board": "PCB_B",
       "side": "FRONT",
@@ -3928,7 +4533,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_81",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_97",
       "object": "PCB_B_B_SMT_5",
       "board": "PCB_B",
       "side": "FRONT",
@@ -3939,7 +4544,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "SMALL_IC_141",
+      "id": "SMALL_IC_140",
       "object": "PCB_B_IC_00",
       "board": "PCB_B",
       "side": "FRONT",
@@ -3950,7 +4555,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "SMALL_IC_142",
+      "id": "SMALL_IC_141",
       "object": "PCB_B_IC_01",
       "board": "PCB_B",
       "side": "FRONT",
@@ -3961,7 +4566,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "SMALL_IC_143",
+      "id": "SMALL_IC_142",
       "object": "PCB_B_IC_01_pins-1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -3972,7 +4577,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "SMALL_IC_144",
+      "id": "SMALL_IC_143",
       "object": "PCB_B_IC_01_pins1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -3983,7 +4588,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "SMALL_IC_145",
+      "id": "SMALL_IC_144",
       "object": "PCB_B_IC_02",
       "board": "PCB_B",
       "side": "FRONT",
@@ -3994,7 +4599,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "SMALL_IC_146",
+      "id": "SMALL_IC_145",
       "object": "PCB_B_IC_02_pins-1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4005,7 +4610,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "SMALL_IC_147",
+      "id": "SMALL_IC_146",
       "object": "PCB_B_IC_02_pins1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4016,7 +4621,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "SMALL_IC_148",
+      "id": "SMALL_IC_147",
       "object": "PCB_B_IC_03",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4027,7 +4632,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "SMALL_IC_149",
+      "id": "SMALL_IC_148",
       "object": "PCB_B_IC_03_pins-1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4038,7 +4643,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "SMALL_IC_150",
+      "id": "SMALL_IC_149",
       "object": "PCB_B_IC_03_pins1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4049,7 +4654,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "SMALL_IC_151",
+      "id": "SMALL_IC_150",
       "object": "PCB_B_IC_04",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4060,7 +4665,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "SMALL_IC_152",
+      "id": "SMALL_IC_151",
       "object": "PCB_B_IC_04_pins-1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4071,7 +4676,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "SMALL_IC_153",
+      "id": "SMALL_IC_152",
       "object": "PCB_B_IC_04_pins1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4082,7 +4687,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "SMALL_IC_154",
+      "id": "SMALL_IC_153",
       "object": "PCB_B_IC_05",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4093,7 +4698,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "SMALL_IC_155",
+      "id": "SMALL_IC_154",
       "object": "PCB_B_IC_05_pins-1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4104,7 +4709,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "SMALL_IC_156",
+      "id": "SMALL_IC_155",
       "object": "PCB_B_IC_05_pins1",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4115,7 +4720,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "SMALL_IC_157",
+      "id": "SMALL_IC_156",
       "object": "PCB_B_IC_06",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4126,7 +4731,7 @@
       "geometry_mode": "FULL_3D"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_82",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_98",
       "object": "PCB_B_SMT_00",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4137,7 +4742,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_83",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_99",
       "object": "PCB_B_SMT_01",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4148,7 +4753,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_84",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_100",
       "object": "PCB_B_SMT_02",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4159,7 +4764,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_85",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_101",
       "object": "PCB_B_SMT_03",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4170,7 +4775,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_86",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_102",
       "object": "PCB_B_SMT_04",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4181,7 +4786,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_87",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_103",
       "object": "PCB_B_SMT_05",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4192,7 +4797,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_88",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_104",
       "object": "PCB_B_SMT_06",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4203,7 +4808,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_89",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_105",
       "object": "PCB_B_SMT_07",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4214,7 +4819,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_90",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_106",
       "object": "PCB_B_SMT_08",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4225,7 +4830,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_91",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_107",
       "object": "PCB_B_SMT_10",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4236,7 +4841,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_92",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_108",
       "object": "PCB_B_SMT_100",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4247,7 +4852,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_93",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_109",
       "object": "PCB_B_SMT_104",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4258,7 +4863,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_94",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_110",
       "object": "PCB_B_SMT_105",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4269,7 +4874,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_95",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_111",
       "object": "PCB_B_SMT_106",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4280,7 +4885,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_96",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_112",
       "object": "PCB_B_SMT_107",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4291,7 +4896,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_97",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_113",
       "object": "PCB_B_SMT_108",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4302,7 +4907,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_98",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_114",
       "object": "PCB_B_SMT_109",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4313,7 +4918,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_99",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_115",
       "object": "PCB_B_SMT_11",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4324,7 +4929,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_100",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_116",
       "object": "PCB_B_SMT_111",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4335,7 +4940,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_101",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_117",
       "object": "PCB_B_SMT_112",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4346,7 +4951,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_102",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_118",
       "object": "PCB_B_SMT_113",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4357,7 +4962,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_103",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_119",
       "object": "PCB_B_SMT_115",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4368,7 +4973,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_104",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_120",
       "object": "PCB_B_SMT_116",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4379,7 +4984,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_105",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_121",
       "object": "PCB_B_SMT_117",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4390,7 +4995,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_106",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_122",
       "object": "PCB_B_SMT_118",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4401,7 +5006,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_107",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_123",
       "object": "PCB_B_SMT_119",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4412,7 +5017,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_108",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_124",
       "object": "PCB_B_SMT_12",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4423,7 +5028,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_109",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_125",
       "object": "PCB_B_SMT_16",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4434,7 +5039,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_110",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_126",
       "object": "PCB_B_SMT_17",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4445,7 +5050,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_111",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_127",
       "object": "PCB_B_SMT_19",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4456,7 +5061,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_112",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_128",
       "object": "PCB_B_SMT_20",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4467,7 +5072,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_113",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_129",
       "object": "PCB_B_SMT_23",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4478,7 +5083,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_114",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_130",
       "object": "PCB_B_SMT_24",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4489,7 +5094,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_115",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_131",
       "object": "PCB_B_SMT_26",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4500,7 +5105,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_116",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_132",
       "object": "PCB_B_SMT_27",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4511,7 +5116,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_117",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_133",
       "object": "PCB_B_SMT_30",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4522,7 +5127,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_118",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_134",
       "object": "PCB_B_SMT_31",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4533,7 +5138,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_119",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_135",
       "object": "PCB_B_SMT_32",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4544,7 +5149,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_120",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_136",
       "object": "PCB_B_SMT_33",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4555,7 +5160,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_121",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_137",
       "object": "PCB_B_SMT_34",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4566,7 +5171,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_122",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_138",
       "object": "PCB_B_SMT_35",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4577,7 +5182,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_123",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_139",
       "object": "PCB_B_SMT_36",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4588,7 +5193,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_124",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_140",
       "object": "PCB_B_SMT_37",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4599,7 +5204,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_125",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_141",
       "object": "PCB_B_SMT_39",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4610,7 +5215,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_126",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_142",
       "object": "PCB_B_SMT_41",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4621,7 +5226,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_127",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_143",
       "object": "PCB_B_SMT_44",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4632,7 +5237,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_128",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_144",
       "object": "PCB_B_SMT_45",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4643,7 +5248,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_129",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_145",
       "object": "PCB_B_SMT_46",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4654,7 +5259,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_130",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_146",
       "object": "PCB_B_SMT_47",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4665,7 +5270,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_131",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_147",
       "object": "PCB_B_SMT_49",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4676,7 +5281,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_132",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_148",
       "object": "PCB_B_SMT_50",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4687,7 +5292,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_133",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_149",
       "object": "PCB_B_SMT_51",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4698,7 +5303,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_134",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_150",
       "object": "PCB_B_SMT_52",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4709,7 +5314,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_135",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_151",
       "object": "PCB_B_SMT_53",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4720,7 +5325,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_136",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_152",
       "object": "PCB_B_SMT_54",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4731,7 +5336,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_137",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_153",
       "object": "PCB_B_SMT_55",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4742,7 +5347,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_138",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_154",
       "object": "PCB_B_SMT_57",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4753,7 +5358,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_139",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_155",
       "object": "PCB_B_SMT_58",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4764,7 +5369,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_140",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_156",
       "object": "PCB_B_SMT_59",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4775,7 +5380,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_141",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_157",
       "object": "PCB_B_SMT_60",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4786,7 +5391,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_142",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_158",
       "object": "PCB_B_SMT_61",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4797,7 +5402,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_143",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_159",
       "object": "PCB_B_SMT_62",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4808,7 +5413,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_144",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_160",
       "object": "PCB_B_SMT_63",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4819,7 +5424,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_145",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_161",
       "object": "PCB_B_SMT_64",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4830,7 +5435,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_146",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_162",
       "object": "PCB_B_SMT_65",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4841,7 +5446,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_147",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_163",
       "object": "PCB_B_SMT_67",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4852,7 +5457,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_148",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_164",
       "object": "PCB_B_SMT_68",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4863,7 +5468,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_149",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_165",
       "object": "PCB_B_SMT_69",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4874,7 +5479,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_150",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_166",
       "object": "PCB_B_SMT_70",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4885,7 +5490,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_151",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_167",
       "object": "PCB_B_SMT_71",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4896,7 +5501,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_152",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_168",
       "object": "PCB_B_SMT_72",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4907,7 +5512,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_153",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_169",
       "object": "PCB_B_SMT_73",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4918,7 +5523,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_154",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_170",
       "object": "PCB_B_SMT_75",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4929,7 +5534,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_155",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_171",
       "object": "PCB_B_SMT_76",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4940,7 +5545,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_156",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_172",
       "object": "PCB_B_SMT_77",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4951,7 +5556,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_157",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_173",
       "object": "PCB_B_SMT_78",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4962,7 +5567,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_158",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_174",
       "object": "PCB_B_SMT_79",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4973,7 +5578,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_159",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_175",
       "object": "PCB_B_SMT_80",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4984,7 +5589,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_160",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_176",
       "object": "PCB_B_SMT_81",
       "board": "PCB_B",
       "side": "FRONT",
@@ -4995,7 +5600,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_161",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_177",
       "object": "PCB_B_SMT_82",
       "board": "PCB_B",
       "side": "FRONT",
@@ -5006,7 +5611,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_162",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_178",
       "object": "PCB_B_SMT_85",
       "board": "PCB_B",
       "side": "FRONT",
@@ -5017,7 +5622,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_163",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_179",
       "object": "PCB_B_SMT_86",
       "board": "PCB_B",
       "side": "FRONT",
@@ -5028,7 +5633,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_164",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_180",
       "object": "PCB_B_SMT_87",
       "board": "PCB_B",
       "side": "FRONT",
@@ -5039,7 +5644,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_165",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_181",
       "object": "PCB_B_SMT_88",
       "board": "PCB_B",
       "side": "FRONT",
@@ -5050,7 +5655,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_166",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_182",
       "object": "PCB_B_SMT_89",
       "board": "PCB_B",
       "side": "FRONT",
@@ -5061,7 +5666,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_167",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_183",
       "object": "PCB_B_SMT_90",
       "board": "PCB_B",
       "side": "FRONT",
@@ -5072,7 +5677,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_168",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_184",
       "object": "PCB_B_SMT_92",
       "board": "PCB_B",
       "side": "FRONT",
@@ -5083,7 +5688,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_169",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_185",
       "object": "PCB_B_SMT_94",
       "board": "PCB_B",
       "side": "FRONT",
@@ -5094,7 +5699,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_170",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_186",
       "object": "PCB_B_SMT_95",
       "board": "PCB_B",
       "side": "FRONT",
@@ -5105,7 +5710,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_171",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_187",
       "object": "PCB_B_SMT_96",
       "board": "PCB_B",
       "side": "FRONT",
@@ -5116,7 +5721,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_172",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_188",
       "object": "PCB_B_SMT_97",
       "board": "PCB_B",
       "side": "FRONT",
@@ -5127,7 +5732,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_173",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_189",
       "object": "PCB_B_SMT_98",
       "board": "PCB_B",
       "side": "FRONT",
@@ -5138,7 +5743,7 @@
       "geometry_mode": "INSTANCED"
     },
     {
-      "id": "RESISTOR_CAPACITOR_CLUSTER_174",
+      "id": "RESISTOR_CAPACITOR_CLUSTER_190",
       "object": "PCB_B_SMT_99",
       "board": "PCB_B",
       "side": "FRONT",
