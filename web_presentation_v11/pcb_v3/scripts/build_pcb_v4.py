@@ -53,19 +53,24 @@ def outline_centered(key: str):
 A_OUTLINE, A_SIZE = outline_centered("a_front")
 B_OUTLINE, B_SIZE = outline_centered("b_front")
 
-# Hole sets (board-centred mm). Detected holes + overlay-read supplements.
+# Hole sets (board-centred mm). v44: re-detected from the corrected AI top
+# view — old hole4 merged into the single left big hole, hole11 moved onto
+# the real large cutout at (32.9,-24.4), kidney slot removed (absent in the
+# corrected image), bottom-edge holes added/snapped.
 A_HOLES = [                                        # detected (front, centred)
-    (10.54 - 52.0, 50.55 - 50.58, 3.07),           # big left   -> (-41.46, -0.03)
-    (92.28 - 52.0, 50.55 - 51.90, 3.34),           # big right  -> (40.28, -1.35)
+    (-45.6, 2.6, 3.0),                             # big left
+    (47.8, -12.8, 3.1),                            # big right-mid
+    (46.0, 3.2, 2.9),                              # big right-upper
+    (32.9, -24.4, 5.0),                            # largest lower-right
 ]
 A_HOLES += [                                       # plated perimeter holes
-    (-32, 43.0, 2.2), (23, 44.0, 2.2),             # top edge
-    (-45.5, 0.5, 2.2), (44, 0.5, 2.2),             # side lobes
-    (-24, -42.0, 2.2), (23, -42.5, 2.2),           # bottom edge
-    (-38, 36, 2.0), (38, 40, 2.0),                 # extra lobe holes
-    (-46, -22, 2.0), (46, -30, 2.0),
+    (-39.0, 38.0, 2.0), (-26.7, 42.7, 2.2),        # top-left edge
+    (23.0, 44.0, 2.2), (43.0, 29.0, 2.0),          # top-right edge
+    (-46.0, -22.0, 2.0),                           # left edge
+    (-24.0, -42.0, 2.2), (28.1, -43.7, 2.2),       # bottom edge
+    (-29.3, -48.2, 2.2),                           # bottom-left edge
 ]
-A_SLOT = (28, -14, 14, 8, -0.5)                    # kidney slot right-centre
+A_SLOT = None                                      # v44: no slot in corrected image
 
 B_HOLES = [
     (30.03 - 31.0, 28.1 - 28.26, 2.3),             # centre hole
@@ -384,19 +389,16 @@ def build_pcb_a(board):
     P.append(box("PCB_A_CRYSTAL", (-12, -24, z + 0.9), (5, 3.2, 1.8),
                  "cap_silver", "CRYSTAL", "B", board, bevel=0.15))
 
-    # Level C — dense passives, keep clear of holes/module/zone/slot
+    # Level C — dense passives, keep clear of holes/module/zone
     def clear(x, y):
-        if (x + 41.5) ** 2 + (y + 0.0) ** 2 < 110:
-            return False
-        if (x - 40.3) ** 2 + (y + 1.4) ** 2 < 110:
-            return False
+        for hx, hy, hr in A_HOLES:
+            if hr >= 2.9 and (x - hx) ** 2 + (y - hy) ** 2 < (hr + 7) ** 2:
+                return False
         if -26 < x < 20 and 13 < y < 48:        # module
             return False
         if -14 < x < 16 and -49 < y < -8:       # shield zone
             return False
         if -36 < x < -15 and -38 < y < -18:     # ceramic antenna
-            return False
-        if 18 < x < 40 and -22 < y < -6:        # slot
             return False
         if not _in_poly(BMESH["a"]["outline"], x, y):
             return False

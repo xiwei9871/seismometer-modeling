@@ -21,12 +21,16 @@ REG = HERE / "registration"
 BMAP = json.loads((REG / "board_map.json").read_text())["detail"]
 
 # hole sets must match build_pcb_v4.py / bake_textures_v4.py (centred mm)
-A_HOLES = [(-41.46, -0.03, 3.07), (40.28, -1.35, 3.34),
-           (-32, 43.0, 2.2), (23, 44.0, 2.2),
-           (-45.5, 0.5, 2.2), (44, 0.5, 2.2),
-           (-24, -42.0, 2.2), (23, -42.5, 2.2),
-           (-38, 36, 2.0), (38, 40, 2.0), (-46, -22, 2.0), (46, -30, 2.0)]
-A_SLOT = (28, -14, 14, 8, -0.5)
+# v44: corrected against the AI-revised top view — hole4 merged into hole0,
+# hole11 moved onto the real large cutout, kidney slot removed (no slot in
+# the corrected image), bottom-edge holes added/snapped
+A_HOLES = [(-45.6, 2.6, 3.0), (47.8, -12.8, 3.1), (46.0, 3.2, 2.9),
+           (32.9, -24.4, 5.0),
+           (-39.0, 38.0, 2.0), (-26.7, 42.7, 2.2), (23.0, 44.0, 2.2),
+           (43.0, 29.0, 2.0),
+           (-46.0, -22.0, 2.0), (-24.0, -42.0, 2.2), (28.1, -43.7, 2.2),
+           (-29.3, -48.2, 2.2)]
+A_SLOT = None
 
 B_HOLES = [(-0.97, -0.16, 2.3),
            (-23, 20, 2.0), (23, 20, 2.0),
