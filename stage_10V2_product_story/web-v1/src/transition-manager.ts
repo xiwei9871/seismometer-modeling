@@ -21,6 +21,8 @@ interface Tween {
   ease: (t: number) => number;
   update: (k: number) => void;
   done: () => void;
+  /** resolves the returned promise without firing the completion callback */
+  resolve: () => void;
   cancelled: boolean;
 }
 
@@ -48,6 +50,7 @@ export class TransitionManager {
           opts.done?.();
           resolve();
         },
+        resolve,
         cancelled: false,
       });
     });
@@ -55,8 +58,14 @@ export class TransitionManager {
 
   /** Cancel every tween carrying `tag` (spec §31: cancel before re-resolve). */
   cancel(tag: string): void {
-    for (const t of this.tweens) if (t.tag === tag) t.cancelled = true;
-    this.tweens = this.tweens.filter((t) => !t.cancelled);
+    const dead = this.tweens.filter((t) => t.tag === tag);
+    this.tweens = this.tweens.filter((t) => t.tag !== tag);
+    // Resolve cancelled tweens' promises so awaited Promise.all() callers
+    // continue; done() is skipped since the tween never reached its end state.
+    for (const t of dead) {
+      t.cancelled = true;
+      t.resolve();
+    }
   }
 
   /** Tween an Object3D world position. */

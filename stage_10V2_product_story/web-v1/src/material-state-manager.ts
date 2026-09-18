@@ -10,11 +10,13 @@
 import * as THREE from 'three';
 import { TransitionManager } from './transition-manager';
 
-export type VisualLevel = 'FOCUS' | 'RELATED' | 'DISTANT' | 'XRAY' | 'HIDDEN';
+export type VisualLevel =
+  | 'FOCUS' | 'RELATED' | 'SHELL' | 'DISTANT' | 'XRAY' | 'HIDDEN';
 
 const LEVEL_OPACITY: Record<VisualLevel, number> = {
   FOCUS: 1.0,
   RELATED: 0.5,
+  SHELL: 0.6,
   DISTANT: 0.22,
   XRAY: 0.16,
   HIDDEN: 0.0,

@@ -36,6 +36,15 @@ interface ManifestComponent {
   assembled: [number, number, number];
   inspect?: [number, number, number];
   extractDirection?: [number, number, number];
+  explodeOffset?: [number, number, number];
+  ghostInInspect?: boolean;
+  /** stay XRAY instead of HIDDEN when THESE systems are inspected
+   *  (e.g. the handle stays visible around the antenna it encases). */
+  ghostInInspectFor?: string[];
+  /** mm above the inspect position where a clip plane opens the part's top. */
+  openTop?: number;
+  /** false = clip only (battery bay stub), true/undefined = lift a lid clone. */
+  splitLid?: boolean;
 }
 
 interface ManifestSystem {

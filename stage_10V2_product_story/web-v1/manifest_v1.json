@@ -114,6 +114,35 @@
         289.2269973754883,
         -84.47345337658297
       ]
+    },
+    "SYS_TRANSMISSION": {
+      "context": {
+        "lens_mm": 70.0,
+        "position": [
+          680.0,
+          830.0,
+          780.0
+        ],
+        "target": [
+          60.0,
+          318.0,
+          -85.0
+        ]
+      },
+      "inspect": {
+        "fstop": 5.0,
+        "lens_mm": 70.0,
+        "position": [
+          422.5,
+          619.0,
+          432.5
+        ],
+        "target": [
+          55.0,
+          322.0,
+          -85.0
+        ]
+      }
     }
   },
   "components": {
@@ -156,7 +185,8 @@
       "inspectable": true,
       "role": "PRIMARY",
       "semanticId": "CMP_SENSOR_FIXTURE",
-      "systemId": "SYS_SENSOR"
+      "systemId": "SYS_SENSOR",
+      "openTop": 6.0
     },
     "PART_004": {
       "assembled": [
@@ -177,6 +207,9 @@
         -84.46949768066406
       ],
       "displayName": "Carry Handle",
+      "ghostInInspectFor": [
+        "SYS_TRANSMISSION"
+      ],
       "inspectable": true,
       "role": "SECONDARY",
       "semanticId": "CMP_HANDLE",
@@ -190,14 +223,19 @@
       ],
       "displayName": "PCB Protective Plate",
       "inspect": [
-        158.81751251220703,
-        347.4551696777344,
-        -86.72936248779297
+        205.0,
+        252.0,
+        -70.0
       ],
       "inspectable": true,
       "role": "SUPPORT",
       "semanticId": "CMP_PCB_PROTECTIVE_PLATE",
-      "systemId": "SYS_ACQUISITION"
+      "systemId": "SYS_ACQUISITION",
+      "explodeOffset": [
+        0.0,
+        -45.0,
+        0.0
+      ]
     },
     "PART_007": {
       "assembled": [
@@ -207,14 +245,19 @@
       ],
       "displayName": "PCB Connecting Frame",
       "inspect": [
-        145.69351959228516,
-        288.0874328613281,
-        -92.47615051269531
+        205.0,
+        348.0,
+        -70.0
       ],
       "inspectable": false,
       "role": "SUPPORT",
       "semanticId": "CMP_PCB_CONNECTING_FRAME",
-      "systemId": "SYS_ACQUISITION"
+      "systemId": "SYS_ACQUISITION",
+      "explodeOffset": [
+        0.0,
+        38.0,
+        0.0
+      ]
     },
     "PART_008": {
       "assembled": [
@@ -223,15 +266,11 @@
         -39.96284866333008
       ],
       "displayName": "Cell 01",
-      "inspect": [
-        151.57878851036946,
-        305.9840087890625,
-        -13.205339228887798
-      ],
       "inspectable": true,
       "role": "PRIMARY",
       "semanticId": "CMP_CELL_01",
-      "systemId": "SYS_POWER"
+      "systemId": "SYS_POWER",
+      "ghostInInspect": true
     },
     "PART_009": {
       "assembled": [
@@ -240,15 +279,11 @@
         -128.98370361328125
       ],
       "displayName": "Cell 02",
-      "inspect": [
-        39.83502890793549,
-        305.98388671875,
-        -155.7411674508515
-      ],
       "inspectable": true,
       "role": "PRIMARY",
       "semanticId": "CMP_CELL_02",
-      "systemId": "SYS_POWER"
+      "systemId": "SYS_POWER",
+      "ghostInInspect": true
     },
     "PART_010": {
       "assembled": [
@@ -257,15 +292,11 @@
         -136.94886779785156
       ],
       "displayName": "Cell 03",
-      "inspect": [
-        129.49120422915757,
-        305.98382568359375,
-        -168.49424997163143
-      ],
       "inspectable": true,
       "role": "PRIMARY",
       "semanticId": "CMP_CELL_03",
-      "systemId": "SYS_POWER"
+      "systemId": "SYS_POWER",
+      "ghostInInspect": true
     },
     "PART_011": {
       "assembled": [
@@ -274,15 +305,11 @@
         -31.9980411529541
       ],
       "displayName": "Cell 04",
-      "inspect": [
-        61.92278692831745,
-        305.98358154296875,
-        -0.4526539205115583
-      ],
       "inspectable": true,
       "role": "PRIMARY",
       "semanticId": "CMP_CELL_04",
-      "systemId": "SYS_POWER"
+      "systemId": "SYS_POWER",
+      "ghostInInspect": true
     },
     "PART_012": {
       "assembled": [
@@ -357,15 +384,11 @@
         -76.50875854492188
       ],
       "displayName": "Cell 05",
-      "inspect": [
-        6.047522650547847,
-        305.9900817871094,
-        -71.72112828401245
-      ],
       "inspectable": true,
       "role": "PRIMARY",
       "semanticId": "CMP_CELL_05",
-      "systemId": "SYS_POWER"
+      "systemId": "SYS_POWER",
+      "ghostInInspect": true
     },
     "PART_016": {
       "assembled": [
@@ -374,15 +397,11 @@
         -92.43799591064453
       ],
       "displayName": "Cell 06",
-      "inspect": [
-        185.3662781329254,
-        305.989501953125,
-        -97.22564246285681
-      ],
       "inspectable": true,
       "role": "PRIMARY",
       "semanticId": "CMP_CELL_06",
-      "systemId": "SYS_POWER"
+      "systemId": "SYS_POWER",
+      "ghostInInspect": true
     },
     "PART_017": {
       "assembled": [
@@ -416,14 +435,19 @@
       ],
       "displayName": "Acquisition Core Board",
       "inspect": [
-        230.70696258544922,
-        300.68505859375,
-        -66.47337341308594
+        205.0,
+        315.0,
+        -70.0
       ],
       "inspectable": true,
       "role": "HERO",
       "semanticId": "CMP_MAIN_PCB",
-      "systemId": "SYS_ACQUISITION"
+      "systemId": "SYS_ACQUISITION",
+      "explodeOffset": [
+        0.0,
+        12.0,
+        0.0
+      ]
     },
     "PART_020": {
       "assembled": [
@@ -460,6 +484,112 @@
       "role": "SUPPORT",
       "semanticId": "CMP_LEVELING_03",
       "systemId": "SYS_FIELD_PLATFORM"
+    },
+    "PCB_B": {
+      "assembled": [
+        103.0,
+        265.4,
+        -165.7
+      ],
+      "displayName": "Auxiliary Interface Board",
+      "inspect": [
+        205.0,
+        278.0,
+        -150.7
+      ],
+      "inspectable": true,
+      "role": "PRIMARY",
+      "semanticId": "PCB_B",
+      "systemId": "SYS_ACQUISITION",
+      "explodeOffset": [
+        0.0,
+        -30.0,
+        0.0
+      ]
+    },
+    "CELL_18650_01": {
+      "assembled": [
+        129.55,
+        236.34,
+        -28.44
+      ],
+      "displayName": "18650 Cell 01",
+      "inspectable": true,
+      "role": "PRIMARY",
+      "semanticId": "CELL_18650_01",
+      "systemId": "SYS_POWER"
+    },
+    "CELL_18650_02": {
+      "assembled": [
+        61.87,
+        236.34,
+        -140.51
+      ],
+      "displayName": "18650 Cell 02",
+      "inspectable": true,
+      "role": "PRIMARY",
+      "semanticId": "CELL_18650_02",
+      "systemId": "SYS_POWER"
+    },
+    "CELL_18650_03": {
+      "assembled": [
+        127.94,
+        236.34,
+        -143.42
+      ],
+      "displayName": "18650 Cell 03",
+      "inspectable": true,
+      "role": "PRIMARY",
+      "semanticId": "CELL_18650_03",
+      "systemId": "SYS_POWER"
+    },
+    "CELL_18650_04": {
+      "assembled": [
+        63.47,
+        236.34,
+        -25.52
+      ],
+      "displayName": "18650 Cell 04",
+      "inspectable": true,
+      "role": "PRIMARY",
+      "semanticId": "CELL_18650_04",
+      "systemId": "SYS_POWER"
+    },
+    "CELL_18650_05": {
+      "assembled": [
+        30.64,
+        236.34,
+        -84.47
+      ],
+      "displayName": "18650 Cell 05",
+      "inspectable": true,
+      "role": "PRIMARY",
+      "semanticId": "CELL_18650_05",
+      "systemId": "SYS_POWER"
+    },
+    "CELL_18650_06": {
+      "assembled": [
+        160.77,
+        236.34,
+        -84.47
+      ],
+      "displayName": "18650 Cell 06",
+      "inspectable": true,
+      "role": "PRIMARY",
+      "semanticId": "CELL_18650_06",
+      "systemId": "SYS_POWER"
+    },
+    "WIFI_ANTENNA": {
+      "assembled": [
+        40.0,
+        331.0,
+        -84.5
+      ],
+      "displayName": "WiFi Antenna",
+      "inspectable": true,
+      "role": "PRIMARY",
+      "semanticId": "WIFI_ANTENNA",
+      "systemId": "SYS_TRANSMISSION"
     }
   },
   "glb": "product_v1.glb",
@@ -476,7 +606,7 @@
       "parts": [
         "PART_019",
         "PART_006",
-        "PART_007"
+        "PCB_B"
       ]
     },
     "SYS_FIELD_PLATFORM": {
@@ -510,7 +640,13 @@
         "PART_010",
         "PART_011",
         "PART_015",
-        "PART_016"
+        "PART_016",
+        "CELL_18650_01",
+        "CELL_18650_02",
+        "CELL_18650_03",
+        "CELL_18650_04",
+        "CELL_18650_05",
+        "CELL_18650_06"
       ]
     },
     "SYS_SENSOR": {
@@ -544,6 +680,19 @@
         "PART_005",
         "PART_017",
         "PART_018"
+      ]
+    },
+    "SYS_TRANSMISSION": {
+      "displayName": "Transmission",
+      "oneLiner": "Storage → WiFi → Cloud",
+      "order": 6,
+      "parts": [
+        "WIFI_ANTENNA"
+      ],
+      "explodeVector": [
+        0.0,
+        55.0,
+        0.0
       ]
     }
   },

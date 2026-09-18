@@ -1,0 +1,13 @@
+import { chromium } from 'playwright';
+const browser = await chromium.launch();
+const page = await browser.newPage({ viewport: { width: 1600, height: 1000 } });
+page.on('pageerror', e => console.log('PAGEERROR:', e.message));
+await page.goto('http://localhost:8941/?cb=' + Date.now(), { waitUntil: 'networkidle' });
+await page.waitForFunction(() => window.__app?.store);
+await page.waitForTimeout(1500);
+await page.click('button:has-text("Sensing")');
+await page.waitForTimeout(6000);
+await page.screenshot({ path: '/tmp/sensing_split.png' });
+const lids = await page.evaluate(() => window.__app.machine['lids']?.length);
+console.log('lids:', lids);
+await browser.close();

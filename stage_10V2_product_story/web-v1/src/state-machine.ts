@@ -23,6 +23,11 @@ const mm = (v: [number, number, number]) =>
   new THREE.Vector3(v[0], v[1], v[2]);
 
 export class ExperienceStateMachine {
+  /** parts whose top was clipped open for the current inspection */
+  private clipped: THREE.Mesh[] = [];
+  /** cloned lid halves lifted off split fixtures */
+  private lids: THREE.Mesh[] = [];
+
   constructor(
     private store: ExperienceStore,
     private registry: SemanticRegistry,
@@ -36,12 +41,21 @@ export class ExperienceStateMachine {
     const spec = this.registry.componentSpec(partId);
     if (!spec) return new THREE.Vector3();
     const base = mm(spec.assembled);
-    if (mode === 'inspection' && spec.inspect) return mm(spec.inspect);
+    if (mode === 'inspection' && spec.inspect) {
+      const p = mm(spec.inspect);
+      // cores self-extract along their axis so a fixture reads "open"
+      if (spec.extractDirection)
+        p.add(mm(spec.extractDirection).multiplyScalar(28));
+      return p;
+    }
     if (mode === 'architecture') {
       const sys = this.registry.system(spec.systemId);
       if (sys) {
         const f = this.store.get().architectureExplode || 1;
-        return base.add(mm(sys.explodeVector).multiplyScalar(f));
+        base.add(mm(sys.explodeVector).multiplyScalar(f));
+        // per-part offset spreads stacked members (e.g. mezzanine B board)
+        if (spec.explodeOffset) base.add(mm(spec.explodeOffset));
+        return base;
       }
     }
     return base;
@@ -63,11 +77,82 @@ export class ExperienceStateMachine {
       );
   }
 
+  /** Reassemble every part + restore all materials without touching the
+   *  store — used by chapters that present over the assembled device. */
+  async reassemble(duration = 1.0): Promise<void> {
+    this.tweens.cancel('motion');
+    const jobs = this.allToBase(duration);
+    for (const e of this.registry.components()) this.materials.restore(e.object3D, 0.7);
+    for (const e of this.registry.geometry()) this.materials.restore(e.object3D, 0.7);
+    await Promise.all(jobs);
+  }
+
+  /** Remove split-half clip planes + delete the lifted lid clones. */
+  private clearClips(): void {
+    for (const m of this.clipped) {
+      const mat = m.material as THREE.MeshStandardMaterial;
+      if (mat?.clippingPlanes) mat.clippingPlanes = null;
+    }
+    for (const lid of this.lids) lid.parent?.remove(lid);
+    this.clipped = [];
+    this.lids = [];
+  }
+
+  /** Split a fixture-type part into bottom half + lifted lid along a world
+   *  clip plane (`openTop` mm above its inspect pos). The source mesh keeps
+   *  y ≤ cut; a clone keeps y > cut and rises, so a one-piece STL reads as a
+   *  two-half fixture opening — no geometry edit (rules-safe). */
+  private applyOpenTop(partId: string): void {
+    const spec = this.registry.componentSpec(partId);
+    if (!spec?.openTop) return;
+    const entity = this.registry.get(spec.semanticId);
+    if (!entity) return;
+    const baseY = spec.inspect ? spec.inspect[1] : spec.assembled[1];
+    const cut = (baseY + spec.openTop) / 1000;          // world metres
+    const keepBelow = new THREE.Plane(new THREE.Vector3(0, -1, 0), cut);
+    const keepAbove = new THREE.Plane(new THREE.Vector3(0, 1, 0), -cut);
+    entity.object3D.traverse((o) => {
+      const mesh = o as THREE.Mesh;
+      if (!mesh.isMesh || mesh.userData.isLid) return;
+      if (!mesh.userData.openTopCloned) {
+        mesh.material = (mesh.material as THREE.MeshStandardMaterial).clone();
+        mesh.userData.openTopCloned = true;
+      }
+      const mat = mesh.material as THREE.MeshStandardMaterial;
+      mat.side = THREE.DoubleSide;
+      mat.clippingPlanes = [keepBelow];
+      this.clipped.push(mesh);
+      if (spec.splitLid === false) return;    // bay stub: clip, no lid
+      // lid clone — same geometry; its clip plane RIDES with the lift so the
+      // rendered piece stays exactly the top-half slice, never a full copy
+      const lid = mesh.clone();
+      lid.userData.isLid = true;
+      lid.material = mat.clone();
+      const lm = lid.material as THREE.MeshStandardMaterial;
+      lm.side = THREE.DoubleSide;
+      const lidPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), -cut);
+      lm.clippingPlanes = [lidPlane];
+      mesh.parent!.add(lid);
+      this.lids.push(lid);
+      const y0 = lid.position.y;
+      const lift = 44;                    // mm, local space
+      void this.tweens.run({
+        duration: 0.7,
+        tag: 'motion',
+        update: (k) => {
+          lid.position.y = y0 + k * lift;
+          lidPlane.constant = -(cut + (k * lift) / 1000);
+        },
+      });
+    });
+  }
+
   async setMode(mode: 'overview' | 'architecture' | 'inspection', systemId?: string): Promise<void> {
     // §31: cancel previous transient transitions, then resolve the new state.
     this.tweens.cancel('motion');
     this.tweens.cancel('material');
     this.tweens.cancel('camera');
+    this.clearClips();
 
     if (mode === 'overview') return this.enterOverview();
     if (mode === 'architecture') return this.enterArchitecture();
@@ -135,26 +220,80 @@ export class ExperienceStateMachine {
       .components()
       .filter((e) => !sysParts.has(e.sourcePart ?? ''));
 
-    // 1-2. camera to context + x-ray everything that is not the system.
-    void this.camera.goTo(`${systemId}.context`, 1.0);
-    for (const e of others) this.materials.setLevel(e.object3D, 'XRAY', 0.7);
-    for (const e of sysEntities) this.materials.setLevel(e.object3D, 'FOCUS', 0.4);
-    await sleep(650);
-
-    // 3-5. extract the system to its inspect layout, hide the context,
-    //      move the camera into the inspection preset.
-    for (const e of others) this.materials.setLevel(e.object3D, 'HIDDEN', 0.8);
-    void this.camera.goTo(`${systemId}.inspect`, 1.2);
-    const jobs = this.registry
-      .system(systemId)!
-      .parts.map((partId) =>
-        this.moveComponent(partId, this.targetPosition(partId, 'inspection'), 1.1),
+    // no locate beat — non-system parts fade straight out; parts flagged
+    // ghostInInspectFor THIS system stay translucent (e.g. the handle must
+    // remain x-rayed so the antenna reads inside it).
+    for (const e of others) {
+      const keep = e.sourcePart
+        ? this.registry.componentSpec(e.sourcePart)?.ghostInInspectFor
+        : undefined;
+      this.materials.setLevel(
+        e.object3D,
+        keep?.includes(systemId) ? 'XRAY' : 'HIDDEN',
+        0.5,
       );
-    // PCB presentation components ride along with the board (logical children).
-    for (const e of this.registry.geometry()) {
-      if (e.systemId === systemId) this.materials.setLevel(e.object3D, 'FOCUS', 0.4);
-      else this.materials.setLevel(e.object3D, 'HIDDEN', 0.8);
     }
+    for (const e of sysEntities) {
+      // shell parts flagged ghostInInspect (battery tubes) turn translucent
+      // so the contents they hold stay readable without any disassembly.
+      const ghost = e.sourcePart
+        ? this.registry.componentSpec(e.sourcePart)?.ghostInInspect
+        : false;
+      this.materials.setLevel(e.object3D, ghost ? 'SHELL' : 'FOCUS', 0.4);
+    }
+    // geometry entities (cells, PCB dressing) hide/focus up front — otherwise
+    // they linger on stage through the whole staged reveal
+    for (const e of this.registry.geometry()) {
+      const ghost = e.sourcePart
+        ? this.registry.componentSpec(e.sourcePart)?.ghostInInspect
+        : false;
+      if (e.systemId === systemId)
+        this.materials.setLevel(e.object3D, ghost ? 'SHELL' : 'FOCUS', 0.4);
+      else this.materials.setLevel(e.object3D, 'HIDDEN', 0.5);
+    }
+    void this.camera.goTo(`${systemId}.inspect`, 1.2);
+    // let the stage clear before the system travels
+    await sleep(600);
+    // staged reveal: container parts (openTop) travel first WITH their
+    // contents riding inside, then open, then the contents burst out —
+    // reads as "fixture comes out, opens, cores emerge from inside it".
+    const sysPartIds = this.registry.system(systemId)!.parts;
+    const containers = sysPartIds.filter(
+      (p) => this.registry.componentSpec(p)?.openTop !== undefined,
+    );
+    const contents = sysPartIds.filter(
+      (p) => this.registry.componentSpec(p)?.openTop === undefined,
+    );
+    // ride-along offset: contents keep their position relative to the first
+    // container while it travels, so they stay inside the closed fixture
+    let rideDelta: THREE.Vector3 | null = null;
+    if (containers.length) {
+      const c = this.registry.componentSpec(containers[0])!;
+      rideDelta = this.targetPosition(containers[0], 'inspection')
+        .clone()
+        .sub(mm(c.assembled));
+    }
+    await Promise.all([
+      ...containers.map((partId) =>
+        this.moveComponent(partId, this.targetPosition(partId, 'inspection'), 1.1),
+      ),
+      ...(rideDelta
+        ? contents.map((partId) => {
+            const spec = this.registry.componentSpec(partId)!;
+            return this.moveComponent(
+              partId,
+              mm(spec.assembled).add(rideDelta),
+              1.1,
+            );
+          })
+        : []),
+    ]);
+    // fixture-style parts open up once settled (clip plane lifts the lid)
+    for (const partId of containers) this.applyOpenTop(partId);
+    if (containers.length) await sleep(950);
+    const jobs = contents.map((partId) =>
+      this.moveComponent(partId, this.targetPosition(partId, 'inspection'), 1.1),
+    );
     await Promise.all(jobs);
     this.store.set({ inspectionProgress: 1 });
   }
