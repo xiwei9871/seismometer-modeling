@@ -1,0 +1,4979 @@
+{
+ "GEO_A_IND_2R2_0_BODY": {
+  "name": "A_IND_2R2_0_BODY",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_IND_2R2_0_TERM_+1": {
+  "name": "A_IND_2R2_0_TERM_+1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_IND_2R2_0_TERM_-1": {
+  "name": "A_IND_2R2_0_TERM_-1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_IND_2R2_1_BODY": {
+  "name": "A_IND_2R2_1_BODY",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_IND_2R2_1_TERM_+1": {
+  "name": "A_IND_2R2_1_TERM_+1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_IND_2R2_1_TERM_-1": {
+  "name": "A_IND_2R2_1_TERM_-1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_ICX_0": {
+  "name": "A_MOD_ICX_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_ICX_1": {
+  "name": "A_MOD_ICX_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_ICX_2": {
+  "name": "A_MOD_ICX_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_MAIN_SYSTEM_BOARD": {
+  "name": "PCB_A_MAIN_SYSTEM_BOARD",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_BK_HARNESS_CONN": {
+  "name": "A_BK_HARNESS_CONN",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_BK_LED_0": {
+  "name": "A_BK_LED_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_BK_LED_1": {
+  "name": "A_BK_LED_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_BK_LED_2": {
+  "name": "A_BK_LED_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_BK_SHIELD": {
+  "name": "A_BK_SHIELD",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_BK_SN": {
+  "name": "A_BK_SN",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_BK_SN_TXT": {
+  "name": "A_BK_SN_TXT",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_000": {
+  "name": "SMT42_AB_000",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_001": {
+  "name": "SMT42_AB_001",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_002": {
+  "name": "SMT42_AB_002",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_003": {
+  "name": "SMT42_AB_003",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_004": {
+  "name": "SMT42_AB_004",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_006": {
+  "name": "SMT42_AB_006",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_007": {
+  "name": "SMT42_AB_007",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_008": {
+  "name": "SMT42_AB_008",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_009": {
+  "name": "SMT42_AB_009",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_010": {
+  "name": "SMT42_AB_010",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_011": {
+  "name": "SMT42_AB_011",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_013": {
+  "name": "SMT42_AB_013",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_014": {
+  "name": "SMT42_AB_014",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_015": {
+  "name": "SMT42_AB_015",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_016": {
+  "name": "SMT42_AB_016",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_017": {
+  "name": "SMT42_AB_017",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_018": {
+  "name": "SMT42_AB_018",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_019": {
+  "name": "SMT42_AB_019",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_020": {
+  "name": "SMT42_AB_020",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_022": {
+  "name": "SMT42_AB_022",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_024": {
+  "name": "SMT42_AB_024",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_025": {
+  "name": "SMT42_AB_025",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_026": {
+  "name": "SMT42_AB_026",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_027": {
+  "name": "SMT42_AB_027",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_028": {
+  "name": "SMT42_AB_028",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_029": {
+  "name": "SMT42_AB_029",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_030": {
+  "name": "SMT42_AB_030",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_032": {
+  "name": "SMT42_AB_032",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_033": {
+  "name": "SMT42_AB_033",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_034": {
+  "name": "SMT42_AB_034",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_036": {
+  "name": "SMT42_AB_036",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_037": {
+  "name": "SMT42_AB_037",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_038": {
+  "name": "SMT42_AB_038",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_039": {
+  "name": "SMT42_AB_039",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_040": {
+  "name": "SMT42_AB_040",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_041": {
+  "name": "SMT42_AB_041",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_042": {
+  "name": "SMT42_AB_042",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_043": {
+  "name": "SMT42_AB_043",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_044": {
+  "name": "SMT42_AB_044",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_045": {
+  "name": "SMT42_AB_045",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_046": {
+  "name": "SMT42_AB_046",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_047": {
+  "name": "SMT42_AB_047",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_048": {
+  "name": "SMT42_AB_048",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AB_050": {
+  "name": "SMT42_AB_050",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_RIBBON_PLUG": {
+  "name": "PCB_A_RIBBON_PLUG",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_ANT_BOSS_0": {
+  "name": "A_ANT_BOSS_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_ANT_BOSS_1": {
+  "name": "A_ANT_BOSS_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_ANT_BOSS_2": {
+  "name": "A_ANT_BOSS_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_ANT_BOSS_3": {
+  "name": "A_ANT_BOSS_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_ANT_CERAMIC": {
+  "name": "A_ANT_CERAMIC",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_ANT_DARKPATCH": {
+  "name": "A_ANT_DARKPATCH",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_ANT_FEED": {
+  "name": "A_ANT_FEED",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_ANT_FRAME": {
+  "name": "A_ANT_FRAME",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_ANT_PATCH": {
+  "name": "A_ANT_PATCH",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_ANT_SCREW_0": {
+  "name": "A_ANT_SCREW_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_ANT_SCREW_1": {
+  "name": "A_ANT_SCREW_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_ANT_SCREW_2": {
+  "name": "A_ANT_SCREW_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_ANT_SCREW_3": {
+  "name": "A_ANT_SCREW_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_ANT_WASHER_0": {
+  "name": "A_ANT_WASHER_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_ANT_WASHER_1": {
+  "name": "A_ANT_WASHER_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_ANT_WASHER_2": {
+  "name": "A_ANT_WASHER_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_ANT_WASHER_3": {
+  "name": "A_ANT_WASHER_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_COILPAD": {
+  "name": "A_DB_COILPAD",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_FOOT_0": {
+  "name": "A_DB_FOOT_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_FOOT_1": {
+  "name": "A_DB_FOOT_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_FOOT_2": {
+  "name": "A_DB_FOOT_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_FOOT_3": {
+  "name": "A_DB_FOOT_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_PCB": {
+  "name": "A_DB_PCB",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_SMT_0": {
+  "name": "A_DB_SMT_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_SMT_1": {
+  "name": "A_DB_SMT_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_SMT_2": {
+  "name": "A_DB_SMT_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_SMT_3": {
+  "name": "A_DB_SMT_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_SMT_4": {
+  "name": "A_DB_SMT_4",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_SMT_5": {
+  "name": "A_DB_SMT_5",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_SMT_6": {
+  "name": "A_DB_SMT_6",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_SMT_7": {
+  "name": "A_DB_SMT_7",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_SMT_8": {
+  "name": "A_DB_SMT_8",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_SMT_9": {
+  "name": "A_DB_SMT_9",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_SMT_10": {
+  "name": "A_DB_SMT_10",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_SMT_11": {
+  "name": "A_DB_SMT_11",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_SMT_12": {
+  "name": "A_DB_SMT_12",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_SMT_13": {
+  "name": "A_DB_SMT_13",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_SMT_14": {
+  "name": "A_DB_SMT_14",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_DB_SMT_15": {
+  "name": "A_DB_SMT_15",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_EM_CAN": {
+  "name": "A_EM_CAN",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_EM_PAD_+1_0": {
+  "name": "A_EM_PAD_+1_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_EM_PAD_+1_1": {
+  "name": "A_EM_PAD_+1_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_EM_PAD_+1_2": {
+  "name": "A_EM_PAD_+1_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_EM_PAD_+1_3": {
+  "name": "A_EM_PAD_+1_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_EM_PAD_+1_4": {
+  "name": "A_EM_PAD_+1_4",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_EM_PAD_+1_5": {
+  "name": "A_EM_PAD_+1_5",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_EM_PAD_+1_6": {
+  "name": "A_EM_PAD_+1_6",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_EM_PAD_-1_1": {
+  "name": "A_EM_PAD_-1_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_EM_PAD_-1_2": {
+  "name": "A_EM_PAD_-1_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_EM_PAD_-1_3": {
+  "name": "A_EM_PAD_-1_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_EM_PAD_-1_4": {
+  "name": "A_EM_PAD_-1_4",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_EM_PAD_-1_5": {
+  "name": "A_EM_PAD_-1_5",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_EM_PAD_-1_6": {
+  "name": "A_EM_PAD_-1_6",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_EM_PCB": {
+  "name": "A_EM_PCB",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_EM_TXT_0": {
+  "name": "A_EM_TXT_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_EM_TXT_1": {
+  "name": "A_EM_TXT_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_EM_TXT_2": {
+  "name": "A_EM_TXT_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "WIFI_MODULE": {
+  "name": "A_EDGE_MODULE",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 20,
+  "selectable": null,
+  "focusable": null,
+  "explodable": null
+ },
+ "GEO_A_MOD_EDGE_0": {
+  "name": "A_MOD_EDGE_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_EDGE_1": {
+  "name": "A_MOD_EDGE_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_EDGE_2": {
+  "name": "A_MOD_EDGE_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_EDGE_3": {
+  "name": "A_MOD_EDGE_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_EDGEPADS": {
+  "name": "A_MOD_EDGEPADS",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_ESD": {
+  "name": "A_MOD_ESD",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_ESD_IN": {
+  "name": "A_MOD_ESD_IN",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_GLUE_END": {
+  "name": "A_MOD_GLUE_END",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_GLUE_END_sat": {
+  "name": "A_MOD_GLUE_END_sat",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01": {
+  "name": "A_MOD_IC01",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p0_0": {
+  "name": "A_MOD_IC01_p0_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p0_1": {
+  "name": "A_MOD_IC01_p0_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p0_2": {
+  "name": "A_MOD_IC01_p0_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p0_3": {
+  "name": "A_MOD_IC01_p0_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p0_4": {
+  "name": "A_MOD_IC01_p0_4",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p0_5": {
+  "name": "A_MOD_IC01_p0_5",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p0_6": {
+  "name": "A_MOD_IC01_p0_6",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p0_7": {
+  "name": "A_MOD_IC01_p0_7",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p0_8": {
+  "name": "A_MOD_IC01_p0_8",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p0_9": {
+  "name": "A_MOD_IC01_p0_9",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p0_10": {
+  "name": "A_MOD_IC01_p0_10",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p0_11": {
+  "name": "A_MOD_IC01_p0_11",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p1_0": {
+  "name": "A_MOD_IC01_p1_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p1_1": {
+  "name": "A_MOD_IC01_p1_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p1_2": {
+  "name": "A_MOD_IC01_p1_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p1_3": {
+  "name": "A_MOD_IC01_p1_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p1_4": {
+  "name": "A_MOD_IC01_p1_4",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p1_5": {
+  "name": "A_MOD_IC01_p1_5",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p1_6": {
+  "name": "A_MOD_IC01_p1_6",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p1_7": {
+  "name": "A_MOD_IC01_p1_7",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p1_8": {
+  "name": "A_MOD_IC01_p1_8",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p1_9": {
+  "name": "A_MOD_IC01_p1_9",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p1_10": {
+  "name": "A_MOD_IC01_p1_10",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC01_p1_11": {
+  "name": "A_MOD_IC01_p1_11",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02": {
+  "name": "A_MOD_IC02",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p0_0": {
+  "name": "A_MOD_IC02_p0_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p0_1": {
+  "name": "A_MOD_IC02_p0_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p0_2": {
+  "name": "A_MOD_IC02_p0_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p0_3": {
+  "name": "A_MOD_IC02_p0_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p0_4": {
+  "name": "A_MOD_IC02_p0_4",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p0_5": {
+  "name": "A_MOD_IC02_p0_5",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p0_6": {
+  "name": "A_MOD_IC02_p0_6",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p0_7": {
+  "name": "A_MOD_IC02_p0_7",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p0_8": {
+  "name": "A_MOD_IC02_p0_8",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p0_9": {
+  "name": "A_MOD_IC02_p0_9",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p0_10": {
+  "name": "A_MOD_IC02_p0_10",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p0_11": {
+  "name": "A_MOD_IC02_p0_11",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p1_0": {
+  "name": "A_MOD_IC02_p1_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p1_1": {
+  "name": "A_MOD_IC02_p1_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p1_2": {
+  "name": "A_MOD_IC02_p1_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p1_3": {
+  "name": "A_MOD_IC02_p1_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p1_4": {
+  "name": "A_MOD_IC02_p1_4",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p1_5": {
+  "name": "A_MOD_IC02_p1_5",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p1_6": {
+  "name": "A_MOD_IC02_p1_6",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p1_7": {
+  "name": "A_MOD_IC02_p1_7",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p1_8": {
+  "name": "A_MOD_IC02_p1_8",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p1_9": {
+  "name": "A_MOD_IC02_p1_9",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p1_10": {
+  "name": "A_MOD_IC02_p1_10",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC02_p1_11": {
+  "name": "A_MOD_IC02_p1_11",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03": {
+  "name": "A_MOD_IC03",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p0_0": {
+  "name": "A_MOD_IC03_p0_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p0_1": {
+  "name": "A_MOD_IC03_p0_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p0_2": {
+  "name": "A_MOD_IC03_p0_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p0_3": {
+  "name": "A_MOD_IC03_p0_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p0_4": {
+  "name": "A_MOD_IC03_p0_4",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p0_5": {
+  "name": "A_MOD_IC03_p0_5",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p0_6": {
+  "name": "A_MOD_IC03_p0_6",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p0_7": {
+  "name": "A_MOD_IC03_p0_7",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p0_8": {
+  "name": "A_MOD_IC03_p0_8",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p0_9": {
+  "name": "A_MOD_IC03_p0_9",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p0_10": {
+  "name": "A_MOD_IC03_p0_10",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p0_11": {
+  "name": "A_MOD_IC03_p0_11",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p0_12": {
+  "name": "A_MOD_IC03_p0_12",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p0_13": {
+  "name": "A_MOD_IC03_p0_13",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p0_14": {
+  "name": "A_MOD_IC03_p0_14",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p0_15": {
+  "name": "A_MOD_IC03_p0_15",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p0_16": {
+  "name": "A_MOD_IC03_p0_16",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p1_0": {
+  "name": "A_MOD_IC03_p1_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p1_1": {
+  "name": "A_MOD_IC03_p1_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p1_2": {
+  "name": "A_MOD_IC03_p1_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p1_3": {
+  "name": "A_MOD_IC03_p1_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p1_4": {
+  "name": "A_MOD_IC03_p1_4",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p1_5": {
+  "name": "A_MOD_IC03_p1_5",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p1_6": {
+  "name": "A_MOD_IC03_p1_6",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p1_7": {
+  "name": "A_MOD_IC03_p1_7",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p1_8": {
+  "name": "A_MOD_IC03_p1_8",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p1_9": {
+  "name": "A_MOD_IC03_p1_9",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p1_10": {
+  "name": "A_MOD_IC03_p1_10",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p1_11": {
+  "name": "A_MOD_IC03_p1_11",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p1_12": {
+  "name": "A_MOD_IC03_p1_12",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p1_13": {
+  "name": "A_MOD_IC03_p1_13",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p1_14": {
+  "name": "A_MOD_IC03_p1_14",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p1_15": {
+  "name": "A_MOD_IC03_p1_15",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC03_p1_16": {
+  "name": "A_MOD_IC03_p1_16",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC04": {
+  "name": "A_MOD_IC04",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC04_MARK0": {
+  "name": "A_MOD_IC04_MARK0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC04_MARK1": {
+  "name": "A_MOD_IC04_MARK1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC04_MARK2": {
+  "name": "A_MOD_IC04_MARK2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC05": {
+  "name": "A_MOD_IC05",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC05_DIE": {
+  "name": "A_MOD_IC05_DIE",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC06": {
+  "name": "A_MOD_IC06",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC07": {
+  "name": "A_MOD_IC07",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC07_p0_0": {
+  "name": "A_MOD_IC07_p0_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC07_p0_1": {
+  "name": "A_MOD_IC07_p0_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC07_p0_2": {
+  "name": "A_MOD_IC07_p0_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC07_p0_3": {
+  "name": "A_MOD_IC07_p0_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC07_p1_0": {
+  "name": "A_MOD_IC07_p1_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC07_p1_1": {
+  "name": "A_MOD_IC07_p1_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC07_p1_2": {
+  "name": "A_MOD_IC07_p1_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC07_p1_3": {
+  "name": "A_MOD_IC07_p1_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC08": {
+  "name": "A_MOD_IC08",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC08_p0_0": {
+  "name": "A_MOD_IC08_p0_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC08_p0_1": {
+  "name": "A_MOD_IC08_p0_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC08_p0_2": {
+  "name": "A_MOD_IC08_p0_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC08_p0_3": {
+  "name": "A_MOD_IC08_p0_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC08_p0_4": {
+  "name": "A_MOD_IC08_p0_4",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC08_p1_0": {
+  "name": "A_MOD_IC08_p1_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC08_p1_1": {
+  "name": "A_MOD_IC08_p1_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC08_p1_2": {
+  "name": "A_MOD_IC08_p1_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC08_p1_3": {
+  "name": "A_MOD_IC08_p1_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC08_p1_4": {
+  "name": "A_MOD_IC08_p1_4",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_IC09": {
+  "name": "A_MOD_IC09",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_ICON": {
+  "name": "A_MOD_ICON",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_ICON_IN": {
+  "name": "A_MOD_ICON_IN",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_LABEL": {
+  "name": "A_MOD_LABEL",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_LABEL_TXT": {
+  "name": "A_MOD_LABEL_TXT",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_LABEL_TXT2": {
+  "name": "A_MOD_LABEL_TXT2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_PCB": {
+  "name": "A_MOD_PCB",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_QR": {
+  "name": "A_MOD_QR",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_QR_P0": {
+  "name": "A_MOD_QR_P0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_QR_P1": {
+  "name": "A_MOD_QR_P1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_QR_P2": {
+  "name": "A_MOD_QR_P2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SCREW_0": {
+  "name": "A_MOD_SCREW_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SCREW_1": {
+  "name": "A_MOD_SCREW_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SCREW_2": {
+  "name": "A_MOD_SCREW_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SCREW_3": {
+  "name": "A_MOD_SCREW_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_0": {
+  "name": "A_MOD_SMT_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_1": {
+  "name": "A_MOD_SMT_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_2": {
+  "name": "A_MOD_SMT_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_3": {
+  "name": "A_MOD_SMT_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_4": {
+  "name": "A_MOD_SMT_4",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_5": {
+  "name": "A_MOD_SMT_5",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_6": {
+  "name": "A_MOD_SMT_6",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_7": {
+  "name": "A_MOD_SMT_7",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_8": {
+  "name": "A_MOD_SMT_8",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_9": {
+  "name": "A_MOD_SMT_9",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_10": {
+  "name": "A_MOD_SMT_10",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_11": {
+  "name": "A_MOD_SMT_11",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_12": {
+  "name": "A_MOD_SMT_12",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_13": {
+  "name": "A_MOD_SMT_13",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_14": {
+  "name": "A_MOD_SMT_14",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_15": {
+  "name": "A_MOD_SMT_15",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_16": {
+  "name": "A_MOD_SMT_16",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_17": {
+  "name": "A_MOD_SMT_17",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_18": {
+  "name": "A_MOD_SMT_18",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_19": {
+  "name": "A_MOD_SMT_19",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_20": {
+  "name": "A_MOD_SMT_20",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_21": {
+  "name": "A_MOD_SMT_21",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_22": {
+  "name": "A_MOD_SMT_22",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_23": {
+  "name": "A_MOD_SMT_23",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_24": {
+  "name": "A_MOD_SMT_24",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SMT_25": {
+  "name": "A_MOD_SMT_25",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SS_0": {
+  "name": "A_MOD_SS_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SS_1": {
+  "name": "A_MOD_SS_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SS_2": {
+  "name": "A_MOD_SS_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SS_3": {
+  "name": "A_MOD_SS_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SS_4": {
+  "name": "A_MOD_SS_4",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SS_5": {
+  "name": "A_MOD_SS_5",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_SS_6": {
+  "name": "A_MOD_SS_6",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_STAND_0": {
+  "name": "A_MOD_STAND_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_STAND_1": {
+  "name": "A_MOD_STAND_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_STAND_2": {
+  "name": "A_MOD_STAND_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_STAND_3": {
+  "name": "A_MOD_STAND_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_WASHER_0": {
+  "name": "A_MOD_WASHER_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_WASHER_1": {
+  "name": "A_MOD_WASHER_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_WASHER_2": {
+  "name": "A_MOD_WASHER_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_A_MOD_WASHER_3": {
+  "name": "A_MOD_WASHER_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_2R2_0": {
+  "name": "PCB_A_2R2_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_2R2_0_mark": {
+  "name": "PCB_A_2R2_0_mark",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_2R2_1": {
+  "name": "PCB_A_2R2_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_2R2_1_mark": {
+  "name": "PCB_A_2R2_1_mark",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_CRYSTAL": {
+  "name": "PCB_A_CRYSTAL",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_00": {
+  "name": "PCB_A_IC_00",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_00_pins1": {
+  "name": "PCB_A_IC_00_pins1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_00_pins-1": {
+  "name": "PCB_A_IC_00_pins-1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_01": {
+  "name": "PCB_A_IC_01",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_02": {
+  "name": "PCB_A_IC_02",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_02_pins1": {
+  "name": "PCB_A_IC_02_pins1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_02_pins-1": {
+  "name": "PCB_A_IC_02_pins-1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_03": {
+  "name": "PCB_A_IC_03",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_03_pins1": {
+  "name": "PCB_A_IC_03_pins1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_03_pins-1": {
+  "name": "PCB_A_IC_03_pins-1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_04": {
+  "name": "PCB_A_IC_04",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_04_pins1": {
+  "name": "PCB_A_IC_04_pins1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_04_pins-1": {
+  "name": "PCB_A_IC_04_pins-1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_05": {
+  "name": "PCB_A_IC_05",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_05_pins1": {
+  "name": "PCB_A_IC_05_pins1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_05_pins-1": {
+  "name": "PCB_A_IC_05_pins-1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_06": {
+  "name": "PCB_A_IC_06",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_06_pins1": {
+  "name": "PCB_A_IC_06_pins1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_06_pins-1": {
+  "name": "PCB_A_IC_06_pins-1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_07": {
+  "name": "PCB_A_IC_07",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_07_pins1": {
+  "name": "PCB_A_IC_07_pins1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_07_pins-1": {
+  "name": "PCB_A_IC_07_pins-1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_08": {
+  "name": "PCB_A_IC_08",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_08_pins1": {
+  "name": "PCB_A_IC_08_pins1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_08_pins-1": {
+  "name": "PCB_A_IC_08_pins-1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_09": {
+  "name": "PCB_A_IC_09",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_09_pins1": {
+  "name": "PCB_A_IC_09_pins1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IC_09_pins-1": {
+  "name": "PCB_A_IC_09_pins-1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IND_0": {
+  "name": "PCB_A_IND_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IND_1": {
+  "name": "PCB_A_IND_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_IND_2": {
+  "name": "PCB_A_IND_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_01": {
+  "name": "PCB_A_SMT_01",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_04": {
+  "name": "PCB_A_SMT_04",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_07": {
+  "name": "PCB_A_SMT_07",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_11": {
+  "name": "PCB_A_SMT_11",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_12": {
+  "name": "PCB_A_SMT_12",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_16": {
+  "name": "PCB_A_SMT_16",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_17": {
+  "name": "PCB_A_SMT_17",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_21": {
+  "name": "PCB_A_SMT_21",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_23": {
+  "name": "PCB_A_SMT_23",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_34": {
+  "name": "PCB_A_SMT_34",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_36": {
+  "name": "PCB_A_SMT_36",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_49": {
+  "name": "PCB_A_SMT_49",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_52": {
+  "name": "PCB_A_SMT_52",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_56": {
+  "name": "PCB_A_SMT_56",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_58": {
+  "name": "PCB_A_SMT_58",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_59": {
+  "name": "PCB_A_SMT_59",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_60": {
+  "name": "PCB_A_SMT_60",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_65": {
+  "name": "PCB_A_SMT_65",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_67": {
+  "name": "PCB_A_SMT_67",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_68": {
+  "name": "PCB_A_SMT_68",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_69": {
+  "name": "PCB_A_SMT_69",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_71": {
+  "name": "PCB_A_SMT_71",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_72": {
+  "name": "PCB_A_SMT_72",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_73": {
+  "name": "PCB_A_SMT_73",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_75": {
+  "name": "PCB_A_SMT_75",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_77": {
+  "name": "PCB_A_SMT_77",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_78": {
+  "name": "PCB_A_SMT_78",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_79": {
+  "name": "PCB_A_SMT_79",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_80": {
+  "name": "PCB_A_SMT_80",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_82": {
+  "name": "PCB_A_SMT_82",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_83": {
+  "name": "PCB_A_SMT_83",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_87": {
+  "name": "PCB_A_SMT_87",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_91": {
+  "name": "PCB_A_SMT_91",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_93": {
+  "name": "PCB_A_SMT_93",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_95": {
+  "name": "PCB_A_SMT_95",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_98": {
+  "name": "PCB_A_SMT_98",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_99": {
+  "name": "PCB_A_SMT_99",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_105": {
+  "name": "PCB_A_SMT_105",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_107": {
+  "name": "PCB_A_SMT_107",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_111": {
+  "name": "PCB_A_SMT_111",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_112": {
+  "name": "PCB_A_SMT_112",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_113": {
+  "name": "PCB_A_SMT_113",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_119": {
+  "name": "PCB_A_SMT_119",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_120": {
+  "name": "PCB_A_SMT_120",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_123": {
+  "name": "PCB_A_SMT_123",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_124": {
+  "name": "PCB_A_SMT_124",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_126": {
+  "name": "PCB_A_SMT_126",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_128": {
+  "name": "PCB_A_SMT_128",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_SMT_129": {
+  "name": "PCB_A_SMT_129",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_TANT_0": {
+  "name": "PCB_A_TANT_0",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_TANT_1": {
+  "name": "PCB_A_TANT_1",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_TANT_2": {
+  "name": "PCB_A_TANT_2",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_PCB_A_TANT_3": {
+  "name": "PCB_A_TANT_3",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_000": {
+  "name": "SMT42_AF_000",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_001": {
+  "name": "SMT42_AF_001",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_002": {
+  "name": "SMT42_AF_002",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_003": {
+  "name": "SMT42_AF_003",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_004": {
+  "name": "SMT42_AF_004",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_005": {
+  "name": "SMT42_AF_005",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_006": {
+  "name": "SMT42_AF_006",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_007": {
+  "name": "SMT42_AF_007",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_008": {
+  "name": "SMT42_AF_008",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_009": {
+  "name": "SMT42_AF_009",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_010": {
+  "name": "SMT42_AF_010",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_011": {
+  "name": "SMT42_AF_011",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_012": {
+  "name": "SMT42_AF_012",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_013": {
+  "name": "SMT42_AF_013",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_014": {
+  "name": "SMT42_AF_014",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_015": {
+  "name": "SMT42_AF_015",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_016": {
+  "name": "SMT42_AF_016",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_017": {
+  "name": "SMT42_AF_017",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_018": {
+  "name": "SMT42_AF_018",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_019": {
+  "name": "SMT42_AF_019",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_020": {
+  "name": "SMT42_AF_020",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_021": {
+  "name": "SMT42_AF_021",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_022": {
+  "name": "SMT42_AF_022",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_023": {
+  "name": "SMT42_AF_023",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_024": {
+  "name": "SMT42_AF_024",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_025": {
+  "name": "SMT42_AF_025",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_026": {
+  "name": "SMT42_AF_026",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_027": {
+  "name": "SMT42_AF_027",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_028": {
+  "name": "SMT42_AF_028",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_029": {
+  "name": "SMT42_AF_029",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_030": {
+  "name": "SMT42_AF_030",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_031": {
+  "name": "SMT42_AF_031",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_032": {
+  "name": "SMT42_AF_032",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_033": {
+  "name": "SMT42_AF_033",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_034": {
+  "name": "SMT42_AF_034",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_035": {
+  "name": "SMT42_AF_035",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_036": {
+  "name": "SMT42_AF_036",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_037": {
+  "name": "SMT42_AF_037",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_038": {
+  "name": "SMT42_AF_038",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_039": {
+  "name": "SMT42_AF_039",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_040": {
+  "name": "SMT42_AF_040",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_041": {
+  "name": "SMT42_AF_041",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_043": {
+  "name": "SMT42_AF_043",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_044": {
+  "name": "SMT42_AF_044",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_045": {
+  "name": "SMT42_AF_045",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_046": {
+  "name": "SMT42_AF_046",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_047": {
+  "name": "SMT42_AF_047",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_048": {
+  "name": "SMT42_AF_048",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_049": {
+  "name": "SMT42_AF_049",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_050": {
+  "name": "SMT42_AF_050",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_051": {
+  "name": "SMT42_AF_051",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_052": {
+  "name": "SMT42_AF_052",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_053": {
+  "name": "SMT42_AF_053",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_054": {
+  "name": "SMT42_AF_054",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_055": {
+  "name": "SMT42_AF_055",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_056": {
+  "name": "SMT42_AF_056",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_057": {
+  "name": "SMT42_AF_057",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_058": {
+  "name": "SMT42_AF_058",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_059": {
+  "name": "SMT42_AF_059",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_060": {
+  "name": "SMT42_AF_060",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_061": {
+  "name": "SMT42_AF_061",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_062": {
+  "name": "SMT42_AF_062",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_063": {
+  "name": "SMT42_AF_063",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_064": {
+  "name": "SMT42_AF_064",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_065": {
+  "name": "SMT42_AF_065",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_066": {
+  "name": "SMT42_AF_066",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_067": {
+  "name": "SMT42_AF_067",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_068": {
+  "name": "SMT42_AF_068",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_069": {
+  "name": "SMT42_AF_069",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_070": {
+  "name": "SMT42_AF_070",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_071": {
+  "name": "SMT42_AF_071",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_072": {
+  "name": "SMT42_AF_072",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_073": {
+  "name": "SMT42_AF_073",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_074": {
+  "name": "SMT42_AF_074",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_075": {
+  "name": "SMT42_AF_075",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_076": {
+  "name": "SMT42_AF_076",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_077": {
+  "name": "SMT42_AF_077",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_078": {
+  "name": "SMT42_AF_078",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_079": {
+  "name": "SMT42_AF_079",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_080": {
+  "name": "SMT42_AF_080",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_081": {
+  "name": "SMT42_AF_081",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_082": {
+  "name": "SMT42_AF_082",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_083": {
+  "name": "SMT42_AF_083",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_084": {
+  "name": "SMT42_AF_084",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_085": {
+  "name": "SMT42_AF_085",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_086": {
+  "name": "SMT42_AF_086",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_087": {
+  "name": "SMT42_AF_087",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_088": {
+  "name": "SMT42_AF_088",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_089": {
+  "name": "SMT42_AF_089",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_090": {
+  "name": "SMT42_AF_090",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_091": {
+  "name": "SMT42_AF_091",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_092": {
+  "name": "SMT42_AF_092",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_093": {
+  "name": "SMT42_AF_093",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_094": {
+  "name": "SMT42_AF_094",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_095": {
+  "name": "SMT42_AF_095",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_096": {
+  "name": "SMT42_AF_096",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_097": {
+  "name": "SMT42_AF_097",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_098": {
+  "name": "SMT42_AF_098",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_099": {
+  "name": "SMT42_AF_099",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_100": {
+  "name": "SMT42_AF_100",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_101": {
+  "name": "SMT42_AF_101",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_102": {
+  "name": "SMT42_AF_102",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_103": {
+  "name": "SMT42_AF_103",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_104": {
+  "name": "SMT42_AF_104",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_105": {
+  "name": "SMT42_AF_105",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_106": {
+  "name": "SMT42_AF_106",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_107": {
+  "name": "SMT42_AF_107",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_108": {
+  "name": "SMT42_AF_108",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_109": {
+  "name": "SMT42_AF_109",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_110": {
+  "name": "SMT42_AF_110",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_111": {
+  "name": "SMT42_AF_111",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_112": {
+  "name": "SMT42_AF_112",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_113": {
+  "name": "SMT42_AF_113",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_114": {
+  "name": "SMT42_AF_114",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_115": {
+  "name": "SMT42_AF_115",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_116": {
+  "name": "SMT42_AF_116",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_117": {
+  "name": "SMT42_AF_117",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_118": {
+  "name": "SMT42_AF_118",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_119": {
+  "name": "SMT42_AF_119",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_120": {
+  "name": "SMT42_AF_120",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_121": {
+  "name": "SMT42_AF_121",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_122": {
+  "name": "SMT42_AF_122",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_123": {
+  "name": "SMT42_AF_123",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_124": {
+  "name": "SMT42_AF_124",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_125": {
+  "name": "SMT42_AF_125",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_126": {
+  "name": "SMT42_AF_126",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_127": {
+  "name": "SMT42_AF_127",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_128": {
+  "name": "SMT42_AF_128",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_129": {
+  "name": "SMT42_AF_129",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "GEO_SMT42_AF_130": {
+  "name": "SMT42_AF_130",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "PCB_A": {
+  "name": "PCB_A_MAIN_BOARD",
+  "type": "geometry",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 100,
+  "selectable": true,
+  "focusable": true,
+  "explodable": null
+ },
+ "CMP_MAIN_PCB": {
+  "name": "MAIN_PCB_PRESENTATION",
+  "type": "component",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 100,
+  "selectable": true,
+  "focusable": true,
+  "explodable": true
+ },
+ "CMP_PCB_PROTECTIVE_PLATE": {
+  "name": "PART_006__PCB_PROTECTIVE_PLATE",
+  "type": "component",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 20,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "CMP_PCB_CONNECTING_FRAME": {
+  "name": "PART_007__PCB_SUPPORT_FRAME",
+  "type": "component",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 20,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "PCB_B": {
+  "name": "PCB_B_AUXILIARY_BOARD",
+  "type": "component",
+  "systemId": "SYS_ACQUISITION",
+  "presentationPriority": 70,
+  "selectable": true,
+  "focusable": true,
+  "explodable": true
+ },
+ "SYS_ACQUISITION": {
+  "name": "SYS_ACQUISITION",
+  "type": "system",
+  "systemId": null,
+  "presentationPriority": null,
+  "selectable": true,
+  "focusable": true,
+  "explodable": true
+ },
+ "CMP_LOWER_HOUSING": {
+  "name": "PART_001__LOWER_HOUSING",
+  "type": "component",
+  "systemId": "SYS_FIELD_PLATFORM",
+  "presentationPriority": 50,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "CMP_LEVELING_01": {
+  "name": "PART_020__LEVELING_CONE_01",
+  "type": "component",
+  "systemId": "SYS_FIELD_PLATFORM",
+  "presentationPriority": 20,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "CMP_LEVELING_02": {
+  "name": "PART_021__LEVELING_CONE_02",
+  "type": "component",
+  "systemId": "SYS_FIELD_PLATFORM",
+  "presentationPriority": 20,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "CMP_LEVELING_03": {
+  "name": "PART_022__LEVELING_CONE_03",
+  "type": "component",
+  "systemId": "SYS_FIELD_PLATFORM",
+  "presentationPriority": 20,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "SYS_FIELD_PLATFORM": {
+  "name": "SYS_FIELD_PLATFORM",
+  "type": "system",
+  "systemId": null,
+  "presentationPriority": null,
+  "selectable": true,
+  "focusable": true,
+  "explodable": true
+ },
+ "CELL_18650_01": {
+  "name": "CELL_18650_01",
+  "type": "geometry",
+  "systemId": "SYS_POWER",
+  "presentationPriority": null,
+  "selectable": true,
+  "focusable": null,
+  "explodable": null
+ },
+ "CELL_18650_02": {
+  "name": "CELL_18650_02",
+  "type": "geometry",
+  "systemId": "SYS_POWER",
+  "presentationPriority": null,
+  "selectable": true,
+  "focusable": null,
+  "explodable": null
+ },
+ "CELL_18650_03": {
+  "name": "CELL_18650_03",
+  "type": "geometry",
+  "systemId": "SYS_POWER",
+  "presentationPriority": null,
+  "selectable": true,
+  "focusable": null,
+  "explodable": null
+ },
+ "CELL_18650_04": {
+  "name": "CELL_18650_04",
+  "type": "geometry",
+  "systemId": "SYS_POWER",
+  "presentationPriority": null,
+  "selectable": true,
+  "focusable": null,
+  "explodable": null
+ },
+ "CELL_18650_05": {
+  "name": "CELL_18650_05",
+  "type": "geometry",
+  "systemId": "SYS_POWER",
+  "presentationPriority": null,
+  "selectable": true,
+  "focusable": null,
+  "explodable": null
+ },
+ "CELL_18650_06": {
+  "name": "CELL_18650_06",
+  "type": "geometry",
+  "systemId": "SYS_POWER",
+  "presentationPriority": null,
+  "selectable": true,
+  "focusable": null,
+  "explodable": null
+ },
+ "CMP_CELL_01": {
+  "name": "PART_008__BATTERY_COMPARTMENT_01",
+  "type": "component",
+  "systemId": "SYS_POWER",
+  "presentationPriority": 80,
+  "selectable": true,
+  "focusable": true,
+  "explodable": true
+ },
+ "CMP_CELL_02": {
+  "name": "PART_009__BATTERY_COMPARTMENT_02",
+  "type": "component",
+  "systemId": "SYS_POWER",
+  "presentationPriority": 80,
+  "selectable": true,
+  "focusable": true,
+  "explodable": true
+ },
+ "CMP_CELL_03": {
+  "name": "PART_010__BATTERY_COMPARTMENT_03",
+  "type": "component",
+  "systemId": "SYS_POWER",
+  "presentationPriority": 80,
+  "selectable": true,
+  "focusable": true,
+  "explodable": true
+ },
+ "CMP_CELL_04": {
+  "name": "PART_011__BATTERY_COMPARTMENT_04",
+  "type": "component",
+  "systemId": "SYS_POWER",
+  "presentationPriority": 80,
+  "selectable": true,
+  "focusable": true,
+  "explodable": true
+ },
+ "CMP_CELL_05": {
+  "name": "PART_015__BATTERY_COMPARTMENT_05",
+  "type": "component",
+  "systemId": "SYS_POWER",
+  "presentationPriority": 80,
+  "selectable": true,
+  "focusable": true,
+  "explodable": true
+ },
+ "CMP_CELL_06": {
+  "name": "PART_016__BATTERY_COMPARTMENT_06",
+  "type": "component",
+  "systemId": "SYS_POWER",
+  "presentationPriority": 80,
+  "selectable": true,
+  "focusable": true,
+  "explodable": true
+ },
+ "SYS_POWER": {
+  "name": "SYS_POWER",
+  "type": "system",
+  "systemId": null,
+  "presentationPriority": null,
+  "selectable": true,
+  "focusable": true,
+  "explodable": true
+ },
+ "CMP_SENSOR_FIXTURE": {
+  "name": "PART_003__TRI_AXIS_SENSOR_FIXTURE",
+  "type": "component",
+  "systemId": "SYS_SENSOR",
+  "presentationPriority": 80,
+  "selectable": true,
+  "focusable": true,
+  "explodable": true
+ },
+ "CMP_SENSOR_X": {
+  "name": "PART_012__SENSOR_CORE_FIXTURE_X",
+  "type": "component",
+  "systemId": "SYS_SENSOR",
+  "presentationPriority": 100,
+  "selectable": true,
+  "focusable": true,
+  "explodable": true
+ },
+ "CMP_SENSOR_Y": {
+  "name": "PART_013__SENSOR_CORE_FIXTURE_Y",
+  "type": "component",
+  "systemId": "SYS_SENSOR",
+  "presentationPriority": 100,
+  "selectable": true,
+  "focusable": true,
+  "explodable": true
+ },
+ "CMP_SENSOR_Z": {
+  "name": "PART_014__SENSOR_CORE_FIXTURE_Z",
+  "type": "component",
+  "systemId": "SYS_SENSOR",
+  "presentationPriority": 100,
+  "selectable": true,
+  "focusable": true,
+  "explodable": true
+ },
+ "SYS_SENSOR": {
+  "name": "SYS_SENSOR",
+  "type": "system",
+  "systemId": null,
+  "presentationPriority": null,
+  "selectable": true,
+  "focusable": true,
+  "explodable": true
+ },
+ "CMP_UPPER_HOUSING": {
+  "name": "PART_002__UPPER_HOUSING",
+  "type": "component",
+  "systemId": "SYS_TOP",
+  "presentationPriority": 50,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "CMP_TOP_COVER": {
+  "name": "PART_004__UPPER_HOUSING_TOP_COVER",
+  "type": "component",
+  "systemId": "SYS_TOP",
+  "presentationPriority": 50,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "CMP_HANDLE": {
+  "name": "PART_005__HANDLE",
+  "type": "component",
+  "systemId": "SYS_TOP",
+  "presentationPriority": 50,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "CMP_INTERFACE_PORT_01": {
+  "name": "PART_017__TOP_INTERFACE_PORT_01",
+  "type": "component",
+  "systemId": "SYS_TOP",
+  "presentationPriority": 20,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "CMP_INTERFACE_PORT_02": {
+  "name": "PART_018__TOP_INTERFACE_PORT_02",
+  "type": "component",
+  "systemId": "SYS_TOP",
+  "presentationPriority": 20,
+  "selectable": true,
+  "focusable": false,
+  "explodable": true
+ },
+ "SYS_TOP": {
+  "name": "SYS_TOP",
+  "type": "system",
+  "systemId": null,
+  "presentationPriority": null,
+  "selectable": true,
+  "focusable": true,
+  "explodable": true
+ },
+ "WIFI_ANTENNA": {
+  "name": "WIFI_ANTENNA",
+  "type": "component",
+  "systemId": "SYS_TRANSMISSION",
+  "presentationPriority": 30,
+  "selectable": true,
+  "focusable": true,
+  "explodable": true
+ },
+ "DEVICE_ROOT": {
+  "name": "DEVICE_ROOT",
+  "type": "device",
+  "systemId": null,
+  "presentationPriority": null,
+  "selectable": null,
+  "focusable": null,
+  "explodable": null
+ }
+}

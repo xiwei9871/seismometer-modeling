@@ -1,0 +1,13 @@
+{
+ "file": "/Users/xiwei/modeling/web_presentation_v11/pcb_v3/web_asset/GLB_RUNTIME/smart_field_device_master.glb",
+ "size_mb": 42.78,
+ "nodes": 975,
+ "meshes": 707,
+ "materials": 76,
+ "textures": 14,
+ "images": 12,
+ "triangles": 564524,
+ "vertices": 1207609,
+ "drawCallEstimate": 713,
+ "semanticNodes": 553
+}

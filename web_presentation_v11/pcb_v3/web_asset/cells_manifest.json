@@ -1,0 +1,104 @@
+{
+  "CELL_18650_01": {
+    "assembled": [
+      129.55,
+      236.34,
+      -28.44
+    ],
+    "inspect": [
+      151.57878851036946,
+      335.9840087890625,
+      -13.205339228887798
+    ],
+    "displayName": "18650 Cell 01",
+    "inspectable": true,
+    "role": "PRIMARY",
+    "semanticId": "CELL_18650_01",
+    "systemId": "SYS_POWER"
+  },
+  "CELL_18650_02": {
+    "assembled": [
+      61.87,
+      236.34,
+      -140.51
+    ],
+    "inspect": [
+      39.83502890793549,
+      335.98388671875,
+      -155.7411674508515
+    ],
+    "displayName": "18650 Cell 02",
+    "inspectable": true,
+    "role": "PRIMARY",
+    "semanticId": "CELL_18650_02",
+    "systemId": "SYS_POWER"
+  },
+  "CELL_18650_03": {
+    "assembled": [
+      127.94,
+      236.34,
+      -143.42
+    ],
+    "inspect": [
+      129.49120422915757,
+      335.98382568359375,
+      -168.49424997163143
+    ],
+    "displayName": "18650 Cell 03",
+    "inspectable": true,
+    "role": "PRIMARY",
+    "semanticId": "CELL_18650_03",
+    "systemId": "SYS_POWER"
+  },
+  "CELL_18650_04": {
+    "assembled": [
+      63.47,
+      236.34,
+      -25.52
+    ],
+    "inspect": [
+      61.92278692831745,
+      335.98358154296875,
+      -0.4526539205115583
+    ],
+    "displayName": "18650 Cell 04",
+    "inspectable": true,
+    "role": "PRIMARY",
+    "semanticId": "CELL_18650_04",
+    "systemId": "SYS_POWER"
+  },
+  "CELL_18650_05": {
+    "assembled": [
+      30.64,
+      236.34,
+      -84.47
+    ],
+    "inspect": [
+      6.047522650547847,
+      335.9900817871094,
+      -71.72112828401245
+    ],
+    "displayName": "18650 Cell 05",
+    "inspectable": true,
+    "role": "PRIMARY",
+    "semanticId": "CELL_18650_05",
+    "systemId": "SYS_POWER"
+  },
+  "CELL_18650_06": {
+    "assembled": [
+      160.77,
+      236.34,
+      -84.47
+    ],
+    "inspect": [
+      185.3662781329254,
+      335.989501953125,
+      -97.22564246285681
+    ],
+    "displayName": "18650 Cell 06",
+    "inspectable": true,
+    "role": "PRIMARY",
+    "semanticId": "CELL_18650_06",
+    "systemId": "SYS_POWER"
+  }
+}

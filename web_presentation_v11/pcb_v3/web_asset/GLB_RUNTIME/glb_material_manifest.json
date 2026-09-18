@@ -1,0 +1,1188 @@
+[
+ {
+  "name": "MAT_INDUCTOR_GREY",
+  "baseColorFactor": [
+   0.11500000208616257,
+   0.11500000208616257,
+   0.12999999523162842,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.05000000074505806,
+  "roughnessFactor": 0.550000011920929,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_TERMINAL_METAL",
+  "baseColorFactor": [
+   0.5199999809265137,
+   0.5400000214576721,
+   0.5799999833106995,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.949999988079071,
+  "roughnessFactor": 0.2800000011920929,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_IC_BLACK_SEMIMATTE",
+  "baseColorFactor": [
+   0.01600000075995922,
+   0.017000000923871994,
+   0.019999999552965164,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.10000000149011612,
+  "roughnessFactor": 0.3400000035762787,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_PCB_GREEN_A_FRONT",
+  "baseColorFactor": null,
+  "hasBaseColorTexture": true,
+  "metallicFactor": 1.0,
+  "roughnessFactor": 0.5,
+  "hasMetallicRoughnessTexture": true,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_PCB_GREEN_A_BACK",
+  "baseColorFactor": null,
+  "hasBaseColorTexture": true,
+  "metallicFactor": 1.0,
+  "roughnessFactor": 0.5,
+  "hasMetallicRoughnessTexture": true,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_pcb_edge",
+  "baseColorFactor": [
+   0.1599999964237213,
+   0.2199999988079071,
+   0.11999999731779099,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.5,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_BRAID_METAL",
+  "baseColorFactor": [
+   0.5,
+   0.5199999809265137,
+   0.5600000023841858,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.949999988079071,
+  "roughnessFactor": 0.3400000035762787,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_CONNECTOR_WHITE",
+  "baseColorFactor": [
+   0.5,
+   0.4699999988079071,
+   0.41999998688697815,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.550000011920929,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_LED_WHITE",
+  "baseColorFactor": [
+   0.550000011920929,
+   0.5400000214576721,
+   0.5,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.3799999952316284,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_SHIELD_PLATE",
+  "baseColorFactor": [
+   0.4399999976158142,
+   0.46000000834465027,
+   0.5,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.8999999761581421,
+  "roughnessFactor": 0.3799999952316284,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_LABEL_WHITE",
+  "baseColorFactor": [
+   0.6600000262260437,
+   0.6499999761581421,
+   0.6200000047683716,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.6200000047683716,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_PRINT_DARK",
+  "baseColorFactor": [
+   0.05999999865889549,
+   0.05999999865889549,
+   0.07000000029802322,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.6200000047683716,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_CABLE_WHITE",
+  "baseColorFactor": [
+   0.6200000047683716,
+   0.5899999737739563,
+   0.5400000214576721,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.4399999976158142,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_IC_BLACK_MATTE",
+  "baseColorFactor": [
+   0.019999999552965164,
+   0.020999999716877937,
+   0.024000000208616257,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.07999999821186066,
+  "roughnessFactor": 0.44999998807907104,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_CHIP_TAN",
+  "baseColorFactor": [
+   0.3400000035762787,
+   0.25999999046325684,
+   0.17000000178813934,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.5400000214576721,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_cable_white",
+  "baseColorFactor": [
+   0.8199999928474426,
+   0.8100000023841858,
+   0.7799999713897705,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.6000000238418579,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_connector_white",
+  "baseColorFactor": [
+   0.800000011920929,
+   0.7799999713897705,
+   0.7300000190734863,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.550000011920929,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_CERAMIC_WHITE",
+  "baseColorFactor": [
+   0.800000011920929,
+   0.7699999809265137,
+   0.699999988079071,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.47999998927116394,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_COPPER_PATCH",
+  "baseColorFactor": [
+   0.3799999952316284,
+   0.20000000298023224,
+   0.06499999761581421,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 1.0,
+  "roughnessFactor": 0.27000001072883606,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_METAL_SCREW",
+  "baseColorFactor": [
+   0.14000000059604645,
+   0.15000000596046448,
+   0.18000000715255737,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.949999988079071,
+  "roughnessFactor": 0.3700000047683716,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_COIL_METAL",
+  "baseColorFactor": [
+   0.5799999833106995,
+   0.5600000023841858,
+   0.5099999904632568,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.949999988079071,
+  "roughnessFactor": 0.30000001192092896,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_SUBBOARD_DARK",
+  "baseColorFactor": [
+   0.01600000075995922,
+   0.12999999523162842,
+   0.04800000041723251,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.550000011920929,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_SUBBOARD_GREEN",
+  "baseColorFactor": [
+   0.019999999552965164,
+   0.1550000011920929,
+   0.057999998331069946,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.47999998927116394,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_DB_TOP_SURF",
+  "baseColorFactor": null,
+  "hasBaseColorTexture": true,
+  "metallicFactor": 0,
+  "roughnessFactor": 1.0,
+  "hasMetallicRoughnessTexture": true,
+  "hasNormalTexture": true,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_GOLD_PAD",
+  "baseColorFactor": [
+   0.41999998688697815,
+   0.3199999928474426,
+   0.11999999731779099,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 1.0,
+  "roughnessFactor": 0.25999999046325684,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_EDGEMOD_CREAM",
+  "baseColorFactor": [
+   0.7799999713897705,
+   0.7300000190734863,
+   0.6000000238418579,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.550000011920929,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_EDGE_GOLD",
+  "baseColorFactor": [
+   0.41999998688697815,
+   0.3400000035762787,
+   0.18000000715255737,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.8500000238418579,
+  "roughnessFactor": 0.3499999940395355,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_MODULE_PCB_BLACK",
+  "baseColorFactor": [
+   0.012000000104308128,
+   0.012000000104308128,
+   0.013000000268220901,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.550000011920929,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_ADHESIVE_WHITE",
+  "baseColorFactor": [
+   0.6600000262260437,
+   0.6499999761581421,
+   0.6100000143051147,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.4399999976158142,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_IC_BLACK_02",
+  "baseColorFactor": [
+   0.012000000104308128,
+   0.013000000268220901,
+   0.014999999664723873,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.10000000149011612,
+  "roughnessFactor": 0.4000000059604645,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_MOD_TOP_SURF",
+  "baseColorFactor": null,
+  "hasBaseColorTexture": true,
+  "metallicFactor": 0,
+  "roughnessFactor": 1.0,
+  "hasMetallicRoughnessTexture": true,
+  "hasNormalTexture": true,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_inductor_gray",
+  "baseColorFactor": [
+   0.30000001192092896,
+   0.30000001192092896,
+   0.3100000023841858,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.10000000149011612,
+  "roughnessFactor": 0.44999998807907104,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_label_white",
+  "baseColorFactor": [
+   0.8199999928474426,
+   0.8100000023841858,
+   0.7799999713897705,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.6499999761581421,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_cap_silver",
+  "baseColorFactor": [
+   0.46000000834465027,
+   0.47999998927116394,
+   0.5199999809265137,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.8500000238418579,
+  "roughnessFactor": 0.3799999952316284,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_ic_black",
+  "baseColorFactor": [
+   0.012000000104308128,
+   0.013000000268220901,
+   0.01600000075995922,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.15000000596046448,
+  "roughnessFactor": 0.3400000035762787,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_pin_metal",
+  "baseColorFactor": [
+   0.550000011920929,
+   0.550000011920929,
+   0.5799999833106995,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.8999999761581421,
+  "roughnessFactor": 0.3499999940395355,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_tantalum",
+  "baseColorFactor": [
+   0.44999998807907104,
+   0.23999999463558197,
+   0.09000000357627869,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.44999998807907104,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_HW_STEEL",
+  "baseColorFactor": [
+   0.41999998688697815,
+   0.4399999976158142,
+   0.47999998927116394,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.8999999761581421,
+  "roughnessFactor": 0.3799999952316284,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "T10V2_PART_006_SUPPORT",
+  "baseColorFactor": [
+   0.41999998688697815,
+   0.44999998807907104,
+   0.47999998927116394,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.75,
+  "roughnessFactor": 0.25999999046325684,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "T10V2_PART_007_SUPPORT",
+  "baseColorFactor": [
+   0.23100000619888306,
+   0.2475000023841858,
+   0.2639999985694885,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.75,
+  "roughnessFactor": 0.25999999046325684,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_PCB_GREEN_B_FRONT",
+  "baseColorFactor": null,
+  "hasBaseColorTexture": true,
+  "metallicFactor": 1.0,
+  "roughnessFactor": 0.5,
+  "hasMetallicRoughnessTexture": true,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_PCB_GREEN_B_BACK",
+  "baseColorFactor": null,
+  "hasBaseColorTexture": true,
+  "metallicFactor": 1.0,
+  "roughnessFactor": 0.5,
+  "hasMetallicRoughnessTexture": true,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_CAP_SLEEVE_RED",
+  "baseColorFactor": [
+   0.30000001192092896,
+   0.04500000178813934,
+   0.03500000014901161,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.47999998927116394,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_CAP_TOP_METAL",
+  "baseColorFactor": [
+   0.6000000238418579,
+   0.6200000047683716,
+   0.6600000262260437,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.949999988079071,
+  "roughnessFactor": 0.27000001072883606,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_CONJ_CAVITY",
+  "baseColorFactor": [
+   0.01600000075995922,
+   0.014999999664723873,
+   0.014000000432133675,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.7200000286102295,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "T10V2_PART_001_LOWER_HOUSING",
+  "baseColorFactor": [
+   0.8600000143051147,
+   0.1550000011920929,
+   0.019999999552965164,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.30000001192092896,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_COPPER",
+  "baseColorFactor": [
+   0.550000011920929,
+   0.27000001072883606,
+   0.11999999731779099,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.949999988079071,
+  "roughnessFactor": 0.3199999928474426,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_CELL_CAN",
+  "baseColorFactor": [
+   0.6200000047683716,
+   0.6499999761581421,
+   0.6800000071525574,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.8999999761581421,
+  "roughnessFactor": 0.3499999940395355,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_CELL_HOLDER",
+  "baseColorFactor": [
+   0.029999999329447746,
+   0.029999999329447746,
+   0.03500000014901161,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.6000000238418579,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_CELL_INK",
+  "baseColorFactor": [
+   0.9200000166893005,
+   0.9300000071525574,
+   0.8999999761581421,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.5,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_CELL_WRAP",
+  "baseColorFactor": [
+   0.003000000026077032,
+   0.09000000357627869,
+   0.012000000104308128,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.30000001192092896,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "T10V2_PART_008_BATTERY",
+  "baseColorFactor": [
+   0.18000000715255737,
+   0.20000000298023224,
+   0.23999999463558197,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.550000011920929,
+  "roughnessFactor": 0.30000001192092896,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "T10V2_PART_009_BATTERY",
+  "baseColorFactor": [
+   0.18000000715255737,
+   0.20000000298023224,
+   0.23999999463558197,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.550000011920929,
+  "roughnessFactor": 0.30000001192092896,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "T10V2_PART_010_BATTERY",
+  "baseColorFactor": [
+   0.18000000715255737,
+   0.20000000298023224,
+   0.23999999463558197,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.550000011920929,
+  "roughnessFactor": 0.30000001192092896,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "T10V2_PART_011_BATTERY",
+  "baseColorFactor": [
+   0.18000000715255737,
+   0.20000000298023224,
+   0.23999999463558197,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.550000011920929,
+  "roughnessFactor": 0.30000001192092896,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "T10V2_PART_015_BATTERY",
+  "baseColorFactor": [
+   0.18000000715255737,
+   0.20000000298023224,
+   0.23999999463558197,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.550000011920929,
+  "roughnessFactor": 0.30000001192092896,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "T10V2_PART_016_BATTERY",
+  "baseColorFactor": [
+   0.18000000715255737,
+   0.20000000298023224,
+   0.23999999463558197,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.550000011920929,
+  "roughnessFactor": 0.30000001192092896,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "T10V2_PART_003_SENSOR",
+  "baseColorFactor": [
+   0.30000001192092896,
+   0.3400000035762787,
+   0.3799999952316284,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.8500000238418579,
+  "roughnessFactor": 0.2199999988079071,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "T10V2_PART_012_SENSOR",
+  "baseColorFactor": [
+   0.30000001192092896,
+   0.3400000035762787,
+   0.3799999952316284,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.8500000238418579,
+  "roughnessFactor": 0.2199999988079071,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "T10V2_PART_013_SENSOR",
+  "baseColorFactor": [
+   0.30000001192092896,
+   0.3400000035762787,
+   0.3799999952316284,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.8500000238418579,
+  "roughnessFactor": 0.2199999988079071,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "T10V2_PART_014_SENSOR",
+  "baseColorFactor": [
+   0.30000001192092896,
+   0.3400000035762787,
+   0.3799999952316284,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.8500000238418579,
+  "roughnessFactor": 0.2199999988079071,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_LED",
+  "baseColorFactor": [
+   0.05000000074505806,
+   0.05000000074505806,
+   0.05000000074505806,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.25,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_LEVEL_BEZEL",
+  "baseColorFactor": [
+   0.550000011920929,
+   0.5699999928474426,
+   0.6000000238418579,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.8500000238418579,
+  "roughnessFactor": 0.30000001192092896,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_LEVEL_BUB",
+  "baseColorFactor": [
+   0.75,
+   0.9200000166893005,
+   0.3499999940395355,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.10000000149011612,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_LEVEL_MARK",
+  "baseColorFactor": [
+   0.07999999821186066,
+   0.11999999731779099,
+   0.019999999552965164,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.5,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_LEVEL_LIQ",
+  "baseColorFactor": [
+   0.41999998688697815,
+   0.6800000071525574,
+   0.05000000074505806,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.11999999731779099,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_CAP_RUBBER",
+  "baseColorFactor": [
+   0.03500000014901161,
+   0.03500000014901161,
+   0.03999999910593033,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.75,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_CAP_RUBBER_E",
+  "baseColorFactor": [
+   0.10000000149011612,
+   0.10000000149011612,
+   0.10999999940395355,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.6000000238418579,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "T10V2_PART_002_UPPER_HOUSING",
+  "baseColorFactor": [
+   0.052000001072883606,
+   0.057999998331069946,
+   0.06800000369548798,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.2800000011920929,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "T10V2_PART_004_UPPER_HOUSING_TOP_COVER",
+  "baseColorFactor": [
+   0.052000001072883606,
+   0.057999998331069946,
+   0.06800000369548798,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.2800000011920929,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "T10V2_PART_005_COMMUNICATION",
+  "baseColorFactor": [
+   0.20000000298023224,
+   0.23000000417232513,
+   0.27000001072883606,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.699999988079071,
+  "roughnessFactor": 0.25999999046325684,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "T10V2_PART_017_COMMUNICATION",
+  "baseColorFactor": [
+   0.20000000298023224,
+   0.23000000417232513,
+   0.27000001072883606,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.699999988079071,
+  "roughnessFactor": 0.25999999046325684,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "T10V2_PART_018_COMMUNICATION",
+  "baseColorFactor": [
+   0.20000000298023224,
+   0.23000000417232513,
+   0.27000001072883606,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.699999988079071,
+  "roughnessFactor": 0.25999999046325684,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_COPPER_ANT",
+  "baseColorFactor": [
+   0.7200000286102295,
+   0.44999998807907104,
+   0.20000000298023224,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.8999999761581421,
+  "roughnessFactor": 0.3499999940395355,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_COAX",
+  "baseColorFactor": [
+   0.3499999940395355,
+   0.3499999940395355,
+   0.3799999952316284,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0.4000000059604645,
+  "roughnessFactor": 0.5,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ },
+ {
+  "name": "MAT_ANT_BLACK",
+  "baseColorFactor": [
+   0.019999999552965164,
+   0.019999999552965164,
+   0.02500000037252903,
+   1
+  ],
+  "hasBaseColorTexture": false,
+  "metallicFactor": 0,
+  "roughnessFactor": 0.550000011920929,
+  "hasMetallicRoughnessTexture": false,
+  "hasNormalTexture": false,
+  "alphaMode": "OPAQUE",
+  "doubleSided": true
+ }
+]

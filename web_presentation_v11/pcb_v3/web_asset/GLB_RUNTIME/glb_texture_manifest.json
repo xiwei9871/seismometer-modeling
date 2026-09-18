@@ -1,0 +1,86 @@
+[
+ {
+  "name": null,
+  "source": 0,
+  "image": "TEX42_pcb_a_front",
+  "mime": "image/png"
+ },
+ {
+  "name": null,
+  "source": 1,
+  "image": "TEX42_pcb_a_front_metal",
+  "mime": "image/png"
+ },
+ {
+  "name": null,
+  "source": 2,
+  "image": "TEX42_pcb_a_back",
+  "mime": "image/png"
+ },
+ {
+  "name": null,
+  "source": 3,
+  "image": "TEX42_pcb_a_back_metal",
+  "mime": "image/png"
+ },
+ {
+  "name": null,
+  "source": 4,
+  "image": "TEX42_db_top",
+  "mime": "image/png"
+ },
+ {
+  "name": null,
+  "source": 4,
+  "image": "TEX42_db_top",
+  "mime": "image/png"
+ },
+ {
+  "name": null,
+  "source": 5,
+  "image": "TEX42_db_top",
+  "mime": "image/png"
+ },
+ {
+  "name": null,
+  "source": 6,
+  "image": "TEX42_mod_top",
+  "mime": "image/png"
+ },
+ {
+  "name": null,
+  "source": 6,
+  "image": "TEX42_mod_top",
+  "mime": "image/png"
+ },
+ {
+  "name": null,
+  "source": 7,
+  "image": "TEX42_mod_top",
+  "mime": "image/png"
+ },
+ {
+  "name": null,
+  "source": 8,
+  "image": "TEX42_pcb_b_front",
+  "mime": "image/png"
+ },
+ {
+  "name": null,
+  "source": 9,
+  "image": "TEX42_pcb_b_front_metal",
+  "mime": "image/png"
+ },
+ {
+  "name": null,
+  "source": 10,
+  "image": "TEX42_pcb_b_back",
+  "mime": "image/png"
+ },
+ {
+  "name": null,
+  "source": 11,
+  "image": "TEX42_pcb_b_back_metal",
+  "mime": "image/png"
+ }
+]

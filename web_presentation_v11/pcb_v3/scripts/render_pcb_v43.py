@@ -74,8 +74,7 @@ def main():
             else:
                 hide = {"A": "PCB_B_AUXILIARY_BOARD",
                         "B": "PCB_A_MAIN_BOARD"}.get(show)
-                sw = o.name.startswith("SW_")
-                o.hide_render = sw or bool(hide and _under(o, hide))
+                o.hide_render = bool(hide and _under(o, hide))
 
         energies = {}
         if is_rake:
@@ -85,7 +84,7 @@ def main():
                     energies[n] = lo.data.energy
                     lo.data.energy *= 0.06
             if rake:
-                rake.data.energy = 42000.0
+                rake.data.energy = 600.0
 
         root = roots[show] if show in roots else None
         if root:
@@ -94,7 +93,7 @@ def main():
             if flip:
                 root.rotation_euler.y = 3.141592653589793
 
-        scn.render.engine = ("BLENDER_EEVEE" if eevee_all or
+        scn.render.engine = ("BLENDER_EEVEE_NEXT" if eevee_all or
                              filename[1] == "0" and int(filename[:2]) in
                              (4, 5, 6, 7) else "CYCLES")
         scn.camera = bpy.data.objects[cam_name]

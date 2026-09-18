@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>GLB Fidelity Validation — smart_field_device_master</title>
+<style>
+  html,body{margin:0;height:100%;background:#181a1e;color:#cfd3da;
+            font:13px/1.4 -apple-system,Menlo,sans-serif;overflow:hidden}
+  #app{display:flex;height:100%}
+  #view{flex:1;position:relative}
+  canvas{display:block}
+  #ref{position:absolute;inset:0;display:none;object-fit:contain;
+       background:#181a1e;width:100%;height:100%}
+  #hud{position:absolute;top:10px;left:10px;z-index:3}
+  #hud button,#presets button{background:#24272d;border:1px solid #3a3f47;
+       color:#cfd3da;padding:5px 11px;margin:0 4px 4px 0;border-radius:4px;
+       cursor:pointer}
+  #hud button.on{background:#3d64ff;border-color:#3d64ff;color:#fff}
+  #presets{position:absolute;bottom:10px;left:10px;z-index:3}
+  #info{position:absolute;top:10px;right:12px;text-align:right;
+       color:#8a9099;font-size:11px;white-space:pre;z-index:3}
+</style>
+</head>
+<body>
+<div id="app"><div id="view">
+  <div id="hud">
+    <button id="bWeb" class="on">Web Runtime</button>
+    <button id="bRef">Blender Reference</button>
+    <button id="bSplit">Split</button>
+  </div>
+  <div id="presets"></div>
+  <div id="info"></div>
+  <img id="ref">
+</div></div>
+<script type="importmap">
+{"imports":{"three":"./vendor/three.module.js"}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from './vendor/loaders/GLTFLoader.js';
+import {OrbitControls} from './vendor/controls/OrbitControls.js';
+import {RoomEnvironment} from './vendor/environments/RoomEnvironment.js';
+
+const view=document.getElementById('view');
+const renderer=new THREE.WebGLRenderer({antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.toneMapping=THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure=1.0;
+renderer.outputColorSpace=THREE.SRGBColorSpace;
+renderer.shadowMap.enabled=true;
+renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+view.appendChild(renderer.domElement);
+
+const scene=new THREE.Scene();
+scene.background=new THREE.Color(0x181a1e);
+const pmrem=new THREE.PMREMGenerator(renderer);
+scene.environment=pmrem.fromScene(new RoomEnvironment(),0.04).texture;
+scene.environmentIntensity=0.55;
+
+const camera=new THREE.PerspectiveCamera(40,1,0.5,4000);
+const controls=new OrbitControls(camera,renderer.domElement);
+controls.enableDamping=true;
+
+// key light for contact shadows (env handles fill) — coords are Y-up
+const key=new THREE.DirectionalLight(0xffffff,1.6);
+key.position.set(160,480,180); key.castShadow=true;
+key.shadow.mapSize.set(2048,2048);
+key.shadow.camera.left=key.shadow.camera.bottom=-320;
+key.shadow.camera.right=key.shadow.camera.top=320;
+key.shadow.camera.far=1200; key.shadow.bias=-0.0002;
+scene.add(key);
+const ground=new THREE.Mesh(new THREE.PlaneGeometry(2000,2000),
+  new THREE.ShadowMaterial({opacity:0.35}));
+ground.rotation.x=-Math.PI/2; ground.position.y=-35.2; ground.receiveShadow=true;
+scene.add(ground);
+
+// camera presets — Blender Z-up coords converted to three Y-up: (x,z,-y)
+const PRESETS={
+  '01 overview':{t:[140,130,-48],p:[622,425,478]},
+  '02 PCB':     {t:[95.7,275,-84.5],p:[165,360,-15],hide:['CMP_UPPER_HOUSING','CMP_TOP_COVER']},
+  '03 module':  {t:[90.4,279.1,-113],p:[140,330,-60],hide:['CMP_UPPER_HOUSING','CMP_TOP_COVER']},
+  '04 antenna': {t:[74.1,277.9,-53.4],p:[115,320,-15],hide:['CMP_UPPER_HOUSING','CMP_TOP_COVER']},
+  '05 coil':    {t:[95.5,277.5,-46.5],p:[140,315,-10],hide:['CMP_UPPER_HOUSING','CMP_TOP_COVER']},
+  '06 B conn':  {t:[215,-33,-4.5],p:[265,20,60]},
+  '07 B power': {t:[215,-33,-4.5],p:[170,-10,50]},
+};
+let model, mode='web', curPreset='01 overview';
+const bySemantic={};
+
+new GLTFLoader().load('../web_asset/GLB_RUNTIME/smart_field_device_master.glb',g=>{
+  model=g.scene;
+  model.traverse(o=>{
+    if(o.isMesh){o.castShadow=o.receiveShadow=true;
+      const sid=o.userData?.semanticId; if(sid) bySemantic[sid]=(bySemantic[sid]||[]).concat(o);}
+  });
+  scene.add(model);
+  applyPreset('01 overview');
+  document.getElementById('info').textContent=
+    `nodes ${g.parser.json.nodes?.length??'-'}  meshes ${g.parser.json.meshes?.length??'-'}\n`+
+    `materials ${g.parser.json.materials?.length??'-'}  glb 41.3 MB`;
+},undefined,e=>{document.getElementById('info').textContent='LOAD ERROR '+e});
+
+function applyPreset(name){
+  curPreset=name;
+  const ps=PRESETS[name];
+  camera.position.set(...ps.p);
+  controls.target.set(...ps.t);
+  // restore visibility then hide preset nodes
+  for(const k in bySemantic) bySemantic[k].forEach(m=>m.visible=true);
+  (ps.hide||[]).forEach(sid=>(bySemantic[sid]||[]).forEach(m=>m.visible=false));
+  document.querySelectorAll('#presets button').forEach(b=>
+    b.classList.toggle('on',b.textContent===name));
+  updateMode();
+}
+const presetsEl=document.getElementById('presets');
+for(const name of Object.keys(PRESETS)){
+  const b=document.createElement('button'); b.textContent=name;
+  b.onclick=()=>applyPreset(name); presetsEl.appendChild(b);
+}
+
+const refImg=document.getElementById('ref');
+const REF={'01 overview':'01_overview','02 PCB':'02_pcb','03 module':'03_module',
+ '04 antenna':'04_antenna','05 coil':'05_coil','06 B conn':'06_b_connector',
+ '07 B power':'07_b_power'};
+function updateMode(){
+  const refFile=REF[curPreset];
+  if(mode==='ref'&&refFile){refImg.src=`../web_asset/GLB_VALIDATION/ref/${refFile}.png`;
+    refImg.style.display='block';refImg.style.clipPath='';}
+  else if(mode==='split'&&refFile){refImg.src=`../web_asset/GLB_VALIDATION/ref/${refFile}.png`;
+    refImg.style.display='block';refImg.style.clipPath='inset(0 0 0 50%)';}
+  else{refImg.style.display='none';refImg.style.clipPath='';}
+}
+document.getElementById('bWeb').onclick=()=>{mode='web';
+  bWeb.classList.add('on');bRef.classList.remove('on');bSplit.classList.remove('on');updateMode()};
+document.getElementById('bRef').onclick=()=>{mode='ref';
+  bRef.classList.add('on');bWeb.classList.remove('on');bSplit.classList.remove('on');updateMode()};
+document.getElementById('bSplit').onclick=()=>{mode='split';
+  bSplit.classList.add('on');bWeb.classList.remove('on');bRef.classList.remove('on');updateMode()};
+
+function resize(){
+  const w=view.clientWidth,h=view.clientHeight;
+  renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();
+}
+addEventListener('resize',resize);resize();
+(function loop(){requestAnimationFrame(loop);controls.update();renderer.render(scene,camera)})();
+</script>
+</body>
+</html>
